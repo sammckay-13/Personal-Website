@@ -9,12 +9,10 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <SidebarProvider>
+      <SidebarProvider defaultOpen={true} >
         <AppSidebar />
-        <main>
           <SidebarTrigger />
           {/* Your app goes here */}
-        </main>
       </SidebarProvider>
     </div>
   );
