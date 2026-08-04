@@ -127,4 +127,9 @@
   html {
     @apply font-sans;
   }
+
+  @font-face {
+    font-family: "ALBA";
+    src: url("/fonts/ALBA___.ttf") format("truetype");
+  }
 }
