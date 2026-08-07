@@ -29,7 +29,7 @@ export function AppSidebar() {
       <Sidebar collapsible="icon" className="flex flex-col h-full">
         <SidebarHeader className="flex items-center justify-between bg-[#6F5345] text-white">
           {state !== "collapsed" && (
-            <div className="flex items-center justify-between w-full mt-2">
+            <div className="flex items-center justify-between mt-2">
               <Image
                 src={CreamMckaypableLogo}
                 alt="Mckaypable Logo"
@@ -42,8 +42,8 @@ export function AppSidebar() {
             </div>
           )}
         </SidebarHeader>
-        <SidebarContent className="flex bg-[#6F5345] w-full h-full">
-          <SidebarGroup className="flex items-center w-full">
+        <SidebarContent className="flex bg-[#6F5345] h-full">
+          <SidebarGroup className="flex items-center">
             {state === "collapsed" && (
               <Menu onClick={toggleSidebar} className="h-7 w-7 text-white" />
             )}
