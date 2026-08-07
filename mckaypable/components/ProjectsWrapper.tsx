@@ -12,7 +12,7 @@ export default function ProjectsWrapper() {
     <Carousel className="w-3/4 p-10"   opts={{
     loop: true,
   }}>
-      <CarouselContent className="flex flex-row items-center justify-center gap-4">
+      <CarouselContent className="flex flex-row items-center justify-center gap-14">
         <CarouselItem className="basis-1/2 lg:basis-1/4">
           <ProjectCard
             title="Project 1"

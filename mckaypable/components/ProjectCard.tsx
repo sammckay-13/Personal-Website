@@ -16,15 +16,15 @@ export default function ProjectCard({
   image,
 }: ProjectCardProps) {
   return (
-    <Card className="h-fit">
+    <Card className="h-100 w-72">
       <CardHeader>
         <div className="flex flex-row items-center justify-center">
           <h2 className="text-2xl font-bold text-black">{title}</h2>{" "}
           <a href={link} target="_blank" rel="noreferrer">
             <LuExternalLink
-              size={24}
+              size={20}
               color={"#000"}
-              className="mb-1.25 flex justify-right ml-10"
+              className="mb-1.25 ml-2"
             />
           </a>
         </div>

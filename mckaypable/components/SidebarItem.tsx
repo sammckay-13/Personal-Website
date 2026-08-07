@@ -1,8 +1,4 @@
 "use client";
-import { cn } from "@/lib/utils";
-import { HomeIcon } from "lucide-react";
-import Image from "next/image";
-import { useEffect, useState } from "react";
 import {
   FaGithub,
   FaHome,
@@ -30,26 +26,14 @@ export default function SidebarItem({
     ease: [0, 0.71, 0.2, 1.01],
   };
 
-  if (section === "Home") {
-    displayedIcon = <FaHome className="h-6 w-6 ml-1" />;
-  } else if (section === "My Projects") {
-    displayedIcon = <FaGithub className="h-6 w-6 ml-1" />;
-  } else if (section === "Resume") {
-    displayedIcon = <FaDownload className="h-6 w-6 ml-1" />;
-  } else if (section === "Contact Me") {
-    displayedIcon = <FaEnvelope className="h-6 w-6 ml-1" />;
-  } else if (section === "LinkedIn") {
-    displayedIcon = <FaLinkedin className="h-6 w-6 ml-1" />;
-  } else {
-    displayedIcon = <FaGithub className="h-6 w-6 ml-1" />;
-  }
-
   return (
     // It would be good to have a cn() so that we can add the hover effect
     <div className="flex items-center w-full justify-start h-12 text-sm mr-2 ml-2 font-medium text-white hover:text-white rounded-md">
       <a href={heightAnchor}>
-        <div className="flex items-center justify-between">
-          {displayedIcon}
+        <div className="flex items-center justify-between mt-10">
+          <div className="flex">
+            <FaHome className="h-6 w-6 ml-1" />
+          </div>
           {sidebarState === "expanded" && (
             <motion.div
               initial={{ opacity: 0 }}
