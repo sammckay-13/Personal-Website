@@ -44,7 +44,6 @@ export default function SidebarItem({
     displayedIcon = <FaGithub className="h-6 w-6 ml-1" />;
   }
 
-
   return (
     // It would be good to have a cn() so that we can add the hover effect
     <div className="flex items-center w-full justify-start h-12 text-sm mr-2 ml-2 font-medium text-white hover:text-white rounded-md">
@@ -52,7 +51,15 @@ export default function SidebarItem({
         <div className="flex items-center justify-between">
           {displayedIcon}
           {sidebarState === "expanded" && (
-            <motion.div initial={{opacity: 0}} animate={{opacity: 1}} transition={{delay: 0.2, duration: 0.8, ease: [0, 0.71, 0.2, 1.01],}}>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                delay: 0.2,
+                duration: 0.8,
+                ease: [0, 0.71, 0.2, 1.01],
+              }}
+            >
               <span className="ml-2 text-xl font-medium text-white">
                 {section}
               </span>
