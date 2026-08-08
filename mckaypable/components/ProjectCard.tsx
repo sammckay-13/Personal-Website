@@ -21,11 +21,7 @@ export default function ProjectCard({
         <div className="flex flex-row items-center justify-center">
           <h2 className="text-2xl font-bold text-black">{title}</h2>{" "}
           <a href={link} target="_blank" rel="noreferrer">
-            <LuExternalLink
-              size={20}
-              color={"#000"}
-              className="mb-1.25 ml-2"
-            />
+            <LuExternalLink size={20} color={"#000"} className="mb-1.25 ml-2" />
           </a>
         </div>
         <CardContent className="flex aspect-square items-center justify-center p-6">
