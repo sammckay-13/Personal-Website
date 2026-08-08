@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="205.34402mm"
+   height="143.24072mm"
+   viewBox="0 0 205.34402 143.24072"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1"
+     transform="translate(-2.0548914,-67.290766)">
+    <g
+       id="g4"
+       transform="translate(0,0.05383173)"
+       style="stroke:#fffbee;stroke-width:8.46667;stroke-dasharray:none;stroke-opacity:1">
+      <g
+         id="g5"
+         transform="matrix(15.732536,0,0,10.983245,-536.38872,-683.03687)"
+         style="stroke:#fffbee;stroke-width:0.644092;stroke-dasharray:none;stroke-opacity:1">
+        <path
+           style="fill:none;stroke:#fffbee;stroke-width:0.486699;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+           id="path1-9-6-5"
+           d="m 40.830566,71.762193 -5.810088,0.03457 2.875106,-5.048968 z"
+           transform="matrix(1.4096193,0.00786435,-0.0069314,1.2423953,-14.300035,-14.612098)" />
+        <path
+           style="fill:none;stroke:#fffbee;stroke-width:0.486699;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+           id="path4"
+           d="m 40.830566,71.762193 -5.810088,0.03457 2.875106,-5.048968 z"
+           transform="matrix(-1.4096193,0.00786435,0.0069314,1.2423953,95.801914,-14.612098)" />
+      </g>
+      <g
+         id="g6"
+         transform="matrix(15.72388,0,0,-10.866564,-535.99858,952.83109)"
+         style="opacity:0.7;stroke:#fffbee;stroke-width:0.647719;stroke-dasharray:none;stroke-opacity:1">
+        <path
+           style="fill:none;stroke:#fffbee;stroke-width:0.489439;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+           id="path5"
+           d="m 40.830566,71.762193 -5.810088,0.03457 2.875106,-5.048968 z"
+           transform="matrix(1.4096193,0.00786435,-0.0069314,1.2423953,-14.300035,-14.605775)" />
+        <path
+           style="fill:none;stroke:#fffbee;stroke-width:0.489159;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+           id="path6"
+           d="m 40.830566,71.762193 -5.810088,0.03457 2.875106,-5.048968 z"
+           transform="matrix(1.4115131,0.00786281,-0.00694071,1.2421526,-10.203538,-14.589436)" />
+      </g>
+    </g>
+  </g>
+</svg>
