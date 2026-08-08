@@ -9,6 +9,7 @@ import Image from "next/image";
 import ProjectsWrapper from "@/components/ProjectsWrapper";
 import { AppSidebar } from "@/components/app-sidebar";
 import { CustomFooter } from "@/components/CustomFooter";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export default function Home() {
   return (
@@ -22,7 +23,7 @@ export default function Home() {
             </div>
           </header>
           <div>
-            <div className="flex flex-col flex-1 h-100 bg-blue-100">
+            <div className="flex flex-col flex-1 h-100 bg-blue-100 rounded-br-4xl">
               <main className="mt-5 flex ml-8 items-center">
                 <Image
                   src={BrownMckaypableLogo}
@@ -34,6 +35,12 @@ export default function Home() {
                 </h1>
                 <p className="mt-24">Sam McKay</p>
               </main>
+                <div style={{ width: "1000px", height: "1000px" }}>
+                <DotLottieReact src="/border_animation.json" autoplay loop />
+
+                </div>
+              <div className="flex flex-col items-center flex-1 h-100">
+              </div>
             </div>
             <ContentSection />
             <ContentSection />
