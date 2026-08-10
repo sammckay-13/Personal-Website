@@ -38,7 +38,6 @@ export function NavMain({
 
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Platform</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
           <Collapsible
@@ -51,6 +50,7 @@ export function NavMain({
               <div>
                 <CollapsibleTrigger
                   render={<SidebarMenuButton tooltip={item.title} />}
+                  className="hover:bg-[#5a4438] h-fit mb-2 w-64"
                 >
                   {item.icon}
                   <motion.div
@@ -61,24 +61,39 @@ export function NavMain({
                     }
                   >
                     {state === "expanded" && (
-                      <span className="text-[#FFFBEE]">{item.title}</span>
+                      <span className="text-[#FFFBEE] text-2xl mt-0.75">
+                        {item.title}
+                      </span>
                     )}
                   </motion.div>
-                  <ChevronRightIcon className="ml-auto transition-transform duration-200 group-data-open/collapsible:rotate-90 text-[#FFFBEE]" />
+                  <ChevronRightIcon className="ml-2 transition-transform duration-200 group-data-open/collapsible:rotate-90 text-[#FFFBEE]" />
                 </CollapsibleTrigger>
               </div>
             ) : (
-              <SidebarMenuButton render={<a href={item.url} />}>
+              <SidebarMenuButton
+                render={<a href={item.url} />}
+                className="h-fit w-70 mb-2 hover:bg-[#5a4438]"
+              >
                 {item.icon}
-                <span className="text-[#FFFBEE]">{item.title}</span>
+                <span className="text-[#FFFBEE] text-2xl mt-0.75">
+                  {item.title}
+                </span>
               </SidebarMenuButton>
             )}
             <CollapsibleContent>
               <SidebarMenuSub>
                 {item.items?.map((subItem) => (
-                  <SidebarMenuSubItem key={subItem.title}>
-                    <SidebarMenuSubButton render={<a href={subItem.url} />}>
-                      <span className="text-[#FFFBEE]">{subItem.title}</span>
+                  <SidebarMenuSubItem
+                    key={subItem.title}
+                    className="hover:bg-[#5a4438]"
+                  >
+                    <SidebarMenuSubButton
+                      className="hover:bg-[#5a4438]"
+                      render={<a href={subItem.url} />}
+                    >
+                      <span className="text-[#FFFBEE] mt-0.75">
+                        {subItem.title}
+                      </span>
                     </SidebarMenuSubButton>
                   </SidebarMenuSubItem>
                 ))}
