@@ -10,13 +10,13 @@ import ProjectCard from "./ProjectCard";
 export default function ProjectsWrapper() {
   return (
     <Carousel
-      className="w-full p-10 bg-[#FFFBEE]"
+      className="w-full p-10 h-full bg-[#FFFBEE] flex items-center justify-center"
       opts={{
         loop: true,
       }}
     >
-      <CarouselContent className="flex flex-row items-center justify-center gap-2">
-        <CarouselItem className="basis-1/2 lg:basis-1/4 mr-2 p-3">
+      <CarouselContent className="flex flex-row items-center ml-12 gap-15">
+        <CarouselItem className="basis-1/2 lg:basis-1/4 pt-1 pb-1">
           <ProjectCard
             title="Project 1"
             description="Description"
@@ -41,8 +41,8 @@ export default function ProjectsWrapper() {
           />
         </CarouselItem>
       </CarouselContent>
-      <CarouselPrevious variant="default" className="left-20" />
-      <CarouselNext variant="default" className="right-20" />
+      <CarouselPrevious variant="default" className="left-11" />
+      <CarouselNext variant="default" className="right-15" />
     </Carousel>
   );
 }
