@@ -1,5 +1,4 @@
 import {
-  SidebarInset,
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
@@ -9,7 +8,6 @@ import Image from "next/image";
 import ProjectsWrapper from "@/components/ProjectsWrapper";
 import { AppSidebar } from "@/components/app-sidebar";
 import { CustomFooter } from "@/components/CustomFooter";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import AnimatedLine from "@/assets/animations/AnimatedLines";
 
 export default function Home() {
@@ -43,7 +41,7 @@ export default function Home() {
           </div>
           <ContentSection title="What Am I Up To?" />
           <ContentSection title="My Projects" />
-          <div className="flex w-5/12 ml-13 flex-row items-center bg-[#FFFBEE]">
+          <div className="flex justify-center flex-row items-center bg-[#FFFBEE]">
             <ProjectsWrapper />
           </div>
         </div>
