@@ -51,13 +51,14 @@ export function CustomFooter() {
           </ul>
         </nav>
         <p className="inline-flex items-center gap-1">
+          <a href="https://youtu.be/ZZ5LpwO-An4?si=FA420ZJSboprYZaD">
+
           <Image
             alt="McKay"
-            className="size-4 rounded-full"
+            className="size-6 rounded-full"
             src={BrownMckaypableLogo}
-            width={24}
-            height={24}
-          />
+            />
+            </a>
           Sam McKay
         </p>
       </div>
