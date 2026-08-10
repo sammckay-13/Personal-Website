@@ -62,14 +62,14 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       {/* We'll see if I like there being no border on the sidebar */}
       <SidebarHeader className="bg-[#6F5345]">
         {" "}
-        <SidebarGroupLabel className="flex items-center justify-center">
+        <SidebarGroupLabel className="flex items-center justify-center gap-2 mt-3">
           <Image
             src={CreamMckaypableLogo}
             alt="Mckaypable Logo"
-            className="h-12 w-12 mr-2 mb-1"
+            className="h-12 w-12 mb-1"
             loading="eager"
           />
-          <span className="text-2xl text-[#FFFBEE] ml-1">Mckaypable</span>
+          <span className="text-2xl text-[#FFFBEE]">Mckaypable</span>
           {/* I don't like how the icon and text float away so I might change that later */}
         </SidebarGroupLabel>
       </SidebarHeader>
