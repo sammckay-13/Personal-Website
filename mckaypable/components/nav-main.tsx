@@ -37,6 +37,14 @@ export function NavMain({
 }) {
   const { state } = useSidebar();
 
+  function HashScroll(section: string) {
+    const element = document.getElementById(section);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }
   return (
     <SidebarGroup className="overflow-hidden">
       <SidebarMenu>
@@ -83,7 +91,9 @@ export function NavMain({
               </div>
             ) : (
               <SidebarMenuButton
-                render={<a href={item.url} />}
+                onClick={() => {
+                  HashScroll(item.title.toLowerCase());
+                }}
                 className={cn(
                   "hover:bg-[#5a4438] h-10 mb-2 w-64 [&>svg]:size-6 flex items-center p-2 -ml-1",
                   state === "collapsed" && "hover:bg-transparent",
