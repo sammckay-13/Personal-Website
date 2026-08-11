@@ -1,7 +1,4 @@
-import {
-  SidebarProvider,
-  SidebarTrigger,
-} from "@/components/ui/sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import ContentSection from "@/components/ContentSection";
 import CreamMckaypableIcon from "@/assets/imgs/CreamMckaypableIcon.svg";
 import Image from "next/image";
@@ -12,7 +9,7 @@ import AnimatedLine from "@/assets/animations/AnimatedLines";
 
 export default function Home() {
   return (
-    <div className="bg-[#FFFBEE] w-screen overflow-hidden">
+    <div className="bg-[#FFFBEE]">
       <SidebarProvider>
         <AppSidebar />
         <header className="flex sticky bg-[#6F5345]">
@@ -36,17 +33,38 @@ export default function Home() {
                 Mckaypable
               </h1>
             </main>
-            <p className="text-3xl mt-10 ml-13 text-[#FFFBEE]">Sam McKay</p>
+            <div className="mt-8 ml-15 text-[#FFFBEE]">
+              <p className="text-3xl">Sam McKay</p>
+              <p>fdafds</p>
+            </div>
             <AnimatedLine />
           </div>
-          <ContentSection title="What Am I Up To?" />
-          <ContentSection title="My Projects" />
-          <div className="flex justify-center flex-row items-center bg-[#FFFBEE]">
+          <ContentSection
+            title="What Am I Up To?"
+            badges={[
+              {
+                name: "React",
+              },
+              {
+                name: "Next.js",
+                color: "bg-[#61DAFB]",
+              },
+              {
+                name: "Tailwind CSS",
+              },
+            ]}
+          />
+          <ContentSection title="My Projects" id="my projects" />
+          <div className=" bg-[#FFFBEE] w-[70%] ml-[13%] mb-10">
             <ProjectsWrapper />
+          </div>
+          <ContentSection title="My Projects" id="my projects" />
+
+          <div className=" w-full flex justify-center">
+            <CustomFooter />
           </div>
         </div>
       </SidebarProvider>
-      <CustomFooter />
     </div>
   );
 }
