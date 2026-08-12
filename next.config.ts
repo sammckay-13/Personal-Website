@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {  output: 'export',
-  basePath: '/personal-website',
+  basePath: '/Personal-Website',
   images: {
     unoptimized: true,
   },};
