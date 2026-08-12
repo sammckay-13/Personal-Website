@@ -51,18 +51,17 @@ export function CustomFooter() {
           ))}
         </ul>
       </nav>
-      <p className="inline-flex items-center border-l text-lg font-semibold border-[#CE7052]">
+      <span className="inline-flex items-center border-l text-lg font-semibold border-[#CE7052]">
         <a
           href="https://youtu.be/ZZ5LpwO-An4?si=FA420ZJSboprYZaD"
           className="hover:cursor-default"
         >
           <div className="flex items-center h-5 w-10">
-
-          <MckaypableIcon color="#6F5345" />
+            <MckaypableIcon color="#6F5345" />
           </div>
         </a>
         Sam McKay
-      </p>
+      </span>
     </footer>
   );
 }

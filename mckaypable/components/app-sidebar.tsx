@@ -59,7 +59,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     <Sidebar
       collapsible="icon"
       {...props}
-      className="bg-[#6F5345] border-transparent!"
+      className="bg-[#6F5345] border-transparent"
     >
       {/* We'll see if I like there being no border on the sidebar */}
 
@@ -77,8 +77,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           >
             <SidebarGroupLabel className="flex items-center justify-center gap-1 mt-2">
               <div className="flex w-15 h-10">
-
-              <MckaypableLogo color="#FFFBEE" />
+                <MckaypableLogo color="#FFFBEE" />
               </div>
               <span className="text-2xl text-[#FFFBEE]">Mckaypable</span>
             </SidebarGroupLabel>

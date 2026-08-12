@@ -1,6 +1,6 @@
 export const MckaypableIcon = ({ color }: { color: string }) => {
   return (
-    <svg viewBox="0 0 100% 100%" width="100%" height="100%" className="ml-0.75">
+    <svg viewBox="0 0 100% 100%" width="100%" height="100%" className="ml-1">
       <path
         d="M 1.95,9.75 L 9.75, 1.95 L 17.55,9.75"
         fill="transparent"

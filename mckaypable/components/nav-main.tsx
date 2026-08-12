@@ -1,19 +1,12 @@
 "use client";
 
 import { MckaypableIcon } from "@/assets/MckaypableIcon";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
+import { Collapsible, CollapsibleTrigger } from "@/components/ui/collapsible";
 import {
   SidebarGroup,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarMenuSub,
-  SidebarMenuSubButton,
-  SidebarMenuSubItem,
   useSidebar,
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
@@ -53,7 +46,11 @@ export function NavMain({
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3, delay: 0.2 }}
-            animate={state === "collapsed" ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+            animate={
+              state === "collapsed"
+                ? { opacity: 1, x: 0 }
+                : { opacity: 0, x: -20 }
+            }
             className="mt-1 border border-[#CE7052] rounded-full w-full"
           />
         </div>
@@ -128,7 +125,8 @@ export function NavMain({
                 </motion.div>
               </SidebarMenuButton>
             )}
-            <CollapsibleContent>
+            {/* This has a little artifact that is left when this is in but I might want collapsibles later */}
+            {/* <CollapsibleContent>
               <SidebarMenuSub>
                 {item.items?.map((subItem) => (
                   <SidebarMenuSubItem
@@ -146,7 +144,7 @@ export function NavMain({
                   </SidebarMenuSubItem>
                 ))}
               </SidebarMenuSub>
-            </CollapsibleContent>
+            </CollapsibleContent> */}
           </Collapsible>
         ))}
       </SidebarMenu>
