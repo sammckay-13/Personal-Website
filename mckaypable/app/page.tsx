@@ -6,6 +6,7 @@ import ProjectsWrapper from "@/components/ProjectsWrapper";
 import { AppSidebar } from "@/components/app-sidebar";
 import { CustomFooter } from "@/components/CustomFooter";
 import AnimatedLine from "@/assets/animations/AnimatedLines";
+import {MckaypableLogoAnimated} from "@/assets/animations/MckaypableLogoAnimated";
 
 export default function Home() {
   return (
@@ -22,18 +23,16 @@ export default function Home() {
         </header>
         <div>
           <div className="flex flex-col flex-1 h-100 bg-[#6F5345] w-80%">
-            <main className="mt-5 flex ml-8 items-center">
-              <Image
-                src={CreamMckaypableIcon}
-                alt="Mckaypable Logo"
-                className="h-20 w-24 ml-10"
-                loading="eager"
-              />
+            <main className="mt-5 flex ml-15 items-center">
+              <div className="flex w-27 h-20">
+
+              <MckaypableLogoAnimated color="#FFFBEE" />
+              </div>
               <h1 className="text-5xl mt-1 font-bold text-[#FFFBEE] ml-4">
                 Mckaypable
               </h1>
             </main>
-            <div className="mt-8 ml-15 text-[#FFFBEE]">
+            <div className="mt-8 ml-18 text-[#FFFBEE]">
               <p className="text-3xl">Sam McKay</p>
               <p>fdafds</p>
             </div>
