@@ -1,10 +1,6 @@
 "use client";
 import {
-  FaGithub,
   FaHome,
-  FaEnvelope,
-  FaLinkedin,
-  FaDownload,
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 
@@ -19,15 +15,8 @@ export default function SidebarItem({
   heightAnchor,
   sidebarState,
 }: SidebarItemProps) {
-  let displayedIcon;
-  const transition = {
-    duration: 0.8,
-    delay: 0.5,
-    ease: [0, 0.71, 0.2, 1.01],
-  };
 
   return (
-    // It would be good to have a cn() so that we can add the hover effect
     <div className="flex items-center w-full justify-start h-12 text-sm mr-2 ml-2 font-medium text-white hover:text-white rounded-md">
       <a href={heightAnchor}>
         <div className="flex items-center justify-between mt-10">

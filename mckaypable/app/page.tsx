@@ -1,7 +1,5 @@
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import ContentSection from "@/components/ContentSection";
-import CreamMckaypableIcon from "@/assets/imgs/CreamMckaypableIcon.svg";
-import Image from "next/image";
 import ProjectsWrapper from "@/components/ProjectsWrapper";
 import { AppSidebar } from "@/components/app-sidebar";
 import { CustomFooter } from "@/components/CustomFooter";
