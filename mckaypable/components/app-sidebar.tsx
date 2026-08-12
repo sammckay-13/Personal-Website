@@ -59,7 +59,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     <Sidebar
       collapsible="icon"
       {...props}
-      className="bg-[#6F5345] border-transparent!"
+      className="bg-[#6F5345] border-transparent"
     >
       {/* We'll see if I like there being no border on the sidebar */}
 
