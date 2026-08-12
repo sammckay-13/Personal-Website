@@ -1,7 +1,5 @@
 "use client";
-import {
-  FaHome,
-} from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 interface SidebarItemProps {
@@ -15,7 +13,6 @@ export default function SidebarItem({
   heightAnchor,
   sidebarState,
 }: SidebarItemProps) {
-
   return (
     <div className="flex items-center w-full justify-start h-12 text-sm mr-2 ml-2 font-medium text-white hover:text-white rounded-md">
       <a href={heightAnchor}>

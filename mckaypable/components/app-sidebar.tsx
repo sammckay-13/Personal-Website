@@ -77,8 +77,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           >
             <SidebarGroupLabel className="flex items-center justify-center gap-1 mt-2">
               <div className="flex w-15 h-10">
-
-              <MckaypableLogo color="#FFFBEE" />
+                <MckaypableLogo color="#FFFBEE" />
               </div>
               <span className="text-2xl text-[#FFFBEE]">Mckaypable</span>
             </SidebarGroupLabel>

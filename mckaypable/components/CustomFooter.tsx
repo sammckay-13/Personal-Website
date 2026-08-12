@@ -57,8 +57,7 @@ export function CustomFooter() {
           className="hover:cursor-default"
         >
           <div className="flex items-center h-5 w-10">
-
-          <MckaypableIcon color="#6F5345" />
+            <MckaypableIcon color="#6F5345" />
           </div>
         </a>
         Sam McKay

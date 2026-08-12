@@ -1,10 +1,7 @@
 "use client";
 
 import { MckaypableIcon } from "@/assets/MckaypableIcon";
-import {
-  Collapsible,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
+import { Collapsible, CollapsibleTrigger } from "@/components/ui/collapsible";
 import {
   SidebarGroup,
   SidebarMenu,
@@ -49,7 +46,11 @@ export function NavMain({
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3, delay: 0.2 }}
-            animate={state === "collapsed" ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+            animate={
+              state === "collapsed"
+                ? { opacity: 1, x: 0 }
+                : { opacity: 0, x: -20 }
+            }
             className="mt-1 border border-[#CE7052] rounded-full w-full"
           />
         </div>
