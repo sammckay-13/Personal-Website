@@ -1,5 +1,6 @@
 "use client";
 
+import { MckaypableLogo } from "@/assets/MckaypableLogo";
 import {
   Collapsible,
   CollapsibleContent,
@@ -7,7 +8,6 @@ import {
 } from "@/components/ui/collapsible";
 import {
   SidebarGroup,
-  SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
@@ -47,6 +47,17 @@ export function NavMain({
   }
   return (
     <SidebarGroup className="overflow-hidden">
+      {state === "collapsed" && (
+        <div className="flex items-center justify-center h-7 flex-col mb-4">
+          <MckaypableLogo color="#FFFBEE" />
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
+            animate={state === "collapsed" ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+            className="mt-1 border border-[#CE7052] rounded-full w-full"
+          />
+        </div>
+      )}
       <SidebarMenu>
         {items.map((item) => (
           <Collapsible
@@ -95,8 +106,9 @@ export function NavMain({
                   HashScroll(item.title.toLowerCase());
                 }}
                 className={cn(
-                  "hover:bg-[#5a4438] h-10 mb-2 w-64 [&>svg]:size-6 flex items-center p-2 -ml-1",
-                  state === "collapsed" && "hover:bg-transparent",
+                  "hover:bg-[#5a4438] h-10 mb-2 w-70 [&>svg]:size-6 flex -ml-1",
+                  state === "collapsed" &&
+                    "hover:bg-transparent hover:cursor-pointer",
                 )}
               >
                 {item.icon}
