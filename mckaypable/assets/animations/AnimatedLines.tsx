@@ -13,7 +13,7 @@ export default function AnimatedLine() {
           strokeLinecap="round"
           initial={{ pathLength: 0 }} // Starts completely hidden
           animate={{ pathLength: 1 }} // Automatically draws the line
-          transition={{ duration: 6, ease: "easeOut", delay: 0.15 }}
+          transition={{ duration: 3.75, ease: "easeOut", delay: 0.15 }}
         />
       </svg>
       <svg viewBox="0 0 10% 10%" width="100%" height="100%">
@@ -25,7 +25,7 @@ export default function AnimatedLine() {
           strokeLinecap="round"
           initial={{ pathLength: 0 }} // Starts completely hidden
           animate={{ pathLength: 1 }} // Automatically draws the line
-          transition={{ duration: 6.5, ease: "easeOut", delay: 0.15 }}
+          transition={{ duration: 3.87, ease: "easeOut", delay: 0.15 }}
         />
       </svg>
       <svg
@@ -42,7 +42,7 @@ export default function AnimatedLine() {
           strokeLinecap="round"
           initial={{ pathLength: 0 }} // Starts completely hidden
           animate={{ pathLength: 1 }} // Automatically draws the line
-          transition={{ duration: 7, ease: "easeOut", delay: 0.15 }}
+          transition={{ duration: 4, ease: "easeOut", delay: 0.15 }}
         />
       </svg>
     </div>
