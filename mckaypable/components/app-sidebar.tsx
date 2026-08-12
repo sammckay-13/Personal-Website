@@ -12,9 +12,8 @@ import {
 } from "@/components/ui/sidebar";
 import { Settings2Icon } from "lucide-react";
 import { FaGithub, FaHome } from "react-icons/fa";
-import Image from "next/image";
-import CreamMckaypableLogo from "@/assets/imgs/CreamMckaypableIcon.svg";
 import { motion } from "framer-motion";
+import { MckaypableLogo } from "@/assets/MckaypableLogo";
 
 // This is sample data.
 const data = {
@@ -76,15 +75,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 : { opacity: 0, y: -10 }
             }
           >
-            <SidebarGroupLabel className="flex items-center justify-center gap-2 mt-2">
-              <Image
-                src={CreamMckaypableLogo}
-                alt="Mckaypable Logo"
-                className="h-12 w-12 mb-1"
-                loading="eager"
-              />
+            <SidebarGroupLabel className="flex items-center justify-center gap-1 mt-2">
+              <div className="flex w-15 h-10">
+
+              <MckaypableLogo color="#FFFBEE" />
+              </div>
               <span className="text-2xl text-[#FFFBEE]">Mckaypable</span>
-              {/* I don't like how the icon and text float away so I might change that later */}
             </SidebarGroupLabel>
           </motion.div>
         )}
