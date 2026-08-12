@@ -1,6 +1,6 @@
 "use client";
 
-import { MckaypableLogo } from "@/assets/MckaypableLogo";
+import { MckaypableIcon } from "@/assets/MckaypableIcon";
 import {
   Collapsible,
   CollapsibleContent,
@@ -49,7 +49,7 @@ export function NavMain({
     <SidebarGroup className="overflow-hidden">
       {state === "collapsed" && (
         <div className="flex items-center justify-center h-7 flex-col mb-4">
-          <MckaypableLogo color="#FFFBEE" />
+          <MckaypableIcon color="#FFFBEE" />
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3, delay: 0.2 }}
