@@ -25,7 +25,7 @@ const socialLinks = [
 
 export function CustomFooter() {
   return (
-    <footer className="*:px-4 *:md:px-6 flex items-center text-[#DC9954] text-md bg-[#FFFBEE]">
+    <footer className="*:px-4 *:md:px-6 flex items-center text-[#DC9954] mt-5 text-md bg-[#FFFBEE]">
       <div className="border-r border-[#CE7052]">
         {socialLinks.map(({ href, label, icon }) => (
           <Button
