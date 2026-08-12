@@ -51,7 +51,7 @@ export function CustomFooter() {
           ))}
         </ul>
       </nav>
-      <p className="inline-flex items-center border-l text-lg font-semibold border-[#CE7052]">
+      <span className="inline-flex items-center border-l text-lg font-semibold border-[#CE7052]">
         <a
           href="https://youtu.be/ZZ5LpwO-An4?si=FA420ZJSboprYZaD"
           className="hover:cursor-default"
@@ -62,7 +62,7 @@ export function CustomFooter() {
           </div>
         </a>
         Sam McKay
-      </p>
+      </span>
     </footer>
   );
 }
