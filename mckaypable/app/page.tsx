@@ -10,7 +10,7 @@ import ProfilePicture from "@/assets/imgs/ProfilePicture.png";
 
 export default function Home() {
   return (
-    <div className="bg-[#FFFBEE]">
+    <div>
       <SidebarProvider defaultOpen={false}>
         <AppSidebar />
         <header className="flex sticky bg-[#6F5345]">
@@ -21,26 +21,26 @@ export default function Home() {
             />
           </div>
         </header>
-        <div className="flex flex-col flex-1 h-150 bg-[#6F5345] w-80%">
+        <div className="flex flex-col flex-1 h-140 bg-[#6F5345] w-80%">
           <div className="flex flex-row bg-[#6F5345] items-center ml-auto mt-8  mr-10 justify-center">
             <div className="flex w-30 h-20">
               <MckaypableLogoAnimated color="#FFFBEE" />
             </div>
-            <h1 className="text-4xl font-bold text-[#FFFBEE] flex-row -ml-5 mb-4 flex items-center">
+            <h1 className="text-3xl font-bold text-[#FFFBEE] flex-row -ml-9 mb-7 flex items-center">
               Mckaypable
             </h1>
           </div>
           <div>
-            <main className="flex flex-row ml-15 items-center mb-15">
+            <main className="flex flex-row ml-15 items-center mb-15 bg-[#6F5345]">
               <div className="flex w-fit h-fit ">
                 <Image
                   src={ProfilePicture}
                   alt="Profile Picture"
-                  className="-mt-20 flex w-50 h-60 ml-5 rounded-2xl object-cover"
+                  className="-mt-20 flex w-50 h-60 ml-5 rounded-2xl object-cover border-[#FFFBEE] border mb-5"
                 />
               </div>
             </main>
-            <div className="-mt-2 ml-20 text-[#FFFBEE]">
+            <div className="-mt-10 ml-20 text-[#FFFBEE]">
               <p className="text-3xl">Sam McKay</p>
               <p>fdafds</p>
             </div>
@@ -62,12 +62,12 @@ export default function Home() {
             ]}
           />
           <ContentSection title="My Projects" id="my projects" />
-          <div className=" bg-[#FFFBEE] w-[70%] ml-[13%] mb-10">
+          <div className="w-[70%] ml-[13%]">
             <ProjectsWrapper />
           </div>
           <ContentSection title="My Projects" id="my projects" />
 
-          <div className=" w-full flex justify-center">
+          <div className=" w-full flex justify-center ">
             <CustomFooter />
           </div>
         </div>
