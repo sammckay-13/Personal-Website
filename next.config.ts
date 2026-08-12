@@ -1,9 +1,7 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {  output: 'export',
-  basePath: '/Personal-Website',
-  images: {
-    unoptimized: true,
-  },};
+const nextConfig: NextConfig = {
+  /* You can add regular config options here if needed */
+};
 
 export default nextConfig;
