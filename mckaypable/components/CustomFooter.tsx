@@ -1,8 +1,6 @@
 import { FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import BrownMckaypableLogo from "@/assets/imgs/BrownMckaypableIcon.svg";
-import { Separator } from "./ui/separator";
+import { MckaypableLogo } from "@/assets/MckaypableLogo";
 
 const navLinks = [
   { href: "#", label: "Features" },
@@ -53,16 +51,15 @@ export function CustomFooter() {
           ))}
         </ul>
       </nav>
-      <p className="inline-flex items-center gap-3 border-l text-md border-[#CE7052]">
+      <p className="inline-flex items-center border-l text-md border-[#CE7052]">
         <a
           href="https://youtu.be/ZZ5LpwO-An4?si=FA420ZJSboprYZaD"
           className="hover:cursor-default"
         >
-          <Image
-            alt="McKay"
-            className="size-6 rounded-full"
-            src={BrownMckaypableLogo}
-          />
+          <div className="flex items-center h-5 w-10">
+
+          <MckaypableLogo color="#6F5345" />
+          </div>
         </a>
         Sam McKay
       </p>
