@@ -1,6 +1,6 @@
 import { FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
-import { MckaypableLogo } from "@/assets/MckaypableLogo";
+import { MckaypableIcon } from "@/assets/MckaypableIcon";
 
 const navLinks = [
   { href: "#", label: "Features" },
@@ -17,7 +17,7 @@ const socialLinks = [
     icon: <FaLinkedin />,
   },
   {
-    href: "#",
+    href: "mailto:mckaypable@gmail.com",
     label: "Email",
     icon: <FaEnvelope />,
   },
@@ -34,14 +34,14 @@ export function CustomFooter() {
             variant="ghost"
             className="hover:text-[#CE7052] hover:bg-transparent"
           >
-            <a aria-label={label} href={href}>
+            <a aria-label={label} href={href} className="[&>svg]:size-5!">
               {icon}
             </a>
           </Button>
         ))}
       </div>
       <nav>
-        <ul className="flex gap-3 font-medium text-[#6F5345] text-md md:gap-6">
+        <ul className="flex gap-3 text-[#6F5345] text-md font-semibold md:gap-6">
           {navLinks.map((link) => (
             <li key={link.label}>
               <a className="hover:text-foreground" href={link.href}>
@@ -51,14 +51,14 @@ export function CustomFooter() {
           ))}
         </ul>
       </nav>
-      <p className="inline-flex items-center border-l text-md border-[#CE7052]">
+      <p className="inline-flex items-center border-l text-lg font-semibold border-[#CE7052]">
         <a
           href="https://youtu.be/ZZ5LpwO-An4?si=FA420ZJSboprYZaD"
           className="hover:cursor-default"
         >
           <div className="flex items-center h-5 w-10">
 
-          <MckaypableLogo color="#6F5345" />
+          <MckaypableIcon color="#6F5345" />
           </div>
         </a>
         Sam McKay
