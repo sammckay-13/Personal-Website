@@ -4,12 +4,14 @@ import ProjectsWrapper from "@/components/ProjectsWrapper";
 import { AppSidebar } from "@/components/app-sidebar";
 import { CustomFooter } from "@/components/CustomFooter";
 import AnimatedLine from "@/assets/animations/AnimatedLines";
-import {MckaypableLogoAnimated} from "@/assets/animations/MckaypableLogoAnimated";
+import { MckaypableLogoAnimated } from "@/assets/animations/MckaypableLogoAnimated";
+import Image from "next/image";
+import ProfilePicture from "@/assets/imgs/ProfilePicture.png";
 
 export default function Home() {
   return (
     <div className="bg-[#FFFBEE]">
-      <SidebarProvider>
+      <SidebarProvider defaultOpen={false}>
         <AppSidebar />
         <header className="flex sticky bg-[#6F5345]">
           <div className="flex items-center gap-2 px-4 fixed">
@@ -19,18 +21,26 @@ export default function Home() {
             />
           </div>
         </header>
-        <div>
-          <div className="flex flex-col flex-1 h-100 bg-[#6F5345] w-80%">
-            <main className="mt-5 flex ml-15 items-center">
-              <div className="flex w-27 h-20">
-
+        <div className="flex flex-col flex-1 h-150 bg-[#6F5345] w-80%">
+          <div className="flex flex-row bg-[#6F5345] items-center ml-auto mt-8  mr-10 justify-center">
+            <div className="flex w-30 h-20">
               <MckaypableLogoAnimated color="#FFFBEE" />
+            </div>
+            <h1 className="text-4xl font-bold text-[#FFFBEE] flex-row -ml-5 mb-4 flex items-center">
+              Mckaypable
+            </h1>
+          </div>
+          <div>
+            <main className="flex flex-row ml-15 items-center mb-15">
+              <div className="flex w-fit h-fit ">
+                <Image
+                  src={ProfilePicture}
+                  alt="Profile Picture"
+                  className="-mt-20 flex w-50 h-60 ml-5 rounded-2xl object-cover"
+                />
               </div>
-              <h1 className="text-5xl mt-1 font-bold text-[#FFFBEE] ml-4">
-                Mckaypable
-              </h1>
             </main>
-            <div className="mt-8 ml-18 text-[#FFFBEE]">
+            <div className="-mt-2 ml-20 text-[#FFFBEE]">
               <p className="text-3xl">Sam McKay</p>
               <p>fdafds</p>
             </div>
