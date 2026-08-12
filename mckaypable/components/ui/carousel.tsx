@@ -185,7 +185,7 @@ function CarouselPrevious({
       variant={variant}
       size={size}
       className={cn(
-        "absolute touch-manipulation rounded-full bg-[#CE7052]",
+        "absolute touch-manipulation rounded-full bg-[#CE7052] hover:bg-[#b86549] hover:cursor-pointer",
         orientation === "horizontal"
           ? "inset-y-0 -left-12 my-auto"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -195,7 +195,7 @@ function CarouselPrevious({
       onClick={scrollPrev}
       {...props}
     >
-      <ChevronLeftIcon />
+      <ChevronLeftIcon className="text-[#FFFBEE]" />
       <span className="sr-only">Previous slide</span>
     </Button>
   );
@@ -215,7 +215,7 @@ function CarouselNext({
       variant={variant}
       size={size}
       className={cn(
-        "absolute touch-manipulation rounded-full bg-[#CE7052]",
+        "absolute touch-manipulation rounded-full bg-[#CE7052] hover:bg-[#b86549] hover:cursor-pointer",
         orientation === "horizontal"
           ? "inset-y-0 -right-12 my-auto"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -225,7 +225,7 @@ function CarouselNext({
       onClick={scrollNext}
       {...props}
     >
-      <ChevronRightIcon />
+      <ChevronRightIcon className="text-[#FFFBEE]" />
       <span className="sr-only">Next slide</span>
     </Button>
   );

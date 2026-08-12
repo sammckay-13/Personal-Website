@@ -37,6 +37,7 @@ export default function Home() {
                   src={ProfilePicture}
                   alt="Profile Picture"
                   className="-mt-20 flex w-50 h-60 ml-5 rounded-2xl object-cover border-[#FFFBEE] border mb-5"
+                  loading="eager"
                 />
               </div>
             </main>
