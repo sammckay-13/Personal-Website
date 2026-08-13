@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 export default function AnimatedLine() {
   return (
     <div className="flex flex-col md:h-15 h-12 md:mt-30 mt-23 mb-1 bg-transparent -ml-5">
-      <svg viewBox="0 0 100 20" width="100%" height="100%">
+      <svg viewBox="0 0 10% 10%" width="100%" height="100%">
         <motion.path
           d="M 10,10 Q 10,10 10,10 T 4000,10" // Your SVG path data
           fill="transparent"
@@ -16,7 +16,7 @@ export default function AnimatedLine() {
           transition={{ duration: 3.75, ease: "easeOut", delay: 0.15 }}
         />
       </svg>
-      <svg viewBox="0 0 100 20" width="100%" height="100%">
+      <svg viewBox="0 0 10% 10%" width="100%" height="100%">
         <motion.path
           d="M 10,10 Q 10,10 10,10 T 4000,10" // Your SVG path data
           fill="transparent"
@@ -29,7 +29,7 @@ export default function AnimatedLine() {
         />
       </svg>
       <svg
-        viewBox="0 0 100 20"
+        viewBox="0 0 10% 10%"
         width="100%"
         height="100%"
         className="bg-transparent"
