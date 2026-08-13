@@ -57,12 +57,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { state, isMobile } = useSidebar();
   return ( 
     <Sidebar
-    collapsible={isMobile ? 
-      "offcanvas" :
-      "icon"
-    }
+    collapsible={isMobile ? "offcanvas" : "icon"}
     {...props}
-    className="bg-[#6F5345] border-transparent"
+    className="bg-[#6F5345] border-transparent h-full"
     >
       {/* We'll see if I like there being no border on the sidebar */}
 
@@ -81,7 +78,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               <div className="flex w-15 h-10">
                 <MckaypableLogo color="#FFFBEE" />
               </div>
-              <span className="text-2xl text-[#FFFBEE]">Mckaypable</span>
+              <span className="text-2xl text-[#FFFBEE] mt-1">Mckaypable</span>
             </SidebarGroupLabel>
           </motion.div>
         )}
