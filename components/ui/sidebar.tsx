@@ -24,6 +24,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { PanelLeftIcon } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
@@ -251,15 +252,25 @@ function Sidebar({
   );
 }
 
+  function CustomIsMobile() {
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+      const checkMobile = () => setIsMobile(window.innerWidth < 760);
+      checkMobile()
+      window.addEventListener("resize", checkMobile);
+      return () => window.removeEventListener("resize", checkMobile);
+      }, []);
+      return isMobile;
+  }
+
 function SidebarTrigger({
   className,
   onClick,
   ...props
 }: React.ComponentProps<typeof Button>) {
-  const { toggleSidebar, isMobile } = useSidebar();
-  console.log(isMobile);
-
-  if (isMobile) {
+  const { toggleSidebar } = useSidebar()
+  const checkIsMobile = CustomIsMobile();
+  if (checkIsMobile) {
     return null;
   } else {
     return (
