@@ -17,8 +17,8 @@ export default function ContentSection({
   id,
 }: ContentSectionProps) {
   return (
-    <div className="flex h-fit flex-col flex-1 w-90 md:w-full" id={id}>
-      <span className="text-3xl font-bold text-[#6F5345] mt-10 ml-15 md:w-fit ">
+    <div className="flex h-fit flex-col flex-1 w-100 md:w-full" id={id}>
+      <span className="text-3xl font-bold text-[#6F5345] w-fit mt-10 ml-4 md:ml-15 md:w-fit ">
         {title}
 
         <div className="bg-[#DC9954] h-1.25 rounded-full" />
