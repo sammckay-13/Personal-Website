@@ -37,18 +37,22 @@ export default function ProjectsWrapper() {
       url: "https://quantum.social",
       image: null,
     },
-
-  ]
+  ];
   return (
     <Carousel className="w-200 md:w-full">
       <CarouselContent className="ml-1">
         {myProjects.map((project) => (
-          <CarouselItem key={project.name} className="basis-full pl-1 lg:basis-1/3">
+          <CarouselItem
+            key={project.name}
+            className="basis-full pl-1 lg:basis-1/3"
+          >
             <div className="p-1">
               <Card className="flex flex-col md:w-full w-[30%]">
                 <CardHeader>
                   <div className="flex flex-row items-center justify-center">
-                    <h2 className="text-2xl font-bold text-black">project.name</h2>{" "}
+                    <h2 className="text-2xl font-bold text-black">
+                      project.name
+                    </h2>{" "}
                     <a href={project.url} target="_blank" rel="noreferrer">
                       <LuExternalLink
                         size={20}
