@@ -8,12 +8,10 @@ import ProjectsWrapper from "@/components/ProjectsWrapper";
 import { AppSidebar } from "@/components/app-sidebar";
 import { CustomFooter } from "@/components/CustomFooter";
 import BrownHeader from "@/components/BrownHeader";
-import DebugBar from "@/components/DebugBar";
 
 export default async function Home() {
   return (
     <div className="overflow-x-hidden h-full">
-      <DebugBar />
       <SidebarProvider defaultOpen={false}>
         <AppSidebar />
         <SidebarInset className="flex flex-col flex-1 h-140 bg-[#6F5345] w-80%">
