@@ -51,7 +51,7 @@ export default function ProjectsWrapper() {
                 <CardHeader>
                   <div className="flex flex-row items-center justify-center">
                     <h2 className="text-2xl font-bold text-black">
-                      project.name
+                      {project.name}
                     </h2>{" "}
                     <a href={project.url} target="_blank" rel="noreferrer">
                       <LuExternalLink
