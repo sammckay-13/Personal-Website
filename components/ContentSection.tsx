@@ -24,12 +24,12 @@ export default function ContentSection({
         <div className="bg-[#DC9954] h-1.25 rounded-full" />
       </span>
       <CustomText />
-      <div className="flex flex-row ml-15 gap-4 mt-3 w-1">
+      <div className="flex flex-wrap md:flex-row ml-4 md:ml-15 gap-4 mt-3 w-full">
         {badges?.map((item) => (
           <Badge
             key={item.name}
             className={cn(
-              "p-4 text-lg text-[#6F5345] font-semibold rounded-md drop-shadow border w-20 md:w-fit border-[#d1cdc1e1] flex items-center",
+              "p-3 text-md text-[#6F5345] font-semibold rounded-md drop-shadow border w-20 md:w-fit border-[#d1cdc1e1] flex items-center",
               item.color ? item.color : "bg-[#e4d7ab]",
             )}
           >

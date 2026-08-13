@@ -36,7 +36,14 @@ export default async function Home() {
                   color: "bg-[#61DAFB]",
                 },
                 {
-                  name: "Tailwind CSS",
+                  name: "Tailwind",
+                },
+                                {
+                  name: "Tailwind",
+                },                {
+                  name: "Tailwind",
+                },                {
+                  name: "Tailwind",
                 },
               ]}
             />
