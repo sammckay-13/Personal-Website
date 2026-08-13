@@ -41,7 +41,7 @@ export default async function Home() {
               ]}
             />
             <ContentSection title="My Projects" id="my projects" />
-            <div className="md:w-[70%] ml-20 md:ml-[13%] mt-10">
+            <div className="md:w-[70%] ml-10 md:ml-[13%] mt-10">
               <ProjectsWrapper />
             </div>
             <ContentSection title="My Projects" id="my projects" />

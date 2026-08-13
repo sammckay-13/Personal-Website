@@ -39,7 +39,7 @@ export default function ProjectsWrapper() {
     },
   ];
   return (
-    <Carousel className="w-200 md:w-full">
+    <Carousel className="w-230 md:w-full">
       <CarouselContent className="ml-1">
         {myProjects.map((project) => (
           <CarouselItem
@@ -47,7 +47,7 @@ export default function ProjectsWrapper() {
             className="basis-full pl-1 lg:basis-1/3"
           >
             <div className="p-1">
-              <Card className="flex flex-col md:w-full w-[30%]">
+              <Card className="flex flex-col md:w-full w-[33%] h-120">
                 <CardHeader>
                   <div className="flex flex-row items-center justify-center">
                     <h2 className="text-2xl font-bold text-black">
