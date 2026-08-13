@@ -5,9 +5,6 @@ import { MckaypableIcon } from "@/assets/MckaypableIcon";
 const navLinks = [
   { href: "#", label: "Features" },
   { href: "#", label: "Blog" },
-  { href: "#", label: "About" },
-  { href: "mailto:mckaypable@gmail.com", label: "Contact" },
-  { href: "#", label: "Licence" },
 ];
 
 const socialLinks = [
@@ -32,16 +29,16 @@ export function CustomFooter() {
             key={label}
             size="icon"
             variant="ghost"
-            className="hover:text-[#CE7052] hover:bg-transparent"
+            className="hover:text-[#CE7052] hover:bg-transparent mr-1"
           >
-            <a aria-label={label} href={href} className="[&>svg]:size-5!">
+            <a aria-label={label} href={href} className="md:[&>svg]:size-5!">
               {icon}
             </a>
           </Button>
         ))}
       </div>
       <nav>
-        <ul className="flex gap-3 text-[#6F5345] text-md font-semibold md:gap-6">
+        <ul className="flex gap-3 text-[#6F5345] md:text-md md:font-semibold md:gap-6">
           {navLinks.map((link) => (
             <li key={link.label}>
               <a className="hover:text-foreground" href={link.href}>
@@ -51,12 +48,12 @@ export function CustomFooter() {
           ))}
         </ul>
       </nav>
-      <span className="inline-flex items-center border-l text-lg font-semibold border-[#CE7052]">
+      <span className="inline-flex items-center border-l md:text-lg md:font-semibold border-[#CE7052]">
         <a
           href="https://youtu.be/ZZ5LpwO-An4?si=FA420ZJSboprYZaD"
           className="hover:cursor-default"
         >
-          <div className="flex items-center h-5 w-10">
+          <div className="flex items-center h-5 w-11">
             <MckaypableIcon color="#6F5345" />
           </div>
         </a>
