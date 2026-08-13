@@ -24,6 +24,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { PanelLeftIcon } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
@@ -187,7 +188,7 @@ function Sidebar({
           data-sidebar="sidebar"
           data-slot="sidebar"
           data-mobile="true"
-          className="w-(--sidebar-width) bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden"
+          className="w-(--sidebar-width) bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden z-999 pointer-events-auto"
           style={
             {
               "--sidebar-width": SIDEBAR_WIDTH_MOBILE,
@@ -251,30 +252,45 @@ function Sidebar({
   );
 }
 
+  function CustomIsMobile() {
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+      const checkMobile = () => setIsMobile(window.innerWidth < 760);
+      checkMobile()
+      window.addEventListener("resize", checkMobile);
+      return () => window.removeEventListener("resize", checkMobile);
+      }, []);
+      return isMobile;
+  }
+
 function SidebarTrigger({
   className,
   onClick,
   ...props
 }: React.ComponentProps<typeof Button>) {
-  const { toggleSidebar } = useSidebar();
-
-  return (
-    <Button
-      data-sidebar="trigger"
-      data-slot="sidebar-trigger"
-      variant="ghost"
-      size="icon-sm"
-      className={cn(className)}
-      onClick={(event) => {
-        onClick?.(event);
-        toggleSidebar();
-      }}
-      {...props}
-    >
-      <PanelLeftIcon />
-      <span className="sr-only">Toggle Sidebar</span>
-    </Button>
-  );
+  const { toggleSidebar } = useSidebar()
+  const checkIsMobile = CustomIsMobile();
+  if (checkIsMobile) {
+    return null;
+  } else {
+    return (
+      <Button
+        data-sidebar="trigger"
+        data-slot="sidebar-trigger"
+        variant="ghost"
+        size="icon-sm"
+        className={cn(className)}
+        onClick={(event) => {
+          onClick?.(event);
+          toggleSidebar();
+        }}
+        {...props}
+      >
+        <PanelLeftIcon />
+        <span className="sr-only">Toggle Sidebar</span>
+      </Button>
+    );
+  }
 }
 
 function SidebarRail({ className, ...props }: React.ComponentProps<"button">) {

@@ -1,77 +1,59 @@
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/sidebar";
 import ContentSection from "@/components/ContentSection";
 import ProjectsWrapper from "@/components/ProjectsWrapper";
 import { AppSidebar } from "@/components/app-sidebar";
 import { CustomFooter } from "@/components/CustomFooter";
-import AnimatedLine from "@/assets/animations/AnimatedLines";
-import { MckaypableLogoAnimated } from "@/assets/animations/MckaypableLogoAnimated";
-import Image from "next/image";
-import ProfilePicture from "@/assets/imgs/ProfilePicture.png";
+import BrownHeader from "@/components/BrownHeader";
+import DebugBar from "@/components/DebugBar";
 
-export default function Home() {
+export default async function Home() {
   return (
-    <div>
+    <div className="overflow-x-hidden h-full">
+      <DebugBar />
       <SidebarProvider defaultOpen={false}>
         <AppSidebar />
-        <header className="flex sticky bg-[#6F5345]">
-          <div className="flex items-center gap-2 px-4 fixed">
-            <SidebarTrigger
-              size="default"
-              className="-ml-1 h-10 mt-4 bg-[#6F5345] text-[#FFFBEE] hover:text-[#FFFBEE] hover:bg-[#5a4438] [&>svg]:size-5!"
+        <SidebarInset className="flex flex-col flex-1 h-140 bg-[#6F5345] w-80%">
+          <header className="flex sticky bg-[#6F5345]">
+            <div className="flex items-center gap-2 px-4 fixed">
+              {/* I'm working on this not rendering on mobile */}
+              <SidebarTrigger
+                size="default"
+                className="-ml-1 h-10 mt-4 bg-[#6F5345] text-[#FFFBEE] hover:text-[#FFFBEE] hover:bg-[#5a4438] [&>svg]:size-5! z-50"
+              />
+            </div>
+          </header>
+          <div className="flex flex-col flex-1 h-140 bg-[#6F5345] w-80%">
+            <BrownHeader />
+            <ContentSection
+              title="What Am I Up To?"
+              badges={[
+                {
+                  name: "React",
+                },
+                {
+                  name: "Next.js",
+                  color: "bg-[#61DAFB]",
+                },
+                {
+                  name: "Tailwind CSS",
+                },
+              ]}
             />
-          </div>
-        </header>
-        <div className="flex flex-col flex-1 h-140 bg-[#6F5345] w-80%">
-          <div className="flex flex-row bg-[#6F5345] items-center ml-auto mt-8  mr-10 justify-center">
-            <div className="flex w-30 h-20">
-              <MckaypableLogoAnimated color="#FFFBEE" />
+            <ContentSection title="My Projects" id="my projects" />
+            <div className="md:w-[70%] ml-20 md:ml-[13%] mt-10">
+              <ProjectsWrapper />
             </div>
-            <h1 className="text-3xl font-bold text-[#FFFBEE] flex-row -ml-9 mb-7 flex items-center">
-              Mckaypable
-            </h1>
-          </div>
-          <div>
-            <main className="flex flex-row ml-15 items-center mb-15 bg-[#6F5345]">
-              <div className="flex w-fit h-fit ">
-                <Image
-                  src={ProfilePicture}
-                  alt="Profile Picture"
-                  className="-mt-20 flex w-50 h-60 ml-5 rounded-2xl object-cover border-[#FFFBEE] border mb-5"
-                  loading="eager"
-                />
-              </div>
-            </main>
-            <div className="-mt-10 ml-20 text-[#FFFBEE]">
-              <p className="text-3xl">Sam McKay</p>
-              <p>fdafds</p>
-            </div>
-            <AnimatedLine />
-          </div>
-          <ContentSection
-            title="What Am I Up To?"
-            badges={[
-              {
-                name: "React",
-              },
-              {
-                name: "Next.js",
-                color: "bg-[#61DAFB]",
-              },
-              {
-                name: "Tailwind CSS",
-              },
-            ]}
-          />
-          <ContentSection title="My Projects" id="my projects" />
-          <div className="w-[70%] ml-[13%]">
-            <ProjectsWrapper />
-          </div>
-          <ContentSection title="My Projects" id="my projects" />
+            <ContentSection title="My Projects" id="my projects" />
 
-          <div className=" w-full flex justify-center ">
-            <CustomFooter />
+            <div className="w-full h-13 ml-3.5 md:ml-0 md:w-full flex md:justify-center">
+              <CustomFooter />
+            </div>
           </div>
-        </div>
+        </SidebarInset>
       </SidebarProvider>
     </div>
   );
