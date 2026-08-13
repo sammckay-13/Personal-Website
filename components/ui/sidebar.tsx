@@ -256,9 +256,13 @@ function SidebarTrigger({
   onClick,
   ...props
 }: React.ComponentProps<typeof Button>) {
-  const { toggleSidebar } = useSidebar();
+  const { toggleSidebar, isMobile } = useSidebar();
+  console.log(isMobile);
 
-  return (
+  if (isMobile) {
+    return null;
+  } else {
+    return (
     <Button
       data-sidebar="trigger"
       data-slot="sidebar-trigger"
@@ -274,7 +278,8 @@ function SidebarTrigger({
       <PanelLeftIcon />
       <span className="sr-only">Toggle Sidebar</span>
     </Button>
-  );
+    );
+  }
 }
 
 function SidebarRail({ className, ...props }: React.ComponentProps<"button">) {
