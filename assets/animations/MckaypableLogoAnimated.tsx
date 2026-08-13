@@ -1,6 +1,6 @@
 export const MckaypableLogoAnimated = ({ color }: { color: string }) => {
   return (
-    <svg viewBox="0 0 100% 100%" width="100%" height="100%" className="ml-0.75">
+    <svg viewBox="0 0 90 90" width="100%" height="100%" className="mr-3 mt-0.5">
       <path
         d="M 5,25 L 25, 5 L 45,25"
         fill="transparent"
