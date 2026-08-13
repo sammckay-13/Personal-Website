@@ -252,23 +252,23 @@ function Sidebar({
   );
 }
 
-  function CustomIsMobile() {
-    const [isMobile, setIsMobile] = useState(false);
-    useEffect(() => {
-      const checkMobile = () => setIsMobile(window.innerWidth < 760);
-      checkMobile()
-      window.addEventListener("resize", checkMobile);
-      return () => window.removeEventListener("resize", checkMobile);
-      }, []);
-      return isMobile;
-  }
+function CustomIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 760);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+  return isMobile;
+}
 
 function SidebarTrigger({
   className,
   onClick,
   ...props
 }: React.ComponentProps<typeof Button>) {
-  const { toggleSidebar } = useSidebar()
+  const { toggleSidebar } = useSidebar();
   const checkIsMobile = CustomIsMobile();
   if (checkIsMobile) {
     return null;

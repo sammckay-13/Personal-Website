@@ -9,7 +9,18 @@ export default function DebugBar() {
   }, []);
 
   return (
-    <div style={{position: 'fixed', top: 0, left: 0, background: 'red', color: 'white', zIndex: 9999, padding: '4px', fontSize: '14px'}}>
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        background: "red",
+        color: "white",
+        zIndex: 9999,
+        padding: "4px",
+        fontSize: "14px",
+      }}
+    >
       {mounted}
     </div>
   );
