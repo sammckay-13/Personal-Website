@@ -222,6 +222,7 @@ function CarouselNext({
         className,
       )}
       disabled={!canScrollNext}
+      suppressHydrationWarning
       onClick={scrollNext}
       {...props}
     >
