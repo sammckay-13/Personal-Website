@@ -37,7 +37,10 @@ export default function PlaygroundWrapper() {
           </Button>
         </div>
       </div>
-      <Card className="flex flex-col md:w-[70%] w-[33%] border-3 border-black bg-black mt-15 ml-20 mr-15 h-150">
+      <Card
+        id="custom-canvas"
+        className="flex flex-col md:w-[70%] w-[33%] border-3 border-black bg-black mt-15 ml-20 mr-15 h-150"
+      >
         <CardContent>
           <div dangerouslySetInnerHTML={{ __html: svgData }}></div>
         </CardContent>

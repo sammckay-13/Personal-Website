@@ -371,6 +371,12 @@ export const ColorPickerFormat = ({
   const { hue, saturation, lightness, alpha, mode } = useColorPicker();
   const color = Color.hsl(hue, saturation, lightness, alpha / 100);
 
+  function handleClick(hexCode: string) {
+    const customCanvas = document.getElementById("custom-canvas");
+    if (!customCanvas) return;
+    customCanvas.style.backgroundColor = hexCode;
+  }
+
   if (mode === "hex") {
     const hex = color.hex();
 
@@ -395,6 +401,7 @@ export const ColorPickerFormat = ({
         <Button
           style={{ backgroundColor: hex }}
           className="bg-black text-white"
+          onClick={() => handleClick(hexCode)}
         >
           Set Canvas Color
         </Button>
@@ -408,10 +415,8 @@ export const ColorPickerFormat = ({
       .array()
       .map((value) => Math.round(value));
 
-    const colorRgb = color.rgb();
-    console.log(colorRgb);
-    // const hexCode = convert.rgb.hex(colorRgb[0], colorRgb[1], colorRgb[2]);
-    const hexCode = "#ffffff";
+    const hexCode = "#" + convert.rgb.hex(rgb[0], rgb[1], rgb[2]);
+
     return (
       <div>
         <div
@@ -435,7 +440,8 @@ export const ColorPickerFormat = ({
         </div>
         <Button
           style={{ backgroundColor: hexCode }}
-          className="bg-black text-white"
+          className=" text-white"
+          onClick={() => handleClick(hexCode)}
         >
           Set Canvas Color
         </Button>
@@ -448,6 +454,7 @@ export const ColorPickerFormat = ({
       .rgb()
       .array()
       .map((value) => Math.round(value));
+    const hexCode = "#" + convert.rgb.hex(rgb[0], rgb[1], rgb[2]);
 
     return (
       <div>
@@ -463,6 +470,7 @@ export const ColorPickerFormat = ({
         <Button
           style={{ backgroundColor: hexCode }}
           className="bg-black text-white"
+          onClick={() => handleClick(hexCode)}
         >
           Set Canvas Color
         </Button>
@@ -475,6 +483,7 @@ export const ColorPickerFormat = ({
       .hsl()
       .array()
       .map((value) => Math.round(value));
+    const hexCode = "#" + convert.hsl.hex(hsl[0], hsl[1], hsl[2]);
 
     return (
       <div>
@@ -503,6 +512,7 @@ export const ColorPickerFormat = ({
         <Button
           style={{ backgroundColor: hexCode }}
           className="bg-black text-white"
+          onClick={() => handleClick(hexCode)}
         >
           Set Canvas Color
         </Button>
