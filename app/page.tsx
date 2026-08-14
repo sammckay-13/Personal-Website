@@ -38,11 +38,13 @@ export default async function Home() {
                 {
                   name: "Tailwind",
                 },
-                                {
+                {
                   name: "Tailwind",
-                },                {
+                },
+                {
                   name: "Tailwind",
-                },                {
+                },
+                {
                   name: "Tailwind",
                 },
               ]}
