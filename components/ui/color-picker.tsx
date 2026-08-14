@@ -25,6 +25,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { cn } from "@/lib/utils"
+import convert from 'color-convert';
 
 interface ColorPickerContextValue {
   hue: number
@@ -96,10 +97,13 @@ export const ColorPicker = ({
       const rgba = color.rgb().array()
 
       onChange([rgba[0], rgba[1], rgba[2], alpha / 100])
+
     }
   }, [hue, saturation, lightness, alpha, onChange])
 
   return (
+    <div>
+
     <ColorPickerContext.Provider
       value={{
         hue,
@@ -113,9 +117,10 @@ export const ColorPicker = ({
         setAlpha,
         setMode,
       }}
-    >
+      >
       <div className={cn("flex size-full flex-col gap-4", className)} {...(props as any)} />
     </ColorPickerContext.Provider>
+      </div>
   )
 }
 
@@ -179,7 +184,7 @@ export const ColorPickerSelection = memo(({ className, ...props }: ColorPickerSe
       style={{
         background: backgroundGradient,
       }}
-      {...(props as any)}
+      {...(props)}
     >
       <div
         className="-translate-x-1/2 -translate-y-1/2 pointer-events-none absolute h-4 w-4 rounded-full border-2 border-white"
@@ -203,6 +208,7 @@ export const ColorPickerHue = ({ className, ...props }: ColorPickerHueProps) => 
   return (
     <Slider.Root
       className={cn("relative flex h-4 w-full touch-none", className)}
+      id="hue"
       max={360}
       onValueChange={([hue]) => setHue(hue)}
       step={1}
@@ -275,7 +281,7 @@ export const ColorPickerEyeDropper = ({ className, ...props }: ColorPickerEyeDro
       size="icon"
       type="button"
       variant="outline"
-      {...(props as any)}
+      {...(props)}
     >
       <PipetteIcon size={16} />
     </Button>
@@ -291,7 +297,7 @@ export const ColorPickerOutput = ({ className, ...props }: ColorPickerOutputProp
 
   return (
     <Select onValueChange={setMode} value={mode}>
-      <SelectTrigger className="h-8 w-20 shrink-0 text-xs" {...(props as any)}>
+      <SelectTrigger className="h-8 w-20 shrink-0 text-xs bg-white" {...(props as any)}>
         <SelectValue placeholder="Mode" />
       </SelectTrigger>
       <SelectContent>
@@ -336,21 +342,27 @@ export const ColorPickerFormat = ({ className, ...props }: ColorPickerFormatProp
     const hex = color.hex()
 
     return (
+      <div className="flex flex-col">
+
       <div
         className={cn(
-          "-space-x-px relative flex w-full items-center rounded-md shadow-sm",
+          "-space-x-px relative flex w-full items-center rounded-md bg-white",
           className,
         )}
-        {...(props as any)}
-      >
+        {...(props)}
+        >
         <Input
-          className="h-8 rounded-r-none bg-secondary px-2 text-xs shadow-none"
+          className="h-8 rounded-r-none bg-white px-2 text-xs shadow-none"
+          id="hex"
           readOnly
           type="text"
           value={hex}
-        />
+          />
         <PercentageInput value={alpha} />
       </div>
+        <Button style={{backgroundColor: hex}} className="bg-black text-white">Set Canvas Color</Button>
+          </div>
+
     )
   }
 
@@ -359,27 +371,36 @@ export const ColorPickerFormat = ({ className, ...props }: ColorPickerFormatProp
       .rgb()
       .array()
       .map(value => Math.round(value))
-
+    
+      const colorRgb = color.rgb();
+      console.log(colorRgb);
+    // const hexCode = convert.rgb.hex(colorRgb[0], colorRgb[1], colorRgb[2]);
+    const hexCode = "#ffffff"
     return (
+      <div>
+
       <div
-        className={cn("-space-x-px flex items-center rounded-md shadow-sm", className)}
+        className={cn("-space-x-px flex items-center rounded-md", className)}
         {...(props as any)}
-      >
+        >
         {rgb.map((value, index) => (
           <Input
-            className={cn(
-              "h-8 rounded-r-none bg-secondary px-2 text-xs shadow-none",
-              index && "rounded-l-none",
-              className,
-            )}
-            key={index}
-            readOnly
-            type="text"
-            value={value}
+          className={cn(
+            "h-8 rounded-r-none bg-white px-2 text-xs shadow-none",
+            index && "rounded-l-none",
+            className,
+          )}
+          key={index}
+          readOnly
+          type="text"
+          value={value}
           />
         ))}
         <PercentageInput value={alpha} />
       </div>
+              <Button style={{backgroundColor: hexCode}} className="bg-black text-white">Set Canvas Color</Button>
+
+        </div>
     )
   }
 
@@ -390,15 +411,20 @@ export const ColorPickerFormat = ({ className, ...props }: ColorPickerFormatProp
       .map(value => Math.round(value))
 
     return (
-      <div className={cn("w-full rounded-md shadow-sm", className)} {...(props as any)}>
+      <div>
+
+      <div className={cn("w-full rounded-md", className)} {...(props as any)}>
         <Input
-          className="h-8 w-full bg-secondary px-2 text-xs shadow-none"
+          className="h-8 w-full bg-white px-2 text-xs "
           readOnly
           type="text"
           value={`rgba(${rgb.join(", ")}, ${alpha}%)`}
           {...(props as any)}
-        />
+          />
       </div>
+                    <Button style={{backgroundColor: hexCode}} className="bg-black text-white">Set Canvas Color</Button>
+
+          </div>
     )
   }
 
@@ -409,25 +435,30 @@ export const ColorPickerFormat = ({ className, ...props }: ColorPickerFormatProp
       .map(value => Math.round(value))
 
     return (
+      <div>
+
       <div
         className={cn("-space-x-px flex items-center rounded-md shadow-sm", className)}
-        {...(props as any)}
-      >
+        {...(props)}
+        >
         {hsl.map((value, index) => (
           <Input
-            className={cn(
-              "h-8 rounded-r-none bg-secondary px-2 text-xs shadow-none",
-              index && "rounded-l-none",
-              className,
-            )}
-            key={index}
-            readOnly
-            type="text"
-            value={value}
+          className={cn(
+            "h-8 rounded-r-none bg-secondary px-2 text-xs shadow-none",
+            index && "rounded-l-none",
+            className,
+          )}
+          key={index}
+          readOnly
+          type="text"
+          value={value}
           />
         ))}
         <PercentageInput value={alpha} />
       </div>
+                    <Button style={{backgroundColor: hexCode}} className="bg-black text-white">Set Canvas Color</Button>
+
+        </div>
     )
   }
 
@@ -443,7 +474,8 @@ export function ShadColorPicker() {
         <ColorPickerHue />
         <ColorPickerAlpha />
         <div className="flex items-center gap-2">
-          <ColorPickerEyeDropper />
+          {/* EyeDropper API is experimental */}
+          {/* <ColorPickerEyeDropper /> */}
           <ColorPickerOutput />
           <ColorPickerFormat />
         </div>
