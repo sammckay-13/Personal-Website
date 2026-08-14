@@ -325,7 +325,7 @@ export const ColorPickerOutput = ({
   return (
     <Select onValueChange={setMode} value={mode}>
       <SelectTrigger
-        className="h-8 w-20 shrink-0 text-xs bg-white"
+        className="h-8 w-20 shrink-0 text-xs bg-white mb-10"
         {...(props as any)}
       >
         <SelectValue placeholder="Mode" />
@@ -400,8 +400,8 @@ export const ColorPickerFormat = ({
         </div>
         <Button
           style={{ backgroundColor: hex }}
-          className="bg-black text-white"
-          onClick={() => handleClick(hexCode)}
+          className="bg-black text-white mt-2"
+          onClick={() => handleClick(hex)}
         >
           Set Canvas Color
         </Button>
@@ -440,7 +440,7 @@ export const ColorPickerFormat = ({
         </div>
         <Button
           style={{ backgroundColor: hexCode }}
-          className=" text-white"
+          className=" text-white w-full mt-2"
           onClick={() => handleClick(hexCode)}
         >
           Set Canvas Color
@@ -469,7 +469,7 @@ export const ColorPickerFormat = ({
         </div>
         <Button
           style={{ backgroundColor: hexCode }}
-          className="bg-black text-white"
+          className="bg-black text-white w-full mt-2"
           onClick={() => handleClick(hexCode)}
         >
           Set Canvas Color
@@ -511,7 +511,7 @@ export const ColorPickerFormat = ({
         </div>
         <Button
           style={{ backgroundColor: hexCode }}
-          className="bg-black text-white"
+          className="bg-black text-white w-full mt-2"
           onClick={() => handleClick(hexCode)}
         >
           Set Canvas Color
