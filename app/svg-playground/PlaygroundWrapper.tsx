@@ -4,11 +4,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
-import UserSvg from "./UserSvg";
 import { ShadColorPicker } from "@/components/ui/color-picker";
 
 export default function PlaygroundWrapper() {
-  const [svgData, setSvgData] = useState("<svg></svg>");
+  const [svgData, setSvgData] = useState("<svg viewBox='0 0 100 100' width='100' height='100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='#3498db' stroke='#2980b9' stroke-width='4' /></svg>");
   useEffect(() => {
     console.log(svgData);
   }, [svgData]);
@@ -39,7 +38,7 @@ export default function PlaygroundWrapper() {
       </div>
       <Card
         id="custom-canvas"
-        className="flex flex-col md:w-[70%] w-[33%] border-3 border-black bg-black mt-15 ml-20 mr-15 h-150"
+        className="flex flex-col md:w-[70%] w-[33%] border-3 border-black mt-15 ml-20 mr-15 h-150"
       >
         <CardContent>
           <div dangerouslySetInnerHTML={{ __html: svgData }}></div>
