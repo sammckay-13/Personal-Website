@@ -1,43 +1,20 @@
-export default function UserSvg({svgData}: {svgData: string}) {
+"use client";
+
+import { lazy, Suspense } from "react";
+import StringToReactComponent from "string-to-react-component";
+
+interface UserSvgProps {
+  svgData: string;
+}
+export default function UserSvg({ svgData }: UserSvgProps) {
   return (
-    <svg viewBox="0 0 22 22" width="100%" height="100%" className="mr-1.5">
-      <path
-        d="M 1.95,9.75 L 9.75, 1.95 L 17.55,9.75"
-        fill="transparent"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M 9.75,9.75 L 17.55, 1.95 L 25.35,9.75"
-        fill="transparent"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M 1.95,9.75 L 25.35, 9.75"
-        fill="transparent"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M 1.95, 9.75 L 9.75,17.55 L 17.55,9.75"
-        fill="transparent"
-        strokeWidth="2"
-        strokeLinecap="round"
-        opacity="0.5"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M 9.75, 9.75 L 17.55,17.55 L 25.35,9.75"
-        fill="transparent"
-        strokeWidth="2"
-        strokeLinecap="round"
-        opacity="0.5"
-        strokeLinejoin="round"
-      />
-    </svg>
+    <StringToReactComponent>
+      {`(props)=>{
+           return (
+            <>
+            ${svgData}
+            </>);}
+            `}
+    </StringToReactComponent>
   );
 }
