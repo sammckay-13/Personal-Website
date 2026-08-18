@@ -14,6 +14,7 @@ import { Settings2Icon } from "lucide-react";
 import { FaGithub, FaHome } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { MckaypableLogo } from "@/assets/MckaypableLogo";
+import { TbSandbox } from "react-icons/tb";
 
 // This is sample data.
 const data = {
@@ -45,9 +46,9 @@ const data = {
       ],
     },
     {
-      title: "Settings",
-      url: "#",
-      icon: <Settings2Icon className="text-[#FFFBEE]" />,
+      title: "SVG Sandbox",
+      url: "/svg-playground",
+      icon: <TbSandbox className="text-[#FFFBEE]" />,
       items: [],
     },
   ],
