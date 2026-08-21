@@ -25,8 +25,20 @@ export default function BrownHeader() {
           </div>
         </main>
         <div className="-mt-10 ml-20 text-[#FFFBEE]">
-          <p className="text-3xl ml-11 md:ml-0">Sam McKay</p>
-          <p>fdafds</p>
+          <p className="text-3xl ml-11 md:ml-0">
+            Sam McKay - Full Stack Engineer, Founder and CEO of Mckaypable
+          </p>
+          <p className="text-xl">
+            {" "}
+            Here at McKaypable we have a deep passion for creating dissability
+            driven products. Our team of fullstack developers with years of
+            industry experience can help you bridge the gaps preventing people
+            from utilizing your tools, services, and websites. Mckaypable is the
+            vehicle to achieve our goal of creating equitable access to the
+            internet for everyone. By always staying up to date with the latest
+            technologies, trends, and research we will actualize this dream and
+            help you along the way!{" "}
+          </p>
         </div>
         <AnimatedLine />
       </div>

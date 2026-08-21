@@ -9,25 +9,28 @@ import {
 } from "@/components/ui/carousel";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import { LuExternalLink } from "react-icons/lu";
+import PersonalCompass from "@/assets/imgs/PersonalCompass.png";
+import { StaticImageData } from "next/image";
+import Image from "next/image";
 
 interface Project {
   name: string;
   description: string;
   url: string;
-  image: string | null;
+  image: StaticImageData | null;
 }
 
 export default function ProjectsWrapper() {
   const myProjects: Project[] = [
     {
-      name: "Genesis",
-      description: "A decentralized social media platform",
-      url: "https://genesis.social",
-      image: null,
+      name: "Start With Who",
+      description: "A full scope learning management platform which uses AI to discover personal insights. Includes public facing profiles and private messaging service",
+      url: "https://app.startwithwho.ai/compass/sammckay",
+      image: PersonalCompass,
     },
     {
-      name: "Explorer",
-      description: "A decentralized social media platform",
+      name: "NocoNet Attendance App",
+      description: "A system designed to help job seekers track their attendance at NocoNet events",
       url: "https://explorer.social",
       image: null,
     },
@@ -62,8 +65,9 @@ export default function ProjectsWrapper() {
                     </a>
                   </div>
                 </CardHeader>
-                <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <CardContent className="flex aspect-square items-center justify-center p-6">
+                <CardContent className="flex flex-col aspect-square items-center justify-center p-6">
+                  <Image alt="Project Image" src={project.image} width={250} height={300} className="rounded-lg object-cover"/>
+                  <CardContent className="flex aspect-square items-center justify-center p-6 text-lg">
                     <p>{project.description}</p>
                   </CardContent>
                 </CardContent>
