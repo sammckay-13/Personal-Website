@@ -20,7 +20,7 @@ export default async function Home() {
             <div className="flex items-center gap-2 px-4 fixed">
               <SidebarTrigger
                 size="default"
-                className="-ml-1 h-10 mt-4 dark:bg-[#49362D] text-[#FFFBEE] hover:text-[#FFFBEE] hover:bg-[#5a4438] [&>svg]:size-5! z-50"
+                className="-ml-1 h-10 mt-4 bg-[#49362D] text-[#FFFBEE] hover:text-[#FFFBEE] hover:bg-[#5a4438] hover:cursor-pointer [&>svg]:size-5! z-50"
               />
             </div>
           </header>
@@ -57,11 +57,11 @@ export default async function Home() {
               ]}
               content={{
                 para1:
-                  "I'm Sam McKay, a Full Stack Engineer and the Founder/CEO of McKaypable. My background in Full Stack Development and years of experience building integrated software have given me the opportunity to work across a wide range of technologies, including JavaScript, TypeScript, React, Node.js, Next.js, Python, and Agentic Coding models.",
+                  "I'm Sam McKay, a Full Stack Engineer and the Founder/CEO of McKaypable. My background in Full Stack Development and years of experience building integrated software have allowed me to work across a wide range of technologies, including JavaScript, TypeScript, React, Node.js, Next.js, Python, and Agentic Coding models.",
                 para2:
-                  "But for me, software development has always been about more than just writing code. I'm fascinated by the ways technology can either open doors for people or unintentionally put up barriers. This is what led me to become passionate about accessibility and disability-driven development.",
+                  "But for me, software development has always been about more than just writing code. I'm fascinated by the ways technology can either open doors for people or, unintentionally, create barriers. This is what led me to become passionate about accessibility and disability-driven development.",
                 para3:
-                  "I founded McKaypable because I believe accessibility should be a prerequisite, rather than an addition. I want to help developers and organizations view their products from a new perspective and build technology that can be enjoyed by everyone.",
+                  "I founded McKaypable because I believe accessibility should be a prerequisite, not an addition. I want to help developers and organizations see their products from a new perspective and build technology everyone can enjoy.",
               }}
             />
             <ContentSection
@@ -80,11 +80,14 @@ export default async function Home() {
               id="what we offer"
               content={{
                 para1:
-                  "McKaypable is a full-service digital accessibility company first and foremost.",
+                  "McKaypable is a full-service digital accessibility company.",
                 para2:
-                  "Because of this focus, we offer services to help you and your business create accessible products and interfaces for people with disabilities, regardless of what they may be.",
+                  "Because of this focus, we offer services that help you and your business create accessible products and interfaces for people with disabilities.",
                 para3:
-                  "Full scale accessibility consulting, design, development, and training services are available to help you create accessible products and interfaces for everyone.",
+                  "We offer Full-scale accessibility consulting, design, development, and training services to help you create accessible products and interfaces for everyone.",
+                underlinedPhrases: [
+                  "McKaypable is a full-service digital accessibility company.",]
+                  // Trying to figure out a way to have certain phrases underlined in the content section. I want to be able to pass in an array of phrases that will be underlined in the content section. I think this will be a good way to highlight certain phrases in the content section.",
               }}
               list={[
                 "Accessibility consulting",

@@ -32,7 +32,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth scrollbar-track-sky-100 scrollbar-thumb-[#D3C598]`}
     >
-      <body className="min-h-full flex flex-col bg-[#FFFBEE] md:w-full">
+      <body className="min-h-full flex flex-col bg-[#FFFBEE] dark:bg-[#543c2f] md:w-full">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

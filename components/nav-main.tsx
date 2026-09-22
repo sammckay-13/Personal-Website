@@ -149,7 +149,6 @@ export function NavMain({
           </Collapsible>
         ))}
       </SidebarMenu>
-      <ModeToggle />
     </SidebarGroup>
   );
 }

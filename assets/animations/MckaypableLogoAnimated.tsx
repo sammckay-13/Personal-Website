@@ -2,7 +2,7 @@
 import { motion } from "motion/react";
 import { useTheme } from "next-themes";
 export const MckaypableLogoAnimated = ({ color }: { color?: string}) => {
-  const theme  = useTheme().theme === "dark" ? "#FFFBEE" : "#49362D";
+  const theme  = useTheme().theme === "dark" ? "#D9C8B3" : "#49362D";
   return (
     <svg viewBox="0 0 90 90" width="100%" height="100%" className="mr-3 mt-0.5">
       <motion.path

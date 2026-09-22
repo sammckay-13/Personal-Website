@@ -15,6 +15,7 @@ interface ContentSectionProps {
     para1?: string;
     para2?: string;
     para3?: string;
+    underlinedPhrases?: string[];
   };
   list?: string[];
 }
@@ -28,7 +29,7 @@ export default function ContentSection({
 }: ContentSectionProps) {
   return (
     <div className="flex h-fit flex-col flex-1 w-100 md:w-full" id={id}>
-      <span className="text-3xl font-bold text-[#4E2A2A] w-fit mt-10 ml-4 md:ml-15 md:w-fit ">
+      <span className="text-3xl font-bold text-[#4E2A2A] dark:text-[#fbf3e8]  w-fit mt-10 ml-4 md:ml-15 md:w-fit ">
         {title}
 
         <div className="bg-[#DC9954] h-1.25 rounded-full" />
@@ -37,6 +38,7 @@ export default function ContentSection({
         para1={content?.para1}
         para2={content?.para2}
         para3={content?.para3}
+        underlinedPhrases={content?.underlinedPhrases}
       />
       <div className="flex flex-wrap md:flex-row ml-4 md:ml-15 gap-4 mt-3 w-full">
         {badges?.map((item) => (
@@ -52,8 +54,8 @@ export default function ContentSection({
         ))}
         <ul>
           {list?.map((listItem) => (
-            <li key={listItem} className="text-lg dark:text-[#6F5345] font-semibold">
-              -{listItem}
+            <li key={listItem} className="text-lg dark:text-[#fbf3e8] font-semibold">
+              •{" "}{listItem}
             </li>
           ))}
         </ul>
