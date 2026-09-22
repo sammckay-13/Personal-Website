@@ -10,6 +10,7 @@ import {
 import { Card, CardContent, CardHeader } from "./ui/card";
 import { LuExternalLink } from "react-icons/lu";
 import PersonalCompass from "@/assets/imgs/PersonalCompass.png";
+import ImagePlaceholder from "@/assets/imgs/ImagePlaceholder.png";
 import { StaticImageData } from "next/image";
 import Image from "next/image";
 import { useTheme } from "next-themes";
@@ -18,7 +19,7 @@ interface Project {
   name: string;
   description: string;
   url: string;
-  image: StaticImageData | null;
+  image: StaticImageData;
 }
 
 export default function ProjectsWrapper() {
@@ -36,13 +37,13 @@ export default function ProjectsWrapper() {
       description:
         "A system designed to help job seekers track their attendance at NocoNet events, a social network for job seekers, employers, and career coaches.",
       url: "https://explorer.social",
-      image: null,
+      image: ImagePlaceholder,
     },
     {
       name: "Quantum",
       description: "A decentralized social media platform",
       url: "https://quantum.social",
-      image: null,
+      image: ImagePlaceholder,
     },
   ];
   return (
