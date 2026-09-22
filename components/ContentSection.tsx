@@ -28,7 +28,7 @@ export default function ContentSection({
 }: ContentSectionProps) {
   return (
     <div className="flex h-fit flex-col flex-1 w-100 md:w-full" id={id}>
-      <span className="text-3xl font-bold text-[#6F5345] w-fit mt-10 ml-4 md:ml-15 md:w-fit ">
+      <span className="text-3xl font-bold text-[#4E2A2A] w-fit mt-10 ml-4 md:ml-15 md:w-fit ">
         {title}
 
         <div className="bg-[#DC9954] h-1.25 rounded-full" />
@@ -43,7 +43,7 @@ export default function ContentSection({
           <Badge
             key={item.name}
             className={cn(
-              "p-3 text-md text-[#6F5345] font-semibold rounded-md drop-shadow border w-20 md:w-fit border-[#d1cdc1e1] flex items-center",
+              "p-3 text-md dark:text-[#6F5345] font-semibold rounded-md drop-shadow border w-20 md:w-fit border-[#d1cdc1e1] flex items-center",
               item.color ? item.color : "bg-[#e4d7ab]",
             )}
           >
@@ -52,7 +52,7 @@ export default function ContentSection({
         ))}
         <ul>
           {list?.map((listItem) => (
-            <li key={listItem} className="text-lg text-[#6F5345] font-semibold">
+            <li key={listItem} className="text-lg dark:text-[#6F5345] font-semibold">
               -{listItem}
             </li>
           ))}

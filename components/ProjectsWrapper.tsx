@@ -12,6 +12,7 @@ import { LuExternalLink } from "react-icons/lu";
 import PersonalCompass from "@/assets/imgs/PersonalCompass.png";
 import { StaticImageData } from "next/image";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 
 interface Project {
   name: string;
@@ -21,16 +22,19 @@ interface Project {
 }
 
 export default function ProjectsWrapper() {
+  const theme = useTheme();
   const myProjects: Project[] = [
     {
       name: "Start With Who",
-      description: "A full scope learning management platform which uses AI to discover personal insights. Includes public facing profiles and private messaging service",
+      description:
+        "A full scope learning management platform which uses AI to discover personal insights. Includes public facing profiles and private messaging service",
       url: "https://app.startwithwho.ai/compass/sammckay",
       image: PersonalCompass,
     },
     {
       name: "NocoNet Attendance App",
-      description: "A system designed to help job seekers track their attendance at NocoNet events",
+      description:
+        "A system designed to help job seekers track their attendance at NocoNet events",
       url: "https://explorer.social",
       image: null,
     },
@@ -50,24 +54,30 @@ export default function ProjectsWrapper() {
             className="basis-full pl-1 lg:basis-1/3"
           >
             <div className="p-1">
-              <Card className="flex flex-col md:w-full w-[33%] h-120">
+              <Card className="flex flex-col md:w-full w-[33%] h-120 bg-[#FFFBEE] dark:bg-[#6F5345] border-[#d1cdc1e1] border-2">
                 <CardHeader>
                   <div className="flex flex-row items-center justify-center">
-                    <h2 className="text-2xl font-bold text-black">
+                    <h2 className="text-2xl font-bold text-[#6F5345] dark:text-[#FFFBEE]">
                       {project.name}
                     </h2>{" "}
                     <a href={project.url} target="_blank" rel="noreferrer">
                       <LuExternalLink
                         size={20}
-                        color={"#000"}
+                        color={theme.theme === "dark" ? "#FFFBEE" : "#6F5345"}
                         className="mb-0.5 ml-2"
                       />
                     </a>
                   </div>
                 </CardHeader>
                 <CardContent className="flex flex-col aspect-square items-center justify-center p-6">
-                  <Image alt="Project Image" src={project.image} width={250} height={300} className="rounded-lg object-cover"/>
-                  <CardContent className="flex aspect-square items-center justify-center p-6 text-lg">
+                  <Image
+                    alt="Project Image"
+                    src={project.image}
+                    width={250}
+                    height={300}
+                    className="rounded-lg object-cover"
+                  />
+                  <CardContent className="flex aspect-square items-center justify-center p-6 text-lg font-semibold text-[#6F5345] dark:text-[#FFFBEE]">
                     <p>{project.description}</p>
                   </CardContent>
                 </CardContent>
