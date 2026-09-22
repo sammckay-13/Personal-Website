@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils";
 import { ChevronRightIcon } from "lucide-react";
 import { motion } from "motion/react";
 import React from "react";
+import { ModeToggle } from "./ui/ModeToggle";
 
 export function NavMain({
   items,

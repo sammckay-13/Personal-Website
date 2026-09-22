@@ -1,11 +1,10 @@
-import { ImageResponse } from 'next/og'
+import { ImageResponse } from "next/og";
 
-export const size = { width: 32, height: 32 }
-export const contentType = 'image/svg+xml'
+export const size = { width: 32, height: 32 };
+export const contentType = "image/svg+xml";
 
 export default function Icon() {
   return new ImageResponse(
-    (
     <svg viewBox="0 -5 51 51" width="100%" height="120%">
       <path
         d="M 3.9,19.5 L 19.5, 3.9 L 35.1,19.5"
@@ -49,8 +48,7 @@ export default function Icon() {
         opacity="0.5"
         strokeLinejoin="round"
       />
-    </svg>
-    ),
-    { ...size }
-  )
+    </svg>,
+    { ...size },
+  );
 }
