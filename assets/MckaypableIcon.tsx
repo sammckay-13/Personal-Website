@@ -2,7 +2,8 @@
 import { useTheme } from "next-themes";
 
 export const MckaypableIcon = ({ color }: { color?: string }) => {
-  const themeColor = color ?? (useTheme().theme === "dark" ? "#D9C8B3" : "#49362D");
+  const themeColor =
+    color ?? (useTheme().theme === "dark" ? "#D9C8B3" : "#49362D");
 
   return (
     <svg viewBox="0 0 22 22" width="100%" height="100%" className="mr-1.5">
