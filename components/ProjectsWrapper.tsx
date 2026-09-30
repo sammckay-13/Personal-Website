@@ -11,6 +11,7 @@ import { Card, CardContent, CardHeader } from "./ui/card";
 import { LuExternalLink } from "react-icons/lu";
 import PersonalCompass from "@/assets/imgs/PersonalCompass.png";
 import ImagePlaceholder from "@/assets/imgs/ImagePlaceholder.png";
+import BidderFasterStronger from "@/assets/imgs/BidderFasterStronger.png";
 import { StaticImageData } from "next/image";
 import Image from "next/image";
 import { useTheme } from "next-themes";
@@ -33,11 +34,11 @@ export default function ProjectsWrapper() {
       image: PersonalCompass,
     },
     {
-      name: "NocoNet Attendance App",
+      name: "Bidder Faster Stronger",
       description:
-        "A system designed to help job seekers track their attendance at NocoNet events, a social network for job seekers, employers, and career coaches.",
-      url: "https://explorer.social",
-      image: ImagePlaceholder,
+        "A decentralized bidding platform for NFTs of my own creation. Using web3 and MetaMask it provides a realtime bidding war with a leaderboard to see the bidder who will recieve the NFT.",
+      url: "https://github.com/sammckay-13/CS458-Bidding-Game",
+      image: BidderFasterStronger,
     },
     {
       name: "Quantum",

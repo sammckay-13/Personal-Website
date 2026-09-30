@@ -143,9 +143,10 @@ export default async function Home() {
                   "But for me, software development has always been more than just writing code. I'm fascinated by the ways technology can either open doors for people or, unintentionally, create barriers. This is what led me to become passionate about accessibility and disability-driven development.",
                 para3:
                   "I founded McKaypable because I believe accessibility should be a prerequisite, not an addition. I want to help developers and organizations see their products from a new perspective and build technology everyone can enjoy.",
-                underlinedPhrases: ["software development has always been more than just writing code"]
+                underlinedPhrases: [
+                  "software development has always been more than just writing code",
+                ],
               }}
-
             />
             <ContentSection
               title="My Projects"
