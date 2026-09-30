@@ -55,7 +55,7 @@ export default function ProjectsWrapper() {
             className="basis-full pl-1 lg:basis-1/3"
           >
             <div className="p-1">
-              <Card className="flex flex-col md:w-full w-[33%] h-120 bg-[#FFFBEE] dark:bg-[#6F5345] border-[#d1cdc1e1] dark:border-[#543C2F] border-2 drop-shadow-md rounded-lg">
+              <Card className="flex flex-col md:w-full w-[33%] h-120 bg-[#f7f5ef] dark:bg-[#6F5345] border-[#d1cdc1e1] dark:border-[#543C2F] border-2 drop-shadow-md rounded-lg">
                 <CardHeader>
                   <div className="flex flex-row items-center justify-center">
                     <h2 className="text-2xl font-bold text-[#6F5345] dark:text-[#FFFBEE]">

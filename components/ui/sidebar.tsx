@@ -276,23 +276,22 @@ function SidebarTrigger({
   } else {
     return (
       <div className="flex flex-col">
-
-      <Button
-        data-sidebar="trigger"
-        data-slot="sidebar-trigger"
-        variant="default"
-        size="icon-sm"
-        className={cn(className)}
-        onClick={(event) => {
-          onClick?.(event);
-          toggleSidebar();
-        }}
-        {...props}
-      >
-        <PanelLeftIcon />
-        <span className="sr-only">Toggle Sidebar</span>
-      </Button>
-            <ModeToggle />
+        <Button
+          data-sidebar="trigger"
+          data-slot="sidebar-trigger"
+          variant="default"
+          size="icon-sm"
+          className={cn(className)}
+          onClick={(event) => {
+            onClick?.(event);
+            toggleSidebar();
+          }}
+          {...props}
+        >
+          <PanelLeftIcon />
+          <span className="sr-only">Toggle Sidebar</span>
+        </Button>
+        <ModeToggle />
       </div>
     );
   }
