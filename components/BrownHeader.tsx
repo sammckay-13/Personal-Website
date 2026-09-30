@@ -8,7 +8,7 @@ import AnimatedLine from "@/assets/animations/AnimatedLines";
 export default function BrownHeader() {
   const themeColor = useTheme().theme === "dark" ? "#D9C8B3" : "#49362D";
   return (
-    <div className="flex flex-col flex-1 h-140 bg-[#49362D] w-80%">
+    <div className="flex flex-col flex-1 h-140 bg-[#49362D] w-80% mb-10">
       <div className="flex flex-row bg-[#49362D] md:ml-auto ml-21 mt-8 mr-10">
         <div className="flex w-20 md:w-30 mb-2 h-20">
           <MckaypableLogoAnimated color="#fbf3e8" />

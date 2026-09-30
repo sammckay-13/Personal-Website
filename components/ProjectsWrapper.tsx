@@ -47,7 +47,7 @@ export default function ProjectsWrapper() {
     },
   ];
   return (
-    <Carousel className="w-230 md:w-full">
+    <Carousel className="w-230 md:w-full mb-10">
       <CarouselContent className="ml-1">
         {myProjects.map((project) => (
           <CarouselItem
