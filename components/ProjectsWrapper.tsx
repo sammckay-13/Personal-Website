@@ -12,6 +12,7 @@ import { LuExternalLink } from "react-icons/lu";
 import PersonalCompass from "@/assets/imgs/PersonalCompass.png";
 import ImagePlaceholder from "@/assets/imgs/ImagePlaceholder.png";
 import BidderFasterStronger from "@/assets/imgs/BidderFasterStronger.png";
+import GoneFishing from "@/assets/imgs/GoneFishing.png"
 import { StaticImageData } from "next/image";
 import Image from "next/image";
 import { useTheme } from "next-themes";
@@ -29,7 +30,7 @@ export default function ProjectsWrapper() {
     {
       name: "Start With Who",
       description:
-        "A full-scope learning management platform that uses AI to discover personal insights. Includes public-facing profiles and a private messaging service.",
+        "A full-scope learning management platform that uses AI to discover personal insights. Includes public-facing profiles and a private/groupchat messaging service with support for various file types.",
       url: "https://app.startwithwho.ai/compass/sammckay",
       image: PersonalCompass,
     },
@@ -41,10 +42,10 @@ export default function ProjectsWrapper() {
       image: BidderFasterStronger,
     },
     {
-      name: "Quantum",
-      description: "A decentralized social media platform",
-      url: "https://quantum.social",
-      image: ImagePlaceholder,
+      name: "Gone Fishing",
+      description: "An Alexa and email enabled UI that allowed my family to leave messages and a visual cue that one or multiple of us were out of the house.",
+      url: "https://gitshare.me/repos/0ca774d5-c1c6-46d0-a93a-21a5283de8d9",
+      image: GoneFishing,
     },
   ];
   return (
