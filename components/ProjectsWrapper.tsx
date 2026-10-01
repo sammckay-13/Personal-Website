@@ -26,8 +26,7 @@ interface Project {
 
 export default function ProjectsWrapper() {
   const { state, isMobile } = useSidebar();
-  const dynamicWidth = isMobile ? 300 : 270;
-  const theme = useTheme();
+  const dynamicWidth = isMobile ? 300 : 70;
   const myProjects: Project[] = [
     {
       name: "Start With Who",
