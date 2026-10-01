@@ -11,7 +11,7 @@ import { Card, CardContent, CardHeader } from "./ui/card";
 import { LuExternalLink } from "react-icons/lu";
 import PersonalCompass from "@/assets/imgs/PersonalCompass.png";
 import BidderFasterStronger from "@/assets/imgs/BidderFasterStronger.png";
-import GoneFishing from "@/assets/imgs/GoneFishing.png"
+import GoneFishing from "@/assets/imgs/GoneFishing.png";
 import { StaticImageData } from "next/image";
 import Image from "next/image";
 import { useTheme } from "next-themes";
@@ -25,8 +25,8 @@ interface Project {
 }
 
 export default function ProjectsWrapper() {
-    const { state, isMobile } = useSidebar();
-  const dynamicWidth = isMobile ? 300 : 275
+  const { state, isMobile } = useSidebar();
+  const dynamicWidth = isMobile ? 300 : 275;
   const theme = useTheme();
   const myProjects: Project[] = [
     {
@@ -45,7 +45,8 @@ export default function ProjectsWrapper() {
     },
     {
       name: "Gone Fishing",
-      description: "An Alexa and email enabled UI that allowed my family to leave messages and a visual cue that one or multiple of us were out of the house.",
+      description:
+        "An Alexa and email enabled UI that allowed my family to leave messages and a visual cue that one or multiple of us were out of the house.",
       url: "https://gitshare.me/repos/0ca774d5-c1c6-46d0-a93a-21a5283de8d9",
       image: GoneFishing,
     },
@@ -73,14 +74,14 @@ export default function ProjectsWrapper() {
                     </a>
                   </div>
                 </CardHeader>
-                <CardContent className="flex flex-col aspect-square items-center justify-center mt-2">
+                <CardContent className="flex flex-col -ml-1.25 md:-ml-0 aspect-square md:items-center md:justify-center mt-2">
                   <Image
                     alt="Project Image"
                     src={project.image}
                     width={dynamicWidth}
                     className="rounded-lg object-cover"
                   />
-                  <CardContent className="flex aspect-square items-center justify-center pb-10 text-lg font-semibold text-[#6F5345] dark:text-[#FFFBEE]">
+                  <CardContent className="flex aspect-square items-center justify-center pb-10 text-lg font-semibold w-[55%] md:w-full -ml-4 md:-ml-0 text-[#6F5345] dark:text-[#FFFBEE]">
                     <p>{project.description}</p>
                   </CardContent>
                 </CardContent>
