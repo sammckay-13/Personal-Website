@@ -16,6 +16,7 @@ import { StaticImageData } from "next/image";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import { useSidebar } from "./ui/sidebar";
+import { CustomIsMobile } from "./ui/sidebar";
 
 interface Project {
   name: string;
@@ -25,7 +26,7 @@ interface Project {
 }
 
 export default function ProjectsWrapper() {
-  const { state, isMobile } = useSidebar();
+  const isMobile = CustomIsMobile();
   const dynamicWidth = isMobile ? 300 : 70;
   const myProjects: Project[] = [
     {
