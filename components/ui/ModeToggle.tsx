@@ -1,7 +1,6 @@
 "use client";
 
-import { Moon, Sun } from "lucide-react";
-import {FaRegMoon} from "react-icons/fa";
+import { FaRegMoon } from "react-icons/fa";
 import { LuSun } from "react-icons/lu";
 import { useTheme } from "next-themes";
 
