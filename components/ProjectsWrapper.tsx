@@ -14,8 +14,6 @@ import BidderFasterStronger from "@/assets/imgs/BidderFasterStronger.png";
 import GoneFishing from "@/assets/imgs/GoneFishing.png";
 import { StaticImageData } from "next/image";
 import Image from "next/image";
-import { useTheme } from "next-themes";
-import { useSidebar } from "./ui/sidebar";
 import { CustomIsMobile } from "./ui/sidebar";
 
 interface Project {
@@ -78,8 +76,7 @@ export default function ProjectsWrapper() {
                   <Image
                     alt="Project Image"
                     src={project.image}
-                    width={dynamicWidth}
-                    className="rounded-lg object-cover h-auto"
+                    className="rounded-lg object-cover h-auto w-10"
                   />
                   <CardContent className="flex aspect-square items-center justify-center pb-10 text-lg font-semibold w-[55%] md:w-full -ml-4 md:-ml-0 text-[#6F5345] dark:text-[#FFFBEE]">
                     <p>{project.description}</p>
