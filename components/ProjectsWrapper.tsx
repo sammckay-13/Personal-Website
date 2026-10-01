@@ -79,7 +79,7 @@ export default function ProjectsWrapper() {
                     alt="Project Image"
                     src={project.image}
                     width={dynamicWidth}
-                    className="rounded-lg object-cover"
+                    className="rounded-lg object-cover h-auto"
                   />
                   <CardContent className="flex aspect-square items-center justify-center pb-10 text-lg font-semibold w-[55%] md:w-full -ml-4 md:-ml-0 text-[#6F5345] dark:text-[#FFFBEE]">
                     <p>{project.description}</p>
