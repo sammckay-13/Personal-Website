@@ -26,7 +26,7 @@ interface Project {
 
 export default function ProjectsWrapper() {
   const { state, isMobile } = useSidebar();
-  const dynamicWidth = isMobile ? 300 : 275;
+  const dynamicWidth = isMobile ? 300 : 270;
   const theme = useTheme();
   const myProjects: Project[] = [
     {
@@ -74,7 +74,7 @@ export default function ProjectsWrapper() {
                     </a>
                   </div>
                 </CardHeader>
-                <CardContent className="flex flex-col -ml-1.25 md:-ml-0 aspect-square md:items-center md:justify-center mt-2">
+                <CardContent className="flex flex-col -ml-1 md:-ml-0 aspect-square md:items-center md:justify-center mt-2">
                   <Image
                     alt="Project Image"
                     src={project.image}
