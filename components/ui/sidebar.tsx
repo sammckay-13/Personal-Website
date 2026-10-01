@@ -253,7 +253,7 @@ function Sidebar({
   );
 }
 
-function CustomIsMobile() {
+export function CustomIsMobile() {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 760);

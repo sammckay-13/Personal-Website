@@ -10,12 +10,12 @@ import {
 import { Card, CardContent, CardHeader } from "./ui/card";
 import { LuExternalLink } from "react-icons/lu";
 import PersonalCompass from "@/assets/imgs/PersonalCompass.png";
-import ImagePlaceholder from "@/assets/imgs/ImagePlaceholder.png";
 import BidderFasterStronger from "@/assets/imgs/BidderFasterStronger.png";
 import GoneFishing from "@/assets/imgs/GoneFishing.png"
 import { StaticImageData } from "next/image";
 import Image from "next/image";
 import { useTheme } from "next-themes";
+import { useSidebar } from "./ui/sidebar";
 
 interface Project {
   name: string;
@@ -25,12 +25,14 @@ interface Project {
 }
 
 export default function ProjectsWrapper() {
+    const { state, isMobile } = useSidebar();
+  const dynamicWidth = isMobile ? 300 : 275
   const theme = useTheme();
   const myProjects: Project[] = [
     {
       name: "Start With Who",
       description:
-        "A full-scope learning management platform that uses AI to discover personal insights. Includes public-facing profiles and a private/groupchat messaging service with support for various file types.",
+        "A full-scope learning management platform for Newton Institute that uses AI to discover personal insights. Includes public-facing profiles and a private/groupchat messaging service with support for various file types.",
       url: "https://app.startwithwho.ai/compass/sammckay",
       image: PersonalCompass,
     },
@@ -66,17 +68,16 @@ export default function ProjectsWrapper() {
                     <a href={project.url} target="_blank" rel="noreferrer">
                       <LuExternalLink
                         size={20}
-                        color={theme.theme === "dark" ? "#FFFBEE" : "#6F5345"}
-                        className="mb-0.5 ml-2"
+                        className="mb-0.5 ml-2 dark:text-[#FFFBEE] text-[#6F5345]"
                       />
                     </a>
                   </div>
                 </CardHeader>
-                <CardContent className="flex flex-col aspect-square items-center justify-center p-6">
+                <CardContent className="flex flex-col aspect-square items-center justify-center mt-2">
                   <Image
                     alt="Project Image"
                     src={project.image}
-                    width={300}
+                    width={dynamicWidth}
                     className="rounded-lg object-cover"
                   />
                   <CardContent className="flex aspect-square items-center justify-center pb-10 text-lg font-semibold text-[#6F5345] dark:text-[#FFFBEE]">
