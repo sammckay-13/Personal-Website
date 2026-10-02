@@ -14,6 +14,7 @@ import { Settings2Icon } from "lucide-react";
 import { FaGithub, FaHome, FaBriefcase } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { MckaypableLogo } from "@/assets/MckaypableLogo";
+import { TbSandbox } from "react-icons/tb";
 
 const data = {
   navMain: [
@@ -46,6 +47,12 @@ const data = {
       title: "What We Offer",
       url: "#",
       icon: <FaBriefcase className="text-[#FFFBEE]" />,
+      items: [],
+    },
+    {
+      title: "SVG Sandbox",
+      url: "/svg-playground",
+      icon: <TbSandbox className="text-[#FFFBEE]" />,
       items: [],
     },
   ],
