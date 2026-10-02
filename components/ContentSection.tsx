@@ -81,7 +81,7 @@ export default function ContentSection({
           </div>
         ))}
       </div>
-      <ul className="flex flex-col gap-2 ml-4 md:ml-15 mt-3 w-[70%] md:w-fit">
+      <ul className="flex flex-col gap-2 ml-4 md:ml-15 mt-3 w-[80%] md:w-fit">
         {list?.map((listItem) => (
           <li
             key={listItem}
