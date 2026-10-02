@@ -28,6 +28,7 @@ export default async function Home() {
             <div className="flex flex-row justify-end mr-10"></div>
             <BrownHeader></BrownHeader>
             <ContentSection
+              id="who am i?"
               title="Who am I?"
               skillGroups={[
                 {

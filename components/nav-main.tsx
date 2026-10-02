@@ -31,19 +31,17 @@ export function NavMain({
 }) {
   const { state } = useSidebar();
 
-  function HashScroll(section: string) {
+  function HashScroll( section: string) {
     const element = document.getElementById(section);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-    } else {
-      window.scrollTo(0, 0);
     }
   }
   return (
     <SidebarGroup className="overflow-hidden">
       {state === "collapsed" && (
-        <div className="flex items-center justify-center h-7 flex-col mb-4">
-          <MckaypableIcon color="#FFFBEE" />
+        <div className="flex items-center justify-center h-7 flex-col mb-4 hover:cursor-pointer" onClick={() => HashScroll("hero")}>
+          <MckaypableIcon color="#FFFBEE"/>
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3, delay: 0.2 }}
@@ -74,8 +72,8 @@ export function NavMain({
                     />
                   }
                   className={cn(
-                    "hover:bg-[#5a4438] h-10 mb-2 w-64 [&>svg]:size-6 flex items-center p-2 hover:cursor-pointer",
-                    state === "collapsed" && "hover:bg-transparent",
+                    "hover:bg-[#5a4438] h-10 mb-2 w-64 [&>svg]:size-6 flex items-center p-2 hover:cursor-pointer focus:bg-transparent",
+                    state === "collapsed" && "hover:bg-transparent ",
                   )}
                 >
                   {item.icon}
@@ -104,11 +102,12 @@ export function NavMain({
                   HashScroll(item.title.toLowerCase());
                 }}
                 className={cn(
-                  "hover:bg-[#5a4438] h-10 mb-2 w-70 [&>svg]:size-6 flex -ml-1",
+                  "hover:bg-[#543C2F] h-10 mb-2 w-70 [&>svg]:size-6 flex -ml-1 active:bg-transparent",
                   state === "collapsed" &&
                     "hover:bg-transparent hover:cursor-pointer",
                 )}
               >
+                {/* I should be able to fix that issue where after you click an item that button stops having the hover bg change effect */}
                 {item.icon}
                 <motion.div
                   initial={{ opacity: 0 }}

@@ -24,27 +24,25 @@ interface Project {
 }
 
 export default function ProjectsWrapper() {
-  const isMobile = CustomIsMobile();
-  const dynamicWidth = isMobile ? 300 : 70;
   const myProjects: Project[] = [
     {
       name: "Start With Who",
       description:
-        "A full-scope learning management platform for Newton Institute that uses AI to discover personal insights. Includes public-facing profiles and a private/groupchat messaging service with support for various file types.",
+        "An AI-powered learning platform for Newton Institute that uncovers personal insights for every student. It offers course management, public profiles, and private or group chats.",
       url: "https://app.startwithwho.ai/compass/sammckay",
       image: PersonalCompass,
     },
     {
       name: "Bidder Faster Stronger",
       description:
-        "A decentralized bidding platform for NFTs of my own creation. Using web3 and MetaMask it provides a realtime bidding war with a leaderboard to see the bidder who will recieve the NFT.",
+        "A decentralized bidding platform for NFTs that connects through MetaMask. It offers realtime bidding, a live leaderboard, and clear results showing who wins each NFT.",
       url: "https://github.com/sammckay-13/CS458-Bidding-Game",
       image: BidderFasterStronger,
     },
     {
       name: "Gone Fishing",
       description:
-        "An Alexa and email enabled UI that allowed my family to leave messages and a visual cue that one or multiple of us were out of the house.",
+        "An Alexa-powered family board built on AWS, with an email-enabled UI. It let us leave each other messages, with a visual cue showing when one or more of us had left the house.",
       url: "https://gitshare.me/repos/0ca774d5-c1c6-46d0-a93a-21a5283de8d9",
       image: GoneFishing,
     },
@@ -61,13 +59,13 @@ export default function ProjectsWrapper() {
               <Card className="flex flex-col md:w-full w-[33%] h-120 bg-[#f7f5ef] dark:bg-[#6F5345] border-[#d1cdc1e1] dark:border-[#543C2F] border-2 drop-shadow-md rounded-lg">
                 <CardHeader>
                   <div className="flex flex-row items-center justify-center">
-                    <h2 className="text-2xl font-bold text-[#6F5345] dark:text-[#FFFBEE]">
+                    <h2 className="text-[1.35rem] font-bold text-[#6F5345] dark:text-[#FFFBEE]">
                       {project.name}
                     </h2>{" "}
                     <a href={project.url} target="_blank" rel="noreferrer">
                       <LuExternalLink
                         size={20}
-                        className="mb-0.5 ml-2 dark:text-[#FFFBEE] text-[#6F5345]"
+                        className="mb-1 ml-2 dark:text-[#FFFBEE] text-[#6F5345]"
                       />
                     </a>
                   </div>
@@ -76,9 +74,9 @@ export default function ProjectsWrapper() {
                   <Image
                     alt="Project Image"
                     src={project.image}
-                    className="rounded-lg object-cover h-auto w-65 md:w-200"
+                    className="rounded-lg object-cover h-auto w-65 md:w-200 mb-7"
                   />
-                  <CardContent className="flex aspect-square items-center justify-center pb-10 text-lg font-semibold w-[55%] md:w-full -ml-5 md:-ml-0 text-[#6F5345] dark:text-[#FFFBEE]">
+                  <CardContent className="flex aspect-square justify-center text-lg font-semibold w-[55%] md:w-full -ml-5 md:-ml-0 text-[#6F5345] dark:text-[#FFFBEE]">
                     <p>{project.description}</p>
                   </CardContent>
                 </CardContent>
