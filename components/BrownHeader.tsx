@@ -9,9 +9,8 @@ import { ModeToggle } from "./ui/ModeToggle";
 import { CustomIsMobile } from "./ui/sidebar";
 export default function BrownHeader() {
   const checkIsMobile = CustomIsMobile();
-  const themeColor = useTheme().theme === "dark" ? "#D9C8B3" : "#49362D";
   return (
-    <div className="flex flex-col flex-1 h-fit bg-[#49362D] mb-10">
+    <div className="flex flex-col flex-1 h-fit bg-[#49362D] mb-10" id="hero">
       {checkIsMobile ? <ModeToggle /> : <></>}
 
       <div className="flex flex-row bg-[#49362D] md:ml-auto ml-21 mt-8 mr-10">
