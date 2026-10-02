@@ -323,7 +323,12 @@ export const ColorPickerOutput = ({
   const { mode, setMode } = useColorPicker();
 
   return (
-    <Select onValueChange={setMode} value={mode}>
+    <Select
+      value={mode}
+      onValueChange={(value) => {
+        if (value !== null) setMode(value);
+      }}
+    >
       <SelectTrigger
         className="h-8 w-20 shrink-0 text-xs bg-white mb-10"
         {...(props as any)}
