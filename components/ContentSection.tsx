@@ -51,20 +51,20 @@ export default function ContentSection({
       />
       <div className="block ml-4 md:ml-15 gap-4 mt-3 w-[70%] md:w-fit">
         {skillGroups?.map((group) => (
-          <div key={group.skill} className="flex flex-col gap-2">
+          <div key={group.skill} className="flex flex-col gap-2 ml-4">
             <div className="flex flex-row gap-2 items-center mb-1 mt-5">
               <div className="text-xl font-bold text-[#4E2A2A] dark:text-[#FFFBEE]">
                 {group.skill}
                 <div className="bg-[#DC9954] h-1.25 rounded-full -mt-1" />
               </div>
             </div>
-            <div className="flex flex-row gap-2">
+            <div className="flex flex-wrap w-full md:flex-row gap-2">
               {group.items.map((item) => (
-                <div key={item.title} className="flex flex-row">
+                <div key={item.title} className="flex md:flex-row">
                   <Badge
                     key={item.title}
                     className={cn(
-                      "p-3 text-md font-semibold rounded-md drop-shadow border w-20 md:w-fit border-[#d1cdc1e1] dark:border-[#49362D] flex items-center",
+                      "p-3 text-md font-semibold rounded-md drop-shadow border w-20 w-fit border-[#d1cdc1e1] dark:border-[#49362D] flex items-center",
                       item.color ? item.color : "bg-[#e4d7ab]",
                       item.textColor
                         ? item.textColor
@@ -85,7 +85,7 @@ export default function ContentSection({
         {list?.map((listItem) => (
           <li
             key={listItem}
-            className="text-lg dark:text-[#fbf3e8] font-semibold"
+            className="text-lg text-[#49362D] dark:text-[#fbf3e8] font-semibold"
           >
             • {listItem}
           </li>

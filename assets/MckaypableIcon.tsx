@@ -1,9 +1,14 @@
 "use client";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 export const MckaypableIcon = ({ color }: { color?: string }) => {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   const themeColor =
-    color ?? (useTheme().theme === "dark" ? "#D9C8B3" : "#49362D");
+    color ?? (mounted && resolvedTheme === "dark" ? "#D9C8B3" : "#49362D");
 
   return (
     <svg viewBox="0 0 22 22" width="100%" height="100%" className="mr-1.5">

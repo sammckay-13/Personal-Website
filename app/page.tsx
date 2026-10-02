@@ -8,6 +8,7 @@ import ProjectsWrapper from "@/components/ProjectsWrapper";
 import { AppSidebar } from "@/components/app-sidebar";
 import { CustomFooter } from "@/components/CustomFooter";
 import BrownHeader from "@/components/BrownHeader";
+import { ModeToggle } from "@/components/ui/ModeToggle";
 
 export default async function Home() {
   return (

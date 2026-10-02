@@ -10,12 +10,11 @@ import {
 import { Card, CardContent, CardHeader } from "./ui/card";
 import { LuExternalLink } from "react-icons/lu";
 import PersonalCompass from "@/assets/imgs/PersonalCompass.png";
-import ImagePlaceholder from "@/assets/imgs/ImagePlaceholder.png";
 import BidderFasterStronger from "@/assets/imgs/BidderFasterStronger.png";
-import GoneFishing from "@/assets/imgs/GoneFishing.png"
+import GoneFishing from "@/assets/imgs/GoneFishing.png";
 import { StaticImageData } from "next/image";
 import Image from "next/image";
-import { useTheme } from "next-themes";
+import { CustomIsMobile } from "./ui/sidebar";
 
 interface Project {
   name: string;
@@ -25,12 +24,13 @@ interface Project {
 }
 
 export default function ProjectsWrapper() {
-  const theme = useTheme();
+  const isMobile = CustomIsMobile();
+  const dynamicWidth = isMobile ? 300 : 70;
   const myProjects: Project[] = [
     {
       name: "Start With Who",
       description:
-        "A full-scope learning management platform that uses AI to discover personal insights. Includes public-facing profiles and a private/groupchat messaging service with support for various file types.",
+        "A full-scope learning management platform for Newton Institute that uses AI to discover personal insights. Includes public-facing profiles and a private/groupchat messaging service with support for various file types.",
       url: "https://app.startwithwho.ai/compass/sammckay",
       image: PersonalCompass,
     },
@@ -43,7 +43,8 @@ export default function ProjectsWrapper() {
     },
     {
       name: "Gone Fishing",
-      description: "An Alexa and email enabled UI that allowed my family to leave messages and a visual cue that one or multiple of us were out of the house.",
+      description:
+        "An Alexa and email enabled UI that allowed my family to leave messages and a visual cue that one or multiple of us were out of the house.",
       url: "https://gitshare.me/repos/0ca774d5-c1c6-46d0-a93a-21a5283de8d9",
       image: GoneFishing,
     },
@@ -66,20 +67,18 @@ export default function ProjectsWrapper() {
                     <a href={project.url} target="_blank" rel="noreferrer">
                       <LuExternalLink
                         size={20}
-                        color={theme.theme === "dark" ? "#FFFBEE" : "#6F5345"}
-                        className="mb-0.5 ml-2"
+                        className="mb-0.5 ml-2 dark:text-[#FFFBEE] text-[#6F5345]"
                       />
                     </a>
                   </div>
                 </CardHeader>
-                <CardContent className="flex flex-col aspect-square items-center justify-center p-6">
+                <CardContent className="flex flex-col -ml-1 md:-ml-0 aspect-square md:items-center md:justify-center mt-2">
                   <Image
                     alt="Project Image"
                     src={project.image}
-                    width={300}
-                    className="rounded-lg object-cover"
+                    className="rounded-lg object-cover h-auto w-65 md:w-200"
                   />
-                  <CardContent className="flex aspect-square items-center justify-center pb-10 text-lg font-semibold text-[#6F5345] dark:text-[#FFFBEE]">
+                  <CardContent className="flex aspect-square items-center justify-center pb-10 text-lg font-semibold w-[55%] md:w-full -ml-5 md:-ml-0 text-[#6F5345] dark:text-[#FFFBEE]">
                     <p>{project.description}</p>
                   </CardContent>
                 </CardContent>
