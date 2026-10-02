@@ -22,7 +22,7 @@ const socialLinks = [
 
 export function CustomFooter() {
   return (
-    <footer className="*:px-3 *:md:px-6 flex items-center text-[#DC9954] mt-5 text-md bg-[#FFFBEE]">
+    <footer className="*:px-3 *:md:px-6 flex items-center text-[#DC9954] mt-5 text-md bg-[#FFFBEE] dark:bg-[#543C2F] dark:text-[#d9c8b3]">
       <div className="border-r border-[#CE7052]">
         {socialLinks.map(({ href, label, icon }) => (
           <Button
@@ -38,7 +38,7 @@ export function CustomFooter() {
         ))}
       </div>
       <nav>
-        <ul className="flex gap-3 text-[#6F5345] md:text-md md:font-semibold md:gap-6">
+        <ul className="flex gap-3 text-[#6F5345] dark:text-[#d9c8b3] md:text-md md:font-semibold md:gap-6">
           {navLinks.map((link) => (
             <li key={link.label}>
               <a className="hover:text-foreground" href={link.href}>
@@ -48,13 +48,13 @@ export function CustomFooter() {
           ))}
         </ul>
       </nav>
-      <span className="inline-flex items-center border-l md:text-lg md:font-semibold border-[#CE7052]">
+      <span className="inline-flex items-center md:text-lg md:font-semibold border-l border-[#CE7052]">
         <a
           href="https://youtu.be/ZZ5LpwO-An4?si=FA420ZJSboprYZaD"
           className="hover:cursor-default"
         >
           <div className="flex items-center h-5 w-11">
-            <MckaypableIcon color="#6F5345" />
+            <MckaypableIcon />
           </div>
         </a>
         Sam McKay

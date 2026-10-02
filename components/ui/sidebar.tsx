@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/tooltip";
 import { PanelLeftIcon } from "lucide-react";
 import { useEffect, useState } from "react";
+import { ModeToggle } from "./ModeToggle";
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
@@ -252,7 +253,7 @@ function Sidebar({
   );
 }
 
-function CustomIsMobile() {
+export function CustomIsMobile() {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 760);
@@ -274,21 +275,24 @@ function SidebarTrigger({
     return null;
   } else {
     return (
-      <Button
-        data-sidebar="trigger"
-        data-slot="sidebar-trigger"
-        variant="ghost"
-        size="icon-sm"
-        className={cn(className)}
-        onClick={(event) => {
-          onClick?.(event);
-          toggleSidebar();
-        }}
-        {...props}
-      >
-        <PanelLeftIcon />
-        <span className="sr-only">Toggle Sidebar</span>
-      </Button>
+      <div className="flex flex-col">
+        <Button
+          data-sidebar="trigger"
+          data-slot="sidebar-trigger"
+          variant="default"
+          size="icon-sm"
+          className={cn(className)}
+          onClick={(event) => {
+            onClick?.(event);
+            toggleSidebar();
+          }}
+          {...props}
+        >
+          <PanelLeftIcon />
+          <span className="sr-only">Toggle Sidebar</span>
+        </Button>
+        <ModeToggle />
+      </div>
     );
   }
 }
@@ -484,7 +488,7 @@ function SidebarMenuItem({ className, ...props }: React.ComponentProps<"li">) {
     <li
       data-slot="sidebar-menu-item"
       data-sidebar="menu-item"
-      className={cn("group/menu-item relative", className)}
+      className={cn("group/menu-item relative hover:bg-[#6F5345]", className)}
       {...props}
     />
   );

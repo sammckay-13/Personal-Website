@@ -11,21 +11,19 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { Settings2Icon } from "lucide-react";
-import { FaGithub, FaHome } from "react-icons/fa";
+import { FaGithub, FaHome, FaBriefcase } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { MckaypableLogo } from "@/assets/MckaypableLogo";
 import { TbSandbox } from "react-icons/tb";
 
-// This is sample data.
 const data = {
   navMain: [
     {
-      title: "Home",
+      title: "Who am I?",
       url: "#",
       icon: <FaHome className="text-[#FFFBEE]" />,
       items: [],
-      isActive: true,
-    },
+        },
     {
       title: "My Projects",
       url: "#",
@@ -44,6 +42,12 @@ const data = {
         //   url: "#",
         // },
       ],
+    },
+    {
+      title: "What We Offer",
+      url: "#",
+      icon: <FaBriefcase className="text-[#FFFBEE]" />,
+      items: [],
     },
     {
       title: "SVG Sandbox",
