@@ -12,6 +12,7 @@ import { LuExternalLink } from "react-icons/lu";
 import PersonalCompass from "@/assets/imgs/PersonalCompass.png";
 import BidderFasterStronger from "@/assets/imgs/BidderFasterStronger.png";
 import GoneFishing from "@/assets/imgs/GoneFishing.png";
+import NoconetSignIn from "@/assets/imgs/Noconetsignin.png";
 import Tower3Defense from "@/assets/imgs/Tower3Defense.png";
 import ImagePlaceholder from "@/assets/imgs/ImagePlaceholder.png";
 import { StaticImageData } from "next/image";
@@ -42,6 +43,13 @@ export default function ProjectsWrapper() {
       "An AI-powered learning platform for Newton Institute that uncovers personal insights for every student. It offers course management, public profiles, and private or group chats.",
       url: "https://app.startwithwho.ai/compass/sammckay",
       image: PersonalCompass,
+    },
+    {
+      name: "Noconet Sign In",
+      description:
+      "A sign-in system for members of Noconet, a non-profit designed to help people in Northern Colorado find job opportunities. The previous google sheet was inefficient, so I created a system that is user-friendly.",
+      url: "https://github.com/sammckay-13/NocoNetAttendanceApp",
+      image: NoconetSignIn,
     },
     {
       name: "Bidder Faster Stronger",
