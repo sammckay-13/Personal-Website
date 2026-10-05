@@ -14,6 +14,7 @@ import BidderFasterStronger from "@/assets/imgs/BidderFasterStronger.png";
 import GoneFishing from "@/assets/imgs/GoneFishing.png";
 import NoconetSignIn from "@/assets/imgs/Noconetsignin.png";
 import Tower3Defense from "@/assets/imgs/Tower3Defense.png";
+import Coded_message from "@/assets/imgs/Coded_message.png";
 import ImagePlaceholder from "@/assets/imgs/ImagePlaceholder.png";
 import { StaticImageData } from "next/image";
 import Image from "next/image";
@@ -71,6 +72,14 @@ export default function ProjectsWrapper() {
       "A VR tower defense game built with Unreal using their blueprint system. It features multiple levels of increasing difficulty, unique enemy types, an intuitive UI, and an upgrade menu.",
       url: "https://github.com/sammckay-13/Tower-3Defense",
       image: Tower3Defense,
+    },
+    {
+      name: "Anterian Language Encoder",
+      description:
+      "A language encoder that converts English text into a fictional language called Anterian. It uses unique rules to transform letters and words, creating a language intended for use in my fictional world of Antera.",
+      url: "https://github.com/sammckay-13/Anterian_language",
+      image: Coded_message,
+
     }
   ];
   
