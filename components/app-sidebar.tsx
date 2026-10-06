@@ -22,7 +22,7 @@ const data = {
       url: "#",
       icon: <FaHome className="text-[#FFFBEE]" />,
       items: [],
-        },
+    },
     {
       title: "My Projects",
       url: "#",

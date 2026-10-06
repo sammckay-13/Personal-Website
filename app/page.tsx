@@ -155,7 +155,7 @@ export default async function Home() {
               id="my projects"
               content={{
                 para1:
-                  "Throughout my education and career, I've had the opportunity to work on many projects; from building websites and applications to creating accessible interfaces for people with disabilities. Here are a few of my most notable projects:",
+                  "Throughout my education and career, I've had the opportunity to work on many projects; from building websites and applications to creating accessible interfaces for people with disabilities. Here are some of my most notable projects:",
               }}
             />
             <div className="md:w-[70%] ml-10 md:ml-[13%]">

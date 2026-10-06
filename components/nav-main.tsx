@@ -31,7 +31,7 @@ export function NavMain({
 }) {
   const { state } = useSidebar();
 
-  function HashScroll( section: string) {
+  function HashScroll(section: string) {
     const element = document.getElementById(section);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -40,8 +40,11 @@ export function NavMain({
   return (
     <SidebarGroup className="overflow-hidden">
       {state === "collapsed" && (
-        <div className="flex items-center justify-center h-7 flex-col mb-4 hover:cursor-pointer" onClick={() => HashScroll("hero")}>
-          <MckaypableIcon color="#FFFBEE"/>
+        <div
+          className="flex items-center justify-center h-7 flex-col mb-4 hover:cursor-pointer"
+          onClick={() => HashScroll("hero")}
+        >
+          <MckaypableIcon color="#FFFBEE" />
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3, delay: 0.2 }}
