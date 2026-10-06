@@ -14,6 +14,7 @@ import BidderFasterStronger from "@/assets/imgs/BidderFasterStronger.png";
 import GoneFishing from "@/assets/imgs/GoneFishing.png";
 import NoconetSignIn from "@/assets/imgs/Noconetsignin.png";
 import Tower3Defense from "@/assets/imgs/Tower3Defense.png";
+import DNDBuddy from "@/assets/imgs/DNDBuddy.png";
 import Coded_message from "@/assets/imgs/Coded_message.png";
 import ImagePlaceholder from "@/assets/imgs/ImagePlaceholder.png";
 import { StaticImageData } from "next/image";
@@ -74,6 +75,13 @@ export default function ProjectsWrapper() {
       image: Tower3Defense,
     },
     {
+      name: "DNDBuddy",
+      description:
+      "An Electron app that helps Dungeons and Dragons players manage their characters. It features a locations for players to store their character information, an inventory system, a shop, and an import/export feature.",
+      url: "https://github.com/sammckay-13/dndbuddy-electron",
+      image: DNDBuddy,
+    },
+    {
       name: "Anterian Language Encoder",
       description:
       "A language encoder that converts English text into a fictional language called Anterian. It uses unique rules to transform letters and words, creating a language intended for use in my fictional world of Antera.",
@@ -98,7 +106,7 @@ export default function ProjectsWrapper() {
     setIsDialogOpen(true);
   }
   return (
-    <Carousel className="w-230 md:w-full mb-10">
+    <Carousel className="w-230 md:w-full mb-10" opts={{ loop: true }}>
       <CarouselContent className="ml-1">
         {myProjects.map((project) => (
           <CarouselItem
