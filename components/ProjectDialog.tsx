@@ -42,7 +42,10 @@ export default function ProjectDialog({
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <form>
-        <DialogContent className="sm:max-w-lg sm:max-h-full bg-[#f7f5ef] dark:bg-[#6F5345]" showCloseButton={false}>
+        <DialogContent
+          className="sm:max-w-lg sm:max-h-full bg-[#f7f5ef] dark:bg-[#6F5345]"
+          showCloseButton={false}
+        >
           <DialogHeader>
             <div>
               <Image
