@@ -35,13 +35,6 @@ export default function ProjectsWrapper() {
 
   const myProjects: Project[] = [
     {
-      name: "Start With Who",
-      description:
-        "An AI-powered learning platform for Newton Institute that uncovers personal insights for every student. It offers course management, public profiles, and private or group chats.",
-      url: "https://app.startwithwho.ai/compass/sammckay",
-      image: PersonalCompass,
-    },
-    {
       name: "Noconet Sign In",
       description:
         "A sign-in system for members of Noconet, a non-profit designed to help people in Northern Colorado find job opportunities. The previous google sheet was inefficient, so I created a system that is user-friendly.",
@@ -83,9 +76,18 @@ export default function ProjectsWrapper() {
       url: "https://github.com/sammckay-13/Anterian_language",
       image: Coded_message,
     },
+    {
+      name: "Start With Who",
+      description:
+        "An AI-powered learning platform for Newton Institute that uncovers personal insights for every student. It offers course management, public profiles, and private or group chats.",
+      url: "https://app.startwithwho.ai/compass/sammckay",
+      image: PersonalCompass,
+    },
   ];
 
-  function createDialogOpen(project: Project) {
+  function createDialogOpen(
+    project: Project
+  ) {
     setMyProject({
       name: project.name,
       description: project.description,
@@ -93,8 +95,7 @@ export default function ProjectsWrapper() {
       image: project.image,
     });
     setIsDialogOpen(true);
-  }
-
+  };
   return (
     <Carousel className="w-230 md:w-full mb-10" opts={{ loop: true }}>
       <CarouselContent className="ml-1">
