@@ -25,7 +25,6 @@ import { NavMainProps } from "@/lib/types";
 export function NavMain({ navs }: NavMainProps) {
   const { state } = useSidebar();
   const router = useRouter();
-  console.log(navs);
 
   function HashScroll(section: string, url?: string) {
     const element = document.getElementById(section);
