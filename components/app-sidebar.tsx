@@ -10,10 +10,11 @@ import {
   SidebarHeader,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { Settings2Icon } from "lucide-react";
+import { GrProjects } from "react-icons/gr";
 import { FaGithub, FaHome, FaBriefcase } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { MckaypableLogo } from "@/assets/MckaypableLogo";
+import { TbSandbox } from "react-icons/tb";
 
 const data = {
   navMain: [
@@ -47,6 +48,18 @@ const data = {
       url: "#",
       icon: <FaBriefcase className="text-[#FFFBEE]" />,
       items: [],
+    },
+    {
+      title: "Web Gallery",
+      icon: <GrProjects />,
+      url: "/web-projects-gallery",
+      items: [
+        {
+          icon: <TbSandbox className="text-[#FFFBEE]" />,
+          title: "SVG Playground",
+          url: "/svg-playground",
+        },
+      ],
     },
   ],
 };
@@ -82,7 +95,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         )}
       </SidebarHeader>
       <SidebarContent className="bg-[#6F5345] w-full">
-        <NavMain items={data.navMain} />
+        <NavMain navs={data.navMain} />
       </SidebarContent>
     </Sidebar>
   );

@@ -43,7 +43,8 @@ export default function BrownHeader() {
             products. Our team of full-stack developers with years of industry
             experience can help you bridge the gaps that prevent people from
             using your tools, services, and websites. Mckaypable is the vehicle
-            to achieve our goal of creating equitable access to the internet for
+            to help create solutions that will better serve your customers, and
+            achieve our goal of creating equitable access to the internet for
             everyone. By staying up to date with the latest technologies,
             trends, and research, we will help you create accessible products
             and achieve our dream of a more inclusive digital world.

@@ -1,13 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-
-interface CustomTextProps {
-  para1?: string;
-  para2?: string;
-  para3?: string;
-  underlinedPhrases?: string[];
-  title: string;
-}
+import { CustomTextProps } from "@/lib/types";
 
 export default function CustomText({
   para1,

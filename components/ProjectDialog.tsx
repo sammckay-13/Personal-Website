@@ -11,15 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import Image, { StaticImageData } from "next/image";
 import { useEffect, useState } from "react";
-
-interface ProjectDialogProps {
-  isOpen: boolean;
-  projectName: string;
-  projectImage: StaticImageData;
-  projectDescription: string;
-  projectUrl: string;
-  onClose: () => void;
-}
+import { ProjectDialogProps } from "@/lib/types";
 
 export default function ProjectDialog({
   isOpen,

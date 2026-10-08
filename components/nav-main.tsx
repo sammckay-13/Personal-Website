@@ -1,42 +1,40 @@
 "use client";
 
 import { MckaypableIcon } from "@/assets/MckaypableIcon";
-import { Collapsible, CollapsibleTrigger } from "@/components/ui/collapsible";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 import {
   SidebarGroup,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
   useSidebar,
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
 import { ChevronRightIcon } from "lucide-react";
 import { motion } from "motion/react";
-import React from "react";
-import { ModeToggle } from "./ui/ModeToggle";
+import { useRouter } from "next/navigation";
+import { NavMainProps } from "@/lib/types";
 
-export function NavMain({
-  items,
-}: {
-  items: {
-    title: string;
-    url: string;
-    icon?: React.ReactNode;
-    isActive?: boolean;
-    items: {
-      title: string;
-      url: string;
-    }[];
-  }[];
-}) {
+export function NavMain({ navs }: NavMainProps) {
   const { state } = useSidebar();
+  const router = useRouter();
 
-  function HashScroll(section: string) {
+  function HashScroll(section: string, url?: string) {
     const element = document.getElementById(section);
-    if (element) {
+    if (url?.includes("#") === false) {
+      router.push(url);
+    } else if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   }
+
   return (
     <SidebarGroup className="overflow-hidden">
       {state === "collapsed" && (
@@ -58,51 +56,70 @@ export function NavMain({
         </div>
       )}
       <SidebarMenu>
-        {items.map((item) => (
+        {navs.map((nav) => (
           <Collapsible
-            key={item.title}
-            defaultOpen={item.isActive}
+            key={nav.title}
+            defaultOpen={nav.isActive}
             className="group/collapsible"
             render={<SidebarMenuItem />}
           >
-            {item.items?.length > 1 ? (
+            {nav.items?.length >= 1 ? (
               <div>
-                <CollapsibleTrigger
-                  render={
-                    <SidebarMenuButton
-                      className="[&>svg]:size-6 -ml-1"
-                      tooltip={item.title}
-                    />
-                  }
-                  className={cn(
-                    "hover:bg-[#5a4438] h-10 mb-2 w-64 [&>svg]:size-6 flex items-center p-2 hover:cursor-pointer focus:bg-transparent",
-                    state === "collapsed" && "hover:bg-transparent ",
-                  )}
-                >
-                  {item.icon}
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    transition={{ duration: 0.3, delay: 0.15 }}
-                    animate={
-                      state === "expanded" ? { opacity: 1 } : { opacity: 0 }
+                {state === "collapsed" ? (
+                  <CollapsibleTrigger
+                    render={
+                      <SidebarMenuButton
+                        className="[&>svg]:size-6 -ml-1"
+                        tooltip={nav.title}
+                        onClick={() =>
+                          HashScroll(nav.title.toLowerCase(), nav.url)
+                        }
+                      />
                     }
-                    className="mt-1"
-                  >
-                    {state === "expanded" && (
-                      <span className="text-[#FFFBEE] text-2xl">
-                        {item.title}
-                      </span>
+                    className={cn(
+                      "hover:bg-[#5a4438] h-10 mb-2 w-64 [&>svg]:size-6 flex items-center p-2 hover:cursor-pointer focus:bg-transparent active:bg-transparent",
+                      state === "collapsed" && "hover:bg-transparent ",
                     )}
-                  </motion.div>
-                  {state === "expanded" && (
-                    <ChevronRightIcon className="ml-2 transition-transform duration-200 group-data-open/collapsible:rotate-90 text-[#FFFBEE]" />
-                  )}
-                </CollapsibleTrigger>
+                  >
+                    {nav.icon}
+                  </CollapsibleTrigger>
+                ) : (
+                  <CollapsibleTrigger
+                    render={
+                      <SidebarMenuButton
+                        className="[&>svg]:size-6 -ml-1"
+                        tooltip={nav.title}
+                      />
+                    }
+                    className={cn(
+                      "hover:bg-[#5a4438] h-10 mb-2 w-64 [&>svg]:size-6 flex items-center p-2 hover:cursor-pointer focus:bg-transparent active:bg-transparent",
+                    )}
+                  >
+                    {nav.icon}
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      transition={{ duration: 0.3, delay: 0.15 }}
+                      animate={
+                        state === "expanded" ? { opacity: 1 } : { opacity: 0 }
+                      }
+                      className="mt-1"
+                    >
+                      {state === "expanded" && (
+                        <span className="text-[#FFFBEE] text-2xl">
+                          {nav.title}
+                        </span>
+                      )}
+                    </motion.div>
+                    {state === "expanded" && (
+                      <ChevronRightIcon className="ml-2 transition-transform duration-200 group-data-open/collapsible:rotate-90 text-[#FFFBEE]" />
+                    )}
+                  </CollapsibleTrigger>
+                )}
               </div>
             ) : (
               <SidebarMenuButton
                 onClick={() => {
-                  HashScroll(item.title.toLowerCase());
+                  HashScroll(nav.title.toLowerCase(), nav.url);
                 }}
                 className={cn(
                   "hover:bg-[#543C2F] h-10 mb-2 w-70 [&>svg]:size-6 flex -ml-1 active:bg-transparent",
@@ -110,8 +127,7 @@ export function NavMain({
                     "hover:bg-transparent hover:cursor-pointer",
                 )}
               >
-                {/* I should be able to fix that issue where after you click an item that button stops having the hover bg change effect */}
-                {item.icon}
+                {nav.icon}
                 <motion.div
                   initial={{ opacity: 0 }}
                   transition={{ duration: 0.3, delay: 0.15 }}
@@ -121,24 +137,23 @@ export function NavMain({
                   className="mt-1"
                 >
                   {state === "expanded" && (
-                    <span className="text-[#FFFBEE] text-2xl">
-                      {item.title}
-                    </span>
+                    <span className="text-[#FFFBEE] text-2xl">{nav.title}</span>
                   )}
                 </motion.div>
               </SidebarMenuButton>
             )}
-            {/* This has a little artifact that is left when this is in but I might want collapsibles later */}
-            {/* <CollapsibleContent>
+            <CollapsibleContent>
               <SidebarMenuSub>
-                {item.items?.map((subItem) => (
+                {nav.items?.map((subItem) => (
                   <SidebarMenuSubItem
                     key={subItem.title}
                     className="hover:bg-[#5a4438]"
                   >
                     <SidebarMenuSubButton
                       className="hover:bg-[#5a4438]"
-                      render={<a href={subItem.url} />}
+                      onClick={() => {
+                        HashScroll(subItem.title.toLowerCase(), subItem.url);
+                      }}
                     >
                       <span className="text-[#FFFBEE] mt-0.75">
                         {subItem.title}
@@ -147,7 +162,7 @@ export function NavMain({
                   </SidebarMenuSubItem>
                 ))}
               </SidebarMenuSub>
-            </CollapsibleContent> */}
+            </CollapsibleContent>
           </Collapsible>
         ))}
       </SidebarMenu>
