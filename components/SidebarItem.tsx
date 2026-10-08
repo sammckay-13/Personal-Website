@@ -1,7 +1,7 @@
 "use client";
 import { FaHome } from "react-icons/fa";
 import { motion } from "framer-motion";
-import {SidebarItemProps} from "@/lib/types"
+import { SidebarItemProps } from "@/lib/types";
 
 export default function SidebarItem({
   section,

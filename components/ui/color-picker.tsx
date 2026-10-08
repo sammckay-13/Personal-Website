@@ -26,7 +26,7 @@ import {
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 import convert from "color-convert";
-import {ColorPickerContextValue} from "@/lib/types"
+import { ColorPickerContextValue } from "@/lib/types";
 
 const ColorPickerContext = createContext<ColorPickerContextValue | undefined>(
   undefined,

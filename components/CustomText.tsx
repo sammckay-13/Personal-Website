@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import {CustomTextProps} from "@/lib/types"
+import { CustomTextProps } from "@/lib/types";
 
 export default function CustomText({
   para1,

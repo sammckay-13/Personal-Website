@@ -24,16 +24,13 @@ import { useEffect, useState } from "react";
 import ProjectCard from "./ProjectCard";
 import type { Project } from "../lib/types";
 
-
-
-
 export default function ProjectsWrapper() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [myProject, setMyProject] = useState<Project>({
     name: "",
     description: "",
     url: "",
-    image: ImagePlaceholder
+    image: ImagePlaceholder,
   });
 
   const myProjects: Project[] = [
@@ -88,7 +85,7 @@ export default function ProjectsWrapper() {
     },
   ];
 
-  function createDialogOpen(project: Project){
+  function createDialogOpen(project: Project) {
     setMyProject({
       name: project.name,
       description: project.description,
@@ -96,7 +93,7 @@ export default function ProjectsWrapper() {
       image: project.image,
     });
     setIsDialogOpen(true);
-  };
+  }
 
   return (
     <Carousel className="w-230 md:w-full mb-10" opts={{ loop: true }}>
@@ -108,15 +105,15 @@ export default function ProjectsWrapper() {
           >
             <div className="p-1" onClick={() => createDialogOpen(project)}>
               <ProjectCard project={project} />
-              </div>
-              <ProjectDialog
-                isOpen={isDialogOpen}
-                projectName={myProject?.name}
-                projectImage={myProject?.image}
-                projectDescription={myProject?.description}
-                projectUrl={myProject?.url}
-                onClose={() => setIsDialogOpen(false)}
-              />
+            </div>
+            <ProjectDialog
+              isOpen={isDialogOpen}
+              projectName={myProject?.name}
+              projectImage={myProject?.image}
+              projectDescription={myProject?.description}
+              projectUrl={myProject?.url}
+              onClose={() => setIsDialogOpen(false)}
+            />
           </CarouselItem>
         ))}
       </CarouselContent>

@@ -4,7 +4,6 @@ import CustomText from "./CustomText";
 import { Badge } from "./ui/badge";
 import { ContentSectionProps } from "@/lib/types";
 
-
 export default function ContentSection({
   title,
   skillGroups,

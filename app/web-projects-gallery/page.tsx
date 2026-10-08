@@ -5,7 +5,7 @@ export default async function Home() {
   return (
     <div className="overflow-x-hidden h-full">
       <MckaypableHeader title="Web Projects Gallery" />
-      <GalleryWrapper/>
+      <GalleryWrapper />
     </div>
   );
 }

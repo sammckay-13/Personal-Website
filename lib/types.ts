@@ -1,7 +1,5 @@
 import { StaticImageData } from "next/image";
 
-
-
 export interface Project {
   name: string;
   description: string;
@@ -22,7 +20,6 @@ export interface ProjectDialogProps {
   onClose: () => void;
 }
 
-
 export interface SidebarItemProps {
   section: string;
   heightAnchor: string;
@@ -30,11 +27,11 @@ export interface SidebarItemProps {
 }
 
 export interface MckaypableHeaderProps {
-  title: string
+  title: string;
 }
 
 export interface UserSVGProps {
-  svgData: string
+  svgData: string;
 }
 
 export interface SkillBadge {

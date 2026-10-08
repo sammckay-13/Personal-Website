@@ -20,7 +20,7 @@ import { cn } from "@/lib/utils";
 import { ChevronRightIcon } from "lucide-react";
 import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
-import {NavMainProps} from "@/lib/types"
+import { NavMainProps } from "@/lib/types";
 
 export function NavMain({ navs }: NavMainProps) {
   const { state } = useSidebar();

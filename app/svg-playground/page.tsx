@@ -4,7 +4,7 @@ import PlaygroundWrapper from "./PlaygroundWrapper";
 export default async function Home() {
   return (
     <div className="overflow-x-hidden h-full">
-      <MckaypableHeader />
+      <MckaypableHeader title="SVG Playground" />
       <PlaygroundWrapper />
     </div>
   );
