@@ -34,6 +34,13 @@ export default function GalleryWrapper() {
       url: "",
       image: ComingSoon,
     },
+        {
+      name: "More Coming Soon!",
+      description:
+        "I love creating interesting and fun tools for personal use and I've always wanted a place to learn and grow as a developer without creating individual websites. Because of that I will be uploading more web apps here!",
+      url: "",
+      image: ComingSoon,
+    },
   ];
 
     function createDialogOpen(project: Project) {
@@ -46,7 +53,7 @@ export default function GalleryWrapper() {
     setIsDialogOpen(true);
   }
   return (
-    <div className="flex flex-row w-[50%] ml-30 gap-10">
+    <div className="flex flex-row w-[80%] ml-40 gap-10">
       {projects.map((project) => (
         <div className="p-1" onClick={() => createDialogOpen(project)}>
 
