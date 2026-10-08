@@ -85,9 +85,7 @@ export default function ProjectsWrapper() {
     },
   ];
 
-  function createDialogOpen(
-    project: Project
-  ) {
+  function createDialogOpen(project: Project) {
     setMyProject({
       name: project.name,
       description: project.description,
@@ -95,7 +93,7 @@ export default function ProjectsWrapper() {
       image: project.image,
     });
     setIsDialogOpen(true);
-  };
+  }
   return (
     <Carousel className="w-230 md:w-full mb-10" opts={{ loop: true }}>
       <CarouselContent className="ml-1">

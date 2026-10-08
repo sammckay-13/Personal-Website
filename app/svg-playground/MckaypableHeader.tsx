@@ -3,8 +3,8 @@ import { MckaypableHeaderProps } from "@/lib/types";
 
 export default function MckaypableHeader({ title }: MckaypableHeaderProps) {
   return (
-    <div className="flex flex-row flex-1 h-20 bg-[#6F5345] w-80% items-center">
-      <span className="text-3xl font-bold text-[#FFFBEE] flex-row flex items-center ml-15">
+    <div className="flex flex-row flex-1 h-30 bg-[#6F5345] w-80% items-center">
+      <span className="text-3xl font-bold text-[#FFFBEE] flex-row flex items-center ml-20">
         {title}
       </span>
       <div className="flex flex-row md:ml-auto ml-21 mr-10">
