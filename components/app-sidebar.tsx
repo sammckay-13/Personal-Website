@@ -51,7 +51,7 @@ const data = {
     },
     {
       title: "Web Gallery",
-      icon: <GrProjects />,
+      icon: <GrProjects className="text-[#FFFBEE]" />,
       url: "/web-projects-gallery",
       items: [
         {
