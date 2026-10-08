@@ -1,12 +1,7 @@
 "use client";
 import { FaHome } from "react-icons/fa";
 import { motion } from "framer-motion";
-
-interface SidebarItemProps {
-  section: string;
-  heightAnchor: string;
-  sidebarState: "expanded" | "collapsed";
-}
+import {SidebarItemProps} from "@/lib/types"
 
 export default function SidebarItem({
   section,

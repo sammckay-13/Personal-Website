@@ -2,31 +2,8 @@
 import { cn } from "@/lib/utils";
 import CustomText from "./CustomText";
 import { Badge } from "./ui/badge";
-import { useState } from "react";
+import { ContentSectionProps } from "@/lib/types";
 
-export interface SkillBadge {
-  title: string;
-  color?: string;
-  textColor?: string;
-}
-
-export interface SkillGroup {
-  skill: string;
-  items: SkillBadge[];
-}
-
-export interface ContentSectionProps {
-  title: string;
-  skillGroups?: SkillGroup[];
-  id?: string;
-  content?: {
-    para1?: string;
-    para2?: string;
-    para3?: string;
-    underlinedPhrases?: string[];
-  };
-  list?: string[];
-}
 
 export default function ContentSection({
   title,

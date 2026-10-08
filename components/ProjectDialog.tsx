@@ -11,15 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import Image, { StaticImageData } from "next/image";
 import { useEffect, useState } from "react";
-
-interface ProjectDialogProps {
-  isOpen: boolean;
-  projectName: string;
-  projectImage: StaticImageData;
-  projectDescription: string;
-  projectUrl: string;
-  onClose: () => void;
-}
+import { ProjectDialogProps } from "@/lib/types";
 
 export default function ProjectDialog({
   isOpen,
@@ -42,7 +34,10 @@ export default function ProjectDialog({
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <form>
-        <DialogContent className="sm:max-w-lg sm:max-h-full bg-[#f7f5ef] dark:bg-[#6F5345]" showCloseButton={false}>
+        <DialogContent
+          className="sm:max-w-lg sm:max-h-full bg-[#f7f5ef] dark:bg-[#6F5345]"
+          showCloseButton={false}
+        >
           <DialogHeader>
             <div>
               <Image

@@ -2,11 +2,9 @@
 
 import { lazy, Suspense } from "react";
 import StringToReactComponent from "string-to-react-component";
+import {UserSVGProps} from "../../lib/types"
 
-interface UserSvgProps {
-  svgData: string;
-}
-export default function UserSvg({ svgData }: UserSvgProps) {
+export default function UserSvg({ svgData }: UserSVGProps) {
   return (
     <StringToReactComponent>
       {`(props)=>{
