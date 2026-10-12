@@ -70,7 +70,7 @@ export function NavMain({ navs }: NavMainProps) {
             }
             className="mt-1 border border-[#CE7052] rounded-full w-full"
           />
-        </div>
+        </div> 
       )}
       <SidebarMenu>
         {navs.map((nav) => (
