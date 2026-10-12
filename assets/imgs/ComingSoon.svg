@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="566" viewBox="0 0 1600 839">
+  <defs>
+    <clipPath id="card"><rect width="1600" height="839" rx="48"/></clipPath>
+    <radialGradient id="glow" cx="50%" cy="42%" r="60%">
+      <stop offset="0" stop-color="#5A463B"/>
+      <stop offset="1" stop-color="#46372F"/>
+    </radialGradient>
+  </defs>
+  <g clip-path="url(#card)">
+    <rect width="1600" height="839" fill="url(#glow)"/>
+    <g transform="translate(800 300) scale(10.5) translate(-35 -25)" opacity="0.2"
+       fill="none" stroke="#D9C8B3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 5,25 L 25,5 L 45,25"/>
+      <path d="M 25,25 L 45,5 L 65,25"/>
+      <path d="M 5,25 L 65,25"/>
+      <path d="M 5,25 L 25,45 L 45,25" opacity="0.5"/>
+      <path d="M 25,25 L 45,45.2 L 65,25" opacity="0.5"/>
+    </g>
+    <text x="800" y="340" text-anchor="middle" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-weight="bold" font-size="150" fill="#D69E5E">Coming Soon</text>
+    <text x="800" y="420" text-anchor="middle" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-weight="bold" font-size="44" fill="#F3EBDD">A new project is in the works</text>
+    <rect x="740" y="465" width="120" height="6" rx="3" fill="#C4735A"/>
+    <rect y="589" width="1600" height="80" fill="#C4735A"/>
+    <rect y="669" width="1600" height="80" fill="#D69E5E"/>
+    <rect y="749" width="1600" height="90" fill="#D2C6A0"/>
+  </g>
+  <rect x="3" y="3" width="1594" height="833" rx="46" fill="none" stroke="#C4735A" stroke-width="6"/>
+</svg>

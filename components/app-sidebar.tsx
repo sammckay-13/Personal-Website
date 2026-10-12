@@ -29,18 +29,6 @@ const data = {
       url: "#",
       icon: <FaGithub className="text-[#FFFBEE]" />,
       items: [
-        // {
-        //   title: "Genesis",
-        //   url: "#",
-        // },
-        // {
-        //   title: "Explorer",
-        //   url: "#",
-        // },
-        // {
-        //   title: "Quantum",
-        //   url: "#",
-        // },
       ],
     },
     {
@@ -51,7 +39,7 @@ const data = {
     },
     {
       title: "Web Gallery",
-      icon: <GrProjects />,
+      icon: <GrProjects className="text-[#FFFBEE]" />,
       url: "/web-projects-gallery",
       items: [
         {
