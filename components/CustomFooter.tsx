@@ -4,7 +4,7 @@ import { MckaypableIcon } from "@/assets/MckaypableIcon";
 
 const navLinks = [
   { href: "#", label: "Features" },
-  { href: "#", label: "Blog" },
+  { href: "blog", label: "Blog" },
 ];
 
 const socialLinks = [

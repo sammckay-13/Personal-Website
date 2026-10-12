@@ -91,3 +91,8 @@ export interface ColorPickerContextValue {
   setAlpha: (alpha: number) => void;
   setMode: (mode: string) => void;
 }
+
+export interface CustomAlertProps {
+  title: string;
+  description: string;
+}
