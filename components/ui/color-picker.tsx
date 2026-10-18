@@ -337,6 +337,8 @@ export const ColorPickerOutput = ({
 type PercentageInputProps = ComponentProps<typeof Input>;
 
 const PercentageInput = ({ className, ...props }: PercentageInputProps) => {
+
+  console.log(props)
   return (
     <div className="relative">
       <Input
@@ -348,9 +350,6 @@ const PercentageInput = ({ className, ...props }: PercentageInputProps) => {
           className,
         )}
       />
-      <span className="-translate-y-1/2 absolute top-1/2 right-2 text-muted-foreground text-xs">
-        %
-      </span>
     </div>
   );
 };
@@ -373,11 +372,12 @@ export const ColorPickerFormat = ({
   if (mode === "hex") {
     const hex = color.hex();
 
+
     return (
       <div className="flex flex-col">
         <div
           className={cn(
-            "-space-x-px relative flex w-full items-center rounded-md bg-white",
+            "-space-x-px relative flex w-full items-center rounded-md bg-[#543c2f]",
             className,
           )}
           {...props}
@@ -387,9 +387,8 @@ export const ColorPickerFormat = ({
             id="hex"
             readOnly
             type="text"
-            value={hex}
+            value={color.hex()}
           />
-          <PercentageInput value={alpha} />
         </div>
         <Button
           style={{ backgroundColor: hex }}

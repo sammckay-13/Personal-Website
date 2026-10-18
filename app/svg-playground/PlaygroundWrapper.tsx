@@ -15,7 +15,7 @@ export default function PlaygroundWrapper() {
       <ShadColorPicker />
       <div className="flex flex-col ml-15 w-[50%] p-1 h-full rounded">
         <Textarea
-          className="w-full min-h-130 mt-15 bg-white"
+          className="w-full min-h-130 mt-14 bg-white"
           placeholder="Paste SVG Data Here"
           value={svgData}
           onChange={(e) => setSvgData(e.target.value)}
@@ -26,12 +26,6 @@ export default function PlaygroundWrapper() {
             onClick={() => setSvgData("")}
           >
             Clear
-          </Button>
-          <Button
-            className="flex items-center justify-center mt-2 bg-[#6F5345] text-white rounded w-[20%] p-1 font-semibold"
-            onClick={() => setSvgData(svgData)}
-          >
-            Submit
           </Button>
         </div>
       </div>
