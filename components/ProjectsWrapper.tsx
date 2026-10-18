@@ -7,8 +7,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Card, CardContent, CardHeader } from "./ui/card";
-import { LuExternalLink } from "react-icons/lu";
 import PersonalCompass from "@/assets/imgs/PersonalCompass.png";
 import BidderFasterStronger from "@/assets/imgs/BidderFasterStronger.png";
 import GoneFishing from "@/assets/imgs/GoneFishing.png";
@@ -17,10 +15,8 @@ import Tower3Defense from "@/assets/imgs/Tower3Defense.png";
 import DNDBuddy from "@/assets/imgs/DNDBuddy.png";
 import Coded_message from "@/assets/imgs/Coded_message.png";
 import ImagePlaceholder from "@/assets/imgs/ImagePlaceholder.png";
-import { StaticImageData } from "next/image";
-import Image from "next/image";
 import ProjectDialog from "./ProjectDialog";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ProjectCard from "./ProjectCard";
 import type { Project } from "../lib/types";
 

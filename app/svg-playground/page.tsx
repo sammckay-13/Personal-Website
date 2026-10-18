@@ -10,7 +10,7 @@ import { AppSidebar } from "@/components/app-sidebar";
 export default async function Home() {
   return (
     <div className="overflow-x-hidden">
-      <SidebarProvider className="h-10" defaultOpen={false}>
+      <SidebarProvider defaultOpen={false}>
         <AppSidebar />
         <SidebarInset className="flex flex-col flex-1 h-20 bg-[#6F5345]">
           <header className="flex sticky">
