@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { MckaypableIcon } from "@/assets/MckaypableIcon";
 
 const navLinks = [
-  { href: "#", label: "Features" },
+  { href: "/web-projects-gallery", label: "Web Projects" },
   { href: "#", label: "Blog" },
 ];
 
