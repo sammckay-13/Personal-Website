@@ -2,12 +2,12 @@ import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { TechNewsCardProps } from "@/lib/types";
 
 
-export default function TechNewsCard({title, content, sources}: TechNewsCardProps) {
+export default function TechNewsCard({blurb_title, content, sources}: TechNewsCardProps) {
 
     return (
         <Card>
             <CardHeader>
-                {title}
+                {blurb_title}
             </CardHeader>
                 <CardContent>
                     {content}

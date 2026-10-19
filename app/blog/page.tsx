@@ -6,8 +6,9 @@ import {
 import MckaypableHeader from "@/components/MckaypableHeader";
 import { AppSidebar } from "@/components/app-sidebar";
 import BlogWrapper from "./BlogWrapper";
+import { fetchNewsSummariesRepository } from "@/repositories/newsSummariesRepository";
 export default async function Home() {
-    // do the server action here to fetch the blurbs and pass them into blog wrapper
+    const summaries = await fetchNewsSummariesRepository();
   return (
     <div className="overflow-x-hidden">
       <SidebarProvider className="min-h-0" defaultOpen={false}>
@@ -24,7 +25,7 @@ export default async function Home() {
           </header>
         </SidebarInset>
       </SidebarProvider>
-      <BlogWrapper/>
+      <BlogWrapper summaries={summaries}/>
     </div>
   );
 }

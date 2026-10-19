@@ -1,15 +1,13 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import { useState } from "react";
-import { ShadColorPicker } from "@/components/ui/color-picker";
 import { InfoIcon } from "lucide-react";
 import TechNewsCard from "./TechNewsCard";
+import { BlogWrapperProps } from "@/lib/types";
 
-export default function BlogWrapper() {
-    fetchSummariesAction()
+
+export default function BlogWrapper({summaries}: BlogWrapperProps) {
+  console.log(summaries)
   return (
     <div className="flex flex-col ml-3 items-center justify-around">
       <Card
@@ -22,7 +20,7 @@ export default function BlogWrapper() {
           {/* It might be cool to add a model column to the database so people can see which model is creating which summaries */}
         </CardContent>
       </Card>
-      <TechNewsCard title="fjdkls" content="fdjsakl" sources={[]}/>
+      <TechNewsCard blurb_title={summaries[0].blurb_title} content={summaries[0].content} sources={summaries[0].sources.url}/>
     </div>
   );
 }
