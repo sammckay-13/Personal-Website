@@ -7,8 +7,7 @@ export async function fetchNewsSummariesService() {
   return rows.map((row) => ({
     title: row.blurb_title ?? "Untitled",
     content: row.content ?? "",
-    sources: Array.isArray(row.sources)
-      ? row.sources.map((s: { url: string }) => s.url)
-      : [],
+    sources: row.sources ?? [],
+    createdAt: row.createdAt ?? "No Date Found",
   }));
 }
