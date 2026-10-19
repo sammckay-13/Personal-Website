@@ -96,8 +96,18 @@ export interface TechNewsCardProps {
   blurb_title: string;
   content: string;
   sources: [];
+  createdAt: string;
 }
 
 export interface BlogWrapperProps {
-  summaries: TechNewsCardProps[]
+  summaries: TechNewsCardProps[];
+}
+
+export interface TechNewsDialogProps {
+  isOpen: boolean;
+  title: string;
+  content: string;
+  sources: [];
+  createdAt: string;
+  onClose: () => void;
 }
