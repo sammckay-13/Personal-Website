@@ -91,3 +91,9 @@ export interface ColorPickerContextValue {
   setAlpha: (alpha: number) => void;
   setMode: (mode: string) => void;
 }
+
+export interface TechNewsCardProps {
+  title: string;
+  content: string;
+  sources: [];
+}
