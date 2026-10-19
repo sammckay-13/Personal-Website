@@ -7,7 +7,6 @@ import {
 } from "@/components/ui/card";
 import { TechNewsCardProps } from "@/lib/types";
 import { useState } from "react";
-import TechNewsDialog from "./TechNewsDialog";
 
 export default function TechNewsCard({
   blurb_title,
