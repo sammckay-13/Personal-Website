@@ -2,9 +2,7 @@
   "version": "8",
   "dialect": "postgres",
   "id": "48bb6585-b49a-4c23-9249-17b7e5b18181",
-  "prevIds": [
-    "00000000-0000-0000-0000-000000000000"
-  ],
+  "prevIds": ["00000000-0000-0000-0000-000000000000"],
   "ddl": [
     {
       "isRlsEnabled": false,
@@ -87,9 +85,7 @@
       "table": "news-summaries"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "news-summaries_pkey",
       "schema": "public",

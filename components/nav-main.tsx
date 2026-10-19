@@ -26,30 +26,28 @@ import { useEffect, useState } from "react";
 export function NavMain({ navs }: NavMainProps) {
   const { state } = useSidebar();
   const router = useRouter();
-  const [section, setSection] = useState<string>("hero")
+  const [section, setSection] = useState<string>("hero");
   const [url, setUrl] = useState("");
 
   useEffect(() => {
-    let lowerCaseSection = section.toLowerCase()
-    setSection(lowerCaseSection)
-    HashScroll()
-  }, [section, url])
+    let lowerCaseSection = section.toLowerCase();
+    setSection(lowerCaseSection);
+    HashScroll();
+  }, [section, url]);
 
   function HashScroll() {
-    let element
+    let element;
     if (section) {
       element = document.getElementById(section);
-
     }
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     } else {
-      router.push("/")
+      router.push("/");
     }
     if (url?.includes("#") === false) {
       router.push(url);
     }
-
   }
 
   return (
@@ -70,7 +68,7 @@ export function NavMain({ navs }: NavMainProps) {
             }
             className="mt-1 border border-[#CE7052] rounded-full w-full"
           />
-        </div> 
+        </div>
       )}
       <SidebarMenu>
         {navs.map((nav) => (
@@ -89,11 +87,9 @@ export function NavMain({ navs }: NavMainProps) {
                         className="[&>svg]:size-6 -ml-1"
                         tooltip={nav.title}
                         onClick={() => {
-
-                          setSection(nav.title)
-                          setUrl(nav.url!)
-                        }
-                        }
+                          setSection(nav.title);
+                          setUrl(nav.url!);
+                        }}
                       />
                     }
                     className={cn(
@@ -139,7 +135,7 @@ export function NavMain({ navs }: NavMainProps) {
             ) : (
               <SidebarMenuButton
                 onClick={() => {
-                  setSection(nav.title)
+                  setSection(nav.title);
                   setUrl(nav.url!);
                 }}
                 className={cn(
@@ -174,7 +170,7 @@ export function NavMain({ navs }: NavMainProps) {
                       className="hover:bg-[#5a4438]"
                       onClick={() => {
                         setSection(subItem.title);
-                        setUrl(subItem.url)
+                        setUrl(subItem.url);
                       }}
                     >
                       <span className="text-[#FFFBEE] mt-0.75">
