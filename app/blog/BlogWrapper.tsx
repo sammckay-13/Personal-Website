@@ -26,7 +26,7 @@ export default function BlogWrapper({ summaries }: BlogWrapperProps) {
       {summaries.map((data, index) => (
           <TechNewsCard
             key={index}
-            blurb_title={data.blurb_title}
+            title={data.title}
             content={data.content}
             sources={data.sources}
             createdAt={data.createdAt}

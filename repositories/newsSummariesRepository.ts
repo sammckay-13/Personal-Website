@@ -3,7 +3,7 @@ import { db } from "../src/db";
 export async function fetchNewsSummariesRepository() {
   return db.query.newsSummariesTable.findMany({
     columns: {
-      blurb_title: true,
+      title: true,
       content: true,
       sources: true,
       createdAt: true,

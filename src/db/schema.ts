@@ -12,5 +12,5 @@ export const newsSummariesTable = pgTable("news-summaries", {
 
   content: text(),
   sources: json(),
-  blurb_title: text(),
+  title: text(),
 });

@@ -93,7 +93,7 @@ export interface ColorPickerContextValue {
 }
 
 export interface TechNewsCardProps {
-  blurb_title: string;
+  title: string;
   content: string;
   sources: [];
   createdAt: string;
