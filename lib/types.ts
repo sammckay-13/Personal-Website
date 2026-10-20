@@ -106,8 +106,13 @@ export interface BlogWrapperProps {
 export interface TechNewsDialogProps {
   isOpen: boolean;
   title: string;
-  content: string;
-  sources: [];
-  createdAt: string;
+  parsedFeed: FeedItem[];
   onClose: () => void;
 }
+
+export type FeedItem = {
+  title: string;
+  summary: string;
+  url: string;
+  domain: string;
+};

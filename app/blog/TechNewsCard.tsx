@@ -22,51 +22,54 @@ export default function TechNewsCard({
     createdAtArr[0] + " " + createdAtArr[1] + " " + createdAtArr[2];
   const [isOpen, setIsOpen] = useState(false);
   let parsedSources = sources.map((data, index) => {
-    return ("https://" + getDomain(data))
-  })
-
+    return "https://" + getDomain(data);
+  });
 
   let dedupedSources = [...new Set(parsedSources)];
-  console.log(dedupedSources)
-  let parsedFeed = parseFeed(content)
-  const allText = parsedFeed.map((item) => item.text).join("\n");
-
-  
+  console.log(dedupedSources);
+  let parsedFeed = parseFeed(content);
 
   return (
     <div>
-
-    <Card className="bg-[#6f5345] border-[#fffbee] text-[#fffbee] h-70 w-170 cursor-pointer">
+      <Card className="bg-[#6f5345] border-[#fffbee] text-[#fffbee] h-110 w-170 cursor-pointer">
         <div onClick={() => setIsOpen(true)}>
-
-        <div className="items-center justify-between w-fit flex ml-4 text-lg mb-2" onClick={() => setIsOpen(true)}>{dateString}          
+          <div
+            className="items-center justify-between w-fit flex ml-4 text-lg mb-2"
+            onClick={() => setIsOpen(true)}
+          >
+            {dateString}
             <div className="ml-4 mb-1">
-                 <FaBookOpen />
-                </div>
-</div>
-        <div className="bg-[#DC9954] h-1.25 rounded-full mb-2" />
-        <CardContent className="text-lg text-[#fffbee]" >
-            {allText}
-        </CardContent>
+              <FaBookOpen />
+            </div>
+          </div>
+          <div className="bg-[#DC9954] h-1.25 rounded-full mb-2" />
+          <CardContent className="text-lg ml-5 h-50 text-[#fffbee]">
+            {parsedFeed.map((data, index) => {
+              return (
+                <li key={data.url}>
+                  <p className="font-semibold">{data.title}</p>
+                  <p className="">{data.summary.slice(0, 150) + "..."}</p>
+                </li>
+              );
+            })}
+          </CardContent>
         </div>
-      <CardFooter className="flex flex-col mt-auto items-center bg-[#624a3e] text-lg text-[#fffbee]">
-        Sources:
-        {dedupedSources.map((data, index) => (
+        <CardFooter className="flex flex-col mt-auto items-center bg-[#624a3e] text-lg text-[#fffbee]">
+          Sources:
+          {dedupedSources.map((data, index) => (
             <a key={index} href={data}>
-            {dedupedSources}
-          </a>
-        ))}
-      </CardFooter>
-    </Card>
+              {dedupedSources}
+            </a>
+          ))}
+        </CardFooter>
+      </Card>
 
-        <TechNewsDialog
+      <TechNewsDialog
         isOpen={isOpen}
         title={title}
-        content={content}
-        sources={sources}
-        createdAt={dateString}
+        parsedFeed={parsedFeed}
         onClose={() => setIsOpen(false)}
-        />
-        </div>
+      />
+    </div>
   );
 }

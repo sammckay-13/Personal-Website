@@ -5,9 +5,9 @@ export async function fetchNewsSummariesService() {
   const rows = await fetchNewsSummariesRepository();
 
   return rows.map((row) => ({
-    title: row.title ?? "Untitled",
+    createdAt: row.createdAt ?? "No Date Found",
     content: row.content ?? "",
     sources: row.sources ?? [],
-    createdAt: row.createdAt ?? "No Date Found",
+    title: row.title ?? "Untitled",
   }));
 }
