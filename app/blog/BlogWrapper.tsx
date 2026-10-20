@@ -5,7 +5,6 @@ import { InfoIcon } from "lucide-react";
 import TechNewsCard from "./TechNewsCard";
 import { BlogWrapperProps } from "@/lib/types";
 
-
 export default function BlogWrapper({ summaries }: BlogWrapperProps) {
   return (
     <div className="flex flex-col ml-3 items-center gap-5">
@@ -24,13 +23,13 @@ export default function BlogWrapper({ summaries }: BlogWrapperProps) {
         </CardContent>
       </Card>
       {summaries.map((data, index) => (
-          <TechNewsCard
-            key={index}
-            title={data.title}
-            content={data.content}
-            sources={data.sources}
-            createdAt={data.createdAt}
-          />
+        <TechNewsCard
+          key={index}
+          title={data.title}
+          content={data.content}
+          sources={data.sources}
+          createdAt={data.createdAt}
+        />
       ))}
     </div>
   );

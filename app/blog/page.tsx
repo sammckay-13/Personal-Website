@@ -6,10 +6,10 @@ import {
 import MckaypableHeader from "@/components/MckaypableHeader";
 import { AppSidebar } from "@/components/app-sidebar";
 import BlogWrapper from "./BlogWrapper";
-import { fetchNewsSummariesAction } from "@/actions/blogActions"
+import { fetchNewsSummariesAction } from "@/actions/blogActions";
 export default async function Home() {
   const summaries = await fetchNewsSummariesAction();
-  console.log(summaries)
+  console.log(summaries);
   return (
     <div className="overflow-x-hidden">
       <SidebarProvider className="min-h-0" defaultOpen={false}>
