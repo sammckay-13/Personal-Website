@@ -30,7 +30,8 @@ export function parseFeed(raw: string): FeedItem[] {
 
 export function getDomain(input: string): string {
   try {
-    return new URL(input.replace(/^:/, "")).hostname.replace(/^www\./, "");
+    let domain = new URL(input.replace(/^:/, "")).hostname.replace(/^www\./, "");
+    return domain
   } catch {
     return input; // fall back to the raw string if it isn't a valid URL
   }

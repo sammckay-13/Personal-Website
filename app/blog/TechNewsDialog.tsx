@@ -26,9 +26,10 @@ export default function TechNewsDialog({
             <DialogTitle className="text-3xl pt-3 w-full font-bold text-[#6F5345] dark:text-[#FFFBEE]">
               {title}
             </DialogTitle>
+          <DialogDescription className="text-[#6F5345] h-[95%] dark:text-[#FFFBEE] text-lg font-semibold scrollbar-thumb-[#543c2f] scrollbar-none pt-6 overflow-y-auto">
+              </DialogDescription>
           </DialogHeader>
-          <div className=" fixed w-full mt-20 bg-[#dc9954] h-2" />
-          <DialogDescription className="text-[#6F5345] h-[95%] dark:text-[#FFFBEE] text-lg font-semibold scrollbar-thumb-[#543c2f] pt-5 overflow-y-auto">
+          <div className=" fixed w-full mt-20 bg-[#dc9954] h-3" />
             <ul className=" flex max-h-[78vh] flex-col gap-4 overflow-y-auto pr-2 mb-5">
               {parsedFeed.length > 0 ? (
                 parsedFeed.map((item) => (
@@ -59,8 +60,7 @@ export default function TechNewsDialog({
                 </p>
               )}
             </ul>
-          </DialogDescription>
-        <div className="fixed mt-170 w-full bg-[#dc9954] h-2"/>
+        <div className="fixed mt-174 w-full bg-[#dc9954] h-2"/>
         </DialogContent>
     </Dialog>
   ) : (

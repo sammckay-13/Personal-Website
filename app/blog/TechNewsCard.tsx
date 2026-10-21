@@ -11,6 +11,13 @@ import TechNewsDialog from "./TechNewsDialog";
 import { getDomain, parseFeed } from "@/lib/parseAINews";
 import { FaBookOpen } from "react-icons/fa";
 
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
+import { Button } from "@/components/ui/button";
+
 export default function TechNewsCard({
   title,
   content,
@@ -31,15 +38,19 @@ export default function TechNewsCard({
 
   return (
     <div>
-      <Card className="bg-[#6f5345] border-[#fffbee] text-[#fffbee] h-110 w-170 cursor-pointer">
-        <div onClick={() => setIsOpen(true)}>
+      <Card className="bg-[#6f5345] border-[#fffbee] text-[#fffbee] h-110 w-170">
           <div
-            className="items-center justify-between w-fit flex ml-4 text-lg mb-2"
-            onClick={() => setIsOpen(true)}
+            className="items-center justify-between w-fit flex ml-4 text-xl mb-2 font-semibold"
           >
             {dateString}
-            <div className="ml-4 mb-1">
-              <FaBookOpen />
+            <div className="ml-4">
+              <Tooltip>
+                <TooltipTrigger render={<Button variant="outline" className="cursor-pointer" onClick={() => setIsOpen(true)}><FaBookOpen/></Button>} />
+                <TooltipContent>
+                  <p className="text-lg">Click to read more!</p>
+                </TooltipContent>
+
+              </Tooltip>
             </div>
           </div>
           <div className="bg-[#DC9954] h-1.25 rounded-full mb-2" />
@@ -53,7 +64,6 @@ export default function TechNewsCard({
               );
             })}
           </CardContent>
-        </div>
         <CardFooter className="flex flex-col mt-auto items-center bg-[#624a3e] text-lg text-[#fffbee]">
           Sources:
           {dedupedSources.map((data, index) => (
