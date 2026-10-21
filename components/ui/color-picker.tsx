@@ -337,8 +337,6 @@ export const ColorPickerOutput = ({
 type PercentageInputProps = ComponentProps<typeof Input>;
 
 const PercentageInput = ({ className, ...props }: PercentageInputProps) => {
-
-  console.log(props)
   return (
     <div className="relative">
       <Input
@@ -371,7 +369,6 @@ export const ColorPickerFormat = ({
 
   if (mode === "hex") {
     const hex = color.hex();
-
 
     return (
       <div className="flex flex-col">

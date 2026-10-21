@@ -91,3 +91,30 @@ export interface ColorPickerContextValue {
   setAlpha: (alpha: number) => void;
   setMode: (mode: string) => void;
 }
+
+export interface TechNewsCardProps {
+  title: string;
+  content: string;
+  sources: string[];
+  createdAt: Date;
+}
+
+export interface BlogWrapperProps {
+  summaries: TechNewsCardProps[];
+}
+
+export interface TechNewsDialogProps {
+  isOpen: boolean;
+  title: string;
+  content: string;
+  createdAt: Date;
+  parsedFeed: FeedItem[];
+  onClose: () => void;
+}
+
+export type FeedItem = {
+  title: string;
+  summary: string;
+  url: string;
+  domain: string;
+};

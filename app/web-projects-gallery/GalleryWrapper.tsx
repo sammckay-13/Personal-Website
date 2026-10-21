@@ -1,18 +1,14 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui/card";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
-import { ShadColorPicker } from "@/components/ui/color-picker";
+import { useState } from "react";
 import ProjectCard from "@/components/ProjectCard";
-import SVGPlayground from "@/assets/imgs/SVGPlayground.png";
+import SVGPlayground from "@/assets/imgs/projects/SVGPlayground.png";
 import type { Project } from "../../lib/types";
 import ProjectDialog from "@/components/ProjectDialog";
-import ComingSoon from "@/assets/imgs/ComingSoon.svg"
+import ComingSoon from "@/assets/imgs/projects/ComingSoon.svg";
 
 export default function GalleryWrapper() {
-    const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [myProject, setMyProject] = useState<Project>({
     name: "",
     description: "",
@@ -36,7 +32,7 @@ export default function GalleryWrapper() {
     },
   ];
 
-    function createDialogOpen(project: Project) {
+  function createDialogOpen(project: Project) {
     setMyProject({
       name: project.name,
       description: project.description,
@@ -49,18 +45,17 @@ export default function GalleryWrapper() {
     <div className="flex flex-row w-[50%] ml-40 gap-10">
       {projects.map((project) => (
         <div className="p-1" onClick={() => createDialogOpen(project)}>
-
-        <ProjectCard key={project.description} project={project} />
+          <ProjectCard key={project.description} project={project} />
         </div>
       ))}
-                <ProjectDialog
-                    isOpen={isDialogOpen}
-                    projectName={myProject?.name}
-                    projectImage={myProject?.image}
-                    projectDescription={myProject?.description}
-                    projectUrl={myProject?.url}
-                    onClose={() => setIsDialogOpen(false)}
-                  />
+      <ProjectDialog
+        isOpen={isDialogOpen}
+        projectName={myProject?.name}
+        projectImage={myProject?.image}
+        projectDescription={myProject?.description}
+        projectUrl={myProject?.url}
+        onClose={() => setIsDialogOpen(false)}
+      />
     </div>
   );
 }

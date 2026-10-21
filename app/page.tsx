@@ -160,7 +160,7 @@ export default async function Home() {
             />
             <div className="md:w-[70%] ml-10 md:ml-[13%]">
               <ProjectsWrapper />
-            </div>
+            </div> 
             <ContentSection
               title="What We Offer"
               id="what we offer"

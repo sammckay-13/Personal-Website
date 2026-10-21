@@ -3,7 +3,7 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import MckaypableHeader from "../svg-playground/MckaypableHeader";
+import MckaypableHeader from "../../components/MckaypableHeader";
 import GalleryWrapper from "./GalleryWrapper";
 import { AppSidebar } from "@/components/app-sidebar";
 

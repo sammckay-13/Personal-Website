@@ -28,8 +28,7 @@ const data = {
       title: "My Projects",
       url: "#",
       icon: <FaGithub className="text-[#FFFBEE]" />,
-      items: [
-      ],
+      items: [],
     },
     {
       title: "What We Offer",

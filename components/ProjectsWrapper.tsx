@@ -7,13 +7,13 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import PersonalCompass from "@/assets/imgs/PersonalCompass.png";
-import BidderFasterStronger from "@/assets/imgs/BidderFasterStronger.png";
-import GoneFishing from "@/assets/imgs/GoneFishing.png";
-import NoconetSignIn from "@/assets/imgs/Noconetsignin.png";
-import Tower3Defense from "@/assets/imgs/Tower3Defense.png";
-import DNDBuddy from "@/assets/imgs/DNDBuddy.png";
-import Coded_message from "@/assets/imgs/Coded_message.png";
+import PersonalCompass from "@/assets/imgs/projects/PersonalCompass.png";
+import BidderFasterStronger from "@/assets/imgs/projects/BidderFasterStronger.png";
+import GoneFishing from "@/assets/imgs/projects/GoneFishing.png";
+import NoconetSignIn from "@/assets/imgs/projects/Noconetsignin.png";
+import Tower3Defense from "@/assets/imgs/projects/Tower3Defense.png";
+import DNDBuddy from "@/assets/imgs/projects/DNDBuddy.png";
+import Coded_message from "@/assets/imgs/projects/Coded_message.png";
 import ImagePlaceholder from "@/assets/imgs/ImagePlaceholder.png";
 import ProjectDialog from "./ProjectDialog";
 import { useState } from "react";
