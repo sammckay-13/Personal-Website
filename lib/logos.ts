@@ -15,7 +15,10 @@ const LOGOS: Record<string, StaticImageData> = {
 };
 
 export function getLogo(domain: string): StaticImageData | null {
-  const parts = domain.toLowerCase().replace(/^www\./, "").split(".");
+  const parts = domain
+    .toLowerCase()
+    .replace(/^www\./, "")
+    .split(".");
 
   // Also matches subdomains like "feeds.arstechnica.com"
   for (let i = 0; i < parts.length - 1; i++) {
