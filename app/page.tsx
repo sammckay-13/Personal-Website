@@ -1,3 +1,4 @@
+"use client";
 import {
   SidebarInset,
   SidebarProvider,
@@ -9,8 +10,37 @@ import { AppSidebar } from "@/components/app-sidebar";
 import { CustomFooter } from "@/components/CustomFooter";
 import BrownHeader from "@/components/BrownHeader";
 import { ModeToggle } from "@/components/ui/ModeToggle";
+import router from "next/router";
+import { useState, useEffect } from "react";
 
 export default async function Home() {
+  const [currAnchor, setCurrAnchor] = useState("");
+    useEffect(() => {
+      let fullHref = document.location.href
+      if (fullHref.includes("#")) {
+        let element = document.getElementById(fullHref.substring(fullHref.indexOf("#"), fullHref.length))
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+
+        }
+      }
+      setCurrAnchor("")
+    }, []);
+  
+    // function redirectOrHashScroll(url: string) {
+    //   let element;
+    //   if (section) {
+    //     element = document.getElementById(url);
+    //   }
+    //   if (element) {
+    //     element.scrollIntoView({ behavior: "smooth" });
+    //   } else {
+    //     router.push("/"+url);
+    //   }
+    //   if (url?.includes("#") === false) {
+    //     router.push(url);
+    //   }
+    // }
   return (
     <div className="overflow-x-hidden h-full">
       <SidebarProvider defaultOpen={false}>
@@ -28,7 +58,7 @@ export default async function Home() {
             <div className="flex flex-row justify-end mr-10"></div>
             <BrownHeader></BrownHeader>
             <ContentSection
-              id="who am i?"
+              id="#who-am-i?"
               title="Who am I?"
               skillGroups={[
                 {
@@ -152,7 +182,7 @@ export default async function Home() {
             />
             <ContentSection
               title="My Projects"
-              id="my projects"
+              id="#my-projects"
               content={{
                 para1:
                   "Throughout my education and career, I've had the opportunity to work on many projects; from building websites and applications to creating accessible interfaces for people with disabilities. Here are some of my most notable projects:",
@@ -163,7 +193,7 @@ export default async function Home() {
             </div> 
             <ContentSection
               title="What We Offer"
-              id="what we offer"
+              id="#what-we-offer"
               content={{
                 para1:
                   "McKaypable is a full-service digital accessibility company.",

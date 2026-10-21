@@ -73,6 +73,7 @@ export interface NavMainProps {
     icon?: React.ReactNode;
     isActive?: boolean;
     items: {
+      icon: React.ReactNode
       title: string;
       url: string;
     }[];

@@ -19,31 +19,29 @@ import {
 import { cn } from "@/lib/utils";
 import { ChevronRightIcon } from "lucide-react";
 import { motion } from "motion/react";
-import { useRouter } from "next/navigation";
 import { NavMainProps } from "@/lib/types";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export function NavMain({ navs }: NavMainProps) {
   const { state } = useSidebar();
   const router = useRouter();
   const [section, setSection] = useState<string>("hero");
-  const [url, setUrl] = useState("");
 
   useEffect(() => {
     let lowerCaseSection = section.toLowerCase();
     setSection(lowerCaseSection);
-    HashScroll();
-  }, [section, url]);
+  }, [section]);
 
-  function HashScroll() {
+  function redirectOrHashScroll(url: string) {
     let element;
     if (section) {
-      element = document.getElementById(section);
+      element = document.getElementById(url);
     }
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     } else {
-      router.push("/");
+      router.push("/"+url);
     }
     if (url?.includes("#") === false) {
       router.push(url);
@@ -55,7 +53,6 @@ export function NavMain({ navs }: NavMainProps) {
       {state === "collapsed" && (
         <div
           className="flex items-center justify-center h-7 flex-col mb-4 hover:cursor-pointer"
-          onClick={() => setSection("hero")}
         >
           <MckaypableIcon color="#FFFBEE" />
           <motion.div
@@ -86,10 +83,10 @@ export function NavMain({ navs }: NavMainProps) {
                       <SidebarMenuButton
                         className="[&>svg]:size-6 -ml-1"
                         tooltip={nav.title}
-                        onClick={() => {
-                          setSection(nav.title);
-                          setUrl(nav.url!);
+                                                onClick={() => {
+                          redirectOrHashScroll(nav.url!)
                         }}
+
                       />
                     }
                     className={cn(
@@ -97,6 +94,7 @@ export function NavMain({ navs }: NavMainProps) {
                       state === "collapsed" && "hover:bg-transparent ",
                     )}
                   >
+
                     {nav.icon}
                   </CollapsibleTrigger>
                 ) : (
@@ -111,7 +109,9 @@ export function NavMain({ navs }: NavMainProps) {
                       "hover:bg-[#5a4438] h-10 mb-2 w-64 [&>svg]:size-6 flex items-center p-2 hover:cursor-pointer focus:bg-transparent active:bg-transparent",
                     )}
                   >
+                    
                     {nav.icon}
+
                     <motion.div
                       initial={{ opacity: 0 }}
                       transition={{ duration: 0.3, delay: 0.15 }}
@@ -121,6 +121,7 @@ export function NavMain({ navs }: NavMainProps) {
                       className="mt-1"
                     >
                       {state === "expanded" && (
+
                         <span className="text-[#FFFBEE] text-2xl">
                           {nav.title}
                         </span>
@@ -134,16 +135,16 @@ export function NavMain({ navs }: NavMainProps) {
               </div>
             ) : (
               <SidebarMenuButton
-                onClick={() => {
-                  setSection(nav.title);
-                  setUrl(nav.url!);
-                }}
                 className={cn(
                   "hover:bg-[#543C2F] h-10 mb-2 w-70 [&>svg]:size-6 flex -ml-1 active:bg-transparent",
                   state === "collapsed" &&
                     "hover:bg-transparent hover:cursor-pointer",
                 )}
+                                        onClick={() => {
+                          redirectOrHashScroll(nav.url!)
+                        }}
               >
+
                 {nav.icon}
                 <motion.div
                   initial={{ opacity: 0 }}
@@ -158,21 +159,22 @@ export function NavMain({ navs }: NavMainProps) {
                   )}
                 </motion.div>
               </SidebarMenuButton>
+
             )}
             <CollapsibleContent>
               <SidebarMenuSub>
                 {nav.items?.map((subItem) => (
                   <SidebarMenuSubItem
                     key={subItem.title}
-                    className="hover:bg-[#5a4438]"
+                    className="hover:bg-[#5a4438] cursor-pointer"
                   >
                     <SidebarMenuSubButton
                       className="hover:bg-[#5a4438]"
-                      onClick={() => {
-                        setSection(subItem.title);
-                        setUrl(subItem.url);
-                      }}
+                                              onClick={() => {
+                          redirectOrHashScroll(subItem.url!)
+                        }}
                     >
+                      {subItem.icon}
                       <span className="text-[#FFFBEE] mt-0.75">
                         {subItem.title}
                       </span>
