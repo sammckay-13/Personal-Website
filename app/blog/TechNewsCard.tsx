@@ -75,6 +75,8 @@ export default function TechNewsCard({
       </Card>
 
       <TechNewsDialog
+      createdAt={createdAt}
+        content={content}
         isOpen={isOpen}
         title={title}
         parsedFeed={parsedFeed}

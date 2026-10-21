@@ -1,15 +1,11 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui/card";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
-import { ShadColorPicker } from "@/components/ui/color-picker";
+import { useState } from "react";
 import ProjectCard from "@/components/ProjectCard";
-import SVGPlayground from "@/assets/imgs/SVGPlayground.png";
+import SVGPlayground from "@/assets/imgs/projects/SVGPlayground.png";
 import type { Project } from "../../lib/types";
 import ProjectDialog from "@/components/ProjectDialog";
-import ComingSoon from "@/assets/imgs/ComingSoon.svg";
+import ComingSoon from "@/assets/imgs/projects/ComingSoon.svg";
 
 export default function GalleryWrapper() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);

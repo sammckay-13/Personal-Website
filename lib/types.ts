@@ -95,8 +95,8 @@ export interface ColorPickerContextValue {
 export interface TechNewsCardProps {
   title: string;
   content: string;
-  sources: [];
-  createdAt: string;
+  sources: string[];
+  createdAt: Date;
 }
 
 export interface BlogWrapperProps {
@@ -106,6 +106,8 @@ export interface BlogWrapperProps {
 export interface TechNewsDialogProps {
   isOpen: boolean;
   title: string;
+  content: string;
+  createdAt: Date;
   parsedFeed: FeedItem[];
   onClose: () => void;
 }
