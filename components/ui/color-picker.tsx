@@ -337,7 +337,6 @@ export const ColorPickerOutput = ({
 type PercentageInputProps = ComponentProps<typeof Input>;
 
 const PercentageInput = ({ className, ...props }: PercentageInputProps) => {
-  console.log(props);
   return (
     <div className="relative">
       <Input

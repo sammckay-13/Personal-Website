@@ -33,7 +33,6 @@ export default function TechNewsCard({
   });
 
   let dedupedSources = [...new Set(parsedSources)];
-  console.log(dedupedSources);
   let parsedFeed = parseFeed(content);
 
   return (
