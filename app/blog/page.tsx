@@ -12,27 +12,27 @@ export default async function Home() {
   const summaries = await fetchNewsSummariesAction();
 
   function toStringArray(value: unknown): string[] {
-  if (Array.isArray(value)) {
-    return value.filter((v): v is string => typeof v === "string");
-  }
-  if (typeof value === "string") {
-    // handles a JSON string like '["https://..."]' or a single URL
-    try {
-      const parsed = JSON.parse(value);
-      return Array.isArray(parsed) ? toStringArray(parsed) : [value];
-    } catch {
-      return [value];
+    if (Array.isArray(value)) {
+      return value.filter((v): v is string => typeof v === "string");
     }
+    if (typeof value === "string") {
+      // handles a JSON string like '["https://..."]' or a single URL
+      try {
+        const parsed = JSON.parse(value);
+        return Array.isArray(parsed) ? toStringArray(parsed) : [value];
+      } catch {
+        return [value];
+      }
+    }
+    return [];
   }
-  return [];
-}
 
-const normalizedSummaries: TechNewsCardProps[] = summaries.map((row) => ({
-  title: row.title,
-  content: row.content,
-  createdAt: row.createdAt,
-  sources: toStringArray(row.sources),
-}));
+  const normalizedSummaries: TechNewsCardProps[] = summaries.map((row) => ({
+    title: row.title,
+    content: row.content,
+    createdAt: row.createdAt,
+    sources: toStringArray(row.sources),
+  }));
   return (
     <div className="overflow-x-hidden">
       <SidebarProvider className="min-h-0" defaultOpen={false}>
