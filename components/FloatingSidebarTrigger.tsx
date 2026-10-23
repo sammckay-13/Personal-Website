@@ -10,7 +10,7 @@ export default function FloatingSidebarTrigger() {
       className="fixed top-0 z-50 flex items-center gap-2 px-4 transition-[left] duration-200 ease-linear"
       style={{
         left: isMobile
-          ? "0px"
+          ? "30px"
           : state === "expanded"
             ? "calc(var(--sidebar-width) + 1rem)"
             : "calc(var(--sidebar-width-icon) + 1rem)",

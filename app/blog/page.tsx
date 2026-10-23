@@ -38,9 +38,9 @@ export default async function Home() {
     <div className="overflow-x-hidden">
       <SidebarProvider className="min-h-0" defaultOpen={false}>
         <AppSidebar />
-        <SidebarInset className="flex flex-col flex-1 h-20 bg-[#6F5345]">
-          <header className="flex sticky z-50">
             <FloatingSidebarTrigger/>
+        <SidebarInset className="flex flex-col flex-1 h-20 bg-[#6F5345]">
+          <header className="flex">
             <MckaypableHeader title="AI News" />
           </header>
         </SidebarInset>
