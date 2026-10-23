@@ -55,7 +55,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { state, isMobile } = useSidebar();
   return (
     <Sidebar
-      collapsible={isMobile ? "offcanvas" : "icon"}
+      collapsible={"icon"}
       {...props}
       className="bg-[#6F5345] border-transparent h-full"
     >

@@ -10,7 +10,6 @@ import { AppSidebar } from "@/components/app-sidebar";
 import { CustomFooter } from "@/components/CustomFooter";
 import BrownHeader from "@/components/BrownHeader";
 import { useEffect } from "react";
-import { ModeToggle } from "@/components/ui/ModeToggle";
 
 export default function HomeContentWrapper() {
   useEffect(() => {
