@@ -45,7 +45,7 @@ export default async function Home() {
                 className="-ml-1 h-10 mt-4 bg-[#49362D] text-[#FFFBEE] hover:text-[#FFFBEE] hover:bg-[#5a4438] hover:cursor-pointer [&>svg]:size-5! z-50"
               />
             </div>
-            <MckaypableHeader title="News Summaries" />
+            <MckaypableHeader title="AI News" />
           </header>
         </SidebarInset>
       </SidebarProvider>
