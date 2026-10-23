@@ -20,7 +20,7 @@ export default async function Home() {
                 className="-ml-1 z-50 h-10 mt-4 bg-[#49362D] text-[#FFFBEE] hover:text-[#FFFBEE] hover:bg-[#5a4438] hover:cursor-pointer [&>svg]:size-5!"
               />
             </div>
-            <MckaypableHeader title="Web Projects Gallery" />
+            <MckaypableHeader title="Projects Gallery" />
           </header>
         </SidebarInset>
       </SidebarProvider>
