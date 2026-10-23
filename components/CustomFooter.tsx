@@ -5,7 +5,7 @@ import { useTheme } from "next-themes";
 
 const navLinks = [
   { href: "/web-projects-gallery", label: "Web Projects" },
-  { href: "#", label: "News Briefing" },
+  { href: "#", label: "AI News" },
 ];
 
 const socialLinks = [
