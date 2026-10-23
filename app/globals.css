@@ -133,3 +133,5 @@
     src: url("/fonts/ALBA___.ttf") format("truetype");
   }
 }
+
+   html, body { overflow-x: clip; }

@@ -12,20 +12,24 @@ import BrownHeader from "@/components/BrownHeader";
 import { useEffect } from "react";
 
 export default function HomeContentWrapper() {
-  useEffect(() => {
-    let fullHref = document.location.href;
-    if (fullHref.includes("#")) {
-      let element = document.getElementById(
-        fullHref.substring(fullHref.indexOf("#"), fullHref.length),
-      );
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  }, []);
+useEffect(() => {
+  const scrollToHash = () => {
+    const hash = decodeURIComponent(window.location.hash); // "#my-projects", "#who-am-i?" etc.
+    if (!hash) return;
+    document.getElementById(hash)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
+  };
+
+  scrollToHash();
+  window.addEventListener("hashchange", scrollToHash);
+  return () => window.removeEventListener("hashchange", scrollToHash);
+}, []);
 
   return (
-    <div className="overflow-x-hidden h-full">
+    <div className="overflow-x-clip h-full">
       <SidebarProvider defaultOpen={false}>
         <AppSidebar />
         <SidebarInset className="flex flex-col flex-1 h-140 bg-[#6F5345]">
@@ -41,7 +45,7 @@ export default function HomeContentWrapper() {
             <div className="flex flex-row justify-end mr-10"></div>
             <BrownHeader></BrownHeader>
             <ContentSection
-              id="#who-am-i?"
+              id="#who-am-i"
               title="Who am I?"
               skillGroups={[
                 {

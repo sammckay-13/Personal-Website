@@ -20,7 +20,7 @@ const data = {
   navMain: [
     {
       title: "Who am I?",
-      url: "#who-am-i?",
+      url: "#who-am-i",
       icon: <FaHome className="text-[#FFFBEE]" />,
       items: [],
     },
