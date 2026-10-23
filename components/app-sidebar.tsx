@@ -52,7 +52,7 @@ const data = {
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  const { state, isMobile } = useSidebar();
+  const { state } = useSidebar();
   return (
     <Sidebar
       collapsible={"icon"}
