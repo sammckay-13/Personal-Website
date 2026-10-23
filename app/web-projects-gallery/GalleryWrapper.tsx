@@ -49,7 +49,11 @@ export default function GalleryWrapper() {
           className="p-1"
           onClick={() => createDialogOpen(project)}
         >
-          <ProjectCard descriptionWidth="w-70" key={project.description} project={project} />
+          <ProjectCard
+            descriptionWidth="w-70"
+            key={project.description}
+            project={project}
+          />
         </div>
       ))}
       <ProjectDialog

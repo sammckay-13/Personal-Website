@@ -53,11 +53,7 @@ export function NavUser({
             </div>
             <ChevronsUpDownIcon className="ml-auto size-4" />
           </DropdownMenuTrigger>
-          <DropdownMenuContent
-            className="w-fit"
-            align="end"
-            sideOffset={4}
-          >
+          <DropdownMenuContent className="w-fit" align="end" sideOffset={4}>
             <DropdownMenuGroup>
               <DropdownMenuLabel className="p-0 font-normal">
                 <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">

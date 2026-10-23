@@ -12,28 +12,28 @@ import BrownHeader from "@/components/BrownHeader";
 import { useEffect } from "react";
 
 export default function HomeContentWrapper() {
-useEffect(() => {
-  const scrollToHash = () => {
-    const hash = decodeURIComponent(window.location.hash); // "#my-projects", "#who-am-i?" etc.
-    if (!hash) return;
-    document.getElementById(hash)?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-      inline: "nearest",
-    });
-  };
+  useEffect(() => {
+    const scrollToHash = () => {
+      const hash = decodeURIComponent(window.location.hash); // "#my-projects", "#who-am-i?" etc.
+      if (!hash) return;
+      document.getElementById(hash)?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      });
+    };
 
-  scrollToHash();
-  window.addEventListener("hashchange", scrollToHash);
-  return () => window.removeEventListener("hashchange", scrollToHash);
-}, []);
+    scrollToHash();
+    window.addEventListener("hashchange", scrollToHash);
+    return () => window.removeEventListener("hashchange", scrollToHash);
+  }, []);
 
   return (
     <div className="overflow-x-clip h-full">
       <SidebarProvider defaultOpen={false}>
         <AppSidebar />
         <SidebarInset className="flex flex-col flex-1 h-140 bg-[#6F5345]">
-          <header className="flex sticky">
+          <header className="flex sticky z-50">
             <div className="flex items-center gap-2 px-4 fixed">
               <SidebarTrigger
                 size="default"

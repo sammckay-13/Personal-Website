@@ -33,26 +33,26 @@ export function NavMain({ navs }: NavMainProps) {
     setSection(lowerCaseSection);
   }, [section]);
 
-function redirectOrHashScroll(url: string) {
-  if (!url.startsWith("#")) {
-    router.push(url);
-    return;
-  }
+  function redirectOrHashScroll(url: string) {
+    if (!url.startsWith("#")) {
+      router.push(url);
+      return;
+    }
 
-  const element = document.getElementById(url); // ids include the "#"
-  if (element) {
-    element.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-      inline: "nearest",
-    });
-    // Rebuild from path + query so any previous hash is dropped
-    const base = window.location.pathname + window.location.search;
-    history.replaceState(null, "", base + url);
-  } else {
-    router.push("/" + url);
+    const element = document.getElementById(url); // ids include the "#"
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      });
+      // Rebuild from path + query so any previous hash is dropped
+      const base = window.location.pathname + window.location.search;
+      history.replaceState(null, "", base + url);
+    } else {
+      router.push("/" + url);
+    }
   }
-}
 
   return (
     <SidebarGroup className="overflow-hidden">

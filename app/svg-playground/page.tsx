@@ -17,7 +17,7 @@ export default async function Home() {
             <div className="flex items-center gap-2 px-4 fixed ">
               <SidebarTrigger
                 size="default"
-                className="-ml-1 h-10 mt-4 bg-[#49362D] text-[#FFFBEE] hover:text-[#FFFBEE] hover:bg-[#5a4438] hover:cursor-pointer [&>svg]:size-5! z-50"
+                className="-ml-1 z-50 h-10 mt-4 bg-[#49362D] text-[#FFFBEE] hover:text-[#FFFBEE] hover:bg-[#5a4438] hover:cursor-pointer [&>svg]:size-5!"
               />
             </div>
             <MckaypableHeader title="SVG Playground" />

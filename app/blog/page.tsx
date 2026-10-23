@@ -38,7 +38,7 @@ export default async function Home() {
       <SidebarProvider className="min-h-0" defaultOpen={false}>
         <AppSidebar />
         <SidebarInset className="flex flex-col flex-1 h-20 bg-[#6F5345]">
-          <header className="flex sticky">
+          <header className="flex sticky z-50">
             <div className="flex items-center gap-2 px-4 fixed ">
               <SidebarTrigger
                 size="default"

@@ -5,12 +5,10 @@ import { MckaypableLogoAnimated } from "@/assets/animations/MckaypableLogoAnimat
 import ProfilePicture from "@/assets/imgs/ProfilePicture.png";
 import Image from "next/image";
 import AnimatedLine from "@/assets/animations/AnimatedLines";
-import { ModeToggle } from "./ui/ModeToggle";
-import { CustomIsMobile } from "./ui/sidebar";
 export default function BrownHeader() {
   return (
     <div className="flex flex-col flex-1 h-fit bg-[#49362D] mb-10" id="hero">
-      <div className="flex flex-row bg-[#49362D] ml-[15%] md:ml-[75%] mt-12 mr-10">
+      <div className="flex flex-row bg-[#49362D] ml-[25%] md:ml-[75%] mt-12 mr-10">
         <div className="flex w-20 md:w-30 mb-2 h-20">
           <MckaypableLogoAnimated color="#fbf3e8" />
         </div>
