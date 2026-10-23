@@ -51,7 +51,7 @@ export default function TechNewsCard({
                     className="cursor-pointer"
                     onClick={() => setIsOpen(true)}
                   >
-                    <FaBookOpen />
+                    <FaBookOpen className="dark:text-[#fffbee] text-[#6f5345]" />
                   </Button>
                 }
               />

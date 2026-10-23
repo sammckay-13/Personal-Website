@@ -150,7 +150,6 @@ export function NavMain({ navs }: NavMainProps) {
                   {state === "expanded" && (
                     <span className="text-[#FFFBEE] text-2xl">{nav.title}</span>
                   )}
-                  fdads
                 </motion.div>
               </SidebarMenuButton>
             )}
