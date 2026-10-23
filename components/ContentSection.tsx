@@ -40,7 +40,7 @@ export default function ContentSection({
                   <Badge
                     key={item.title}
                     className={cn(
-                      "p-3 text-md font-semibold rounded-md drop-shadow border w-20 w-fit border-[#d1cdc1e1] dark:border-[#49362D] flex items-center",
+                      "p-3 text-md font-semibold rounded-md drop-shadow border w-fit border-[#d1cdc1e1] dark:border-[#49362D] flex items-center",
                       item.color ? item.color : "bg-[#e4d7ab]",
                       item.textColor
                         ? item.textColor

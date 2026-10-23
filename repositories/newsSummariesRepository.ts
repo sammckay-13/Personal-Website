@@ -8,7 +8,7 @@ export async function fetchNewsSummariesRepository() {
       sources: true,
       createdAt: true,
     },
-    orderBy: { id: "desc" },
+    orderBy: { createdAt: "desc" },
     limit: 20,
   });
 }

@@ -8,7 +8,6 @@ import AnimatedLine from "@/assets/animations/AnimatedLines";
 import { ModeToggle } from "./ui/ModeToggle";
 import { CustomIsMobile } from "./ui/sidebar";
 export default function BrownHeader() {
-  const checkIsMobile = CustomIsMobile();
   return (
     <div className="flex flex-col flex-1 h-fit bg-[#49362D] mb-10" id="hero">
 

@@ -12,7 +12,7 @@ import BrownHeader from "@/components/BrownHeader";
 import { useEffect } from "react";
 import { ModeToggle } from "@/components/ui/ModeToggle";
 
-export default async function HomeContentWrapper() {
+export default function HomeContentWrapper() {
     useEffect(() => {
       let fullHref = document.location.href
       if (fullHref.includes("#")) {
@@ -24,32 +24,16 @@ export default async function HomeContentWrapper() {
       }
     }, []);
   
-    // function redirectOrHashScroll(url: string) {
-    //   let element;
-    //   if (section) {
-    //     element = document.getElementById(url);
-    //   }
-    //   if (element) {
-    //     element.scrollIntoView({ behavior: "smooth" });
-    //   } else {
-    //     router.push("/"+url);
-    //   }
-    //   if (url?.includes("#") === false) {
-    //     router.push(url);
-    //   }
-    // }
   return (
     <div className="overflow-x-hidden h-full">
-      <SidebarProvider defaultOpen={false}>
-                <ModeToggle />
-        
+      <SidebarProvider defaultOpen={false}>        
         <AppSidebar />
         <SidebarInset className="flex flex-col flex-1 h-140 bg-[#6F5345]">
           <header className="flex sticky">
             <div className="flex items-center gap-2 px-4 fixed">
               <SidebarTrigger
                 size="default"
-                className="-ml-1 h-10 mt-4 bg-[#49362D] text-[#FFFBEE] hover:text-[#FFFBEE] hover:bg-[#5a4438] hover:cursor-pointer [&>svg]:size-5! z-50"
+                className="z-1 -ml-1 h-10 mt-4 bg-[#49362D] text-[#FFFBEE] hover:text-[#FFFBEE] hover:bg-[#5a4438] hover:cursor-pointer [&>svg]:size-5!"
               />
             </div>
           </header>

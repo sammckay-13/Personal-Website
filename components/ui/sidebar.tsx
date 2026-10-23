@@ -270,12 +270,8 @@ function SidebarTrigger({
   ...props
 }: React.ComponentProps<typeof Button>) {
   const { toggleSidebar } = useSidebar();
-  const checkIsMobile = CustomIsMobile();
-  if (checkIsMobile) {
-    return null;
-  } else {
     return (
-      <div className="flex flex-col">
+      <div className="flex flex-col w-10 z-1">
         <Button
           data-sidebar="trigger"
           data-slot="sidebar-trigger"
@@ -291,9 +287,9 @@ function SidebarTrigger({
           <PanelLeftIcon />
           <span className="sr-only">Toggle Sidebar</span>
         </Button>
+        <ModeToggle/>
       </div>
     );
-  }
 }
 
 function SidebarRail({ className, ...props }: React.ComponentProps<"button">) {

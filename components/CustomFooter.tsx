@@ -1,10 +1,11 @@
 import { FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { MckaypableIcon } from "@/assets/MckaypableIcon";
+import { useTheme } from "next-themes";
 
 const navLinks = [
   { href: "/web-projects-gallery", label: "Web Projects" },
-  { href: "#", label: "Blog" },
+  { href: "#", label: "News Briefing" },
 ];
 
 const socialLinks = [
@@ -21,8 +22,10 @@ const socialLinks = [
 ];
 
 export function CustomFooter() {
+    const { theme, setTheme } = useTheme();
+
   return (
-    <footer className="*:px-3 *:md:px-6 flex items-center text-[#DC9954] mt-5 text-md bg-[#FFFBEE] dark:bg-[#543C2F] dark:text-[#d9c8b3]">
+    <footer className="-ml-3 *:px-3 *:md:px-3 flex items-center text-[#DC9954] mt-5 text-md bg-[#FFFBEE] dark:bg-[#543C2F] dark:text-[#d9c8b3]">
       <div className="border-r border-[#CE7052]">
         {socialLinks.map(({ href, label, icon }) => (
           <Button
@@ -54,7 +57,7 @@ export function CustomFooter() {
           className="hover:cursor-default"
         >
           <div className="flex items-center h-5 w-11">
-            <MckaypableIcon />
+            <MckaypableIcon color={theme == "light" ? "#49362D" : "#D9C8B3"} />
           </div>
         </a>
         Sam McKay
