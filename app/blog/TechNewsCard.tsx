@@ -61,7 +61,7 @@ export default function TechNewsCard({
             </Tooltip>
           </div>
         </div>
-        <div className="bg-[#DC9954] h-1.25 rounded-full mb-2" />
+        <div className="flex bg-[#DC9954] w-full h-1.75 mb-2 text-[#ffffffff]-0" ><span className="invisible">fds</span></div>
         <CardContent className="text-lg ml-5 h-50 text-[#8b6959] dark:text-[#fffbee]">
           {parsedFeed.map((data, index) => {
             return (
@@ -72,7 +72,7 @@ export default function TechNewsCard({
             );
           })}
         </CardContent>
-        <CardFooter className="flex flex-col mt-auto items-center bg-[#624a3e] text-lg text-[#fffbee]">
+        <CardFooter className="flex flex-col mt-[5%] items-center bg-[#624a3e] text-lg text-[#fffbee]">
           Sources:
           {dedupedSources.map((data, index) => (
             <a key={index} href={data} className="flex flex-row gap-3">
