@@ -34,17 +34,23 @@ export function NavMain({ navs }: NavMainProps) {
   }, [section]);
 
   function redirectOrHashScroll(url: string) {
-    let element;
-    if (section) {
-      element = document.getElementById(url);
+    if (!url.startsWith("#")) {
+      router.push(url);
+      return;
     }
+
+    const element = document.getElementById(url); // ids include the "#"
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      });
+      // Rebuild from path + query so any previous hash is dropped
+      const base = window.location.pathname + window.location.search;
+      history.replaceState(null, "", base + url);
     } else {
       router.push("/" + url);
-    }
-    if (url?.includes("#") === false) {
-      router.push(url);
     }
   }
 

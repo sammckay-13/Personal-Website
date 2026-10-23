@@ -20,7 +20,7 @@ const data = {
   navMain: [
     {
       title: "Who am I?",
-      url: "#who-am-i?",
+      url: "#who-am-i",
       icon: <FaHome className="text-[#FFFBEE]" />,
       items: [],
     },
@@ -52,10 +52,10 @@ const data = {
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  const { state, isMobile } = useSidebar();
+  const { state } = useSidebar();
   return (
     <Sidebar
-      collapsible={isMobile ? "offcanvas" : "icon"}
+      collapsible={"icon"}
       {...props}
       className="bg-[#6F5345] border-transparent h-full"
     >

@@ -39,8 +39,8 @@ export default function TechNewsCard({
 
   return (
     <div>
-      <Card className="bg-[#6f5345] border-[#fffbee] text-[#fffbee] h-110 w-170">
-        <div className="items-center justify-between w-fit flex ml-4 text-xl mb-2 font-semibold">
+      <Card className="dark:bg-[#6f5345] bg-[#fff9e7] border-[#fffbee] text-[#fffbee] h-auto md:h-110 w-full md:w-170">
+        <div className="items-center justify-between w-fit flex ml-4 text-xl mb-2 font-semibold text-[#8b6959] dark:text-[#fffbee]">
           {dateString}
           <div className="ml-4">
             <Tooltip>
@@ -51,18 +51,20 @@ export default function TechNewsCard({
                     className="cursor-pointer"
                     onClick={() => setIsOpen(true)}
                   >
-                    <FaBookOpen />
+                    <FaBookOpen className="dark:text-[#fffbee] text-[#8b6959]" />
                   </Button>
                 }
               />
-              <TooltipContent>
+              <TooltipContent className="dark:text-[#fffbee] text-[#8b6959] dark:bg-[#6f5345] bg-[#fff9e7]">
                 <p className="text-lg">Click to read more!</p>
               </TooltipContent>
             </Tooltip>
           </div>
         </div>
-        <div className="bg-[#DC9954] h-1.25 rounded-full mb-2" />
-        <CardContent className="text-lg ml-5 h-50 text-[#fffbee]">
+        <div className="flex bg-[#DC9954] w-full h-1.75 mb-2 text-[#ffffffff]-0">
+          <span className="invisible">fds</span>
+        </div>
+        <CardContent className="text-lg ml-5 h-50 text-[#8b6959] dark:text-[#fffbee]">
           {parsedFeed.map((data, index) => {
             return (
               <li key={data.url}>
@@ -72,7 +74,7 @@ export default function TechNewsCard({
             );
           })}
         </CardContent>
-        <CardFooter className="flex flex-col mt-auto items-center bg-[#624a3e] text-lg text-[#fffbee]">
+        <CardFooter className="flex flex-col mt-[5%] items-center bg-[#624a3e] text-lg text-[#fffbee]">
           Sources:
           {dedupedSources.map((data, index) => (
             <a key={index} href={data} className="flex flex-row gap-3">
