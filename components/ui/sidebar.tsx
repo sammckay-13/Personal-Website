@@ -271,7 +271,7 @@ function SidebarTrigger({
 }: React.ComponentProps<typeof Button>) {
   const { toggleSidebar } = useSidebar();
   return (
-    <div className="flex flex-col w-10 z-1">
+    <div className="flex flex-col w-10 md:-ml-5">
       <Button
         data-sidebar="trigger"
         data-slot="sidebar-trigger"

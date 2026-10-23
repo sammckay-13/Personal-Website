@@ -8,7 +8,7 @@ export default function ProjectCard({
   descriptionWidth,
 }: ProjectCardProps) {
   return (
-    <Card className="z-1 flex flex-col w-80 md:w-full h-120 bg-[#f7f5ef] dark:bg-[#6F5345] border-[#d1cdc1e1] dark:border-[#543C2F] border-2 drop-shadow-md rounded-lg cursor-pointer">
+    <Card className="flex flex-col w-80 md:w-full h-120 bg-[#f7f5ef] dark:bg-[#6F5345] border-[#d1cdc1e1] dark:border-[#543C2F] border-2 drop-shadow-md rounded-lg cursor-pointer">
       <CardHeader>
         <div className="flex flex-row items-center justify-center">
           <h2 className="text-[1.35rem] font-bold text-[#6F5345] dark:text-[#FFFBEE]">
