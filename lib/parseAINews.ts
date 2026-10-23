@@ -1,4 +1,5 @@
 // lib/parseFeed.ts
+import { ReactNode } from "react";
 import { FeedItem } from "./types";
 
 export function parseFeed(raw: string): FeedItem[] {
@@ -39,3 +40,4 @@ export function getDomain(input: string): string {
     return input; // fall back to the raw string if it isn't a valid URL
   }
 }
+

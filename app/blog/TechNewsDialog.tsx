@@ -8,6 +8,8 @@ import {
 } from "@/components/ui/dialog";
 import { TechNewsDialogProps } from "@/lib/types";
 import { getDomain } from "@/lib/parseAINews";
+import { getLogo } from "@/lib/logos";
+import Image from "next/image";
 
 export default function TechNewsDialog({
   isOpen,
@@ -45,12 +47,17 @@ export default function TechNewsDialog({
                   rel="noopener noreferrer"
                   className="text-sm underline dark:text-[#acbcd9] text-[#88a6dc] flex gap-2 w-fit ml-5"
                 >
-                  <img
-                    src={getDomain(item.domain)}
-                    alt={`${item.domain} logo`}
-                    className="h-5 w-5 rounded"
-                  />
+                               <Image
+                                 alt="Project Image"
+                                 src={getLogo(getDomain(item.domain)) || ""}
+                                 className="rounded-lg h-7 w-7 mb-7"
+                                 width={200}
+                                 height={200}
+                               />
+                               <span className="mt-1">
                   {item.domain}
+
+                               </span>
                 </a>
               </li>
             ))
