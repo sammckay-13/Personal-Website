@@ -47,17 +47,14 @@ export default function TechNewsDialog({
                   rel="noopener noreferrer"
                   className="text-sm underline dark:text-[#acbcd9] text-[#88a6dc] flex gap-2 w-fit ml-5"
                 >
-                               <Image
-                                 alt="Project Image"
-                                 src={getLogo(getDomain(item.domain)) || ""}
-                                 className="rounded-lg h-7 w-7 mb-7"
-                                 width={200}
-                                 height={200}
-                               />
-                               <span className="mt-1">
-                  {item.domain}
-
-                               </span>
+                  <Image
+                    alt="Project Image"
+                    src={getLogo(getDomain(item.domain)) || ""}
+                    className="rounded-lg h-7 w-7 mb-7"
+                    width={200}
+                    height={200}
+                  />
+                  <span className="mt-1">{item.domain}</span>
                 </a>
               </li>
             ))

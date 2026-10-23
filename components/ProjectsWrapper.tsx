@@ -14,8 +14,8 @@ import NoconetSignIn from "@/assets/imgs/projects/Noconetsignin.png";
 import Tower3Defense from "@/assets/imgs/projects/Tower3Defense.png";
 import DNDBuddy from "@/assets/imgs/projects/DNDBuddy.png";
 import Coded_message from "@/assets/imgs/projects/Coded_message.png";
-import Hermes_Discord from "@/assets/imgs/projects/HermesDiscord.png"
-import AnteraCodex from "@/assets/imgs/projects/AnteraCodex.png"
+import Hermes_Discord from "@/assets/imgs/projects/HermesDiscord.png";
+import AnteraCodex from "@/assets/imgs/projects/AnteraCodex.png";
 import ImagePlaceholder from "@/assets/imgs/ImagePlaceholder.png";
 import ProjectDialog from "./ProjectDialog";
 import { useState } from "react";
@@ -32,7 +32,7 @@ export default function ProjectsWrapper() {
   });
 
   const myProjects: Project[] = [
-        {
+    {
       name: "Start With Who",
       description:
         "An AI-powered learning platform for Newton Institute that uncovers personal insights for every student. It offers course management, public profiles, and private or group chats.",
@@ -83,16 +83,18 @@ export default function ProjectsWrapper() {
     },
     {
       name: "Hermes Integration",
-      description: "A Hermes agent integrated with the messaging platform known as Discord. There are several channels that serve a variety of function to make daily life easier. The AI News page of this website pulls from the Hephaestus channel.",
+      description:
+        "A Hermes agent integrated with the messaging platform known as Discord. There are several channels that serve a variety of function to make daily life easier. The AI News page of this website pulls from the Hephaestus channel.",
       url: "",
-      image: Hermes_Discord
+      image: Hermes_Discord,
     },
     {
       name: "Antera Codex",
-      description: "A codex to keep track of my non-player characters that inhabit my fictional world of Antera, the setting of my Dungeons and Dragons campaigns.",
+      description:
+        "A codex to keep track of my non-player characters that inhabit my fictional world of Antera, the setting of my Dungeons and Dragons campaigns.",
       url: "",
-      image: AnteraCodex
-    }
+      image: AnteraCodex,
+    },
   ];
 
   function createDialogOpen(project: Project) {

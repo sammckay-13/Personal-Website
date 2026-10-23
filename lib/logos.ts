@@ -7,10 +7,10 @@ import bgr from "@/assets/imgs/logos/bgr.svg";
 import nineToFiveMac from "@/assets/imgs/logos/NineToFive.png"; // variable names can't start with a digit
 
 const LOGOS: Record<string, StaticImageData> = {
-  "techcrunch": techcrunch,
-  "arstechnica": arstechnica,
-  "venturebeat": venturebeat,
-  "bgr": bgr,
+  techcrunch: techcrunch,
+  arstechnica: arstechnica,
+  venturebeat: venturebeat,
+  bgr: bgr,
   "9to5mac": nineToFiveMac,
 };
 

@@ -12,7 +12,6 @@ import { getDomain, parseFeed } from "@/lib/parseAINews";
 import { FaBookOpen } from "react-icons/fa";
 import Image from "next/image";
 
-
 import {
   Tooltip,
   TooltipContent,

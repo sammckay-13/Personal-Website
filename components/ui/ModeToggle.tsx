@@ -4,7 +4,6 @@ import { FaRegMoon } from "react-icons/fa";
 import { LuSun } from "react-icons/lu";
 import { useTheme } from "next-themes";
 
-
 import { Button } from "@/components/ui/button";
 
 export function ModeToggle() {

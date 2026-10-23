@@ -270,26 +270,26 @@ function SidebarTrigger({
   ...props
 }: React.ComponentProps<typeof Button>) {
   const { toggleSidebar } = useSidebar();
-    return (
-      <div className="flex flex-col w-10 z-1">
-        <Button
-          data-sidebar="trigger"
-          data-slot="sidebar-trigger"
-          variant="default"
-          size="icon-sm"
-          className={cn(className)}
-          onClick={(event) => {
-            onClick?.(event);
-            toggleSidebar();
-          }}
-          {...props}
-        >
-          <PanelLeftIcon />
-          <span className="sr-only">Toggle Sidebar</span>
-        </Button>
-        <ModeToggle/>
-      </div>
-    );
+  return (
+    <div className="flex flex-col w-10 z-1">
+      <Button
+        data-sidebar="trigger"
+        data-slot="sidebar-trigger"
+        variant="default"
+        size="icon-sm"
+        className={cn(className)}
+        onClick={(event) => {
+          onClick?.(event);
+          toggleSidebar();
+        }}
+        {...props}
+      >
+        <PanelLeftIcon />
+        <span className="sr-only">Toggle Sidebar</span>
+      </Button>
+      <ModeToggle />
+    </div>
+  );
 }
 
 function SidebarRail({ className, ...props }: React.ComponentProps<"button">) {

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import {
   SidebarInset,
   SidebarProvider,
@@ -13,20 +13,21 @@ import { useEffect } from "react";
 import { ModeToggle } from "@/components/ui/ModeToggle";
 
 export default function HomeContentWrapper() {
-    useEffect(() => {
-      let fullHref = document.location.href
-      if (fullHref.includes("#")) {
-        let element = document.getElementById(fullHref.substring(fullHref.indexOf("#"), fullHref.length))
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-
-        }
+  useEffect(() => {
+    let fullHref = document.location.href;
+    if (fullHref.includes("#")) {
+      let element = document.getElementById(
+        fullHref.substring(fullHref.indexOf("#"), fullHref.length),
+      );
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
       }
-    }, []);
-  
+    }
+  }, []);
+
   return (
     <div className="overflow-x-hidden h-full">
-      <SidebarProvider defaultOpen={false}>        
+      <SidebarProvider defaultOpen={false}>
         <AppSidebar />
         <SidebarInset className="flex flex-col flex-1 h-140 bg-[#6F5345]">
           <header className="flex sticky">
@@ -173,7 +174,7 @@ export default function HomeContentWrapper() {
             />
             <div className="md:w-[70%] ml-10 md:ml-[13%]">
               <ProjectsWrapper />
-            </div> 
+            </div>
             <ContentSection
               title="What We Offer"
               id="#what-we-offer"

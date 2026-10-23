@@ -41,7 +41,7 @@ export function NavMain({ navs }: NavMainProps) {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     } else {
-      router.push("/"+url);
+      router.push("/" + url);
     }
     if (url?.includes("#") === false) {
       router.push(url);
@@ -51,9 +51,7 @@ export function NavMain({ navs }: NavMainProps) {
   return (
     <SidebarGroup className="overflow-hidden">
       {state === "collapsed" && (
-        <div
-          className="flex items-center justify-center h-7 flex-col mb-4 hover:cursor-pointer"
-        >
+        <div className="flex items-center justify-center h-7 flex-col mb-4 hover:cursor-pointer">
           <MckaypableIcon color="#FFFBEE" />
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -83,10 +81,9 @@ export function NavMain({ navs }: NavMainProps) {
                       <SidebarMenuButton
                         className="[&>svg]:size-6 -ml-1"
                         tooltip={nav.title}
-                                                onClick={() => {
-                          redirectOrHashScroll(nav.url!)
+                        onClick={() => {
+                          redirectOrHashScroll(nav.url!);
                         }}
-
                       />
                     }
                     className={cn(
@@ -94,7 +91,6 @@ export function NavMain({ navs }: NavMainProps) {
                       state === "collapsed" && "hover:bg-transparent ",
                     )}
                   >
-
                     {nav.icon}
                   </CollapsibleTrigger>
                 ) : (
@@ -109,7 +105,6 @@ export function NavMain({ navs }: NavMainProps) {
                       "hover:bg-[#5a4438] h-10 mb-2 w-64 [&>svg]:size-6 flex items-center p-2 hover:cursor-pointer focus:bg-transparent active:bg-transparent",
                     )}
                   >
-                    
                     {nav.icon}
 
                     <motion.div
@@ -121,7 +116,6 @@ export function NavMain({ navs }: NavMainProps) {
                       className="mt-1"
                     >
                       {state === "expanded" && (
-
                         <span className="text-[#FFFBEE] text-2xl">
                           {nav.title}
                         </span>
@@ -140,11 +134,10 @@ export function NavMain({ navs }: NavMainProps) {
                   state === "collapsed" &&
                     "hover:bg-transparent hover:cursor-pointer",
                 )}
-                                        onClick={() => {
-                          redirectOrHashScroll(nav.url!)
-                        }}
+                onClick={() => {
+                  redirectOrHashScroll(nav.url!);
+                }}
               >
-
                 {nav.icon}
                 <motion.div
                   initial={{ opacity: 0 }}
@@ -159,7 +152,6 @@ export function NavMain({ navs }: NavMainProps) {
                   )}
                 </motion.div>
               </SidebarMenuButton>
-
             )}
             <CollapsibleContent>
               <SidebarMenuSub>
@@ -170,9 +162,9 @@ export function NavMain({ navs }: NavMainProps) {
                   >
                     <SidebarMenuSubButton
                       className="hover:bg-[#5a4438]"
-                                              onClick={() => {
-                          redirectOrHashScroll(subItem.url!)
-                        }}
+                      onClick={() => {
+                        redirectOrHashScroll(subItem.url!);
+                      }}
                     >
                       {subItem.icon}
                       <span className="text-[#FFFBEE] mt-0.75">

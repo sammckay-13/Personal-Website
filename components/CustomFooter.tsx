@@ -22,7 +22,7 @@ const socialLinks = [
 ];
 
 export function CustomFooter() {
-    const { theme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   return (
     <footer className="-ml-3 *:px-3 *:md:px-3 flex items-center text-[#DC9954] mt-5 text-md bg-[#FFFBEE] dark:bg-[#543C2F] dark:text-[#d9c8b3]">

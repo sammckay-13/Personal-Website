@@ -40,4 +40,3 @@ export function getDomain(input: string): string {
     return input; // fall back to the raw string if it isn't a valid URL
   }
 }
-
