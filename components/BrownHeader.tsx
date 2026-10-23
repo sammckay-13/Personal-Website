@@ -8,12 +8,9 @@ import AnimatedLine from "@/assets/animations/AnimatedLines";
 import { ModeToggle } from "./ui/ModeToggle";
 import { CustomIsMobile } from "./ui/sidebar";
 export default function BrownHeader() {
-  const checkIsMobile = CustomIsMobile();
   return (
     <div className="flex flex-col flex-1 h-fit bg-[#49362D] mb-10" id="hero">
-      {checkIsMobile ? <ModeToggle /> : <></>}
-
-      <div className="flex flex-row bg-[#49362D] md:ml-auto ml-21 mt-8 mr-10">
+      <div className="flex flex-row bg-[#49362D] ml-[15%] md:ml-[75%] mt-12 mr-10">
         <div className="flex w-20 md:w-30 mb-2 h-20">
           <MckaypableLogoAnimated color="#fbf3e8" />
         </div>

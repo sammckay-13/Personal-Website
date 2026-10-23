@@ -12,7 +12,8 @@ export function ModeToggle() {
   return (
     <Button
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-      className="px-0 z-50 -ml-1 bg-[#49362D] w-11 h-10 hover:text-[#FFFBEE] hover:bg-[#5a4438] focus-visible:ring-0 focus-visible:ring-offset-0 cursor-pointer"
+
+      className=" h-10 w-11 -ml-1 z-1 bg-[#49362D] hover:text-[#FFFBEE] hover:bg-[#5a4438] focus-visible:ring-0 focus-visible:ring-offset-0 cursor-pointer"
     >
       <FaRegMoon className="text-[#FFFBEE] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
       <LuSun className="absolute text-[#FFFBEE] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />

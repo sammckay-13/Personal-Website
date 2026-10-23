@@ -20,19 +20,19 @@ const data = {
   navMain: [
     {
       title: "Who am I?",
-      url: "#",
+      url: "#who-am-i?",
       icon: <FaHome className="text-[#FFFBEE]" />,
       items: [],
     },
     {
       title: "My Projects",
-      url: "#",
+      url: "#my-projects",
       icon: <FaGithub className="text-[#FFFBEE]" />,
       items: [],
     },
     {
       title: "What We Offer",
-      url: "#",
+      url: "#what-we-offer",
       icon: <FaBriefcase className="text-[#FFFBEE]" />,
       items: [],
     },

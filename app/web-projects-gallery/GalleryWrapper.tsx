@@ -44,7 +44,11 @@ export default function GalleryWrapper() {
   return (
     <div className="flex flex-row w-[50%] ml-40 gap-10">
       {projects.map((project) => (
-        <div className="p-1" onClick={() => createDialogOpen(project)}>
+        <div
+          key={project.url}
+          className="p-1"
+          onClick={() => createDialogOpen(project)}
+        >
           <ProjectCard key={project.description} project={project} />
         </div>
       ))}

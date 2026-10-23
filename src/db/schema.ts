@@ -7,4 +7,3 @@ export const newsSummariesTable = pgTable("news-summaries", {
   sources: json(),
   title: text(),
 });
- 

@@ -1,4 +1,5 @@
 // lib/parseFeed.ts
+import { ReactNode } from "react";
 import { FeedItem } from "./types";
 
 export function parseFeed(raw: string): FeedItem[] {

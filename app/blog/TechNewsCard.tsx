@@ -10,6 +10,7 @@ import { useState } from "react";
 import TechNewsDialog from "./TechNewsDialog";
 import { getDomain, parseFeed } from "@/lib/parseAINews";
 import { FaBookOpen } from "react-icons/fa";
+import Image from "next/image";
 
 import {
   Tooltip,
@@ -17,6 +18,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
+import { getLogo } from "@/lib/logos";
 
 export default function TechNewsCard({
   title,
@@ -73,7 +75,14 @@ export default function TechNewsCard({
         <CardFooter className="flex flex-col mt-auto items-center bg-[#624a3e] text-lg text-[#fffbee]">
           Sources:
           {dedupedSources.map((data, index) => (
-            <a key={index} href={data}>
+            <a key={index} href={data} className="flex flex-row gap-3">
+              <Image
+                alt="Project Image"
+                src={getLogo(getDomain(data)) || ""}
+                className="h-7 w-7 mb-7"
+                width={200}
+                height={200}
+              />
               {dedupedSources}
             </a>
           ))}
