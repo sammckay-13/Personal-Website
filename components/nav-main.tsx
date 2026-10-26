@@ -78,7 +78,7 @@ const expanded = isMobile || state === "expanded";
             key={nav.title}
             defaultOpen={nav.isActive}
             className="group/collapsible"
-            render={<SidebarMenuItem />}
+            render={<SidebarMenuItem  />}
           >
             {nav.items?.length >= 1 ? (
               <div>
@@ -141,6 +141,8 @@ const expanded = isMobile || state === "expanded";
                   !expanded &&
                     "hover:bg-transparent hover:cursor-pointer",
                 )}
+                                        tooltip={nav.title}
+
                 onClick={() => {
                   redirectOrHashScroll(nav.url!);
                 }}
@@ -168,13 +170,13 @@ const expanded = isMobile || state === "expanded";
                     className="hover:bg-[#5a4438] cursor-pointer"
                   >
                     <SidebarMenuSubButton
-                      className="hover:bg-[#5a4438] hover:text-[#FFFBEE] active:text-[#FFFBEE] [&>svg]:text-[#FFFBEE]! text-[#FFFBEE]"
+                      className="hover:bg-[#5a4438] text-lg hover:text-[#FFFBEE] active:text-[#FFFBEE] [&>svg]:text-[#FFFBEE]! text-[#FFFBEE]"
                       onClick={() => {
                         redirectOrHashScroll(subItem.url!);
                       }}
                     >
                       {subItem.icon}
-                      <span className="text-[#FFFBEE] mt-0.75">
+                      <span className="text-lg text-[#FFFBEE] mt-0.75">
                         {subItem.title}
                       </span>
                     </SidebarMenuSubButton>

@@ -275,6 +275,9 @@ function SidebarTrigger({
   const { toggleSidebar } = useSidebar();
   return (
     <div className="flex flex-col w-10 md:-ml-5">
+      <Tooltip>
+      <TooltipTrigger>
+
       <Button
         data-sidebar="trigger"
         data-slot="sidebar-trigger"
@@ -286,10 +289,16 @@ function SidebarTrigger({
           toggleSidebar();
         }}
         {...props}
-      >
+        >
         <PanelLeftIcon />
         <span className="sr-only">Toggle Sidebar</span>
       </Button>
+          </TooltipTrigger>
+          <TooltipContent side="right" className="bg-[#6f5345] text-[#fffbee] border border-[#fffbee] text-md"
+>
+            Toggle Sidebar
+          </TooltipContent>
+        </Tooltip>
       <ModeToggle />
     </div>
   );
@@ -561,6 +570,7 @@ function SidebarMenuButton({
       <TooltipContent
         side="right"
         align="center"
+        className="bg-[#6f5345] border border[#fffbee] text-md"
         hidden={state !== "collapsed" || isMobile}
         {...tooltip}
       />

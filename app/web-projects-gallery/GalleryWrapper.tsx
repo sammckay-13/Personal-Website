@@ -90,9 +90,9 @@ export default function GalleryWrapper() {
       image: DNDBuddy,
     },
     {
-      name: "Anterian Language Encoder",
+      name: "Language Encoder",
       description:
-        "A language encoder that converts English text into a fictional language called Anterian. It uses unique rules to transform letters and words, creating a language intended for use in my fictional world of Antera.",
+        "A language encoder that converts English text into a fictional language called Anterian. It uses unique rules to transform letters, prefixes, and suffixes, creating a language intended for use in my fictional world of Antera.",
       url: "https://github.com/sammckay-13/Anterian_language",
       image: Coded_message,
     },

@@ -2,7 +2,7 @@
 import { useTheme } from "next-themes";
 
 import { MckaypableLogoAnimated } from "@/assets/animations/MckaypableLogoAnimated";
-import ProfilePicture from "@/assets/imgs/ProfilePicture.png";
+import ProfilePicture from "@/assets/imgs/ProfilePicture.jpeg";
 import Image from "next/image";
 import AnimatedLine from "@/assets/animations/AnimatedLines";
 export default function BrownHeader() {
@@ -22,7 +22,7 @@ export default function BrownHeader() {
             <Image
               src={ProfilePicture}
               alt="Profile Picture"
-              className="md:-mt-20 flex w-40 md:w-50 h-50 md:h-60 ml-5 rounded-4xl object-cover border-[#CE7052] border-2 mb-5"
+              className="md:-mt-20 flex w-40 md:w-60 h-50 md:h-70 ml-5 rounded-full object-cover border-[#CE7052] border-4 mb-5"
               loading="eager"
             />
           </div>
