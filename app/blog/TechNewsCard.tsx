@@ -55,7 +55,7 @@ export default function TechNewsCard({
                   </Button>
                 }
               />
-              <TooltipContent className="dark:text-[#fffbee] text-[#8b6959] dark:bg-[#6f5345] bg-[#fff9e7]">
+              <TooltipContent className="dark:text-[#fffbee] text-[#fffbee] border bg-[#6f5345] border-[#fffbee]">
                 <p className="text-lg">Click to read more!</p>
               </TooltipContent>
             </Tooltip>

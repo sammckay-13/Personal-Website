@@ -11,7 +11,7 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { GrProjects } from "react-icons/gr";
-import { FaGithub, FaHome, FaBriefcase } from "react-icons/fa";
+import { FaGithub, FaHome, FaBriefcase, FaRobot } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { MckaypableLogo } from "@/assets/MckaypableLogo";
 import { TbSandbox } from "react-icons/tb";
@@ -34,6 +34,12 @@ const data = {
       title: "What We Offer",
       url: "#what-we-offer",
       icon: <FaBriefcase className="text-[#FFFBEE]" />,
+      items: [],
+    },
+        {
+      title: "AI News",
+      url: "/blog",
+      icon: <FaRobot className="text-[#FFFBEE]" />,
       items: [],
     },
     {

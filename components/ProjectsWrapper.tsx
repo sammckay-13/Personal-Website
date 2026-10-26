@@ -75,9 +75,9 @@ export default function ProjectsWrapper() {
       image: DNDBuddy,
     },
     {
-      name: "Anterian Language Encoder",
+      name: "Language Encoder",
       description:
-        "A language encoder that converts English text into a fictional language called Anterian. It uses unique rules to transform letters and words, creating a language intended for use in my fictional world of Antera.",
+        "A language encoder that converts English text into a fictional language called Anterian. It uses unique rules to transform letters, prefixes, and suffixes, creating a language intended for use in my fictional world of Antera.",
       url: "https://github.com/sammckay-13/Anterian_language",
       image: Coded_message,
     },
@@ -107,14 +107,14 @@ export default function ProjectsWrapper() {
     setIsDialogOpen(true);
   }
   return (
-    <Carousel className="w-230 md:w-full mb-10" opts={{ loop: true }}>
+    <Carousel className="w-230 md:w-full mb-10 -ml-2 md:ml-0" opts={{ loop: true }}>
       <CarouselContent className="ml-1">
         {myProjects.map((project) => (
           <CarouselItem
             key={project.name}
             className="basis-full pl-1 lg:basis-1/3"
           >
-            <div className="p-1 -ml-3" onClick={() => createDialogOpen(project)}>
+            <div className="p-1" onClick={() => createDialogOpen(project)}>
               <ProjectCard project={project} />
             </div>
             <ProjectDialog

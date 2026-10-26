@@ -31,7 +31,7 @@ export default function ProjectCard({
       </CardHeader>
       <CardContent className="flex flex-col items-center gap-4 mt-2">
         <Image
-          alt={`${project.name} screenshot`}
+          alt={`${project.name} image`}
           src={project.image}
           className="rounded-lg object-cover h-auto w-full"
         />
