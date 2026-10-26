@@ -20,7 +20,7 @@ const data = {
   navMain: [
     {
       title: "Who am I?",
-      url: "#who-am-i?",
+      url: "#who-am-i",
       icon: <FaHome className="text-[#FFFBEE]" />,
       items: [],
     },
@@ -45,6 +45,7 @@ const data = {
           icon: <TbSandbox className="text-[#FFFBEE]" />,
           title: "SVG Playground",
           url: "/svg-playground",
+          items:[]
         },
       ],
     },
@@ -53,21 +54,22 @@ const data = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { state, isMobile } = useSidebar();
+const expanded = isMobile || state === "expanded";
   return (
     <Sidebar
-      collapsible={isMobile ? "offcanvas" : "icon"}
+      collapsible={"icon"}
       {...props}
       className="bg-[#6F5345] border-transparent h-full"
     >
       {/* We'll see if I like there being no border on the sidebar */}
 
       <SidebarHeader className="bg-[#6F5345]">
-        {state === "expanded" && (
+        {expanded && (
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2, delay: 0.2 }}
             animate={
-              state === "expanded"
+              expanded
                 ? { opacity: 1, y: 0 }
                 : { opacity: 0, y: -10 }
             }

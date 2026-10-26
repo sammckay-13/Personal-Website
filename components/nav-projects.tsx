@@ -32,7 +32,6 @@ export function NavProjects({
     icon: React.ReactNode;
   }[];
 }) {
-  const { isMobile } = useSidebar();
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
       <SidebarGroupLabel>Projects</SidebarGroupLabel>
@@ -55,11 +54,7 @@ export function NavProjects({
                 <MoreHorizontalIcon />
                 <span className="sr-only">More</span>
               </DropdownMenuTrigger>
-              <DropdownMenuContent
-                className="w-fit"
-                side={isMobile ? "bottom" : "right"}
-                align={isMobile ? "end" : "start"}
-              >
+              <DropdownMenuContent className="w-fit">
                 <DropdownMenuItem>
                   <FolderIcon />
                   <span>View Project</span>

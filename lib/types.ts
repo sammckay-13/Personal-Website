@@ -9,6 +9,7 @@ export interface Project {
 
 export interface ProjectCardProps {
   project: Project;
+  descriptionWidth?: string;
 }
 
 export interface ProjectDialogProps {

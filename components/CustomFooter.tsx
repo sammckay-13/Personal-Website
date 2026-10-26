@@ -4,8 +4,8 @@ import { MckaypableIcon } from "@/assets/MckaypableIcon";
 import { useTheme } from "next-themes";
 
 const navLinks = [
-  { href: "/web-projects-gallery", label: "Web Projects" },
-  { href: "#", label: "News Briefing" },
+  { href: "/web-projects-gallery", label: "Gallery" },
+  { href: "#", label: "AI News" },
 ];
 
 const socialLinks = [
@@ -25,7 +25,7 @@ export function CustomFooter() {
   const { theme, setTheme } = useTheme();
 
   return (
-    <footer className="-ml-3 *:px-3 *:md:px-3 flex items-center text-[#DC9954] mt-5 text-md bg-[#FFFBEE] dark:bg-[#543C2F] dark:text-[#d9c8b3]">
+    <footer className="mb-10 w-full md:w-auto *:px-3 *:md:px-3 flex items-center text-[#DC9954] mt-5 text-md bg-[#FFFBEE] dark:bg-[#543C2F] dark:text-[#d9c8b3]">
       <div className="border-r border-[#CE7052]">
         {socialLinks.map(({ href, label, icon }) => (
           <Button
@@ -41,7 +41,7 @@ export function CustomFooter() {
         ))}
       </div>
       <nav>
-        <ul className="flex gap-3 text-[#6F5345] dark:text-[#d9c8b3] md:text-md md:font-semibold md:gap-6">
+        <ul className="ml-auto flex gap-3 text-[#6F5345] dark:text-[#d9c8b3] text-sm md:text-md md:font-semibold md:gap-6">
           {navLinks.map((link) => (
             <li key={link.label}>
               <a className="hover:text-foreground" href={link.href}>
@@ -51,7 +51,7 @@ export function CustomFooter() {
           ))}
         </ul>
       </nav>
-      <span className="inline-flex items-center md:text-lg md:font-semibold border-l border-[#CE7052]">
+      <span className="inline-flex items-center text-sm md:text-lg md:font-semibold border-l border-[#CE7052]">
         <a
           href="https://youtu.be/ZZ5LpwO-An4?si=FA420ZJSboprYZaD"
           className="hover:cursor-default"
