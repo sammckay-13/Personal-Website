@@ -43,7 +43,7 @@ export default function ProjectDialog({
               <Image
                 alt="Project Image"
                 src={projectImageSrc || ""}
-                className="rounded-lg object-cover h-auto w-65 md:w-200 mb-7"
+                className="rounded-lg object-fill h-auto w-full md:w-200 mb-3 flex justify-between"
                 width={200}
                 height={200}
               />
