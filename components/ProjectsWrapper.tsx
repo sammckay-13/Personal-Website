@@ -114,7 +114,7 @@ export default function ProjectsWrapper() {
             key={project.name}
             className="basis-full pl-1 lg:basis-1/3"
           >
-            <div className="p-1" onClick={() => createDialogOpen(project)}>
+            <div className="p-1 -ml-3" onClick={() => createDialogOpen(project)}>
               <ProjectCard project={project} />
             </div>
             <ProjectDialog

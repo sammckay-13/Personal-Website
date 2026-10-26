@@ -2,12 +2,15 @@
 import { FaHome } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { SidebarItemProps } from "@/lib/types";
+import { useSidebar } from "./ui/sidebar";
 
 export default function SidebarItem({
   section,
   heightAnchor,
   sidebarState,
 }: SidebarItemProps) {
+  const { state, isMobile } = useSidebar();
+const expanded = isMobile || state === "expanded";
   return (
     <div className="flex items-center w-full justify-start h-12 text-sm mr-2 ml-2 font-medium text-white hover:text-white rounded-md">
       <a href={heightAnchor}>
@@ -15,7 +18,7 @@ export default function SidebarItem({
           <div className="flex">
             <FaHome className="h-6 w-6 ml-1" />
           </div>
-          {sidebarState === "expanded" && (
+          {expanded && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

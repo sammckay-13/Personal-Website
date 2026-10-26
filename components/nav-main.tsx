@@ -24,9 +24,10 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 export function NavMain({ navs }: NavMainProps) {
-  const { state } = useSidebar();
   const router = useRouter();
   const [section, setSection] = useState<string>("hero");
+  const { state, isMobile } = useSidebar();
+const expanded = isMobile || state === "expanded";
 
   useEffect(() => {
     let lowerCaseSection = section.toLowerCase();
@@ -56,14 +57,14 @@ export function NavMain({ navs }: NavMainProps) {
 
   return (
     <SidebarGroup className="overflow-hidden">
-      {state === "collapsed" && (
+      {!expanded && (
         <div className="flex items-center justify-center h-7 flex-col mb-4 hover:cursor-pointer">
           <MckaypableIcon color="#FFFBEE" />
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3, delay: 0.2 }}
             animate={
-              state === "collapsed"
+              !expanded
                 ? { opacity: 1, x: 0 }
                 : { opacity: 0, x: -20 }
             }
@@ -81,7 +82,7 @@ export function NavMain({ navs }: NavMainProps) {
           >
             {nav.items?.length >= 1 ? (
               <div>
-                {state === "collapsed" ? (
+                {!expanded ? (
                   <CollapsibleTrigger
                     render={
                       <SidebarMenuButton
@@ -94,7 +95,7 @@ export function NavMain({ navs }: NavMainProps) {
                     }
                     className={cn(
                       "hover:bg-[#5a4438] h-10 mb-2 w-64 [&>svg]:size-6 flex items-center p-2 hover:cursor-pointer focus:bg-transparent active:bg-transparent",
-                      state === "collapsed" && "hover:bg-transparent ",
+                      !expanded && "hover:bg-transparent ",
                     )}
                   >
                     {nav.icon}
@@ -117,17 +118,17 @@ export function NavMain({ navs }: NavMainProps) {
                       initial={{ opacity: 0 }}
                       transition={{ duration: 0.3, delay: 0.15 }}
                       animate={
-                        state === "expanded" ? { opacity: 1 } : { opacity: 0 }
+                        expanded ? { opacity: 1 } : { opacity: 0 }
                       }
                       className="mt-1"
                     >
-                      {state === "expanded" && (
+                      {expanded && (
                         <span className="text-[#FFFBEE] text-2xl">
                           {nav.title}
                         </span>
                       )}
                     </motion.div>
-                    {state === "expanded" && (
+                    {expanded && (
                       <ChevronRightIcon className="ml-2 transition-transform duration-200 group-data-open/collapsible:rotate-90 text-[#FFFBEE]" />
                     )}
                   </CollapsibleTrigger>
@@ -137,7 +138,7 @@ export function NavMain({ navs }: NavMainProps) {
               <SidebarMenuButton
                 className={cn(
                   "hover:bg-[#543C2F] h-10 mb-2 w-70 [&>svg]:size-6 flex -ml-1 active:bg-transparent",
-                  state === "collapsed" &&
+                  !expanded &&
                     "hover:bg-transparent hover:cursor-pointer",
                 )}
                 onClick={() => {
@@ -149,11 +150,11 @@ export function NavMain({ navs }: NavMainProps) {
                   initial={{ opacity: 0 }}
                   transition={{ duration: 0.3, delay: 0.15 }}
                   animate={
-                    state === "expanded" ? { opacity: 1 } : { opacity: 0 }
+                    expanded ? { opacity: 1 } : { opacity: 0 }
                   }
                   className="mt-1"
                 >
-                  {state === "expanded" && (
+                  {expanded && (
                     <span className="text-[#FFFBEE] text-2xl">{nav.title}</span>
                   )}
                 </motion.div>
@@ -167,7 +168,7 @@ export function NavMain({ navs }: NavMainProps) {
                     className="hover:bg-[#5a4438] cursor-pointer"
                   >
                     <SidebarMenuSubButton
-                      className="hover:bg-[#5a4438]"
+                      className="hover:bg-[#5a4438] hover:text-[#FFFBEE] active:text-[#FFFBEE] [&>svg]:text-[#FFFBEE]! text-[#FFFBEE]"
                       onClick={() => {
                         redirectOrHashScroll(subItem.url!);
                       }}

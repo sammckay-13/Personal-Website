@@ -3,15 +3,18 @@
 import { SidebarTrigger, useSidebar } from "@/components/ui/sidebar";
 
 export default function FloatingSidebarTrigger() {
-  const { state, isMobile } = useSidebar();
+const { state, isMobile } = useSidebar();
+const expanded = isMobile || state === "expanded";
+
+// ...
 
   return (
     <div
-      className="fixed top-0 z-50 flex items-center gap-2 px-4 transition-[left] duration-200 ease-linear"
+      className="md:ml-0 -ml-6 fixed top-0 z-50 flex items-center gap-2 px-4 transition-[left] duration-200 ease-linear"
       style={{
         left: isMobile
           ? "30px"
-          : state === "expanded"
+          : expanded
             ? "calc(var(--sidebar-width) + 1rem)"
             : "calc(var(--sidebar-width-icon) + 1rem)",
       }}
