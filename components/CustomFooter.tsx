@@ -6,7 +6,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
 const navLinks = [
   { href: "/web-projects-gallery", label: "Gallery" },
-  { href: "#", label: "AI News" },
+  { href: "/blog", label: "AI News" },
 ];
 
 const socialLinks = [
