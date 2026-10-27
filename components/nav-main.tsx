@@ -27,7 +27,7 @@ export function NavMain({ navs }: NavMainProps) {
   const router = useRouter();
   const [section, setSection] = useState<string>("hero");
   const { state, isMobile } = useSidebar();
-const expanded = isMobile || state === "expanded";
+  const expanded = isMobile || state === "expanded";
 
   useEffect(() => {
     let lowerCaseSection = section.toLowerCase();
@@ -63,11 +63,7 @@ const expanded = isMobile || state === "expanded";
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3, delay: 0.2 }}
-            animate={
-              !expanded
-                ? { opacity: 1, x: 0 }
-                : { opacity: 0, x: -20 }
-            }
+            animate={!expanded ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
             className="mt-1 border border-[#CE7052] rounded-full w-full"
           />
         </div>
@@ -78,7 +74,7 @@ const expanded = isMobile || state === "expanded";
             key={nav.title}
             defaultOpen={nav.isActive}
             className="group/collapsible"
-            render={<SidebarMenuItem  />}
+            render={<SidebarMenuItem />}
           >
             {nav.items?.length >= 1 ? (
               <div>
@@ -117,9 +113,7 @@ const expanded = isMobile || state === "expanded";
                     <motion.div
                       initial={{ opacity: 0 }}
                       transition={{ duration: 0.3, delay: 0.15 }}
-                      animate={
-                        expanded ? { opacity: 1 } : { opacity: 0 }
-                      }
+                      animate={expanded ? { opacity: 1 } : { opacity: 0 }}
                       className="mt-1"
                     >
                       {expanded && (
@@ -138,10 +132,9 @@ const expanded = isMobile || state === "expanded";
               <SidebarMenuButton
                 className={cn(
                   "hover:bg-[#543C2F] h-10 mb-2 w-70 [&>svg]:size-6 flex -ml-1 active:bg-transparent",
-                  !expanded &&
-                    "hover:bg-transparent hover:cursor-pointer",
+                  !expanded && "hover:bg-transparent hover:cursor-pointer",
                 )}
-                                        tooltip={nav.title}
+                tooltip={nav.title}
 
                 onClick={() => {
                   redirectOrHashScroll(nav.url!);
@@ -151,9 +144,7 @@ const expanded = isMobile || state === "expanded";
                 <motion.div
                   initial={{ opacity: 0 }}
                   transition={{ duration: 0.3, delay: 0.15 }}
-                  animate={
-                    expanded ? { opacity: 1 } : { opacity: 0 }
-                  }
+                  animate={expanded ? { opacity: 1 } : { opacity: 0 }}
                   className="mt-1"
                 >
                   {expanded && (

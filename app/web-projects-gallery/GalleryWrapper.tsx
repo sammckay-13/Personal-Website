@@ -114,28 +114,28 @@ export default function GalleryWrapper() {
     });
     setIsDialogOpen(true);
   }
-return (
-  <>
-    <div className="flex flex-col items-center md:items-stretch md:flex-row md:flex-wrap w-full px-4 md:pl-25 md:pr-4">
-      {projects.map((project) => (
-        <div
-          key={project.name}
-          className="w-full max-w-sm md:max-w-none md:w-[33%] p-3 flex justify-center cursor-pointer"
-          onClick={() => createDialogOpen(project)}
-        >
-          <ProjectCard descriptionWidth="md:w-90 w-70" project={project} />
-        </div>
-      ))}
-    </div>
+  return (
+    <>
+      <div className="flex flex-col items-center md:items-stretch md:flex-row md:flex-wrap w-full px-4 md:pl-25 md:pr-4">
+        {projects.map((project) => (
+          <div
+            key={project.name}
+            className="w-full max-w-sm md:max-w-none md:w-[33%] p-3 flex justify-center cursor-pointer"
+            onClick={() => createDialogOpen(project)}
+          >
+            <ProjectCard descriptionWidth="md:w-90 w-70" project={project} />
+          </div>
+        ))}
+      </div>
 
-    <ProjectDialog
-      isOpen={isDialogOpen}
-      projectName={myProject?.name}
-      projectImage={myProject?.image}
-      projectDescription={myProject?.description}
-      projectUrl={myProject?.url}
-      onClose={() => setIsDialogOpen(false)}
-    />
-  </>
-);
+      <ProjectDialog
+        isOpen={isDialogOpen}
+        projectName={myProject?.name}
+        projectImage={myProject?.image}
+        projectDescription={myProject?.description}
+        projectUrl={myProject?.url}
+        onClose={() => setIsDialogOpen(false)}
+      />
+    </>
+  );
 }

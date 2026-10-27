@@ -10,7 +10,7 @@ export default function SidebarItem({
   sidebarState,
 }: SidebarItemProps) {
   const { state, isMobile } = useSidebar();
-const expanded = isMobile || state === "expanded";
+  const expanded = isMobile || state === "expanded";
   return (
     <div className="flex items-center w-full justify-start h-12 text-sm mr-2 ml-2 font-medium text-white hover:text-white rounded-md">
       <a href={heightAnchor}>

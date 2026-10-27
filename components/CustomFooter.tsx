@@ -31,20 +31,25 @@ export function CustomFooter() {
         {socialLinks.map(({ href, label, icon }) => (
           <Tooltip>
             <TooltipTrigger>
-
-          <Button
-            key={label}
-            size="icon"
-            variant="ghost"
-            className="hover:text-[#CE7052] hover:bg-transparent mr-1"
-            >
-            <a aria-label={label} href={href} className="md:[&>svg]:size-5!">
-              {icon}
-            </a>
-          </Button>
-              </TooltipTrigger>
-              <TooltipContent className="bg-[#6f5345] text-[#fffbee] border border-[#fffbee] text-md">{label}</TooltipContent>
-            </Tooltip>
+              <Button
+                key={label}
+                size="icon"
+                variant="ghost"
+                className="hover:text-[#CE7052] hover:bg-transparent mr-1"
+              >
+                <a
+                  aria-label={label}
+                  href={href}
+                  className="md:[&>svg]:size-5!"
+                >
+                  {icon}
+                </a>
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent className="bg-[#6f5345] text-[#fffbee] border border-[#fffbee] text-md">
+              {label}
+            </TooltipContent>
+          </Tooltip>
         ))}
       </div>
       <nav>

@@ -13,9 +13,9 @@ export default async function Home() {
     <div className="overflow-x-hidden">
       <SidebarProvider className="min-h-20 max-h-20 mb-20" defaultOpen={false}>
         <AppSidebar />
-            <FloatingSidebarTrigger/>
+        <FloatingSidebarTrigger />
         <SidebarInset className="flex flex-col flex-1 h-20 bg-[#6F5345]">
-            <MckaypableHeader title="Projects Gallery" />
+          <MckaypableHeader title="Projects Gallery" />
         </SidebarInset>
       </SidebarProvider>
       <GalleryWrapper />

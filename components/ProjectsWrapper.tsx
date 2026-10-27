@@ -107,7 +107,10 @@ export default function ProjectsWrapper() {
     setIsDialogOpen(true);
   }
   return (
-    <Carousel className="w-230 md:w-full mb-10 -ml-2 md:ml-0" opts={{ loop: true }}>
+    <Carousel
+      className="w-230 md:w-full mb-10 -ml-2 md:ml-0"
+      opts={{ loop: true }}
+    >
       <CarouselContent className="ml-1">
         {myProjects.map((project) => (
           <CarouselItem

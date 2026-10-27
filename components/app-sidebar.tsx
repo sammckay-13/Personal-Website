@@ -36,7 +36,7 @@ const data = {
       icon: <FaBriefcase className="text-[#FFFBEE]" />,
       items: [],
     },
-        {
+    {
       title: "AI News",
       url: "/blog",
       icon: <FaRobot className="text-[#FFFBEE]" />,
@@ -51,7 +51,7 @@ const data = {
           icon: <TbSandbox className="text-[#FFFBEE]" />,
           title: "SVG Playground",
           url: "/svg-playground",
-          items:[]
+          items: [],
         },
       ],
     },
@@ -60,7 +60,7 @@ const data = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { state, isMobile } = useSidebar();
-const expanded = isMobile || state === "expanded";
+  const expanded = isMobile || state === "expanded";
   return (
     <Sidebar
       collapsible={"icon"}
@@ -74,11 +74,7 @@ const expanded = isMobile || state === "expanded";
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2, delay: 0.2 }}
-            animate={
-              expanded
-                ? { opacity: 1, y: 0 }
-                : { opacity: 0, y: -10 }
-            }
+            animate={expanded ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
           >
             <SidebarGroupLabel className="flex items-center justify-center gap-1 mt-2">
               <div className="flex w-15 h-10">

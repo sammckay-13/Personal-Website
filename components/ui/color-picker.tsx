@@ -390,17 +390,18 @@ export const ColorPickerFormat = ({
         </div>
         <Tooltip>
           <TooltipTrigger>
-
-        <Button
-          style={{ backgroundColor: hex }}
-          className="bg-black text-white mt-2"
-          onClick={() => handleClick(hex)}
-          >
-          Set Canvas Color
-        </Button>
-            </TooltipTrigger>
-            <TooltipContent className="bg-[#6f5345] text-[#fffbee] text-md border">Set Canvas Color</TooltipContent>
-          </Tooltip>
+            <Button
+              style={{ backgroundColor: hex }}
+              className="bg-black text-white mt-2"
+              onClick={() => handleClick(hex)}
+            >
+              Set Canvas Color
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent className="bg-[#6f5345] text-[#fffbee] text-md border">
+            Set Canvas Color
+          </TooltipContent>
+        </Tooltip>
       </div>
     );
   }
@@ -436,16 +437,18 @@ export const ColorPickerFormat = ({
         </div>
         <Tooltip>
           <TooltipTrigger>
-        <Button
-          style={{ backgroundColor: hexCode }}
-          className=" text-white w-full mt-2"
-          onClick={() => handleClick(hexCode)}
-        >
-          Set Canvas Color
-        </Button>
-                    </TooltipTrigger>
-            <TooltipContent className="bg-[#6f5345] text-[#fffbee] text-md border">Set Canvas Color</TooltipContent>
-          </Tooltip>
+            <Button
+              style={{ backgroundColor: hexCode }}
+              className=" text-white w-full mt-2"
+              onClick={() => handleClick(hexCode)}
+            >
+              Set Canvas Color
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent className="bg-[#6f5345] text-[#fffbee] text-md border">
+            Set Canvas Color
+          </TooltipContent>
+        </Tooltip>
       </div>
     );
   }
@@ -470,16 +473,18 @@ export const ColorPickerFormat = ({
         </div>
         <Tooltip>
           <TooltipTrigger>
-        <Button
-          style={{ backgroundColor: hexCode }}
-          className="bg-black text-white w-full mt-2"
-          onClick={() => handleClick(hexCode)}
-        >
-          Set Canvas Color
-        </Button>
-                    </TooltipTrigger>
-            <TooltipContent className="bg-[#6f5345] text-[#fffbee] text-md border">Set Canvas Color</TooltipContent>
-          </Tooltip>
+            <Button
+              style={{ backgroundColor: hexCode }}
+              className="bg-black text-white w-full mt-2"
+              onClick={() => handleClick(hexCode)}
+            >
+              Set Canvas Color
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent className="bg-[#6f5345] text-[#fffbee] text-md border">
+            Set Canvas Color
+          </TooltipContent>
+        </Tooltip>
       </div>
     );
   }
@@ -516,17 +521,19 @@ export const ColorPickerFormat = ({
           <PercentageInput value={alpha} />
         </div>
         <Tooltip>
-        <TooltipTrigger>
-        <Button
-          style={{ backgroundColor: hexCode }}
-          className="bg-black text-white w-full mt-2"
-          onClick={() => handleClick(hexCode)}
-        >
-          Set Canvas Color
-        </Button>
-                    </TooltipTrigger>
-            <TooltipContent className="bg-[#6f5345] text-[#fffbee] text-md border">Set Canvas Color</TooltipContent>
-          </Tooltip>
+          <TooltipTrigger>
+            <Button
+              style={{ backgroundColor: hexCode }}
+              className="bg-black text-white w-full mt-2"
+              onClick={() => handleClick(hexCode)}
+            >
+              Set Canvas Color
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent className="bg-[#6f5345] text-[#fffbee] text-md border">
+            Set Canvas Color
+          </TooltipContent>
+        </Tooltip>
       </div>
     );
   }
