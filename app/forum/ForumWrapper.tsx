@@ -2,8 +2,12 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import ForumCard from "./ForumCard";
+import { ForumWrapperProps } from "@/lib/types";
 
-export default function ForumWrapper() {
+export default function ForumWrapper({
+  posts,
+  onReaction
+}: ForumWrapperProps) {
   return (
     <div className="flex flex-col ml-3 items-center gap-5">
       <Card
@@ -19,7 +23,9 @@ export default function ForumWrapper() {
           {/* It might be cool to add a model column to the database so people can see which model is creating which summaries */}
         </CardContent>
       </Card>
-      <ForumCard />
+{posts.map((post) => (
+  <ForumCard key={post.id} {...post} onReaction={onReaction} />
+))}
     </div>
   );
 }
