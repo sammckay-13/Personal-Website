@@ -6,6 +6,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
 const navLinks = [
   { href: "/web-projects-gallery", label: "Gallery" },
+  { href: "/forum", label: "RMAIIG Forum" },
   { href: "/blog", label: "AI News" },
 ];
 
@@ -23,28 +24,25 @@ const socialLinks = [
 ];
 
 export function CustomFooter() {
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
 
   return (
     <footer className="mb-10 w-full md:w-auto *:px-3 *:md:px-3 flex items-center text-[#DC9954] mt-5 text-md bg-[#FFFBEE] dark:bg-[#543C2F] dark:text-[#d9c8b3]">
       <div className="border-r border-[#CE7052]">
         {socialLinks.map(({ href, label, icon }) => (
-          <Tooltip>
-            <TooltipTrigger>
-              <Button
-                key={label}
-                size="icon"
-                variant="ghost"
-                className="hover:text-[#CE7052] hover:bg-transparent mr-1"
-              >
-                <a
-                  aria-label={label}
-                  href={href}
-                  className="md:[&>svg]:size-5!"
-                >
-                  {icon}
-                </a>
-              </Button>
+          <Tooltip key={label}>
+            <TooltipTrigger
+              render={
+                <Button
+                  size="icon"
+                  variant="ghost"
+                  nativeButton={false}
+                  render={<a href={href} aria-label={label} />}
+                  className="hover:text-[#CE7052] hover:bg-transparent mr-1 md:[&>svg]:size-5!"
+                />
+              }
+            >
+              {icon}
             </TooltipTrigger>
             <TooltipContent className="bg-[#6f5345] text-[#fffbee] border border-[#fffbee] text-md">
               {label}
@@ -56,7 +54,7 @@ export function CustomFooter() {
         <ul className="ml-auto flex gap-3 text-[#6F5345] dark:text-[#d9c8b3] text-sm md:text-md md:font-semibold md:gap-6">
           {navLinks.map((link) => (
             <li key={link.label}>
-              <a className="hover:text-foreground" key={link.label} href={link.href}>
+              <a className="hover:text-foreground" href={link.href}>
                 {link.label}
               </a>
             </li>

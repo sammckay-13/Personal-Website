@@ -140,6 +140,7 @@ export default function ForumCard({
   id,
   title,
   content,
+  createdAt,
   reactions,
   myReaction,
   onReaction,
@@ -149,6 +150,9 @@ export default function ForumCard({
     { counts: reactions, selected: myReaction },
     applyReaction
   );
+  const createdAtArr = createdAt.toString().split(" ");
+  const dateString =
+    createdAtArr[0] + " " + createdAtArr[1] + " " + createdAtArr[2];
 
   function handleClick(type: ReactionType) {
     startTransition(async () => {
@@ -212,6 +216,7 @@ export default function ForumCard({
             </Tooltip>
           );
         })}
+        <span className="flex mt-1 ml-auto">{dateString}</span>
       </CardFooter>
     </Card>
   );

@@ -48,14 +48,14 @@ export default function TechNewsCard({
                 render={
                   <Button
                     variant="outline"
-                    className="cursor-pointer"
+                    className="cursor-pointer hover:dark:bg-[#654b3e] hover:bg-[#ece5d3] bg-[#fff9e7]"
                     onClick={() => setIsOpen(true)}
                   >
                     <FaBookOpen className="dark:text-[#fffbee] text-[#8b6959]" />
                   </Button>
                 }
               />
-              <TooltipContent className="dark:text-[#fffbee] text-[#fffbee] border bg-[#6f5345] border-[#fffbee]">
+              <TooltipContent className="dark:text-[#fffbee] text-[#fffbee] border bg-[#6f5345] border-[#fffbee] ">
                 <p className="text-lg">Click to read more!</p>
               </TooltipContent>
             </Tooltip>
