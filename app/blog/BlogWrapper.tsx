@@ -20,15 +20,16 @@ export default function BlogWrapper({ summaries }: BlogWrapperProps) {
           {/* It might be cool to add a model column to the database so people can see which model is creating which summaries */}
         </CardContent>
       </Card>
-      {summaries.map((data, index) => (
-        <TechNewsCard
-          key={index}
-          title={data.title}
-          content={data.content}
-          sources={data.sources}
-          createdAt={data.createdAt}
-        />
-      ))}
+      {summaries &&
+        summaries.map((data, index) => (
+          <TechNewsCard
+            key={index}
+            title={data.title}
+            content={data.content}
+            sources={data.sources}
+            createdAt={data.createdAt}
+          />
+        ))}
     </div>
   );
 }

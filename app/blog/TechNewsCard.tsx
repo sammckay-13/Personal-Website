@@ -62,7 +62,8 @@ export default function TechNewsCard({
           </div>
         </div>
         <div className="flex bg-[#DC9954] w-full h-1.75 mb-2 text-[#ffffffff]-0">
-          <span className="invisible">fds</span>
+          <span className="invisible">f</span>
+          {/* This helps the div render. Not sure why I have to do it though */}
         </div>
         <CardContent className="text-lg ml-5 h-50 text-[#8b6959] dark:text-[#fffbee]">
           {parsedFeed.map((data, index) => {

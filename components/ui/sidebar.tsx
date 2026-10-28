@@ -70,7 +70,6 @@ function SidebarProvider({
 }) {
   const isMobile = useIsMobile();
   const [openMobile, setOpenMobile] = React.useState(false);
-  
 
   // This is the internal state of the sidebar.
   // We use openProp and setOpenProp for control from outside the component.
@@ -93,10 +92,8 @@ function SidebarProvider({
 
   // Helper to toggle the sidebar.
   const toggleSidebar = React.useCallback(() => {
-  return isMobile
-    ? setOpenMobile((open) => !open)
-    : setOpen((open) => !open);
-}, [isMobile, setOpen, setOpenMobile]);
+    return isMobile ? setOpenMobile((open) => !open) : setOpen((open) => !open);
+  }, [isMobile, setOpen, setOpenMobile]);
 
   // Adds a keyboard shortcut to toggle the sidebar.
   React.useEffect(() => {
@@ -276,29 +273,32 @@ function SidebarTrigger({
   return (
     <div className="flex flex-col w-10 md:-ml-5">
       <Tooltip>
-      <TooltipTrigger>
-
-      <Button
-        data-sidebar="trigger"
-        data-slot="sidebar-trigger"
-        variant="default"
-        size="icon-sm"
-        className={cn(className)}
-        onClick={(event) => {
-          onClick?.(event);
-          toggleSidebar();
-        }}
-        {...props}
+        <TooltipTrigger
+          render={
+            <Button
+              data-sidebar="trigger"
+              data-slot="sidebar-trigger"
+              variant="default"
+              size="icon-sm"
+              className={cn(className)}
+              onClick={(event) => {
+                onClick?.(event);
+                toggleSidebar();
+              }}
+              {...props}
+            />
+          }
         >
-        <PanelLeftIcon />
-        <span className="sr-only">Toggle Sidebar</span>
-      </Button>
-          </TooltipTrigger>
-          <TooltipContent side="right" className="bg-[#6f5345] text-[#fffbee] border border-[#fffbee] text-md"
->
-            Toggle Sidebar
-          </TooltipContent>
-        </Tooltip>
+          <PanelLeftIcon />
+          <span className="sr-only">Toggle Sidebar</span>
+        </TooltipTrigger>
+        <TooltipContent
+          side="right"
+          className="bg-[#6f5345] text-[#fffbee] border border-[#fffbee] text-md"
+        >
+          Toggle Sidebar
+        </TooltipContent>
+      </Tooltip>
       <ModeToggle />
     </div>
   );

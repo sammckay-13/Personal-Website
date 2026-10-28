@@ -30,16 +30,16 @@ export default function HomeContentWrapper() {
   }, []);
 
   return (
-  <div className="overflow-x-clip h-full">
-    <SidebarProvider defaultOpen={false}>
-      <AppSidebar />
+    <div className="overflow-x-clip h-full">
+      <SidebarProvider defaultOpen={false}>
+        <AppSidebar />
 
-      {/* Trigger is a sibling of SidebarInset, so it isn't trapped under the cards */}
-      <FloatingSidebarTrigger/>
+        {/* Trigger is a sibling of SidebarInset, so it isn't trapped under the cards */}
+        <FloatingSidebarTrigger />
 
-      <SidebarInset className="flex flex-col flex-1 h-140 bg-[#6F5345]">
-        <div className="flex flex-col flex-1 h-140 dark:bg-[#49362D]">
-          <div className="flex flex-row justify-end mr-10"></div>
+        <SidebarInset className="flex flex-col flex-1 h-140 bg-[#6F5345]">
+          <div className="flex flex-col flex-1 h-140 dark:bg-[#49362D]">
+            <div className="flex flex-row justify-end mr-10"></div>
             <BrownHeader></BrownHeader>
             <ContentSection
               id="#who-am-i"

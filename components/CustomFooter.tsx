@@ -31,27 +31,32 @@ export function CustomFooter() {
         {socialLinks.map(({ href, label, icon }) => (
           <Tooltip>
             <TooltipTrigger>
-
-          <Button
-            key={label}
-            size="icon"
-            variant="ghost"
-            className="hover:text-[#CE7052] hover:bg-transparent mr-1"
-            >
-            <a aria-label={label} href={href} className="md:[&>svg]:size-5!">
-              {icon}
-            </a>
-          </Button>
-              </TooltipTrigger>
-              <TooltipContent className="bg-[#6f5345] text-[#fffbee] border border-[#fffbee] text-md">{label}</TooltipContent>
-            </Tooltip>
+              <Button
+                key={label}
+                size="icon"
+                variant="ghost"
+                className="hover:text-[#CE7052] hover:bg-transparent mr-1"
+              >
+                <a
+                  aria-label={label}
+                  href={href}
+                  className="md:[&>svg]:size-5!"
+                >
+                  {icon}
+                </a>
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent className="bg-[#6f5345] text-[#fffbee] border border-[#fffbee] text-md">
+              {label}
+            </TooltipContent>
+          </Tooltip>
         ))}
       </div>
       <nav>
         <ul className="ml-auto flex gap-3 text-[#6F5345] dark:text-[#d9c8b3] text-sm md:text-md md:font-semibold md:gap-6">
           {navLinks.map((link) => (
             <li key={link.label}>
-              <a className="hover:text-foreground" href={link.href}>
+              <a className="hover:text-foreground" key={link.label} href={link.href}>
                 {link.label}
               </a>
             </li>

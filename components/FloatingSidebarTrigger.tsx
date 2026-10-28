@@ -3,10 +3,10 @@
 import { SidebarTrigger, useSidebar } from "@/components/ui/sidebar";
 
 export default function FloatingSidebarTrigger() {
-const { state, isMobile } = useSidebar();
-const expanded = isMobile || state === "expanded";
+  const { state, isMobile } = useSidebar();
+  const expanded = isMobile || state === "expanded";
 
-// ...
+  // ...
 
   return (
     <div
