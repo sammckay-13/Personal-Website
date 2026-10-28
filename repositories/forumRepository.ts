@@ -26,6 +26,13 @@ export const forumRepository = {
       .orderBy(desc(forumPostsTable.createdAt));
   },
 
+  async submitPost(title: string, content: string) {
+       await db
+      .insert(forumPostsTable)
+      .values({ title: title, content: content })
+  },
+
+
   // ---- Reactions ----
   async findReactionType(postId: number, anonId: string) {
     const [row] = await db

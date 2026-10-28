@@ -19,6 +19,11 @@ export const forumService = {
     }));
   },
 
+  async submitPost(title: string, content: string) {
+    const post = await forumRepository.submitPost(title, content);
+    return post;
+  },
+
   // ---- Reactions ----
   // Click the active reaction -> remove it. Click a different one -> swap. No reaction yet -> add.
   async react(postId: number, type: ReactionType, anonId: string) {

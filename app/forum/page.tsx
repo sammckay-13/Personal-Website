@@ -4,7 +4,7 @@ import MckaypableHeader from "../../components/MckaypableHeader";
 import { AppSidebar } from "@/components/app-sidebar";
 import FloatingSidebarTrigger from "@/components/FloatingSidebarTrigger";
 import ForumWrapper from "./ForumWrapper";
-import { fetchPostsAction, reactAction } from "@/actions/forumActions";
+import { fetchPostsAction, reactAction, submitPost } from "@/actions/forumActions";
 
 export default async function Home() {
   const posts = await fetchPostsAction();
@@ -20,7 +20,7 @@ export default async function Home() {
           </header>
         </SidebarInset>
       </SidebarProvider>
-      <ForumWrapper posts={posts} onReaction={reactAction} />
+      <ForumWrapper posts={posts} onReaction={reactAction} submitPost={submitPost} />
     </div>
   );
 }

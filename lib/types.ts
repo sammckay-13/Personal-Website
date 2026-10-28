@@ -1,5 +1,5 @@
 import { StaticImageData } from "next/image";
-import type { reactAction } from "@/actions/forumActions";
+import type { reactAction, submitPost } from "@/actions/forumActions";
 import type { ReactionType, ReactionCounts } from "@/lib/reactions";
 
 export interface Project {
@@ -135,9 +135,15 @@ export type ForumPost = {
 export type ForumWrapperProps = {
   posts: ForumPost[];
   onReaction: typeof reactAction;
+  submitPost: typeof submitPost
 };
 
 export type ForumCardProps = ForumPost & {
   onReaction: typeof reactAction;
 };
 
+export type PostCreationDialogProps = {
+  isOpen: boolean,
+  onClose: () => void,
+  submitPost: typeof submitPost
+}
