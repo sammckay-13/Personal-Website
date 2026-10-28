@@ -1,4 +1,6 @@
 import { StaticImageData } from "next/image";
+import type { reactAction } from "@/actions/forumActions";
+import type { ReactionType, ReactionCounts } from "@/lib/reactions";
 
 export interface Project {
   name: string;
@@ -120,3 +122,22 @@ export type FeedItem = {
   url: string;
   domain: string;
 };
+
+export type ForumPost = {
+  id: number;
+  createdAt: Date;
+  content: string | null;
+  title: string | null;
+  reactions: ReactionCounts;
+  myReaction: ReactionType | null;
+};
+
+export type ForumWrapperProps = {
+  posts: ForumPost[];
+  onReaction: typeof reactAction;
+};
+
+export type ForumCardProps = ForumPost & {
+  onReaction: typeof reactAction;
+};
+
