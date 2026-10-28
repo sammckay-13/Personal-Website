@@ -28,9 +28,9 @@ export default function BrownHeader() {
           </div>
         </main>
         <div className="-mt-10 ml-4 md:ml-15 text-[#49362D]">
-          <p className="text-3xl ml-0 flex-wrap md:ml-0 text-[#DC9954] font-bold">
-            <span>Sam McKay - </span>
-            Full Stack Engineer, Founder and CEO of McKaypable
+          <p className="text-3xl ml-0 flex gap-2 flex-col md:ml-0 text-[#DC9954] font-bold">
+            <span>Sam McKay</span>
+            Full Stack Engineer, Public Speaker, Founder and CEO of McKaypable
           </p>
           <div className="h-4" />
           <p className="text-xl w-[95%] font-bold text-[#fbf3e8]">

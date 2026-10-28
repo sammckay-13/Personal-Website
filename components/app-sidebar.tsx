@@ -15,6 +15,7 @@ import { FaGithub, FaHome, FaBriefcase, FaRobot } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { MckaypableLogo } from "@/assets/MckaypableLogo";
 import { TbSandbox } from "react-icons/tb";
+import { MdOutlineForum } from "react-icons/md";
 
 const data = {
   navMain: [
@@ -40,6 +41,12 @@ const data = {
       title: "AI News",
       url: "/blog",
       icon: <FaRobot className="text-[#FFFBEE]" />,
+      items: [],
+    },
+        {
+      title: "RMAIIG Forum",
+      url: "/forum",
+      icon: <MdOutlineForum className="text-[#FFFBEE]" />,
       items: [],
     },
     {

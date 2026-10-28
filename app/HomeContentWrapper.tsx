@@ -154,7 +154,7 @@ export default function HomeContentWrapper() {
 
               content={{
                 para1:
-                  "I'm Sam McKay, a Full Stack Engineer, Founder/CEO of McKaypable, . My background in Full Stack Development and years of experience building integrated software have allowed me to work across a wide range of technologies, including JavaScript, TypeScript, React, Node.js, Next.js, Python, and Agentic Coding models.",
+                  "I'm Sam McKay, a Full Stack Engineer, Founder/CEO of McKaypable and head of the Fort Collins chapter of Rocky Mountain AI Interest Group. My background in Full Stack Development and years of experience building integrated software have allowed me to work across a wide range of technologies, including JavaScript, TypeScript, React, Node.js, Next.js, Python, and Agentic Coding models.",
                 para2:
                   "But for me, software development has always been more than just writing code. I'm fascinated by the ways technology can either open doors for people or, unintentionally, create barriers. This is what led me to become passionate about accessibility and disability-driven development.",
                 para3:
