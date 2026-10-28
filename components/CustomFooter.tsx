@@ -56,7 +56,7 @@ export function CustomFooter() {
         <ul className="ml-auto flex gap-3 text-[#6F5345] dark:text-[#d9c8b3] text-sm md:text-md md:font-semibold md:gap-6">
           {navLinks.map((link) => (
             <li key={link.label}>
-              <a className="hover:text-foreground" href={link.href}>
+              <a className="hover:text-foreground" key={link.label} href={link.href}>
                 {link.label}
               </a>
             </li>
