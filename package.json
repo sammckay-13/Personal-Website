@@ -24,6 +24,7 @@
     "dotenv": "^18.0.8",
     "drizzle-orm": "^0.45.4",
     "embla-carousel-react": "^8.6.0",
+    "field": "^1.0.1",
     "html-react-parser": "^6.1.7",
     "lucide-react": "^1.28.0",
     "motion": "^14.7.1",

@@ -19,6 +19,7 @@
         "dotenv": "^18.0.8",
         "drizzle-orm": "^0.45.4",
         "embla-carousel-react": "^8.6.0",
+        "field": "^1.0.1",
         "html-react-parser": "^6.1.7",
         "lucide-react": "^1.28.0",
         "motion": "^14.7.1",
@@ -887,6 +888,8 @@
     "fastq": ["fastq@1.20.1", "", { "dependencies": { "reusify": "^1.0.4" } }, "sha512-GGToxJ/w1x32s/D2EKND7kTil4n8OVk/9mycTc4VDza13lOvpUZTGX3mFSCtV9ksdGBVzvsyAVLM6mHFThxXxw=="],
 
     "fdir": ["fdir@6.5.0", "", { "peerDependencies": { "picomatch": "^3 || ^4" }, "optionalPeers": ["picomatch"] }, "sha512-tIbYtZbucOs0BRGqPJkshJUYdL+SDH7dVM8gjy+ERp3WAUjLEFJE+02kanyHtwjWOnwrKYBiwAmM0p4kLJAnXg=="],
+
+    "field": ["field@1.0.1", "", {}, "sha512-Jcp/tkdqcLr5c9WnGqpUDQJS0KGD5JsnhhC0i5+e7UvtG1YFM3X4lG55NhFU+NoS7NnuMaDGs6mnXSgOAl/uKg=="],
 
     "figures": ["figures@6.1.0", "", { "dependencies": { "is-unicode-supported": "^2.0.0" } }, "sha512-d+l3qxjSesT4V7v2fh+QnmFnUWv9lSpjarhShNTgBOfA0ttejbQUAlHLitbjkoRiDulW0OPoQPYIGhIC8ohejg=="],
 
