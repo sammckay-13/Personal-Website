@@ -20,6 +20,20 @@ export async function fetchPostsAction() {
   return posts.map((p) => ({ ...p, myReaction: mine[p.id] ?? null }));
 }
 
+const postSchema = z.object({
+  title: z.string(),
+  content: z.string(),
+});
+export type postInput = z.infer<typeof postSchema>;
+
+export async function submitPost(input: postInput) {
+  const {content, title} = postSchema.parse(input);
+  const result = await forumService.submitPost(title, content)
+  revalidatePath("/forum");
+  return result;
+
+}
+
 // ---- Reactions ----
 const reactSchema = z.object({
   postId: z.number().int().positive(),
