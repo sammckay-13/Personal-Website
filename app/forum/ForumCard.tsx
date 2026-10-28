@@ -158,13 +158,13 @@ export default function ForumCard({
   }
 
   return (
-    <Card className="flex items-center w-[50%] mt-15 h-fit border-[#fffbee] bg-[#fff9e7] dark:bg-[#6f5345] text-[#fffbee]">
+    <Card className="flex items-center w-[90%] h-[30%] border-[#fffbee] bg-[#fff9e7] dark:bg-[#6f5345] text-[#fffbee] md:h-fit md:w-[50%]">
       <CardHeader className="w-full text-3xl font-semibold text-[#8b6959] dark:text-[#fffbee]">
         {title}
       </CardHeader>
       <div className="w-full h-1.75 bg-[#DC9954]" />
-      <CardContent className="flex gap-4 text-lg text-[#8b6959] dark:text-[#fffbee]">
-        <div>{content}</div>
+      <CardContent className="flex gap-4 text-lg text-[#8b6959] dark:text-[#fffbee] w-full">
+        <span className="text-xl flex items-center font-semibold">{content}</span>
       </CardContent>
       <CardFooter className="flex flex-row w-full bg-[#624a3e] border-t border-[#fffbee] text-lg text-[#fffbee]">
         {REACTIONS.map(({ type, label, Icon, ActiveIcon, color, glow, on, off }) => {
