@@ -9,6 +9,8 @@ import BlogWrapper from "./BlogWrapper";
 import { fetchNewsSummariesAction } from "@/actions/blogActions";
 import { TechNewsCardProps } from "@/lib/types";
 import FloatingSidebarTrigger from "@/components/FloatingSidebarTrigger";
+
+export const dynamic = "force-dynamic";
 export default async function Home() {
   const summaries = await fetchNewsSummariesAction();
 
