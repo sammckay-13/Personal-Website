@@ -27,11 +27,8 @@ export const forumRepository = {
   },
 
   async submitPost(title: string, content: string) {
-       await db
-      .insert(forumPostsTable)
-      .values({ title: title, content: content })
+    await db.insert(forumPostsTable).values({ title: title, content: content });
   },
-
 
   // ---- Reactions ----
   async findReactionType(postId: number, anonId: string) {

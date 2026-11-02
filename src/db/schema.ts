@@ -6,7 +6,7 @@ import {
   timestamp,
   uuid,
   uniqueIndex,
-  index
+  index,
 } from "drizzle-orm/pg-core";
 
 export const newsSummariesTable = pgTable("news-summaries", {
@@ -38,5 +38,5 @@ export const forumReactionsTable = pgTable(
   (t) => [
     uniqueIndex("forum_reactions_post_anon_idx").on(t.forum_post_id, t.anon_id),
     index("forum_reactions_post_type_idx").on(t.forum_post_id, t.type),
-  ]
+  ],
 );

@@ -8,7 +8,11 @@ import { FaPlus, FaClock, FaFire } from "react-icons/fa";
 import ForumCard from "./ForumCard";
 import PostCreationDialog from "./PostCreationDialog";
 import type { ForumWrapperProps } from "@/lib/types";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 type SortMode = "newest" | "reactions";
 
@@ -30,7 +34,7 @@ export default function ForumWrapper({
     return [...posts].sort(
       (a, b) =>
         totalReactions(b.reactions) - totalReactions(a.reactions) ||
-        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime() // tie-breaker: newer first
+        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(), // tie-breaker: newer first
     );
   }, [posts, byReactions]);
 
@@ -62,66 +66,68 @@ export default function ForumWrapper({
         <span className="mt-1 text-xl">Create a Post</span>
       </Button>
 
-<div className="flex w-[50%] justify-end">
-  <motion.div whileTap={{ scale: 0.92 }} transition={{ duration: 0.12 }}>
-    <Tooltip>
-      <TooltipTrigger
-        render={
-          <Button
-            variant="outline"
-            aria-pressed={byReactions}
-            aria-label={
-              byReactions
-                ? "Sorted by most reactions. Click to sort by newest."
-                : "Sorted by newest. Click to sort by most reactions."
-            }
-            onClick={() => setSort(byReactions ? "newest" : "reactions")}
-            className={`w-fit cursor-pointer gap-2 border px-3 py-2 h-fit text-lg font-semibold transition-colors duration-300 ${
-              byReactions
-                ? "bg-[#dc9954] border-[#dc9954] text-[#fffbee] hover:bg-[#c98a48] hover:text-[#fffbee] dark:bg-[#dc9954] dark:hover:bg-[#c98a48]"
-                : "bg-[#fff9e7] border-[#624a3e] text-[#6f5345] hover:bg-[#ece5d3] hover:text-[#6f5345] dark:bg-[#6f5345] dark:text-[#fffbee] dark:hover:bg-[#654b3e]"
-            }`}
-          />
-        }
-      >
-        <span className="relative inline-flex size-5 items-center justify-center">
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.span
-              key={sort}
-              initial={{ rotate: -90, scale: 0, opacity: 0 }}
-              animate={{ rotate: 0, scale: 1, opacity: 1 }}
-              exit={{ rotate: 90, scale: 0, opacity: 0 }}
-              transition={{ duration: 0.18 }}
-              className="inline-flex"
+      <div className="flex w-[50%] justify-end">
+        <motion.div whileTap={{ scale: 0.92 }} transition={{ duration: 0.12 }}>
+          <Tooltip>
+            <TooltipTrigger
+              render={
+                <Button
+                  variant="outline"
+                  aria-pressed={byReactions}
+                  aria-label={
+                    byReactions
+                      ? "Sorted by most reactions. Click to sort by newest."
+                      : "Sorted by newest. Click to sort by most reactions."
+                  }
+                  onClick={() => setSort(byReactions ? "newest" : "reactions")}
+                  className={`w-fit cursor-pointer gap-2 border px-3 py-2 h-fit text-lg font-semibold transition-colors duration-300 ${
+                    byReactions
+                      ? "bg-[#dc9954] border-[#dc9954] text-[#fffbee] hover:bg-[#c98a48] hover:text-[#fffbee] dark:bg-[#dc9954] dark:hover:bg-[#c98a48]"
+                      : "bg-[#fff9e7] border-[#624a3e] text-[#6f5345] hover:bg-[#ece5d3] hover:text-[#6f5345] dark:bg-[#6f5345] dark:text-[#fffbee] dark:hover:bg-[#654b3e]"
+                  }`}
+                />
+              }
             >
-              {byReactions ? <FaFire /> : <FaClock />}
-            </motion.span>
-          </AnimatePresence>
-        </span>
+              <span className="relative inline-flex size-5 items-center justify-center">
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.span
+                    key={sort}
+                    initial={{ rotate: -90, scale: 0, opacity: 0 }}
+                    animate={{ rotate: 0, scale: 1, opacity: 1 }}
+                    exit={{ rotate: 90, scale: 0, opacity: 0 }}
+                    transition={{ duration: 0.18 }}
+                    className="inline-flex"
+                  >
+                    {byReactions ? <FaFire /> : <FaClock />}
+                  </motion.span>
+                </AnimatePresence>
+              </span>
 
-        <span className="relative inline-flex overflow-hidden mt-1">
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.span
-              key={sort}
-              initial={{ y: 14, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -14, opacity: 0 }}
-              transition={{ duration: 0.16 }}
+              <span className="relative inline-flex overflow-hidden mt-1">
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.span
+                    key={sort}
+                    initial={{ y: 14, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -14, opacity: 0 }}
+                    transition={{ duration: 0.16 }}
+                  >
+                    {byReactions ? "Most reactions" : "Newest"}
+                  </motion.span>
+                </AnimatePresence>
+              </span>
+            </TooltipTrigger>
+            <TooltipContent
+              side="bottom"
+              className="bg-[#6f5345] border border-[#fffbee] text-[#fffbee] text-md"
             >
-              {byReactions ? "Most reactions" : "Newest"}
-            </motion.span>
-          </AnimatePresence>
-        </span>
-      </TooltipTrigger>
-      <TooltipContent
-        side="bottom"
-        className="bg-[#6f5345] border border-[#fffbee] text-[#fffbee] text-md"
-      >
-        {byReactions ? "Click to sort by newest" : "Click to sort by most reactions"}
-      </TooltipContent>
-    </Tooltip>
-  </motion.div>
-</div>
+              {byReactions
+                ? "Click to sort by newest"
+                : "Click to sort by most reactions"}
+            </TooltipContent>
+          </Tooltip>
+        </motion.div>
+      </div>
 
       <PostCreationDialog
         isOpen={isOpen}

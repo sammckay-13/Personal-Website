@@ -1,5 +1,5 @@
 // services/forumService.ts
-import { forumRepository } from "@/repositories/forumRepository"
+import { forumRepository } from "@/repositories/forumRepository";
 import type { ReactionType } from "@/lib/reactions";
 
 export const forumService = {
@@ -43,7 +43,7 @@ export const forumService = {
     if (!anonId) return {} as Record<number, ReactionType>;
     const rows = await forumRepository.reactionsByAnonId(anonId, postIds);
     return Object.fromEntries(
-      rows.map((r) => [r.postId, r.type as ReactionType])
+      rows.map((r) => [r.postId, r.type as ReactionType]),
     ) as Record<number, ReactionType>;
   },
 };

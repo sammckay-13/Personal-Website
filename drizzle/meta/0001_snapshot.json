@@ -149,12 +149,8 @@
           "name": "forum-reactions_forum_post_id_forum-posts_id_fk",
           "tableFrom": "forum-reactions",
           "tableTo": "forum-posts",
-          "columnsFrom": [
-            "forum_post_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["forum_post_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
