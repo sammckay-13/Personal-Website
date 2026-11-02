@@ -36,7 +36,7 @@ export default function GalleryWrapper() {
     {
       name: "Hermes Integration",
       description:
-        "A Hermes agent integrated with the messaging platform known as Discord. There are several channels that serve a variety of function to make daily life easier. The AI News page of this website pulls from the Hephaestus channel.",
+        "A Hermes agent integrated with the messaging platform known as Discord. There are several channels that serve a variety of functions to make daily life easier. The AI News page of this website pulls from the Hephaestus channel.",
       url: "",
       image: Hermes_Discord,
     },
