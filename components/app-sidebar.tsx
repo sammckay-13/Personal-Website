@@ -43,7 +43,7 @@ const data = {
       icon: <FaRobot className="text-[#FFFBEE]" />,
       items: [],
     },
-        {
+    {
       title: "RMAIIG Forum",
       url: "/forum",
       icon: <MdOutlineForum className="text-[#FFFBEE]" />,
@@ -84,10 +84,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             animate={expanded ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
           >
             <SidebarGroupLabel className="flex items-center justify-center gap-1 mt-2">
-              <div className="flex w-15 h-10">
-                <MckaypableLogo color="#FFFBEE" />
-              </div>
-              <span className="text-2xl text-[#FFFBEE] mt-1">Mckaypable</span>
+              <a href="/">
+                <div className="flex w-15 h-10">
+                  <MckaypableLogo color="#FFFBEE" />
+                </div>
+              </a>
+              <span className="text-2xl text-[#FFFBEE] mt-1">McKaypable</span>
             </SidebarGroupLabel>
           </motion.div>
         )}

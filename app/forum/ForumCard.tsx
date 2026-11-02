@@ -9,10 +9,24 @@ import {
 } from "motion/react";
 import type { IconType } from "react-icons";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import { FaRegHeart, FaHeart, FaRegLightbulb, FaLightbulb } from "react-icons/fa";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
+import {
+  FaRegHeart,
+  FaHeart,
+  FaRegLightbulb,
+  FaLightbulb,
+} from "react-icons/fa";
 import { FaRegThumbsUp, FaThumbsUp } from "react-icons/fa6";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import type { ForumCardProps } from "@/lib/types";
 import type { ReactionCounts, ReactionType } from "@/lib/reactions";
 
@@ -106,7 +120,10 @@ function ReactionIcon({
   glow,
   on,
   off,
-}: Pick<ReactionConfig, "Icon" | "ActiveIcon" | "color" | "glow" | "on" | "off"> & {
+}: Pick<
+  ReactionConfig,
+  "Icon" | "ActiveIcon" | "color" | "glow" | "on" | "off"
+> & {
   active: boolean;
 }) {
   const controls = useAnimationControls();
@@ -148,7 +165,7 @@ export default function ForumCard({
   const [, startTransition] = useTransition();
   const [state, addOptimistic] = useOptimistic<State, ReactionType>(
     { counts: reactions, selected: myReaction },
-    applyReaction
+    applyReaction,
   );
   const createdAtArr = createdAt.toString().split(" ");
   const dateString =
@@ -168,54 +185,58 @@ export default function ForumCard({
       </CardHeader>
       <div className="w-full h-1.75 bg-[#DC9954]" />
       <CardContent className="flex gap-4 text-lg text-[#8b6959] dark:text-[#fffbee] w-full">
-        <span className="text-xl flex items-center font-semibold">{content}</span>
+        <span className="text-xl flex items-center font-semibold">
+          {content}
+        </span>
       </CardContent>
       <CardFooter className="flex flex-row w-full bg-[#624a3e] border-t border-[#fffbee] text-lg text-[#fffbee]">
-        {REACTIONS.map(({ type, label, Icon, ActiveIcon, color, glow, on, off }) => {
-          const active = state.selected === type;
-          return (
-            <Tooltip key={type}>
-              <TooltipTrigger
-                render={
-                  <Button
-                    aria-pressed={active}
-                    onClick={() => handleClick(type)}
-                    className="bg-transparent hover:bg-transparent cursor-pointer text-[#fffbee]"
+        {REACTIONS.map(
+          ({ type, label, Icon, ActiveIcon, color, glow, on, off }) => {
+            const active = state.selected === type;
+            return (
+              <Tooltip key={type}>
+                <TooltipTrigger
+                  render={
+                    <Button
+                      aria-pressed={active}
+                      onClick={() => handleClick(type)}
+                      className="bg-transparent hover:bg-transparent cursor-pointer text-[#fffbee]"
+                    />
+                  }
+                >
+                  <ReactionIcon
+                    active={active}
+                    Icon={Icon}
+                    ActiveIcon={ActiveIcon}
+                    color={color}
+                    glow={glow}
+                    on={on}
+                    off={off}
                   />
-                }
-              >
-                <ReactionIcon
-                  active={active}
-                  Icon={Icon}
-                  ActiveIcon={ActiveIcon}
-                  color={color}
-                  glow={glow}
-                  on={on}
-                  off={off}
-                />
-                <span className="relative mt-1 inline-flex overflow-hidden">
-                  <AnimatePresence mode="popLayout" initial={false}>
-                    <motion.span
-                      key={state.counts[type]}
-                      initial={{ y: 10, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      exit={{ y: -10, opacity: 0 }}
-                      transition={{ duration: 0.18 }}
-                    >
-                      {state.counts[type]}
-                    </motion.span>
-                  </AnimatePresence>
-                </span>
-              </TooltipTrigger>
-              <TooltipContent
-                side="bottom"
-                className="border bg-[#6f5345] border-[#fffbee] text-[#fffbee] text-md"
-              >
-                {label}
-              </TooltipContent>
-            </Tooltip>
-          );
-        })}
+                  <span className="relative mt-1 inline-flex overflow-hidden">
+                    <AnimatePresence mode="popLayout" initial={false}>
+                      <motion.span
+                        key={state.counts[type]}
+                        initial={{ y: 10, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: -10, opacity: 0 }}
+                        transition={{ duration: 0.18 }}
+                      >
+                        {state.counts[type]}
+                      </motion.span>
+                    </AnimatePresence>
+                  </span>
+                </TooltipTrigger>
+                <TooltipContent
+                  side="bottom"
+                  className="border bg-[#6f5345] border-[#fffbee] text-[#fffbee] text-md"
+                >
+                  {label}
+                </TooltipContent>
+              </Tooltip>
+            );
+          },
+        )}
         <span className="flex mt-1 ml-auto">{dateString}</span>
       </CardFooter>
     </Card>

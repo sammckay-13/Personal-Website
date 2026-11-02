@@ -15,7 +15,7 @@ export async function fetchPostsAction() {
   const posts = await forumService.fetchAllPosts();
   const mine = await forumService.getMyReactions(
     posts.map((p) => p.id),
-    await readAnonId() // read-only: returns null for first-time visitors
+    await readAnonId(), // read-only: returns null for first-time visitors
   );
   return posts.map((p) => ({ ...p, myReaction: mine[p.id] ?? null }));
 }
@@ -27,11 +27,10 @@ const postSchema = z.object({
 export type postInput = z.infer<typeof postSchema>;
 
 export async function submitPost(input: postInput) {
-  const {content, title} = postSchema.parse(input);
-  const result = await forumService.submitPost(title, content)
+  const { content, title } = postSchema.parse(input);
+  const result = await forumService.submitPost(title, content);
   revalidatePath("/forum");
   return result;
-
 }
 
 // ---- Reactions ----

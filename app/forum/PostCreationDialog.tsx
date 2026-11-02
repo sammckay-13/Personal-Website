@@ -45,9 +45,9 @@ export default function PostCreationDialog({
     };
     setErrors(next);
     if (next.title || next.content) return; // block submit, show red rings
-    
+
     submitPost({ title: postTitle.trim(), content: postContent.trim() });
-    handleClose()
+    handleClose();
   }
 
   return isOpen ? (
@@ -106,11 +106,14 @@ export default function PostCreationDialog({
                 name="Post Content"
                 value={postContent}
                 aria-invalid={errors.content}
-                aria-describedby={errors.content ? "post-content-error" : undefined}
+                aria-describedby={
+                  errors.content ? "post-content-error" : undefined
+                }
                 className={errors.content ? errorRing : ""}
                 onChange={(e) => {
                   setPostContent(e.target.value);
-                  if (errors.content) setErrors((p) => ({ ...p, content: false }));
+                  if (errors.content)
+                    setErrors((p) => ({ ...p, content: false }));
                 }}
                 placeholder="What's on your mind?"
               />

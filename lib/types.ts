@@ -135,7 +135,7 @@ export type ForumPost = {
 export type ForumWrapperProps = {
   posts: ForumPost[];
   onReaction: typeof reactAction;
-  submitPost: typeof submitPost
+  submitPost: typeof submitPost;
 };
 
 export type ForumCardProps = ForumPost & {
@@ -143,7 +143,7 @@ export type ForumCardProps = ForumPost & {
 };
 
 export type PostCreationDialogProps = {
-  isOpen: boolean,
-  onClose: () => void,
-  submitPost: typeof submitPost
-}
+  isOpen: boolean;
+  onClose: () => void;
+  submitPost: typeof submitPost;
+};

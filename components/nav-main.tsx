@@ -58,15 +58,19 @@ export function NavMain({ navs }: NavMainProps) {
   return (
     <SidebarGroup className="overflow-hidden">
       {!expanded && (
-        <div className="flex items-center justify-center h-7 flex-col mb-4 hover:cursor-pointer">
-          <MckaypableIcon color="#FFFBEE" />
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.3, delay: 0.2 }}
-            animate={!expanded ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-            className="mt-1 border border-[#CE7052] rounded-full w-full"
-          />
-        </div>
+        <a href="/">
+          <div className="flex items-center justify-center h-7 flex-col mb-4 hover:cursor-pointer">
+            <MckaypableIcon color="#FFFBEE" />
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.3, delay: 0.2 }}
+              animate={
+                !expanded ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }
+              }
+              className="mt-1 border border-[#CE7052] rounded-full w-full"
+            />
+          </div>
+        </a>
       )}
       <SidebarMenu>
         {navs.map((nav) => (
