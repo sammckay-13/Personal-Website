@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "pret": "bunx prettier . --write"
+    "pret": "bunx prettier . --write",
+    "generate": "bunx drizzle-kit generate",
+    "migrate": "bunx drizzle-kit migrate",
+    "push": "bunx drizzle-kit push"
   },
   "dependencies": {
     "@babel/standalone": "^8.0.4",

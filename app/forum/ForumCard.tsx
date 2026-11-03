@@ -29,6 +29,9 @@ import {
 } from "@/components/ui/tooltip";
 import type { ForumCardProps } from "@/lib/types";
 import type { ReactionCounts, ReactionType } from "@/lib/reactions";
+import { FaReply } from "react-icons/fa";
+import { drizzle } from "drizzle-orm/node-postgres"; // keep whichever driver you already use
+import * as schema from "@/src/db/schema";
 
 type ReactionConfig = {
   type: ReactionType;
@@ -161,6 +164,7 @@ export default function ForumCard({
   reactions,
   myReaction,
   onReaction,
+  isAdmin,
 }: ForumCardProps) {
   const [, startTransition] = useTransition();
   const [state, addOptimistic] = useOptimistic<State, ReactionType>(
@@ -236,6 +240,14 @@ export default function ForumCard({
               </Tooltip>
             );
           },
+        )}
+        {isAdmin && (
+          <Button
+            variant="outline"
+            className="cursor-pointer hover:dark:bg-[#654b3e] hover:bg-[#ece5d3] bg-[#fff9e7] ml-3"
+          >
+            <FaReply />
+          </Button>
         )}
         <span className="flex mt-1 ml-auto">{dateString}</span>
       </CardFooter>

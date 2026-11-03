@@ -136,10 +136,12 @@ export type ForumWrapperProps = {
   posts: ForumPost[];
   onReaction: typeof reactAction;
   submitPost: typeof submitPost;
+  isAdmin: boolean;
 };
 
 export type ForumCardProps = ForumPost & {
   onReaction: typeof reactAction;
+  isAdmin: boolean;
 };
 
 export type PostCreationDialogProps = {

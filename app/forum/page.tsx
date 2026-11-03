@@ -9,9 +9,12 @@ import {
   reactAction,
   submitPost,
 } from "@/actions/forumActions";
+import { cookies } from "next/headers";
 
 export default async function Home() {
   const posts = await fetchPostsAction();
+  const cookieStore = await cookies();
+  const isAdmin = cookieStore.get("ADMINID")?.value === process.env.ADMINID;
 
   return (
     <div className="overflow-x-hidden md:flex-row flex-col">
@@ -28,6 +31,7 @@ export default async function Home() {
         posts={posts}
         onReaction={reactAction}
         submitPost={submitPost}
+        isAdmin={isAdmin}
       />
     </div>
   );

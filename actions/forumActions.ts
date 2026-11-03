@@ -47,3 +47,8 @@ export async function reactAction(input: ReactInput) {
   revalidatePath("/forum");
   return result;
 }
+
+export async function fetchCommentsForPostAction(postId: number) {
+  const comments = await forumService.fetchCommentsForPost(postId);
+  return comments;
+}

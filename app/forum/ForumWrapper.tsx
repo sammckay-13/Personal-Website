@@ -23,6 +23,7 @@ export default function ForumWrapper({
   posts,
   onReaction,
   submitPost,
+  isAdmin,
 }: ForumWrapperProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [sort, setSort] = useState<SortMode>("newest");
@@ -142,7 +143,7 @@ export default function ForumWrapper({
           transition={{ type: "spring", stiffness: 380, damping: 36 }}
           className="flex w-full justify-center"
         >
-          <ForumCard {...post} onReaction={onReaction} />
+          <ForumCard {...post} onReaction={onReaction} isAdmin={isAdmin} />
         </motion.div>
       ))}
     </div>

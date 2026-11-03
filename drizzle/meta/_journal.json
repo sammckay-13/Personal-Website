@@ -15,6 +15,13 @@
       "when": 1793208643490,
       "tag": "0001_clumsy_carnage",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1793725314449,
+      "tag": "0002_serious_random",
+      "breakpoints": true
     }
   ]
 }
