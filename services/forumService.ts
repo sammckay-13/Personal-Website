@@ -46,4 +46,19 @@ export const forumService = {
       rows.map((r) => [r.postId, r.type as ReactionType]),
     ) as Record<number, ReactionType>;
   },
+
+  async fetchCommentsForPost(postId: number) {
+    const comments = await forumRepository.fetchCommentsForPost(postId);
+    return comments.map((c) => ({
+      id: c.id,
+      createdAt: c.createdAt,
+      content: c.content,
+      anonId: c.anonId,
+    }));
+  },
+
+  async reply(postId: number, content: string, anonId: string) {
+    const comment = await forumRepository.reply(postId, content, anonId);
+    return comment;
+  },
 };

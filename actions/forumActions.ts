@@ -13,11 +13,11 @@ import { readAnonId } from "@/lib/anon-id";
 
 export async function fetchPostsAction() {
   const posts = await forumService.fetchAllPosts();
-  const mine = await forumService.getMyReactions(
+  const myReactions = await forumService.getMyReactions(
     posts.map((p) => p.id),
     await readAnonId(), // read-only: returns null for first-time visitors
   );
-  return posts.map((p) => ({ ...p, myReaction: mine[p.id] ?? null }));
+  return posts.map((p) => ({ ...p, myReaction: myReactions[p.id] ?? null }));
 }
 
 const postSchema = z.object({
@@ -44,6 +44,20 @@ export async function reactAction(input: ReactInput) {
   const { postId, type } = reactSchema.parse(input); // public endpoint: always validate
   const anonId = await getOrCreateAnonId();
   const result = await forumService.react(postId, type, anonId);
+  revalidatePath("/forum");
+  return result;
+}
+
+export async function fetchCommentsForPostAction(postId: number) {
+  if (!Number.isInteger(postId) || postId <= 0)
+    throw new Error("Invalid post id");
+  return forumService.fetchCommentsForPost(postId);
+}
+
+export async function replyAction(input: { postId: number; content: string }) {
+  const { postId, content } = input;
+  const anonId = await getOrCreateAnonId();
+  const result = await forumService.reply(postId, content, anonId);
   revalidatePath("/forum");
   return result;
 }

@@ -8,10 +8,22 @@ import {
   fetchPostsAction,
   reactAction,
   submitPost,
+  replyAction,
+  fetchCommentsForPostAction,
 } from "@/actions/forumActions";
+import { cookies } from "next/headers";
 
 export default async function Home() {
+  const cookieStore = await cookies();
+  const isAdmin = cookieStore.get("ADMINID")?.value === process.env.ADMINID;
   const posts = await fetchPostsAction();
+
+  const postsWithComments = await Promise.all(
+    posts.map(async (p) => ({
+      ...p,
+      comments: await fetchCommentsForPostAction(p.id),
+    })),
+  );
 
   return (
     <div className="overflow-x-hidden md:flex-row flex-col">
@@ -25,9 +37,11 @@ export default async function Home() {
         </SidebarInset>
       </SidebarProvider>
       <ForumWrapper
-        posts={posts}
+        posts={postsWithComments}
         onReaction={reactAction}
         submitPost={submitPost}
+        isAdmin={isAdmin}
+        onReply={replyAction}
       />
     </div>
   );

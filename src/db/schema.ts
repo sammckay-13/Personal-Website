@@ -40,3 +40,13 @@ export const forumReactionsTable = pgTable(
     index("forum_reactions_post_type_idx").on(t.forum_post_id, t.type),
   ],
 );
+
+export const forumComments = pgTable("forum-comments", {
+  id: integer().primaryKey().generatedAlwaysAsIdentity(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  content: text(),
+  forum_post_id: integer()
+    .notNull()
+    .references(() => forumPostsTable.id, { onDelete: "cascade" }),
+  anon_id: uuid().notNull(),
+});

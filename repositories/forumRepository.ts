@@ -1,7 +1,11 @@
 // repositories/forumRepository.ts
 import { and, desc, eq, inArray, sql } from "drizzle-orm";
 import { db } from "@/src/db";
-import { forumPostsTable, forumReactionsTable } from "@/src/db/schema";
+import {
+  forumPostsTable,
+  forumReactionsTable,
+  forumComments,
+} from "@/src/db/schema";
 import type { ReactionType } from "@/lib/reactions";
 
 const r = forumReactionsTable;
@@ -63,5 +67,24 @@ export const forumRepository = {
       .select({ postId: r.forum_post_id, type: r.type })
       .from(r)
       .where(and(eq(r.anon_id, anonId), inArray(r.forum_post_id, postIds)));
+  },
+
+  async fetchCommentsForPost(postId: number) {
+    return db
+      .select({
+        id: forumComments.id,
+        createdAt: forumComments.createdAt,
+        content: forumComments.content,
+        anonId: forumComments.anon_id,
+      })
+      .from(forumComments)
+      .where(eq(forumComments.forum_post_id, postId))
+      .orderBy(desc(forumComments.createdAt));
+  },
+
+  async reply(postId: number, content: string, anonId: string) {
+    await db
+      .insert(forumComments)
+      .values({ forum_post_id: postId, content, anon_id: anonId });
   },
 };

@@ -9,6 +9,13 @@ export interface Project {
   image: StaticImageData;
 }
 
+type comment = {
+  id: number;
+  createdAt: Date;
+  content: string | null;
+  anonId: string;
+};
+
 export interface ProjectCardProps {
   project: Project;
   descriptionWidth?: string;
@@ -128,6 +135,7 @@ export type ForumPost = {
   createdAt: Date;
   content: string | null;
   title: string | null;
+  comments: comment[];
   reactions: ReactionCounts;
   myReaction: ReactionType | null;
 };
@@ -136,10 +144,14 @@ export type ForumWrapperProps = {
   posts: ForumPost[];
   onReaction: typeof reactAction;
   submitPost: typeof submitPost;
+  isAdmin: boolean;
+  onReply: (input: { postId: number; content: string }) => Promise<void>;
 };
 
 export type ForumCardProps = ForumPost & {
   onReaction: typeof reactAction;
+  isAdmin: boolean;
+  onReply: (input: { postId: number; content: string }) => Promise<void>;
 };
 
 export type PostCreationDialogProps = {
