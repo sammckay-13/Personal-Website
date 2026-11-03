@@ -45,6 +45,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { cn } from "@/lib/utils";
+import { CommentItem } from "./CommentItem";
 
 type ReactionConfig = {
   type: ReactionType;
@@ -189,6 +190,7 @@ export default function ForumCard({
   const [isReplying, setIsReplying] = useState(false);
   const [replyContent, setReplyContent] = useState("");
   const [isViewingComments, setIsViewingComments] = useState(false);
+
   const createdAtArr = createdAt.toString().split(" ");
   const dateString =
     createdAtArr[0] + " " + createdAtArr[1] + " " + createdAtArr[2];
@@ -278,15 +280,21 @@ export default function ForumCard({
                 );
               },
             )}
-            {isAdmin && (
+            <Tooltip>
+              <TooltipTrigger
+              render={
               <Button
                 variant="outline"
                 className="cursor-pointer hover:dark:bg-[#654b3e] hover:bg-[#ece5d3] bg-[#fff9e7] ml-3"
                 onClick={() => setIsReplying(!isReplying)}
-              >
+                >
                 <FaReply className="dark:text-[#fffbee] text-[#8b6959]" />
               </Button>
-            )}
+              }/>
+              <TooltipContent className="dark:text-[#fffbee] text-[#fffbee] border bg-[#6f5345] border-[#fffbee] ">
+                <p className="text-lg">Click to leave a commnent!</p>
+              </TooltipContent>
+                </Tooltip>
             <span className="flex mt-1 ml-auto">{dateString}</span>
             <div className="ml-3">
               {comments.length > 0 && (
@@ -312,7 +320,7 @@ export default function ForumCard({
 
                   <TooltipContent
                     side="bottom"
-                    className="bg-[#6f5345] border border-[#fffbee] text-[#fffbee] text-md"
+                    className="bg-[#543c2f] border border-[#fffbee] text-[#fffbee] text-md"
                   >
                     {isViewingComments
                       ? "Click to hide comments"
@@ -342,13 +350,10 @@ export default function ForumCard({
             </div>
           )}
 <CollapsibleContent className="w-full overflow-hidden text-[#fffbee] h-(--collapsible-panel-height) transition-[height] duration-300 ease-out data-starting-style:h-0 data-ending-style:h-0">
-  <div className="rounded w-full h-1 bg-[#DC9954] my-3" />
+  <span>Comments:</span>
+  <div className="rounded w-full h-0.75 bg-[#543c2fc6] my-3" />
   {comments.map((comment) => (
-    <div key={comment.id} className="flex flex-col w-full ml-3">
-      <p className="text-base text-[#fffbee] font-semibold">
-        {comment.content}
-      </p>
-    </div>
+    <CommentItem key={comment.id} content={comment.content} />
   ))}
 </CollapsibleContent>
         </CardFooter>
