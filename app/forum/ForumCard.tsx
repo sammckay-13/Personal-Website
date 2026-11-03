@@ -322,24 +322,6 @@ export default function ForumCard({
               )}
             </div>
           </div>
-          {isViewingComments && (
-            <div className=" rounded w-full h-1 bg-[#DC9954] mt-3 mb-3" />
-          )}
-          <CollapsibleContent
-            className={cn(
-              "w-full text-[#fffbee] outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
-            )}
-          >
-            {comments.map((comment, index) => (
-              <div key={index} className="flex flex-col w-full ml-3">
-                <div className="flex flex-row w-full">
-                  <p className="text-base text-[#fffbee] font-semibold">
-                    {comment.content}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </CollapsibleContent>
           {isReplying && (
             <div className="flex flex-row w-full">
               <Textarea
@@ -359,6 +341,16 @@ export default function ForumCard({
               </Button>
             </div>
           )}
+<CollapsibleContent className="w-full overflow-hidden text-[#fffbee] h-(--collapsible-panel-height) transition-[height] duration-300 ease-out data-starting-style:h-0 data-ending-style:h-0">
+  <div className="rounded w-full h-1 bg-[#DC9954] my-3" />
+  {comments.map((comment) => (
+    <div key={comment.id} className="flex flex-col w-full ml-3">
+      <p className="text-base text-[#fffbee] font-semibold">
+        {comment.content}
+      </p>
+    </div>
+  ))}
+</CollapsibleContent>
         </CardFooter>
       </Card>
     </Collapsible>
