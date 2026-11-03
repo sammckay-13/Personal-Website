@@ -1,6 +1,12 @@
 "use client";
 
-import { useEffect, useOptimistic, useRef, useTransition } from "react";
+import {
+  useEffect,
+  useOptimistic,
+  useRef,
+  useState,
+  useTransition,
+} from "react";
 import {
   AnimatePresence,
   motion,
@@ -20,6 +26,8 @@ import {
   FaHeart,
   FaRegLightbulb,
   FaLightbulb,
+  FaReply,
+  FaChevronUp,
 } from "react-icons/fa";
 import { FaRegThumbsUp, FaThumbsUp } from "react-icons/fa6";
 import {
@@ -29,9 +37,14 @@ import {
 } from "@/components/ui/tooltip";
 import type { ForumCardProps } from "@/lib/types";
 import type { ReactionCounts, ReactionType } from "@/lib/reactions";
-import { FaReply } from "react-icons/fa";
-import { drizzle } from "drizzle-orm/node-postgres"; // keep whichever driver you already use
-import * as schema from "@/src/db/schema";
+import { Textarea } from "@/components/ui/textarea";
+import { IoMdSend } from "react-icons/io";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import { cn } from "@/lib/utils";
 
 type ReactionConfig = {
   type: ReactionType;
@@ -163,14 +176,19 @@ export default function ForumCard({
   createdAt,
   reactions,
   myReaction,
+  comments,
   onReaction,
   isAdmin,
+  onReply,
 }: ForumCardProps) {
   const [, startTransition] = useTransition();
   const [state, addOptimistic] = useOptimistic<State, ReactionType>(
     { counts: reactions, selected: myReaction },
     applyReaction,
   );
+  const [isReplying, setIsReplying] = useState(false);
+  const [replyContent, setReplyContent] = useState("");
+  const [isViewingComments, setIsViewingComments] = useState(false);
   const createdAtArr = createdAt.toString().split(" ");
   const dateString =
     createdAtArr[0] + " " + createdAtArr[1] + " " + createdAtArr[2];
@@ -182,75 +200,166 @@ export default function ForumCard({
     });
   }
 
+  function handleReply() {
+    startTransition(async () => {
+      setIsReplying(!isReplying);
+      await onReply({ postId: id, content: replyContent });
+    });
+  }
+  function handleViewComments() {
+    startTransition(async () => {
+      setIsViewingComments(!isViewingComments);
+    });
+  }
+
   return (
-    <Card className="flex items-center w-[90%] h-[30%] border-[#fffbee] bg-[#fff9e7] dark:bg-[#6f5345] text-[#fffbee] md:h-fit md:w-[50%]">
-      <CardHeader className="w-full text-3xl font-semibold text-[#8b6959] dark:text-[#fffbee]">
-        {title}
-      </CardHeader>
-      <div className="w-full h-1.75 bg-[#DC9954]" />
-      <CardContent className="flex gap-4 text-lg text-[#8b6959] dark:text-[#fffbee] w-full">
-        <span className="text-xl flex items-center font-semibold">
-          {content}
-        </span>
-      </CardContent>
-      <CardFooter className="flex flex-row w-full bg-[#624a3e] border-t border-[#fffbee] text-lg text-[#fffbee]">
-        {REACTIONS.map(
-          ({ type, label, Icon, ActiveIcon, color, glow, on, off }) => {
-            const active = state.selected === type;
-            return (
-              <Tooltip key={type}>
-                <TooltipTrigger
-                  render={
-                    <Button
-                      aria-pressed={active}
-                      onClick={() => handleClick(type)}
-                      className="bg-transparent hover:bg-transparent cursor-pointer text-[#fffbee]"
-                    />
-                  }
-                >
-                  <ReactionIcon
-                    active={active}
-                    Icon={Icon}
-                    ActiveIcon={ActiveIcon}
-                    color={color}
-                    glow={glow}
-                    on={on}
-                    off={off}
-                  />
-                  <span className="relative mt-1 inline-flex overflow-hidden">
-                    <AnimatePresence mode="popLayout" initial={false}>
-                      <motion.span
-                        key={state.counts[type]}
-                        initial={{ y: 10, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        exit={{ y: -10, opacity: 0 }}
-                        transition={{ duration: 0.18 }}
-                      >
-                        {state.counts[type]}
-                      </motion.span>
-                    </AnimatePresence>
-                  </span>
-                </TooltipTrigger>
-                <TooltipContent
-                  side="bottom"
-                  className="border bg-[#6f5345] border-[#fffbee] text-[#fffbee] text-md"
-                >
-                  {label}
-                </TooltipContent>
-              </Tooltip>
-            );
-          },
-        )}
-        {isAdmin && (
-          <Button
-            variant="outline"
-            className="cursor-pointer hover:dark:bg-[#654b3e] hover:bg-[#ece5d3] bg-[#fff9e7] ml-3"
+    <Collapsible
+      className=" rounded-full flex items-center w-[90%] h-[30%] border-[#fffbee] bg-[#fff9e7] dark:bg-[#6f5345] text-[#fffbee] md:h-fit md:w-[50%] mb-3"
+      open={isViewingComments}
+      onOpenChange={() => handleViewComments()}
+    >
+      <Card className="flex items-center w-[90%] h-[30%] border-[#fffbee] bg-[#fff9e7] dark:bg-[#6f5345] text-[#fffbee] md:h-fit md:w-full">
+        <CardHeader className="w-full text-3xl font-semibold text-[#8b6959] dark:text-[#fffbee]">
+          {title}
+        </CardHeader>
+        <div className="w-full h-1.75 bg-[#DC9954]" />
+        <CardContent className="flex gap-4 text-lg text-[#8b6959] dark:text-[#fffbee] w-full">
+          <span className="text-xl flex items-center font-semibold">
+            {content}
+          </span>
+        </CardContent>
+
+        <CardFooter className="flex flex-col w-full bg-[#624a3e] border-t border-[#fffbee] text-lg text-[#fffbee]">
+          <div className="flex flex-row w-full">
+            {REACTIONS.map(
+              ({ type, label, Icon, ActiveIcon, color, glow, on, off }) => {
+                const active = state.selected === type;
+                return (
+                  <Tooltip key={type}>
+                    <TooltipTrigger
+                      render={
+                        <Button
+                          aria-pressed={active}
+                          onClick={() => handleClick(type)}
+                          className="bg-transparent hover:bg-transparent cursor-pointer text-[#fffbee]"
+                        />
+                      }
+                    >
+                      <ReactionIcon
+                        active={active}
+                        Icon={Icon}
+                        ActiveIcon={ActiveIcon}
+                        color={color}
+                        glow={glow}
+                        on={on}
+                        off={off}
+                      />
+                      <span className="relative mt-1 inline-flex overflow-hidden">
+                        <AnimatePresence mode="popLayout" initial={false}>
+                          <motion.span
+                            key={state.counts[type]}
+                            initial={{ y: 10, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            exit={{ y: -10, opacity: 0 }}
+                            transition={{ duration: 0.18 }}
+                          >
+                            {state.counts[type]}
+                          </motion.span>
+                        </AnimatePresence>
+                      </span>
+                    </TooltipTrigger>
+                    <TooltipContent
+                      side="bottom"
+                      className="border bg-[#6f5345] border-[#fffbee] text-[#fffbee] text-md"
+                    >
+                      {label}
+                    </TooltipContent>
+                  </Tooltip>
+                );
+              },
+            )}
+            {isAdmin && (
+              <Button
+                variant="outline"
+                className="cursor-pointer hover:dark:bg-[#654b3e] hover:bg-[#ece5d3] bg-[#fff9e7] ml-3"
+                onClick={() => setIsReplying(!isReplying)}
+              >
+                <FaReply className="dark:text-[#fffbee] text-[#8b6959]" />
+              </Button>
+            )}
+            <span className="flex mt-1 ml-auto">{dateString}</span>
+            <div className="ml-3">
+              {comments.length > 0 && (
+                <Tooltip>
+                  <TooltipTrigger render={
+
+                      <Button
+                        onClick={() => handleViewComments()}
+                        className={`w-fit cursor-pointer gap-2 border px-3 py-2 h-fit text-lg font-semibold transition-colors duration-300 ${
+                          isViewingComments
+                          ? "bg-[#dc9954] border-[#dc9954] text-[#fffbee] hover:bg-[#c98a48] hover:text-[#fffbee] dark:bg-[#dc9954] dark:hover:bg-[#c98a48]"
+                          : "bg-[#fff9e7] border-[#624a3e] text-[#6f5345] hover:bg-[#ece5d3] hover:text-[#6f5345] dark:bg-[#6f5345] dark:text-[#fffbee] dark:hover:bg-[#654b3e]"
+                        }`}
+                        >
+                        <FaChevronUp
+                          className={cn("transition-transform duration-300", {
+                            "rotate-180": isViewingComments,
+                          })}
+                          />
+                      </Button>
+                  }/>
+
+                  <TooltipContent
+                    side="bottom"
+                    className="bg-[#6f5345] border border-[#fffbee] text-[#fffbee] text-md"
+                  >
+                    {isViewingComments
+                      ? "Click to hide comments"
+                      : "Click to view comments"}
+                  </TooltipContent>
+                </Tooltip>
+              )}
+            </div>
+          </div>
+          {isViewingComments && (
+            <div className=" rounded w-full h-1 bg-[#DC9954] mt-3 mb-3" />
+          )}
+          <CollapsibleContent
+            className={cn(
+              "w-full text-[#fffbee] outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+            )}
           >
-            <FaReply />
-          </Button>
-        )}
-        <span className="flex mt-1 ml-auto">{dateString}</span>
-      </CardFooter>
-    </Card>
+            {comments.map((comment, index) => (
+              <div key={index} className="flex flex-col w-full ml-3">
+                <div className="flex flex-row w-full">
+                  <p className="text-base text-[#fffbee] font-semibold">
+                    {comment.content}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </CollapsibleContent>
+          {isReplying && (
+            <div className="flex flex-row w-full">
+              <Textarea
+                placeholder="Write a reply..."
+                className="flex mt-5 bg-[#fff9e7] dark:bg-[#6f5345] text-[#8b6959] dark:text-[#fffbee]"
+                onChange={(e) => setReplyContent(e.target.value)}
+              />
+              <Button
+                onClick={() => {
+                  handleReply();
+                }}
+                variant="outline"
+                size="lg"
+                className=" ml-3 mt-auto cursor-pointer hover:dark:bg-[#654b3e] hover:bg-[#ece5d3] bg-[#fff9e7]"
+              >
+                <IoMdSend className="dark:text-[#fffbee] text-[#8b6959]" />
+              </Button>
+            </div>
+          )}
+        </CardFooter>
+      </Card>
+    </Collapsible>
   );
 }

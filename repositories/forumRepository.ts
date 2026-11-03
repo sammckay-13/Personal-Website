@@ -81,4 +81,10 @@ export const forumRepository = {
       .where(eq(forumComments.forum_post_id, postId))
       .orderBy(desc(forumComments.createdAt));
   },
+
+  async reply(postId: number, content: string, anonId: string) {
+    await db
+      .insert(forumComments)
+      .values({ forum_post_id: postId, content, anon_id: anonId });
+  },
 };

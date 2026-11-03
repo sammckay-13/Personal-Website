@@ -56,4 +56,9 @@ export const forumService = {
       anonId: c.anonId,
     }));
   },
+
+  async reply(postId: number, content: string, anonId: string) {
+    const comment = await forumRepository.reply(postId, content, anonId);
+    return comment;
+  },
 };
