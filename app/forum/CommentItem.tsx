@@ -36,7 +36,7 @@ export function CommentItem({ content }: { content: string | null }) {
           type="button"
           aria-expanded={expanded}
           onClick={() => setExpanded((v) => !v)}
-          className="mt-1 w-fit cursor-pointer text-sm font-semibold text-[#dc9954] underline-offset-2 hover:underline"
+          className="mt-1 w-fit cursor-pointer text-sm font-semibold text-[#dc9954] underline-offset-2 hover:underline ml-2"
         >
           {expanded ? "Show less" : "Show more"}
         </button>
