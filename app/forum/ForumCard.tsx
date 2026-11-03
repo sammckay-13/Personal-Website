@@ -291,23 +291,24 @@ export default function ForumCard({
             <div className="ml-3">
               {comments.length > 0 && (
                 <Tooltip>
-                  <TooltipTrigger render={
-
+                  <TooltipTrigger
+                    render={
                       <Button
                         onClick={() => handleViewComments()}
                         className={`w-fit cursor-pointer gap-2 border px-3 py-2 h-fit text-lg font-semibold transition-colors duration-300 ${
                           isViewingComments
-                          ? "bg-[#dc9954] border-[#dc9954] text-[#fffbee] hover:bg-[#c98a48] hover:text-[#fffbee] dark:bg-[#dc9954] dark:hover:bg-[#c98a48]"
-                          : "bg-[#fff9e7] border-[#624a3e] text-[#6f5345] hover:bg-[#ece5d3] hover:text-[#6f5345] dark:bg-[#6f5345] dark:text-[#fffbee] dark:hover:bg-[#654b3e]"
+                            ? "bg-[#dc9954] border-[#dc9954] text-[#fffbee] hover:bg-[#c98a48] hover:text-[#fffbee] dark:bg-[#dc9954] dark:hover:bg-[#c98a48]"
+                            : "bg-[#fff9e7] border-[#624a3e] text-[#6f5345] hover:bg-[#ece5d3] hover:text-[#6f5345] dark:bg-[#6f5345] dark:text-[#fffbee] dark:hover:bg-[#654b3e]"
                         }`}
-                        >
+                      >
                         <FaChevronUp
                           className={cn("transition-transform duration-300", {
                             "rotate-180": isViewingComments,
                           })}
-                          />
+                        />
                       </Button>
-                  }/>
+                    }
+                  />
 
                   <TooltipContent
                     side="bottom"

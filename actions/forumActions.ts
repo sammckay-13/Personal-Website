@@ -49,7 +49,8 @@ export async function reactAction(input: ReactInput) {
 }
 
 export async function fetchCommentsForPostAction(postId: number) {
-  if (!Number.isInteger(postId) || postId <= 0) throw new Error("Invalid post id");
+  if (!Number.isInteger(postId) || postId <= 0)
+    throw new Error("Invalid post id");
   return forumService.fetchCommentsForPost(postId);
 }
 

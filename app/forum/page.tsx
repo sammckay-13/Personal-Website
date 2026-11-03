@@ -18,12 +18,12 @@ export default async function Home() {
   const isAdmin = cookieStore.get("ADMINID")?.value === process.env.ADMINID;
   const posts = await fetchPostsAction();
 
-const postsWithComments = await Promise.all(
-  posts.map(async (p) => ({
-    ...p,
-    comments: await fetchCommentsForPostAction(p.id),
-  })),
-);
+  const postsWithComments = await Promise.all(
+    posts.map(async (p) => ({
+      ...p,
+      comments: await fetchCommentsForPostAction(p.id),
+    })),
+  );
 
   return (
     <div className="overflow-x-hidden md:flex-row flex-col">
