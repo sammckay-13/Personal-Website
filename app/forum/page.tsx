@@ -11,11 +11,8 @@ import {
   replyAction,
   fetchCommentsForPostAction,
 } from "@/actions/forumActions";
-import { cookies } from "next/headers";
 
 export default async function Home() {
-  const cookieStore = await cookies();
-  const isAdmin = cookieStore.get("ADMINID")?.value === process.env.ADMINID;
   const posts = await fetchPostsAction();
 
   const postsWithComments = await Promise.all(
@@ -40,7 +37,6 @@ export default async function Home() {
         posts={postsWithComments}
         onReaction={reactAction}
         submitPost={submitPost}
-        isAdmin={isAdmin}
         onReply={replyAction}
       />
     </div>

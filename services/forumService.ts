@@ -58,6 +58,7 @@ export const forumService = {
   },
 
   async reply(postId: number, content: string, anonId: string) {
+    if (content.trim() === "") return "Comment cannot be empty";
     const comment = await forumRepository.reply(postId, content, anonId);
     return comment;
   },
