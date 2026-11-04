@@ -27,6 +27,13 @@ export default function GalleryWrapper() {
       url: "https://mckaypable.com/svg-playground",
       image: SVGPlayground,
     },
+        {
+      name: "Antera Map",
+      description:
+        "I came up with the idea for my players in Dungeons and Dragons. I presented them with a map that was interactive and would show unique characteristics of the land.",
+      url: "https://mckaypable.com/antera-map",
+      image: SVGPlayground,
+    },
     {
       name: "More Coming Soon!",
       description:
