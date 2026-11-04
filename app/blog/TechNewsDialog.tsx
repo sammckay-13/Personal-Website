@@ -63,7 +63,6 @@ export default function TechNewsDialog({
             <p className="text-lg font-semibold text-[#ce7052]">{allText}</p>
           )}
         </ul>
-        <div className="fixed mt-174 w-full bg-[#dc9954] h-2" />
       </DialogContent>
     </Dialog>
   ) : (
