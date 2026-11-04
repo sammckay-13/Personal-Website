@@ -39,7 +39,7 @@ export default function TechNewsCard({
 
   return (
     <div>
-      <Card className="dark:bg-[#6f5345] bg-[#fff9e7] border-[#fffbee] text-[#fffbee] h-auto md:h-110 w-full md:w-170 lg:w-250">
+      <Card className="dark:bg-[#6f5345] bg-[#fff9e7] border-[#fffbee] text-[#fffbee] h-auto md:h-110 w-full md:w-170 lg:w-200">
         <div className="items-center justify-between w-fit flex ml-4 text-xl mb-2 font-semibold text-[#8b6959] dark:text-[#fffbee]">
           {dateString}
           <div className="ml-4">
