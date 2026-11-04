@@ -21,7 +21,7 @@ export default function TechNewsDialog({
   return isOpen ? (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent
-        className="h-[85%] bg-[#fff9e7] dark:bg-[#6F5345] md:min-w-[80%]"
+        className="h-[85%] lg:h-[70%] bg-[#fff9e7] dark:bg-[#6F5345] lg:min-w-[50%] md:min-w-[85%]"
         showCloseButton={true}
       >
         <DialogHeader className="max-h-15">
@@ -48,9 +48,9 @@ export default function TechNewsDialog({
                   className="text-sm underline dark:text-[#acbcd9] text-[#88a6dc] flex gap-2 w-fit ml-5"
                 >
                   <Image
-                    alt="Project Image"
+                    alt="Source Logo"
                     src={getLogo(getDomain(item.domain)) || ""}
-                    className="rounded-lg h-7 w-7 mb-7"
+                    className="rounded-lg h-7 w-7 mb-7 lg:mb-2"
                     width={200}
                     height={200}
                   />
