@@ -334,7 +334,7 @@ export default function ForumCard({
             <div className="flex flex-row w-full">
               <Textarea
                 placeholder="Write a reply..."
-                className="flex mt-5 bg-[#fff9e7] dark:bg-[#6f5345] text-[#8b6959] dark:text-[#fffbee]"
+                className="flex mt-5 mb-5 bg-[#fff9e7] dark:bg-[#6f5345] text-[#8b6959] dark:text-[#fffbee]"
                 onChange={(e) => setReplyContent(e.target.value)}
               />
               <Button
@@ -350,7 +350,7 @@ export default function ForumCard({
             </div>
           )}
 <CollapsibleContent className="w-full overflow-hidden text-[#fffbee] h-(--collapsible-panel-height) transition-[height] duration-300 ease-out data-starting-style:h-0 data-ending-style:h-0">
-  <span>Comments:</span>
+  <span >Comments:</span>
   <div className="rounded w-full h-0.75 bg-[#543c2fc6] my-3" />
   {comments.map((comment) => (
     <CommentItem key={comment.id} content={comment.content} />
