@@ -58,16 +58,16 @@ export default function ForumWrapper({
         </CardContent>
       </Card>
 
+
+      <div className="flex flex-row w-[50%] justify-between items-center">
       <Button
         variant="outline"
-        className="border border-[#624a3e] hover:bg-[#ece5d3] hover:text-[#6f5345] font-semibold text-[#6f5345] mt-10 w-[50%] h-fit p-2 bg-[#fff9e7] dark:bg-[#6f5345] hover:dark:bg-[#654b3e] dark:text-[#fffbee] gap-3 hover:cursor-pointer"
+        className="border border-[#624a3e] hover:bg-[#ece5d3] hover:text-[#6f5345] font-semibold text-[#6f5345] w-[75%] h-fit p-2 bg-[#fff9e7] dark:bg-[#6f5345] hover:dark:bg-[#654b3e] dark:text-[#fffbee] hover:cursor-pointer"
         onClick={() => setIsOpen(true)}
       >
         <FaPlus />
         <span className="mt-1 text-xl">Create a Post</span>
       </Button>
-
-      <div className="flex w-[50%] justify-end">
         <motion.div whileTap={{ scale: 0.92 }} transition={{ duration: 0.12 }}>
           <Tooltip>
             <TooltipTrigger
@@ -81,7 +81,7 @@ export default function ForumWrapper({
                       : "Sorted by newest. Click to sort by most reactions."
                   }
                   onClick={() => setSort(byReactions ? "newest" : "reactions")}
-                  className={`w-fit cursor-pointer gap-2 border px-3 py-2 h-fit text-lg font-semibold transition-colors duration-300 ${
+                  className={`w-fit cursor-pointer border px-3 py-2 h-fit text-lg font-semibold transition-colors duration-300 ${
                     byReactions
                       ? "bg-[#dc9954] border-[#dc9954] text-[#fffbee] hover:bg-[#c98a48] hover:text-[#fffbee] dark:bg-[#dc9954] dark:hover:bg-[#c98a48]"
                       : "bg-[#fff9e7] border-[#624a3e] text-[#6f5345] hover:bg-[#ece5d3] hover:text-[#6f5345] dark:bg-[#6f5345] dark:text-[#fffbee] dark:hover:bg-[#654b3e]"
