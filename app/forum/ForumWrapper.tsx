@@ -58,16 +58,15 @@ export default function ForumWrapper({
         </CardContent>
       </Card>
 
-
       <div className="flex flex-row w-[50%] justify-between items-center">
-      <Button
-        variant="outline"
-        className="border border-[#624a3e] hover:bg-[#ece5d3] hover:text-[#6f5345] font-semibold text-[#6f5345] w-[75%] h-fit p-2 bg-[#fff9e7] dark:bg-[#6f5345] hover:dark:bg-[#654b3e] dark:text-[#fffbee] hover:cursor-pointer"
-        onClick={() => setIsOpen(true)}
-      >
-        <FaPlus />
-        <span className="mt-1 text-xl">Create a Post</span>
-      </Button>
+        <Button
+          variant="outline"
+          className="border border-[#624a3e] hover:bg-[#ece5d3] hover:text-[#6f5345] font-semibold text-[#6f5345] w-[75%] h-fit p-2 bg-[#fff9e7] dark:bg-[#6f5345] hover:dark:bg-[#654b3e] dark:text-[#fffbee] hover:cursor-pointer"
+          onClick={() => setIsOpen(true)}
+        >
+          <FaPlus />
+          <span className="mt-1 text-xl">Create a Post</span>
+        </Button>
         <motion.div whileTap={{ scale: 0.92 }} transition={{ duration: 0.12 }}>
           <Tooltip>
             <TooltipTrigger
@@ -143,11 +142,7 @@ export default function ForumWrapper({
           transition={{ type: "spring", stiffness: 380, damping: 36 }}
           className="flex w-full justify-center"
         >
-          <ForumCard
-            {...post}
-            onReaction={onReaction}
-            onReply={onReply}
-          />
+          <ForumCard {...post} onReaction={onReaction} onReply={onReply} />
         </motion.div>
       ))}
     </div>

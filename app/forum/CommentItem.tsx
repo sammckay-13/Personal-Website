@@ -42,6 +42,6 @@ export function CommentItem({ content }: { content: string | null }) {
         </button>
       )}
       <Separator className="my-2 bg-[#d3c598]" />
-         </div>
+    </div>
   );
 }

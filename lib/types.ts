@@ -144,12 +144,18 @@ export type ForumWrapperProps = {
   posts: ForumPost[];
   onReaction: typeof reactAction;
   submitPost: typeof submitPost;
-  onReply: (input: { postId: number; content: string }) => Promise<void | "Comment cannot be empty">;
+  onReply: (input: {
+    postId: number;
+    content: string;
+  }) => Promise<void | "Comment cannot be empty">;
 };
 
 export type ForumCardProps = ForumPost & {
   onReaction: typeof reactAction;
-  onReply: (input: { postId: number; content: string }) => Promise<void | "Comment cannot be empty">;
+  onReply: (input: {
+    postId: number;
+    content: string;
+  }) => Promise<void | "Comment cannot be empty">;
 };
 
 export type PostCreationDialogProps = {
