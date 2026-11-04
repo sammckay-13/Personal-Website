@@ -65,7 +65,7 @@ export default function ForumWrapper({
           onClick={() => setIsOpen(true)}
         >
           <FaPlus />
-          <span className="mt-1 text-xl">Create a Post</span>
+          <span className="mt-1 mb-1 text-xl">Create a Post</span>
         </Button>
         <motion.div whileTap={{ scale: 0.92 }} transition={{ duration: 0.12 }}>
           <Tooltip>
