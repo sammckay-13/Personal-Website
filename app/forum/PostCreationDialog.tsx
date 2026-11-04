@@ -136,7 +136,6 @@ export default function PostCreationDialog({
             </Button>
           </FieldGroup>
           <div className="fixed w-full mt-20 bg-[#dc9954] h-3" />
-          <div className="fixed mt-174 w-full bg-[#dc9954] h-2" />
         </DialogContent>
       </form>
     </Dialog>

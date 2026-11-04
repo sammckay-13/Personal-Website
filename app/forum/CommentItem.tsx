@@ -25,7 +25,7 @@ export function CommentItem({ content }: { content: string | null }) {
       <p
         ref={ref}
         className={cn(
-          "text-base text-[#fffbee] font-semibold whitespace-pre-wrap wrap-break-word ml-2",
+          "text-lg text-[#fffbee] whitespace-pre-wrap wrap-break-word ml-2",
           !expanded && "line-clamp-3",
         )}
       >
@@ -41,7 +41,7 @@ export function CommentItem({ content }: { content: string | null }) {
           {expanded ? "Show less" : "Show more"}
         </button>
       )}
-      <Separator className="my-2 bg-[#d3c598]" />
-    </div>
+      <Separator className="my-2 bg-[#f7eecd]" />
+         </div>
   );
 }

@@ -19,6 +19,7 @@ type comment = {
 export interface ProjectCardProps {
   project: Project;
   descriptionWidth?: string;
+  isGalleryCard?: boolean;
 }
 
 export interface ProjectDialogProps {
@@ -28,6 +29,7 @@ export interface ProjectDialogProps {
   projectDescription: string;
   projectUrl: string;
   onClose: () => void;
+  isGalleryCard?: boolean;
 }
 
 export interface SidebarItemProps {

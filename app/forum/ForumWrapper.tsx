@@ -65,7 +65,7 @@ export default function ForumWrapper({
           onClick={() => setIsOpen(true)}
         >
           <FaPlus />
-          <span className="mt-1 text-xl">Create a Post</span>
+          <span className="mt-1 mb-1 text-xl">Create a Post</span>
         </Button>
         <motion.div whileTap={{ scale: 0.92 }} transition={{ duration: 0.12 }}>
           <Tooltip>
@@ -103,7 +103,7 @@ export default function ForumWrapper({
                 </AnimatePresence>
               </span>
 
-              <span className="relative inline-flex overflow-hidden mt-1">
+              <span className="relative inline-flex overflow-hidden mt-1 lg:mt-0">
                 <AnimatePresence mode="wait" initial={false}>
                   <motion.span
                     key={sort}
@@ -111,6 +111,7 @@ export default function ForumWrapper({
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -14, opacity: 0 }}
                     transition={{ duration: 0.16 }}
+                    
                   >
                     {byReactions ? "Most reactions" : "Newest"}
                   </motion.span>

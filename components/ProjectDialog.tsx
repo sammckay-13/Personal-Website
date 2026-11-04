@@ -12,6 +12,7 @@ import {
 import Image, { StaticImageData } from "next/image";
 import { useEffect, useState } from "react";
 import { ProjectDialogProps } from "@/lib/types";
+import { cn } from "cn";
 
 export default function ProjectDialog({
   isOpen,
@@ -20,6 +21,7 @@ export default function ProjectDialog({
   projectDescription,
   projectUrl,
   onClose,
+  isGalleryCard
 }: ProjectDialogProps) {
   const [projectImageSrc, setProjectImageSrc] = useState<
     string | StaticImageData | null
@@ -35,7 +37,7 @@ export default function ProjectDialog({
     <Dialog open={isOpen} onOpenChange={onClose}>
       <form>
         <DialogContent
-          className="sm:max-w-lg sm:max-h-full bg-[#f7f5ef] dark:bg-[#6F5345]"
+          className={cn("sm:max-w-lg sm:max-h-full bg-[#f7f5ef] dark:bg-[#6F5345]", isGalleryCard ? "sm:max-w-3xl" : "sm:max-w-lg")}
           showCloseButton={false}
         >
           <DialogHeader>

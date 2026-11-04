@@ -123,7 +123,7 @@ export default function GalleryWrapper() {
             className="w-full max-w-sm md:max-w-none md:w-[33%] p-3 flex justify-center cursor-pointer"
             onClick={() => createDialogOpen(project)}
           >
-            <ProjectCard descriptionWidth="md:w-90 w-70" project={project} />
+            <ProjectCard descriptionWidth="md:w-90 w-70" project={project} isGalleryCard={true} />
           </div>
         ))}
       </div>
@@ -135,6 +135,7 @@ export default function GalleryWrapper() {
         projectDescription={myProject?.description}
         projectUrl={myProject?.url}
         onClose={() => setIsDialogOpen(false)}
+        isGalleryCard={true}
       />
     </>
   );
