@@ -121,6 +121,10 @@ const REACTIONS: ReactionConfig[] = [
 
 type State = { counts: ReactionCounts; selected: ReactionType | null };
 
+const REQUIRED_MESSAGE = "This is a required field";
+const errorRing =
+  "border-red-500 ring-2 ring-red-500/40 focus-visible:border-red-500 focus-visible:ring-red-500/40";
+
 function applyReaction(state: State, type: ReactionType): State {
   const counts = { ...state.counts };
   if (state.selected) counts[state.selected]--; // remove the old reaction
@@ -179,7 +183,6 @@ export default function ForumCard({
   myReaction,
   comments,
   onReaction,
-  isAdmin,
   onReply,
 }: ForumCardProps) {
   const [, startTransition] = useTransition();
@@ -190,6 +193,7 @@ export default function ForumCard({
   const [isReplying, setIsReplying] = useState(false);
   const [replyContent, setReplyContent] = useState("");
   const [isViewingComments, setIsViewingComments] = useState(false);
+  const [errors, setErrors] = useState({ content: false });
 
   const createdAtArr = createdAt.toString().split(" ");
   const dateString =
@@ -203,9 +207,14 @@ export default function ForumCard({
   }
 
   function handleReply() {
+    if (!replyContent.trim()) {
+      setErrors({ content: true });
+      return;
+    }
     startTransition(async () => {
       setIsReplying(!isReplying);
       await onReply({ postId: id, content: replyContent });
+      setErrors({ content: false });
     });
   }
   function handleViewComments() {
@@ -330,21 +339,27 @@ export default function ForumCard({
               )}
             </div>
           </div>
+          {errors.content && (
+            <span className="flex mt-1 mr-auto text-sm text-red-500">Cannot submit empty comment</span>
+          )}
           {isReplying && (
+
             <div className="flex flex-row w-full">
               <Textarea
                 placeholder="Write a reply..."
-                className="flex mt-5 mb-5 bg-[#fff9e7] dark:bg-[#6f5345] text-[#8b6959] dark:text-[#fffbee]"
+                className={cn("flex mt-2 mb-5 bg-[#fff9e7] dark:bg-[#6f5345] text-[#8b6959] dark:text-[#fffbee]", {
+                  [errorRing]: errors.content,
+                })}
                 onChange={(e) => setReplyContent(e.target.value)}
-              />
+                />
               <Button
                 onClick={() => {
                   handleReply();
                 }}
                 variant="outline"
                 size="lg"
-                className=" ml-3 mt-auto cursor-pointer hover:dark:bg-[#654b3e] hover:bg-[#ece5d3] bg-[#fff9e7]"
-              >
+                className=" ml-3 flex mt-auto mb-5 cursor-pointer hover:dark:bg-[#654b3e] hover:bg-[#ece5d3] bg-[#fff9e7]"
+                >
                 <IoMdSend className="dark:text-[#fffbee] text-[#8b6959]" />
               </Button>
             </div>

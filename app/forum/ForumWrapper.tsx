@@ -23,7 +23,6 @@ export default function ForumWrapper({
   posts,
   onReaction,
   submitPost,
-  isAdmin,
   onReply,
 }: ForumWrapperProps) {
   const [isOpen, setIsOpen] = useState(false);
@@ -147,7 +146,6 @@ export default function ForumWrapper({
           <ForumCard
             {...post}
             onReaction={onReaction}
-            isAdmin={isAdmin}
             onReply={onReply}
           />
         </motion.div>
