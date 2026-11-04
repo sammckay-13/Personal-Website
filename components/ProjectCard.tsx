@@ -2,10 +2,12 @@ import Image from "next/image";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import { LuExternalLink } from "react-icons/lu";
 import { ProjectCardProps } from "@/lib/types";
+import { cn } from "@/lib/utils";
 
 export default function ProjectCard({
   project,
   descriptionWidth,
+  isGalleryCard = false,
 }: ProjectCardProps) {
   return (
     <Card className="flex flex-col w-80 md:w-full h-120 bg-[#f7f5ef] dark:bg-[#6F5345] border-[#d1cdc1e1] dark:border-[#543C2F] border-2 drop-shadow-md rounded-lg cursor-pointer">
@@ -29,14 +31,14 @@ export default function ProjectCard({
           )}
         </div>
       </CardHeader>
-      <CardContent className="flex flex-col items-center gap-4 mt-2">
+      <CardContent className="flex flex-col items-center gap-4 mt-2 lg:mt-0">
         <Image
           alt={`${project.name} image`}
           src={project.image}
-          className="rounded-lg object-cover h-auto w-full"
+          className={cn("rounded-lg object-cover", isGalleryCard ? "lg:h-[50%] lg:w-auto" : "h-auto w-full")}
         />
         <p
-          className={`text-lg font-semibold text-[#6F5345] dark:text-[#FFFBEE] ${descriptionWidth ?? ""}`}
+          className={`text-lg font-semibold text-[#6F5345] dark:text-[#FFFBEE] ${descriptionWidth && isGalleryCard ? "lg:w-[60%]" : ""} text-center`}
         >
           {project.description}
         </p>
