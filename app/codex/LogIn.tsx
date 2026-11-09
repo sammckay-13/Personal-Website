@@ -14,7 +14,7 @@ export default function LogIn({ onCreateUser, onLoginUser }: LoginDialogProps) {
     const [isOpen, setIsOpen] = useState(false);
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-      const [errors, setErrors] = useState({ title: false, content: false });
+      const [errors, setErrors] = useState({ email: false, password: false });
 
 
     async function handleCreateAccount() {
@@ -22,15 +22,24 @@ export default function LogIn({ onCreateUser, onLoginUser }: LoginDialogProps) {
         const anonId = localStorage.getItem("anon_id"); // use your existing key or helper
         // I might want to create an anon_id if they don't have one but that will probably result in orphaned posts
         const result = await onCreateUser(email, password, anonId);
-        setIsOpen(false)
+        if (result.success) {
+            setIsOpen(false)
+            return
+        }
+        setErrors({email: true, password: true})
         return result
     }
 
     async function handleLogIn() {
         // Implement the logic to log in
         // I'll also have to tie the anon_id to the user account on login, so people will have access to their comments and stuff
-        await onLoginUser(email, password);
-        setIsOpen(false)
+        const result = await onLoginUser(email, password);
+        if (result.success) {
+            setIsOpen(false)
+            return
+        }
+        setErrors({email: true, password: true})
+        return result
     
     }
     return(
@@ -53,23 +62,23 @@ export default function LogIn({ onCreateUser, onLoginUser }: LoginDialogProps) {
             <input
                 type="email"
                 placeholder="Email"
-                                aria-invalid={errors.title}
-                aria-describedby={errors.title ? "email-error" : undefined}
-                className={errors.title ? errorRing : ""}
+                                aria-invalid={errors.email}
+                aria-describedby={errors.email ? "email-error" : undefined}
+                className={errors.email ? errorRing : ""}
                                 onChange={(e) => {
                   setEmail(e.target.value);
-                  if (errors.title) setErrors((p) => ({ ...p, title: false }));
+                  if (errors.email) setErrors((p) => ({ ...p, email: false }));
                 }}
             />
             <input
                 type="password"
                 placeholder="Password"
-                aria-invalid={errors.title}
-                aria-describedby={errors.title ? "password-error" : undefined}
-                className={errors.title ? errorRing : ""}
+                aria-invalid={errors.password}
+                aria-describedby={errors.password ? "password-error" : undefined}
+                className={errors.email ? errorRing : ""}
                 onChange={(e) => {
                     setPassword(e.target.value)
-                    if (errors.title) setErrors((p) => ({ ...p, title: false }));
+                    if (errors.email) setErrors((p) => ({ ...p, email: false }));
 
                 }}
             />
