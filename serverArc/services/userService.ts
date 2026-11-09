@@ -29,9 +29,15 @@ export async function createUser(
     }
 
     if (typeof password !== "string" || password.length < 8) {
-      return { success: false, message: "Password must be at least 8 characters" };
+      return {
+        success: false,
+        message: "Password must be at least 8 characters",
+      };
     }
-    if (anonId !== null && (typeof anonId !== "string" || !UUID_RE.test(anonId))) {
+    if (
+      anonId !== null &&
+      (typeof anonId !== "string" || !UUID_RE.test(anonId))
+    ) {
       return { success: false, message: "Invalid anonymous id" };
     }
     if (anonId && (await userRepository.findUserByAnonId(anonId))) {
@@ -47,14 +53,20 @@ export async function createUser(
     return { success: true, message: "Account created" };
   } catch (error) {
     if (error instanceof APIError) {
-      const code = String((error.body as { code?: string } | undefined)?.code ?? "");
+      const code = String(
+        (error.body as { code?: string } | undefined)?.code ?? "",
+      );
       if (code.includes("ALREADY_EXISTS")) {
         return {
           success: false,
-          message: "You already have an account with that email. Try logging in.",
+          message:
+            "You already have an account with that email. Try logging in.",
         };
       }
-      return { success: false, message: error.message || "Failed to create account" };
+      return {
+        success: false,
+        message: error.message || "Failed to create account",
+      };
     }
     console.error(error);
     return { success: false, message: "Failed to create account" };

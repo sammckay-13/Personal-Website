@@ -51,7 +51,7 @@ export default function CodexWrapper({
     description: string,
   ): Promise<ActionResult> {
     const result = await onEditCharacter(characterId, name, description ?? "");
-    return result
+    return result;
   }
 
   async function deleteCharacter(characterId: number): Promise<ActionResult> {
@@ -88,7 +88,12 @@ export default function CodexWrapper({
           {/* You can also create your own custom NPCs and share them with the community. I like this idea a lot */}
         </CardContent>
       </Card>
-      <LogIn onCreateUser={createUser} onLoginUser={loginUser} onLogoutUser={logoutUser} isLoggedIn={isLoggedIn} />
+      <LogIn
+        onCreateUser={createUser}
+        onLoginUser={loginUser}
+        onLogoutUser={logoutUser}
+        isLoggedIn={isLoggedIn}
+      />
 
       <div className="flex flex-row w-[50%] justify-between items-center">
         <CreateCharacterDialog onCreateCharacter={createCharacter} />
@@ -163,7 +168,13 @@ export default function CodexWrapper({
           transition={{ type: "spring", stiffness: 380, damping: 36 }}
           className="flex w-full justify-center"
         >
-          <CharacterCard characterId={character.id} name={character.name} description={character.description} handleEditCharacter={editCharacter} handleDeleteCharacter={deleteCharacter}/>
+          <CharacterCard
+            characterId={character.id}
+            name={character.name}
+            description={character.description}
+            handleEditCharacter={editCharacter}
+            handleDeleteCharacter={deleteCharacter}
+          />
           {/* I need to create a character card here */}
         </motion.div>
       ))}

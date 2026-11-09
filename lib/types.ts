@@ -183,7 +183,7 @@ export type LoginDialogProps = {
   ) => Promise<ActionResult>;
   onLoginUser: (email: string, password: string) => Promise<ActionResult>;
   onLogoutUser: () => Promise<ActionResult>;
-  isLoggedIn: boolean
+  isLoggedIn: boolean;
 };
 
 export type CodexWrapperProps = LoginDialogProps & {
@@ -203,17 +203,25 @@ export type CodexWrapperProps = LoginDialogProps & {
 };
 
 export type CharacterCardProps = {
-  characterId: number,
-  name: string,
-  description: string
-  handleEditCharacter: (characterId: number, name: string, description: string) => Promise<ActionResult>
-  handleDeleteCharacter: (characterId: number) => Promise<ActionResult>
-}
+  characterId: number;
+  name: string;
+  description: string;
+  handleEditCharacter: (
+    characterId: number,
+    name: string,
+    description: string,
+  ) => Promise<ActionResult>;
+  handleDeleteCharacter: (characterId: number) => Promise<ActionResult>;
+};
 
 export type EditCharacterDialogProps = {
-  characterId: number,
-  name: string,
-  description: string
-  onSubmitEdit: (characterId: number, name:string, description:string ) => Promise<ActionResult>
-  onDelete: (characterId: number) => Promise<ActionResult>
-}
+  characterId: number;
+  name: string;
+  description: string;
+  onSubmitEdit: (
+    characterId: number,
+    name: string,
+    description: string,
+  ) => Promise<ActionResult>;
+  onDelete: (characterId: number) => Promise<ActionResult>;
+};

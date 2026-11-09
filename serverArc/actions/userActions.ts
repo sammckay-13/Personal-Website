@@ -13,7 +13,10 @@ async function getUserId() {
   return session?.user.id ?? null;
 }
 
-export async function createCharacterAction(name: string, description: string): Promise<ActionResult> {
+export async function createCharacterAction(
+  name: string,
+  description: string,
+): Promise<ActionResult> {
   const userId = await getUserId();
   if (!userId) return { success: false, message: "Please log in" };
 

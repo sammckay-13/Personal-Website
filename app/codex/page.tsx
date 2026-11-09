@@ -9,7 +9,10 @@ import {
   fetchCodexCharactersAction,
 } from "@/serverArc/actions/codexActions";
 import CodexWrapper from "./CodexWrapper";
-import { createUserAction, logoutUserAction } from "@/serverArc/actions/userActions";
+import {
+  createUserAction,
+  logoutUserAction,
+} from "@/serverArc/actions/userActions";
 import { loginUserAction } from "@/serverArc/actions/userActions";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";

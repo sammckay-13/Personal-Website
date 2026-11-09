@@ -1,6 +1,11 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Field, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -13,34 +18,48 @@ const REQUIRED_MESSAGE = "This is a required field";
 const errorRing =
   "border-red-500 ring-2 ring-red-500/40 focus-visible:border-red-500 focus-visible:ring-red-500/40";
 
+export function EditCharacterDialog({
+  characterId,
+  name,
+  description,
+  onSubmitEdit,
+  onDelete,
+}: EditCharacterDialogProps) {
+  const [errors, setErrors] = useState({ name: false, description: false });
+  const [currName, setCurrName] = useState(name);
+  const [currDescription, setCurrDescription] = useState(description);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-export function EditCharacterDialog({characterId, name, description, onSubmitEdit, onDelete}: EditCharacterDialogProps) {
-      const [errors, setErrors] = useState({ name: false, description: false });
-      const [currName, setCurrName] = useState(name);
-      const [currDescription, setCurrDescription] = useState(description);
-      const [isSubmitting, setIsSubmitting] = useState(false)
-      const [isOpen, setIsOpen] = useState(false);
+  function handleSubmit() {
+    setIsSubmitting(true);
+    onSubmitEdit(characterId, currName, currDescription);
+    setIsSubmitting(false);
+    setIsOpen(false);
+  }
 
-      function handleSubmit() {
-        setIsSubmitting(true);
-        onSubmitEdit(characterId, currName, currDescription)
-        setIsSubmitting(false)
-        setIsOpen(false)
+  function handleDelete() {
+    setIsSubmitting(true);
+    onDelete(characterId);
+    setIsSubmitting(false);
+    setIsOpen(false);
+  }
 
-      }
-
-      function handleDelete() {
-        setIsSubmitting(true);
-        onDelete(characterId)
-        setIsSubmitting(false)
-        setIsOpen(false)
-      }
-    
-    return (
-        <Dialog open={isOpen}>
-            <DialogTrigger render={(<Button onClick={() => setIsOpen(!isOpen)} variant="ghost" className="bg-[#6f5345] dark:bg-[#fff9e7] hover:bg-[#6f5345]"><FaEdit className="ml-0.5 dark:text-[#6f5345] text-[#fff9e7]"/></Button>)}></DialogTrigger>
-            <DialogContent>
-                          <form
+  return (
+    <Dialog open={isOpen}>
+      <DialogTrigger
+        render={
+          <Button
+            onClick={() => setIsOpen(!isOpen)}
+            variant="ghost"
+            className="bg-[#6f5345] dark:bg-[#fff9e7] hover:bg-[#6f5345]"
+          >
+            <FaEdit className="ml-0.5 dark:text-[#6f5345] text-[#fff9e7]" />
+          </Button>
+        }
+      ></DialogTrigger>
+      <DialogContent>
+        <form
           onSubmit={(e) => {
             e.preventDefault();
             void handleSubmit();
@@ -129,8 +148,7 @@ export function EditCharacterDialog({characterId, name, description, onSubmitEdi
             </Button>
           </FieldGroup>
         </form>
-
-            </DialogContent>
-        </Dialog>
-    )
+      </DialogContent>
+    </Dialog>
+  );
 }
