@@ -20,14 +20,17 @@ export default function LogIn({ onCreateUser, onLoginUser }: LoginDialogProps) {
     async function handleCreateAccount() {
         // Implement the logic to create an account
         const anonId = localStorage.getItem("anon_id"); // use your existing key or helper
+        // I might want to create an anon_id if they don't have one but that will probably result in orphaned posts
         const result = await onCreateUser(email, password, anonId);
+        setIsOpen(false)
         return result
     }
 
     async function handleLogIn() {
         // Implement the logic to log in
-        // I'll also have to tie the anon_id to the user account on the backend, so people will have access to their comments and stuff
+        // I'll also have to tie the anon_id to the user account on login, so people will have access to their comments and stuff
         await onLoginUser(email, password);
+        setIsOpen(false)
     
     }
     return(
@@ -50,7 +53,9 @@ export default function LogIn({ onCreateUser, onLoginUser }: LoginDialogProps) {
             <input
                 type="email"
                 placeholder="Email"
-                className="border rounded px-3 py-2"
+                                aria-invalid={errors.title}
+                aria-describedby={errors.title ? "email-error" : undefined}
+                className={errors.title ? errorRing : ""}
                                 onChange={(e) => {
                   setEmail(e.target.value);
                   if (errors.title) setErrors((p) => ({ ...p, title: false }));
@@ -59,7 +64,9 @@ export default function LogIn({ onCreateUser, onLoginUser }: LoginDialogProps) {
             <input
                 type="password"
                 placeholder="Password"
-                className="border rounded px-3 py-2"
+                aria-invalid={errors.title}
+                aria-describedby={errors.title ? "password-error" : undefined}
+                className={errors.title ? errorRing : ""}
                 onChange={(e) => {
                     setPassword(e.target.value)
                     if (errors.title) setErrors((p) => ({ ...p, title: false }));
