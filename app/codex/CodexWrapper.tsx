@@ -14,6 +14,7 @@ import {
 import { FaA } from "react-icons/fa6";
 import { CreateCharacterDialog } from "./CreateCharacterDialog";
 import LogIn from "./LogIn";
+import { CharacterCard } from "./CharacterCard";
 
 type SortMode = "newest" | "reactions" | "alphabetical";
 
@@ -24,6 +25,8 @@ export default function CodexWrapper({
   onEditCharacter,
   onCreateUser,
   onLoginUser,
+  onLogoutUser,
+  isLoggedIn,
 }: CodexWrapperProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [sort, setSort] = useState<SortMode>("alphabetical");
@@ -68,6 +71,11 @@ export default function CodexWrapper({
   ): Promise<ActionResult> {
     return onLoginUser(email, password);
   }
+
+  async function logoutUser(): Promise<ActionResult> {
+    return onLogoutUser();
+  }
+
   return (
     <div className="flex flex-col ml-3 items-center gap-5 mt-5">
       <Card
@@ -79,7 +87,7 @@ export default function CodexWrapper({
           {/* You can also create your own custom NPCs and share them with the community. I like this idea a lot */}
         </CardContent>
       </Card>
-      <LogIn onCreateUser={createUser} onLoginUser={loginUser} />
+      <LogIn onCreateUser={createUser} onLoginUser={loginUser} onLogoutUser={logoutUser} isLoggedIn={isLoggedIn} />
 
       <div className="flex flex-row w-[50%] justify-between items-center">
         <CreateCharacterDialog onCreateCharacter={createCharacter} />
@@ -154,7 +162,7 @@ export default function CodexWrapper({
           transition={{ type: "spring", stiffness: 380, damping: 36 }}
           className="flex w-full justify-center"
         >
-          {character.name}
+          <CharacterCard name={character.name} description={character.description}/>
           {/* I need to create a character card here */}
         </motion.div>
       ))}

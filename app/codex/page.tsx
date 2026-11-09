@@ -9,16 +9,15 @@ import {
   fetchCodexCharactersAction,
 } from "@/serverArc/actions/codexActions";
 import CodexWrapper from "./CodexWrapper";
-import { createUserAction } from "@/serverArc/actions/userActions";
+import { createUserAction, logoutUserAction } from "@/serverArc/actions/userActions";
 import { loginUserAction } from "@/serverArc/actions/userActions";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 
 export default async function Home() {
-  const test = auth.api.getSession({ headers: await headers() });
+  const session = auth.api.getSession({ headers: await headers() });
 
   const characters = await fetchCodexCharactersAction();
-
   return (
     <div className="overflow-x-hidden md:flex-row flex-col">
       <SidebarProvider className="min-h-0" defaultOpen={false}>
@@ -37,6 +36,8 @@ export default async function Home() {
         onEditCharacter={editCharacterAction}
         onCreateUser={createUserAction}
         onLoginUser={loginUserAction}
+        onLogoutUser={logoutUserAction}
+        isLoggedIn={!!session}
       />
     </div>
   );

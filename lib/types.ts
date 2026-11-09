@@ -182,6 +182,8 @@ export type LoginDialogProps = {
     anon_id: string | null,
   ) => Promise<ActionResult>;
   onLoginUser: (email: string, password: string) => Promise<ActionResult>;
+  onLogoutUser: () => Promise<ActionResult>;
+  isLoggedIn: boolean
 };
 
 export type CodexWrapperProps = LoginDialogProps & {
@@ -196,4 +198,11 @@ export type CodexWrapperProps = LoginDialogProps & {
     description: string,
   ) => Promise<ActionResult>;
   onDeleteCharacter: (characterId: number) => Promise<ActionResult>;
+  onLogoutUser: () => Promise<ActionResult>;
+  isLoggedIn: boolean;
 };
+
+export type CharacterCardProps = {
+  name: string,
+  description: string | null
+}
