@@ -1,24 +1,28 @@
 "use server";
 
-
 import { revalidatePath } from "next/cache";
 import { codexService } from "@/serverArc/services/codexService";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 export type ActionResult = { success: boolean; message: string };
+  async function getUserId() {
+    const session = await auth.api.getSession({ headers: await headers() });
+    return session?.user.id ?? null;
+  }
 
-
-export async function fetchCodexCharactersAction(userId: number) {
-  if (!Number.isInteger(userId) || userId <= 0)
-    throw new Error("Invalid user id");
-  return codexService.fetchCodexCharacters(userId);
-}
+   export async function fetchCodexCharactersAction() {
+     const userId = await getUserId();
+     if (!userId) return [];
+     return codexService.fetchCodexCharacters(userId);
+   }
 
 
 export async function createCharacterAction(
-  userId: number,
+  userId: string,
   name: string,
   description: string,
 ): Promise<ActionResult> {
-  if (!Number.isInteger(userId) || userId <= 0) {
+  if (!userId) {
     return { success: false, message: "Character could not be created" };
   }
   if (typeof name !== "string" || name.trim() === "") {
@@ -40,10 +44,10 @@ export async function createCharacterAction(
 
 
 export async function deleteCharacterAction(
-  userId: number,
+  userId: string,
   characterId: number,
 ): Promise<ActionResult> {
-  if (!Number.isInteger(userId) || userId <= 0) {
+  if (!userId) {
     return { success: false, message: "Character could not be deleted" };
   }
   if (!Number.isInteger(characterId) || characterId <= 0) {
@@ -67,7 +71,7 @@ export async function deleteCharacterAction(
 }
 
 export async function editCharacterAction(
-  userId: number,
+  userId: string,
   characterId: number,
   name: string,
   description: string,
