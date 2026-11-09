@@ -16,9 +16,10 @@ export type ActionResult = { success: boolean; message: string };
      return codexService.fetchCodexCharacters(userId);
    }
 
+   const userId = await getUserId()
+
 
 export async function createCharacterAction(
-  userId: string,
   name: string,
   description: string,
 ): Promise<ActionResult> {
@@ -33,6 +34,7 @@ export async function createCharacterAction(
   }
 
   try {
+    if (!userId) return {success: false, message: "Create an account to create a character!"}
     await codexService.createCharacter(userId, name.trim(), description.trim());
     revalidatePath("/"); // adjust to the route that renders the list
     return { success: true, message: "Character created" };
@@ -44,7 +46,6 @@ export async function createCharacterAction(
 
 
 export async function deleteCharacterAction(
-  userId: string,
   characterId: number,
 ): Promise<ActionResult> {
   if (!userId) {
@@ -71,13 +72,13 @@ export async function deleteCharacterAction(
 }
 
 export async function editCharacterAction(
-  userId: string,
   characterId: number,
   name: string,
   description: string,
 ): Promise<ActionResult> {
   // validate like create, then:
   try {
+    if (!userId) return {success: false, message: "no user found"}
     const result = await codexService.editCharacter(userId, characterId, name.trim(), description.trim());
     if (result.rowCount === 0) {
       return { success: false, message: "Character not found" };
