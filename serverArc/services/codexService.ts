@@ -1,14 +1,14 @@
 import { codexRepository } from "../repositories/codexRepository";
 
 export const codexService = {
-  async fetchCodexCharacters(userId: number) {
+  async fetchCodexCharacters(userId: string) {
     // we need to verify the user exists and is valid before fetching their characters
     return codexRepository.fetchCharactersForUser(userId);
   },
 
 
  async createCharacter(
-  userId: number,
+  userId: string,
   name: string,
   description: string,
 ) {
@@ -16,14 +16,14 @@ export const codexService = {
 },
 
  async deleteCharacter(
-  userId: number,
+  userId: string,
   characterId: number,
 ) {
   return codexRepository.deleteCharacter(userId, characterId);
 },
 
   async editCharacter(
-  userId: number,
+  userId: string,
   characterId: number,
   name: string,
   description: string,

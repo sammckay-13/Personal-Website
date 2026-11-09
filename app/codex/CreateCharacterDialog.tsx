@@ -26,7 +26,6 @@ export function CreateCharacterDialog({
   onCreateCharacter,
 }: {
   onCreateCharacter: (
-    userId: number,
     name: string,
     description: string,
   ) => Promise<ActionResult>;
@@ -58,7 +57,7 @@ export function CreateCharacterDialog({
 
     setIsSubmitting(true);
     try {
-      const result = await onCreateCharacter(1, name.trim(), description.trim()); // Replace with actual user ID
+      const result = await onCreateCharacter(name.trim(), description.trim()); // Replace with actual user ID
       if (result.success) {
         toast.success(result.message);
         handleOpenChange(false);

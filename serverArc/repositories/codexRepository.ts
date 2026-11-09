@@ -2,7 +2,7 @@ import { db } from "@/src/db";
 import { CodexCharacters } from "@/src/db/schema";
 import { desc, eq, and } from "drizzle-orm";
 
-function fetchCharactersForUser(userId: number) {
+function fetchCharactersForUser(userId: string) {
   // we need to verify the user exists and is valid before fetching their characters
       return db
       .select({
@@ -16,7 +16,7 @@ function fetchCharactersForUser(userId: number) {
       .orderBy(desc(CodexCharacters.createdAt));
 }
 
-function createCharacter(userId: number, name: string, description: string) {
+function createCharacter(userId: string, name: string, description: string) {
   return db.insert(CodexCharacters).values({
     codex_user_id: userId,
     name,
@@ -24,7 +24,7 @@ function createCharacter(userId: number, name: string, description: string) {
   });
 }
 
-function deleteCharacter(userId: number, characterId: number) {
+function deleteCharacter(userId: string, characterId: number) {
   return db.delete(CodexCharacters).where(
     and(
       eq(CodexCharacters.id, characterId),
@@ -34,7 +34,7 @@ function deleteCharacter(userId: number, characterId: number) {
 }
 
 function editCharacter(
-  userId: number,
+  userId: string,
   characterId: number,
   name: string,
   description: string,

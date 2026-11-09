@@ -174,31 +174,22 @@ export type Character = {
   id: number;
   name: string;
   description: string | null;
+  createdAt: Date
 };
  
-
-export type CodexWrapperProps = {
-  characters: Character[];
-  onCreateCharacter: (
-    userId: number,
-    name: string,
-    description: string,
-  ) => Promise<ActionResult>;
-  onEditCharacter: (
-    userId: number,
-    characterId: number,
-    name: string,
-    description: string,
-  ) => Promise<ActionResult>;
-  onDeleteCharacter: (
-    userId: number,
-    characterId: number,
-  ) => Promise<ActionResult>;
-  onCreateUser: (email: string, password: string, anon_id: string | null) => Promise<ActionResult>;
-  onLoginUser: (email: string, password: string) => Promise<ActionResult>;
-};
 
 export type LoginDialogProps = {
   onCreateUser: (email: string, password: string, anon_id: string | null) => Promise<ActionResult>;
   onLoginUser: (email: string, password: string) => Promise<ActionResult>;
+};
+
+export type CodexWrapperProps = LoginDialogProps & {
+  characters: Character[];
+  onCreateCharacter: (name: string, description: string) => Promise<ActionResult>;
+  onEditCharacter: (
+    characterId: number,
+    name: string,
+    description: string,
+  ) => Promise<ActionResult>;
+  onDeleteCharacter: (characterId: number) => Promise<ActionResult>;
 };

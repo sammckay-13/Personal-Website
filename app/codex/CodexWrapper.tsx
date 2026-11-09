@@ -35,29 +35,26 @@ export default function CodexWrapper({
   }, [characters, byAlphabetical]);
 
   async function createCharacter(
-  userId: number,
   name: string,
   description: string,
 ): Promise<ActionResult> {
-  const result = await onCreateCharacter(userId, name, description);
+  const result = await onCreateCharacter(name, description);
   if (result.success) setIsOpen(false);
   return result;
 }
 
 async function editCharacter(
   characterId: number,
-  userId: number,
   name: string,
   description: string,
 ): Promise<ActionResult> {
-  return onEditCharacter(userId, characterId, name, description);
+  return onEditCharacter(characterId, name, description);
 }
 
 async function deleteCharacter(
   characterId: number,
-  userId: number,
 ): Promise<ActionResult> {
-  return onDeleteCharacter(userId, characterId);
+  return onDeleteCharacter(characterId);
 }
 
 async function createUser(
