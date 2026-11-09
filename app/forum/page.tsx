@@ -10,7 +10,7 @@ import {
   submitPost,
   replyAction,
   fetchCommentsForPostAction,
-} from "@/actions/forumActions";
+} from "@/serverArc/actions/forumActions";
 
 export default async function Home() {
   const posts = await fetchPostsAction();

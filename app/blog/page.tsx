@@ -6,7 +6,7 @@ import {
 import MckaypableHeader from "@/components/MckaypableHeader";
 import { AppSidebar } from "@/components/app-sidebar";
 import BlogWrapper from "./BlogWrapper";
-import { fetchNewsSummariesAction } from "@/actions/blogActions";
+import { fetchNewsSummariesAction } from "@/serverArc/actions/blogActions";
 import { TechNewsCardProps } from "@/lib/types";
 import FloatingSidebarTrigger from "@/components/FloatingSidebarTrigger";
 
