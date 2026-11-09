@@ -70,7 +70,7 @@ async function deleteCharacter(
       </Card>
 
       <div className="flex flex-row w-[50%] justify-between items-center">
-        <CreateCharacterDialog isOpened={isOpen} onCreateCharacter={createCharacter} />
+        <CreateCharacterDialog onCreateCharacter={createCharacter} />
         <motion.div whileTap={{ scale: 0.92 }} transition={{ duration: 0.12 }}>
           <Tooltip>
             <TooltipTrigger
