@@ -6,8 +6,12 @@ import { createCharacterAction, deleteCharacterAction, editCharacterAction, fetc
 import CodexWrapper from "./CodexWrapper";
 import { createUserAction } from "@/serverArc/actions/userActions";
 import {loginUserAction} from "@/serverArc/actions/userActions"
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 
 export default async function Home() {
+    auth.api.getSession({ headers: await headers() })
+    
     const characters = await fetchCodexCharactersAction(1); // Replace with actual user ID
 
   return (
