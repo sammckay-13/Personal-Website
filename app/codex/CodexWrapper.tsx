@@ -156,6 +156,8 @@ async function loginUser(email: string, password: string): Promise<ActionResult>
           transition={{ type: "spring", stiffness: 380, damping: 36 }}
           className="flex w-full justify-center"
         >
+          {character.name}
+          {/* I need to create a character card here */}
         </motion.div>
       ))}
     </div>
