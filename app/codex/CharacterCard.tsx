@@ -6,10 +6,10 @@ export function CharacterCard({name, description}: CharacterCardProps) {
 
     return (
         <Card className="dark:bg-[#6f5345] bg-[#fff9e7] border-[#fffbee] text-[#fffbee] h-auto md:h-auto w-full md:w-170 lg:w-[30%]">
-            <CardHeader className="items-center justify-between w-full flex ml-2 text-xl mb-2 font-semibold text-[#8b6959] dark:text-[#fffbee]">
+            <CardHeader className="items-center justify-between w-full flex ml-2 text-2xl mb-2 font-semibold text-[#8b6959] dark:text-[#fffbee]">
             {name}
             </CardHeader>
-            <CardContent className="ml-4 w-full">
+            <CardContent className="ml-4 w-full text-[#8b6959] text-lg font-semibold">
             {description}
             </CardContent>
         </Card>
