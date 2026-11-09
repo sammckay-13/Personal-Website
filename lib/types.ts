@@ -1,6 +1,10 @@
 import { StaticImageData } from "next/image";
-import type { reactAction, submitPost } from "@/actions/forumActions";
+import type { reactAction, submitPost } from "@/serverArc/actions/forumActions";
 import type { ReactionType, ReactionCounts } from "@/lib/reactions";
+
+export type ActionResult = { success: boolean; message: string };
+
+
 
 export interface Project {
   name: string;
@@ -164,4 +168,30 @@ export type PostCreationDialogProps = {
   isOpen: boolean;
   onClose: () => void;
   submitPost: typeof submitPost;
+};
+
+export type Character = {
+  id: number;
+  name: string;
+  description: string | null;
+};
+ 
+
+export type CodexWrapperProps = {
+  characters: Character[];
+  onCreateCharacter: (
+    userId: number,
+    name: string,
+    description: string,
+  ) => Promise<ActionResult>;
+  onEditCharacter: (
+    userId: number,
+    characterId: number,
+    name: string,
+    description: string,
+  ) => Promise<ActionResult>;
+  onDeleteCharacter: (
+    userId: number,
+    characterId: number,
+  ) => Promise<ActionResult>;
 };
