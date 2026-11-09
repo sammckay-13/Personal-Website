@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/tooltip";
 import { FaA } from "react-icons/fa6";
 import { CreateCharacterDialog } from "./CreateCharacterDialog";
+import LogIn from "./LogIn";
 
 type SortMode = "newest" | "reactions" | "alphabetical";
 
@@ -21,6 +22,9 @@ export default function CodexWrapper({
   onCreateCharacter,
   onDeleteCharacter,
   onEditCharacter,
+  onCreateUser,
+  onLoginUser
+
 }: CodexWrapperProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [sort, setSort] = useState<SortMode>("alphabetical");
@@ -55,6 +59,18 @@ async function deleteCharacter(
 ): Promise<ActionResult> {
   return onDeleteCharacter(userId, characterId);
 }
+
+async function createUser(
+  email: string,
+  password: string,
+  anonId: string | null,
+): Promise<ActionResult> {
+  return onCreateUser(email, password, anonId);
+}
+
+async function loginUser(email: string, password: string): Promise<ActionResult> {
+  return onLoginUser(email, password)
+}
   return (
     <div className="flex flex-col ml-3 items-center gap-5 mt-5">
       <Card
@@ -68,6 +84,7 @@ async function deleteCharacter(
           {/* You can also create your own custom NPCs and share them with the community. I like this idea a lot */}
         </CardContent>
       </Card>
+      <LogIn onCreateUser={createUser} onLoginUser={loginUser} />
 
       <div className="flex flex-row w-[50%] justify-between items-center">
         <CreateCharacterDialog onCreateCharacter={createCharacter} />

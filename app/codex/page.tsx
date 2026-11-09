@@ -4,9 +4,10 @@ import { AppSidebar } from "@/components/app-sidebar";
 import FloatingSidebarTrigger from "@/components/FloatingSidebarTrigger";
 import { createCharacterAction, deleteCharacterAction, editCharacterAction, fetchCodexCharactersAction } from "@/serverArc/actions/codexActions";
 import CodexWrapper from "./CodexWrapper";
+import { createUserAction } from "@/serverArc/actions/userActions";
+import {loginUserAction} from "@/serverArc/actions/userActions"
 
 export default async function Home() {
-
     const characters = await fetchCodexCharactersAction(1); // Replace with actual user ID
 
   return (
@@ -25,6 +26,8 @@ export default async function Home() {
         onCreateCharacter={createCharacterAction}
         onDeleteCharacter={deleteCharacterAction}
         onEditCharacter={editCharacterAction}
+        onCreateUser={createUserAction}
+        onLoginUser={loginUserAction}
       />
     </div>
   );

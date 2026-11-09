@@ -194,4 +194,11 @@ export type CodexWrapperProps = {
     userId: number,
     characterId: number,
   ) => Promise<ActionResult>;
+  onCreateUser: (email: string, password: string, anon_id: string | null) => Promise<ActionResult>;
+  onLoginUser: (email: string, password: string) => Promise<ActionResult>;
+};
+
+export type LoginDialogProps = {
+  onCreateUser: (email: string, password: string, anon_id: string | null) => Promise<ActionResult>;
+  onLoginUser: (email: string, password: string) => Promise<ActionResult>;
 };
