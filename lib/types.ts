@@ -4,8 +4,6 @@ import type { ReactionType, ReactionCounts } from "@/lib/reactions";
 
 export type ActionResult = { success: boolean; message: string };
 
-
-
 export interface Project {
   name: string;
   description: string;
@@ -174,18 +172,24 @@ export type Character = {
   id: number;
   name: string;
   description: string | null;
-  createdAt: Date
+  createdAt: Date;
 };
- 
 
 export type LoginDialogProps = {
-  onCreateUser: (email: string, password: string, anon_id: string | null) => Promise<ActionResult>;
+  onCreateUser: (
+    email: string,
+    password: string,
+    anon_id: string | null,
+  ) => Promise<ActionResult>;
   onLoginUser: (email: string, password: string) => Promise<ActionResult>;
 };
 
 export type CodexWrapperProps = LoginDialogProps & {
   characters: Character[];
-  onCreateCharacter: (name: string, description: string) => Promise<ActionResult>;
+  onCreateCharacter: (
+    name: string,
+    description: string,
+  ) => Promise<ActionResult>;
   onEditCharacter: (
     characterId: number,
     name: string,

@@ -117,7 +117,9 @@ export function CreateCharacterDialog({
                 id="character-name"
                 value={name}
                 aria-invalid={errors.name}
-                aria-describedby={errors.name ? "character-name-error" : undefined}
+                aria-describedby={
+                  errors.name ? "character-name-error" : undefined
+                }
                 className={errors.name ? errorRing : ""}
                 onChange={(e) => {
                   setName(e.target.value);

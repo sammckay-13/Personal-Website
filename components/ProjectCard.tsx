@@ -35,7 +35,10 @@ export default function ProjectCard({
         <Image
           alt={`${project.name} image`}
           src={project.image}
-          className={cn("rounded-lg object-cover", isGalleryCard ? "lg:h-[50%] lg:w-auto" : "h-auto w-full")}
+          className={cn(
+            "rounded-lg object-cover",
+            isGalleryCard ? "lg:h-[50%] lg:w-auto" : "h-auto w-full",
+          )}
         />
         <p
           className={`text-lg font-semibold text-[#6F5345] dark:text-[#FFFBEE] ${descriptionWidth && isGalleryCard ? "lg:w-[80%]" : "w-[80%]"} `}

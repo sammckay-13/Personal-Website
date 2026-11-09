@@ -4,16 +4,16 @@ import { desc, eq, and } from "drizzle-orm";
 
 function fetchCharactersForUser(userId: string) {
   // we need to verify the user exists and is valid before fetching their characters
-      return db
-      .select({
-        id: CodexCharacters.id,
-        createdAt: CodexCharacters.createdAt,
-        name: CodexCharacters.name,
-        description: CodexCharacters.description,
-      })
-      .from(CodexCharacters)
-      .where(eq(CodexCharacters.codex_user_id, userId))
-      .orderBy(desc(CodexCharacters.createdAt));
+  return db
+    .select({
+      id: CodexCharacters.id,
+      createdAt: CodexCharacters.createdAt,
+      name: CodexCharacters.name,
+      description: CodexCharacters.description,
+    })
+    .from(CodexCharacters)
+    .where(eq(CodexCharacters.codex_user_id, userId))
+    .orderBy(desc(CodexCharacters.createdAt));
 }
 
 function createCharacter(userId: string, name: string, description: string) {
@@ -25,12 +25,14 @@ function createCharacter(userId: string, name: string, description: string) {
 }
 
 function deleteCharacter(userId: string, characterId: number) {
-  return db.delete(CodexCharacters).where(
-    and(
-      eq(CodexCharacters.id, characterId),
-      eq(CodexCharacters.codex_user_id, userId),
-    ),
-  );
+  return db
+    .delete(CodexCharacters)
+    .where(
+      and(
+        eq(CodexCharacters.id, characterId),
+        eq(CodexCharacters.codex_user_id, userId),
+      ),
+    );
 }
 
 function editCharacter(
@@ -42,9 +44,11 @@ function editCharacter(
   return db
     .update(CodexCharacters)
     .set({ name, description })
-    .where(and(
-      eq(CodexCharacters.id, characterId),
-      eq(CodexCharacters.codex_user_id, userId),)
+    .where(
+      and(
+        eq(CodexCharacters.id, characterId),
+        eq(CodexCharacters.codex_user_id, userId),
+      ),
     );
 }
 
