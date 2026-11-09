@@ -81,11 +81,12 @@ export async function editCharacterAction(
   // validate like create, then:
   try {
     if (!userId) return { success: false, message: "no user found" };
+    if (description?.trim().length === 0) description = ""
     const result = await codexService.editCharacter(
       userId,
       characterId,
       name.trim(),
-      description.trim(),
+      description,
     );
     if (result.rowCount === 0) {
       return { success: false, message: "Character not found" };

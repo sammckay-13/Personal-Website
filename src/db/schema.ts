@@ -144,7 +144,7 @@ export const CodexCharacters = pgTable(
     id: integer().primaryKey().generatedAlwaysAsIdentity(),
     createdAt: timestamp("createdAt").defaultNow().notNull(),
     name: text().notNull(),
-    description: text(),
+    description: text().notNull().default(""),
     codex_user_id: text()
       .notNull()
       .references(() => user.id, { onDelete: "cascade" }),

@@ -152,7 +152,7 @@ export default function LogIn({
                 autoComplete="email"
                 value={email}
                 aria-invalid={errors.email}
-                className={`bg-[#fff9e7] ${
+                className={`bg-[#fff9e7] text-[#6f5345] ${
                   errors.email ? errorRing : ""
                 }`}
                 onChange={(e) => {
@@ -166,7 +166,7 @@ export default function LogIn({
                 autoComplete="current-password"
                 value={password}
                 aria-invalid={errors.password}
-                className={`bg-[#fff9e7] ${
+                className={`bg-[#fff9e7] text-[#6f5345] ${
                   errors.password ? errorRing : ""
                 }`}
                 onChange={(e) => {

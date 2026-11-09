@@ -171,7 +171,7 @@ export type PostCreationDialogProps = {
 export type Character = {
   id: number;
   name: string;
-  description: string | null;
+  description: string;
   createdAt: Date;
 };
 
@@ -203,6 +203,17 @@ export type CodexWrapperProps = LoginDialogProps & {
 };
 
 export type CharacterCardProps = {
+  characterId: number,
   name: string,
-  description: string | null
+  description: string
+  handleEditCharacter: (characterId: number, name: string, description: string) => Promise<ActionResult>
+  handleDeleteCharacter: (characterId: number) => Promise<ActionResult>
+}
+
+export type EditCharacterDialogProps = {
+  characterId: number,
+  name: string,
+  description: string
+  onSubmitEdit: (characterId: number, name:string, description:string ) => Promise<ActionResult>
+  onDelete: (characterId: number) => Promise<ActionResult>
 }

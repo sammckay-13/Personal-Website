@@ -40,7 +40,7 @@ export default function CodexWrapper({
     name: string,
     description: string,
   ): Promise<ActionResult> {
-    const result = await onCreateCharacter(name, description);
+    const result = await onCreateCharacter(name, description ?? "");
     if (result.success) setIsOpen(false);
     return result;
   }
@@ -50,7 +50,8 @@ export default function CodexWrapper({
     name: string,
     description: string,
   ): Promise<ActionResult> {
-    return onEditCharacter(characterId, name, description);
+    const result = await onEditCharacter(characterId, name, description ?? "");
+    return result
   }
 
   async function deleteCharacter(characterId: number): Promise<ActionResult> {
@@ -77,7 +78,7 @@ export default function CodexWrapper({
   }
 
   return (
-    <div className="flex flex-col ml-3 items-center gap-5 mt-5">
+    <div className="flex flex-col ml-3 items-center gap-5 mt-5 h-auto">
       <Card
         id="blog-wrapper"
         className="flex items-center w-fit border bg-[#6f5345] border-[#b7a799] mt-15 h-fit"
@@ -162,7 +163,7 @@ export default function CodexWrapper({
           transition={{ type: "spring", stiffness: 380, damping: 36 }}
           className="flex w-full justify-center"
         >
-          <CharacterCard name={character.name} description={character.description}/>
+          <CharacterCard characterId={character.id} name={character.name} description={character.description} handleEditCharacter={editCharacter} handleDeleteCharacter={deleteCharacter}/>
           {/* I need to create a character card here */}
         </motion.div>
       ))}
