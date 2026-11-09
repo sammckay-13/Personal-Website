@@ -10,9 +10,9 @@ import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 
 export default async function Home() {
-    auth.api.getSession({ headers: await headers() })
+    const test = auth.api.getSession({ headers: await headers() })
     
-    const characters = await fetchCodexCharactersAction(1); // Replace with actual user ID
+    const characters = await fetchCodexCharactersAction();
 
   return (
     <div className="overflow-x-hidden md:flex-row flex-col">
