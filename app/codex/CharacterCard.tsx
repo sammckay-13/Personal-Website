@@ -10,7 +10,7 @@ export function CharacterCard({
   handleDeleteCharacter,
 }: CharacterCardProps) {
   return (
-    <Card className="dark:bg-[#6f5345] bg-[#fff9e7] border-[#fffbee] text-[#fffbee] h-auto md:h-auto w-full md:w-170 lg:w-[30%]">
+    <Card className="dark:bg-[#6f5345] bg-[#fff9e7] border-[#fffbee] text-[#fffbee] h-auto md:h-auto w-full md:w-170 lg:w-[30%] mb-1">
       <CardHeader className="items-center justify-between w-full flex ml-2 text-2xl mb-2 font-semibold text-[#8b6959] dark:text-[#fffbee]">
         {name}
         <EditCharacterDialog

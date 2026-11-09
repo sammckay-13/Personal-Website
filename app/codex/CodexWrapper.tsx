@@ -78,10 +78,10 @@ export default function CodexWrapper({
   }
 
   return (
-    <div className="flex flex-col ml-3 items-center gap-5 mt-5 h-auto">
+    <div className="flex flex-col ml-3 items-center gap-5 mt-5 h-full">
       <Card
         id="blog-wrapper"
-        className="flex items-center w-fit border bg-[#6f5345] border-[#b7a799] mt-15 h-fit"
+        className="flex items-center w-fit border bg-[#6f5345] border-[#b7a799] mt-15 h-full"
       >
         <CardContent className="flex gap-4 text-lg text-[#fffbee]">
           <div>Create Dungeons and Dragons Non-player Characters (NPCs)!</div>
@@ -166,7 +166,7 @@ export default function CodexWrapper({
           key={character.id}
           layout
           transition={{ type: "spring", stiffness: 380, damping: 36 }}
-          className="flex w-full justify-center"
+          className="flex w-full h-full justify-center"
         >
           <CharacterCard
             characterId={character.id}
@@ -175,7 +175,6 @@ export default function CodexWrapper({
             handleEditCharacter={editCharacter}
             handleDeleteCharacter={deleteCharacter}
           />
-          {/* I need to create a character card here */}
         </motion.div>
       ))}
     </div>
