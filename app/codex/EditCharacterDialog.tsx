@@ -84,7 +84,7 @@ export function EditCharacterDialog({characterId, name, description, onSubmitEdi
                 htmlFor="character-description"
                 className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
               >
-                Description<span className="text-red-500 text-lg mt-1">*</span>
+                Description<span className="text-lg mt-1"></span>
               </Label>
               <Textarea
                 id="character-description"

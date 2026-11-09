@@ -11,7 +11,7 @@ export function CharacterCard({characterId, name, description, handleEditCharact
             {name}
             <EditCharacterDialog characterId={characterId} name={name} description={description} onSubmitEdit={handleEditCharacter} onDelete={handleDeleteCharacter}></EditCharacterDialog>
             </CardHeader>
-            <CardContent className="ml-4 w-full text-[#8b6959] text-lg font-semibold">
+            <CardContent className="ml-4 w-full text-[#8b6959] dark:text-[#fffbee] text-lg font-semibold">
             {description}
             </CardContent>
 
