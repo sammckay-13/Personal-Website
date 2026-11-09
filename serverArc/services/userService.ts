@@ -1,6 +1,7 @@
-// services/codexService.ts
-import { hashPassword, verifyPassword } from "@/lib/utils/user";
-import * as userRepository from "@/serverArc/repositories/userRepository"; // adjust path
+// services/userService.ts
+import { APIError } from "better-auth/api";
+import { auth } from "@/lib/auth";
+import * as userRepository from "@/serverArc/repositories/userRepository";
 import type { ActionResult } from "@/lib/types";
 
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -18,20 +19,28 @@ export async function createUser(
   if (typeof password !== "string" || password.length < 8) {
     return { success: false, message: "Password must be at least 8 characters" };
   }
+  if (anonId !== null && (typeof anonId !== "string" || !UUID_RE.test(anonId))) {
+    return { success: false, message: "Invalid anonymous id" };
+  }
 
   try {
-    const passwordHash = await hashPassword(password);
-    await userRepository.insertUser({ email: normalizedEmail, passwordHash, anonId });
+    // Friendly message before the library hits the unique constraint
+    if (anonId && (await userRepository.findUserByAnonId(anonId))) {
+      return { success: false, message: "This browser already has an account. Try logging in." };
+    }
+
+    await auth.api.signUpEmail({
+      body: {
+        email: normalizedEmail,
+        password,
+        name: normalizedEmail, // Better Auth requires a name; swap in a display-name field later
+      },
+    });
     return { success: true, message: "Account created" };
   } catch (error) {
-    const cause = (error as { cause?: { code?: string; constraint?: string } })?.cause;
-    if (cause?.code === "23505") {
-      if (cause.constraint === "codex-users_email_unique") {
-        return { success: false, message: "That email is already registered" };
-      }
-      if (cause.constraint === "codex-users_anon_id_unique") {
-        return { success: false, message: "This browser already has an account. Try logging in." };
-      }
+    if (error instanceof APIError) {
+      // Check error.body?.code to map specific cases (e.g. email already registered)
+      return { success: false, message: error.message || "Failed to create account" };
     }
     console.error(error);
     return { success: false, message: "Failed to create account" };
@@ -39,16 +48,19 @@ export async function createUser(
 }
 
 export async function login(email: string, password: string): Promise<ActionResult> {
-  const user = await userRepository.findUserByEmail(email.trim().toLowerCase());
-
-  // Same message for unknown email and wrong password
-  if (!user || !(await verifyPassword(password, user.password))) {
-    return { success: false, message: "Invalid email or password" };
+  try {
+    await auth.api.signInEmail({
+      body: { email: email.trim().toLowerCase(), password },
+    });
+    return { success: true, message: "Logged in" };
+  } catch (error) {
+    if (error instanceof APIError) {
+      // Same message for unknown email and wrong password
+      return { success: false, message: "Invalid email or password" };
+    }
+    console.error(error);
+    return { success: false, message: "Failed to log in" };
   }
-  return { success: true, message: "Logged in" };
 }
 
-export const userService = {
-  createUser,
-  login
-}
+export const userService = { createUser, login };
