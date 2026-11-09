@@ -1,3 +1,4 @@
+import { relations } from "drizzle-orm";
 import {
   integer,
   json,
@@ -54,9 +55,9 @@ export const forumComments = pgTable("forum-comments", {
 export const CodexUsers = pgTable("codex-users", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
-  anon_id: uuid().notNull(),
-  username: text().notNull(),
-  password: text().notNull(),
+  anon_id: uuid().unique(),
+  email: text().notNull().unique(),
+  password: text().notNull(), // store a hash, never the plain-text password
 });
 
 export const CodexCharacters = pgTable("codex-characters", {
@@ -68,3 +69,40 @@ export const CodexCharacters = pgTable("codex-characters", {
     .notNull()
     .references(() => CodexUsers.id, { onDelete: "cascade" }),
 });
+
+// ---------------------------------------------------------------------------
+// Relations (query-level only for db.query...with; no database changes)
+// ---------------------------------------------------------------------------
+
+export const codexUsersRelations = relations(CodexUsers, ({ many }) => ({
+  characters: many(CodexCharacters),
+  comments: many(forumComments),
+  reactions: many(forumReactionsTable),
+}));
+
+export const codexCharactersRelations = relations(
+  CodexCharacters,
+  ({ one }) => ({
+    user: one(CodexUsers, {
+      fields: [CodexCharacters.codex_user_id],
+      references: [CodexUsers.id],
+    }),
+  }),
+);
+
+export const forumCommentsRelations = relations(forumComments, ({ one }) => ({
+  user: one(CodexUsers, {
+    fields: [forumComments.anon_id],
+    references: [CodexUsers.anon_id],
+  }),
+}));
+
+export const forumReactionsRelations = relations(
+  forumReactionsTable,
+  ({ one }) => ({
+    user: one(CodexUsers, {
+      fields: [forumReactionsTable.anon_id],
+      references: [CodexUsers.anon_id],
+    }),
+  }),
+);
