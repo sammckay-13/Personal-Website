@@ -20,3 +20,12 @@ export async function findUserById(id: string) {
     .limit(1);
   return row ?? null;
 }
+
+export async function findUserByEmail(email: string) {
+    const [row] = await db
+    .select({ id: user.id, email: user.email, name: user.name })
+    .from(user)
+    .where(eq(user.email, email))
+    .limit(1);
+  return row ?? null;
+}

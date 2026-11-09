@@ -15,21 +15,34 @@ const REQUIRED_MESSAGE = "This is a required field";
 const errorRing =
   "border-red-500 ring-2 ring-red-500/40 focus-visible:border-red-500 focus-visible:ring-red-500/40";
 
-export default function LogIn({ onCreateUser, onLoginUser }: LoginDialogProps) {
+export default function LogIn({ onCreateUser, onLoginUser, onLogoutUser, isLoggedIn }: LoginDialogProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({ email: false, password: false });
+  const [localIsLoggedIn, setLocalIsLoggedIn] = useState(isLoggedIn);
+  const [resultMessage, setResultMessage] = useState("")
 
   async function handleCreateAccount() {
     // Implement the logic to create an account
     const anonId = localStorage.getItem("anon_id"); // use your existing key or helper
     // I might want to create an anon_id if they don't have one but that will probably result in orphaned posts
     const result = await onCreateUser(email, password, anonId);
+    console.log(result.message)
+
     if (result.success) {
-      setIsOpen(false);
-      return;
+      const logInResult = await onLoginUser(email, password)
+      if (logInResult.success) {
+        setIsOpen(false);
+        setErrors({ email: false, password: false });
+        setResultMessage("")
+        return;
+      } else {
+        setLocalIsLoggedIn(false)
+        return;
+      }
     }
+    setResultMessage(result.message)
     setErrors({ email: true, password: true });
     return result;
   }
@@ -38,37 +51,56 @@ export default function LogIn({ onCreateUser, onLoginUser }: LoginDialogProps) {
     // Implement the logic to log in
     // I'll also have to tie the anon_id to the user account on login, so people will have access to their comments and stuff
     const result = await onLoginUser(email, password);
+    console.log(result.message)
     if (result.success) {
       setIsOpen(false);
+      setLocalIsLoggedIn(true)
+              setErrors({ email: false, password: false });
+        setResultMessage("")
       return;
     }
+    setResultMessage(result.message)
     setErrors({ email: true, password: true });
     return result;
   }
+
+  async function handleLogOut() {
+    const result = await onLogoutUser()
+    setLocalIsLoggedIn(false)
+  }
+
   return (
+    <div>
+      {localIsLoggedIn && (<Button variant="outline"
+            className="border border-[#624a3e] hover:bg-[#ece5d3] hover:text-[#6f5345] font-semibold text-[#6f5345] h-fit p-2 bg-[#fff9e7] dark:bg-[#6f5345] hover:dark:bg-[#654b3e] dark:text-[#fffbee] hover:cursor-pointer w-fit"
+            onClick={() => handleLogOut()}>Log Out</Button>)}
     <Dialog
       open={isOpen}
       onOpenChange={() => {
         setIsOpen(!isOpen);
       }}
-    >
-      <DialogTrigger
-        render={
-          <Button
-            variant="outline"
-            className="border border-[#624a3e] hover:bg-[#ece5d3] hover:text-[#6f5345] font-semibold text-[#6f5345] w-[15%] h-fit p-2 bg-[#fff9e7] dark:bg-[#6f5345] hover:dark:bg-[#654b3e] dark:text-[#fffbee] hover:cursor-pointer"
-            onClick={() => setIsOpen(true)}
-          />
-        }
       >
-        Log In
-      </DialogTrigger>
+        {!localIsLoggedIn && (
+          <DialogTrigger
+          render={
+            <Button
+            variant="outline"
+            className="border border-[#624a3e] hover:bg-[#ece5d3] hover:text-[#6f5345] font-semibold text-[#6f5345] w-fit h-fit p-2 bg-[#fff9e7] dark:bg-[#6f5345] hover:dark:bg-[#654b3e] dark:text-[#fffbee] hover:cursor-pointer"
+            onClick={() => setIsOpen(true)}
+            />
+          }
+          >
+          Log In
+          </DialogTrigger>
+        )}
+            
       <DialogContent className="bg-[#6f5345] border border-[#fffbee] text-[#fffbee]">
         <DialogHeader className="text-center">
           <h1 className="text-2xl font-bold">Log In</h1>
           <p className="text-sm text-muted-foreground">
             Log in to access your characters!
           </p>
+          <p>{resultMessage}</p>
         </DialogHeader>
         <div className="flex flex-col gap-4">
           <input
@@ -81,7 +113,7 @@ export default function LogIn({ onCreateUser, onLoginUser }: LoginDialogProps) {
               setEmail(e.target.value);
               if (errors.email) setErrors((p) => ({ ...p, email: false }));
             }}
-          />
+            />
           <input
             type="password"
             placeholder="Password"
@@ -92,18 +124,18 @@ export default function LogIn({ onCreateUser, onLoginUser }: LoginDialogProps) {
               setPassword(e.target.value);
               if (errors.email) setErrors((p) => ({ ...p, email: false }));
             }}
-          />
+            />
           <div className="flex flex-row gap-4 justify-center">
             <button
               onClick={() => handleCreateAccount()}
               className="bg-blue-500 text-white rounded px-3 py-2 hover:bg-blue-600"
-            >
+              >
               Create Account
             </button>
             <button
               onClick={() => handleLogIn()}
               className="bg-blue-500 text-white rounded px-3 py-2 hover:bg-blue-600"
-            >
+              >
               Log In
             </button>
           </div>
@@ -111,5 +143,6 @@ export default function LogIn({ onCreateUser, onLoginUser }: LoginDialogProps) {
       </DialogContent>
       <DialogClose onClick={() => setIsOpen(false)} />
     </Dialog>
+              </div>
   );
 }

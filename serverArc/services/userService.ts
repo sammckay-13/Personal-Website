@@ -18,21 +18,22 @@ export async function createUser(
   if (!/^\S+@\S+\.\S+$/.test(normalizedEmail)) {
     return { success: false, message: "Please enter a valid email" };
   }
-  if (typeof password !== "string" || password.length < 8) {
-    return {
-      success: false,
-      message: "Password must be at least 8 characters",
-    };
-  }
-  if (
-    anonId !== null &&
-    (typeof anonId !== "string" || !UUID_RE.test(anonId))
-  ) {
-    return { success: false, message: "Invalid anonymous id" };
-  }
 
   try {
-    // Friendly message before the library hits the unique constraint
+    // Existing account check comes before the password rules
+    if (await userRepository.findUserByEmail(normalizedEmail)) {
+      return {
+        success: false,
+        message: "You already have an account with that email. Try logging in.",
+      };
+    }
+
+    if (typeof password !== "string" || password.length < 8) {
+      return { success: false, message: "Password must be at least 8 characters" };
+    }
+    if (anonId !== null && (typeof anonId !== "string" || !UUID_RE.test(anonId))) {
+      return { success: false, message: "Invalid anonymous id" };
+    }
     if (anonId && (await userRepository.findUserByAnonId(anonId))) {
       return {
         success: false,
@@ -41,20 +42,19 @@ export async function createUser(
     }
 
     await auth.api.signUpEmail({
-      body: {
-        email: normalizedEmail,
-        password,
-        name: normalizedEmail, // Better Auth requires a name; swap in a display-name field later
-      },
+      body: { email: normalizedEmail, password, name: normalizedEmail },
     });
     return { success: true, message: "Account created" };
   } catch (error) {
     if (error instanceof APIError) {
-      // Check error.body?.code to map specific cases (e.g. email already registered)
-      return {
-        success: false,
-        message: error.message || "Failed to create account",
-      };
+      const code = String((error.body as { code?: string } | undefined)?.code ?? "");
+      if (code.includes("ALREADY_EXISTS")) {
+        return {
+          success: false,
+          message: "You already have an account with that email. Try logging in.",
+        };
+      }
+      return { success: false, message: error.message || "Failed to create account" };
     }
     console.error(error);
     return { success: false, message: "Failed to create account" };
