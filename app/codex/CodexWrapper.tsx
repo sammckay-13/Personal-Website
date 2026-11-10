@@ -166,7 +166,7 @@ export default function CodexWrapper({
           key={character.id}
           layout
           transition={{ type: "spring", stiffness: 380, damping: 36 }}
-          className="flex w-full h-full justify-center"
+          className="flex w-[115%] h-full justify-center"
         >
           <CharacterCard
             characterId={character.id}
