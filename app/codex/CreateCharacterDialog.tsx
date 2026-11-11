@@ -183,6 +183,41 @@ export function CreateCharacterDialog({
                 placeholder="Who are they? What do they look like?"
               />
             </Field>
+            <Field>
+              <Label
+                htmlFor="gender"
+                className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
+              >
+                Gender<span className="text-red-500 text-lg mt-1"></span>
+              </Label>
+              <Textarea
+                id="gender"
+                value={gender}
+                className={errors.description ? errorRing : ""}
+                onChange={(e) => {
+                  setGender(e.target.value);
+                  if (errors.description)
+                    setErrors((p) => ({ ...p, description: false }));
+                }}
+                placeholder="How do they identify?"
+              />
+            </Field>
+            <Field>
+              <Label
+                htmlFor="race"
+                className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
+              >
+                Race
+              </Label>
+              <Textarea
+                id="race"
+                value={race}
+                onChange={(e) => {
+                  setRace(e.target.value);
+                }}
+                placeholder="What race are they?"
+              />
+            </Field>
 
             <Field>
               <Label
@@ -218,43 +253,7 @@ export function CreateCharacterDialog({
               />
             </Field>
 
-            <Field>
-              <Label
-                htmlFor="gender"
-                className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
-              >
-                Gender<span className="text-red-500 text-lg mt-1"></span>
-              </Label>
-              <Textarea
-                id="gender"
-                value={gender}
-                className={errors.description ? errorRing : ""}
-                onChange={(e) => {
-                  setGender(e.target.value);
-                  if (errors.description)
-                    setErrors((p) => ({ ...p, description: false }));
-                }}
-                placeholder="How do they identify?"
-              />
-            </Field>
 
-            <Field>
-              <Label
-                htmlFor="race"
-                className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
-              >
-                Race<span className="text-red-500 text-lg mt-1"></span>
-              </Label>
-              <Textarea
-                id="race"
-                value={race}
-                className={errors.description ? errorRing : ""}
-                onChange={(e) => {
-                  setRace(e.target.value);
-                }}
-                placeholder="What race are they?"
-              />
-            </Field>
 
             <Field>
               <Label
@@ -266,12 +265,8 @@ export function CreateCharacterDialog({
               <Textarea
                 id="country"
                 value={country}
-                className={errors.description ? errorRing : ""}
                 onChange={(e) => {
-                  setCountry(e.target.value);
-                  if (errors.description)
-                    setErrors((p) => ({ ...p, description: false }));
-                }}
+                  setCountry(e.target.value);}}
                 placeholder="What country are they from?"
               />
             </Field>

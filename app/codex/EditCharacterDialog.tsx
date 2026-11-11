@@ -147,6 +147,37 @@ export function EditCharacterDialog({
                 </p>
               )}
             </Field>
+                        <Field>
+                          <Label
+                            htmlFor="gender"
+                            className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
+                          >
+                            Gender<span className="text-red-500 text-lg mt-1"></span>
+                          </Label>
+                          <Textarea
+                            id="gender"
+                            value={currGender}
+                            onChange={(e) => {
+                              setCurrGender(e.target.value);}}
+                            placeholder="How do they identify?"
+                          />
+                        </Field>
+                        <Field>
+                          <Label
+                            htmlFor="race"
+                            className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
+                          >
+                            Race<span className="text-red-500 text-lg mt-1"></span>
+                          </Label>
+                          <Textarea
+                            id="race"
+                            value={currRace}
+                            onChange={(e) => {
+                              setCurrRace(e.target.value);
+                            }}
+                            placeholder="What race are they?"
+                          />
+                        </Field>
 
             <Field>
                           <Label
@@ -182,43 +213,7 @@ export function EditCharacterDialog({
                           />
                         </Field>
             
-                        <Field>
-                          <Label
-                            htmlFor="gender"
-                            className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
-                          >
-                            Gender<span className="text-red-500 text-lg mt-1"></span>
-                          </Label>
-                          <Textarea
-                            id="gender"
-                            value={currGender}
-                            className={errors.description ? errorRing : ""}
-                            onChange={(e) => {
-                              setCurrGender(e.target.value);
-                              if (errors.description)
-                                setErrors((p) => ({ ...p, description: false }));
-                            }}
-                            placeholder="How do they identify?"
-                          />
-                        </Field>
             
-                        <Field>
-                          <Label
-                            htmlFor="race"
-                            className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
-                          >
-                            Race<span className="text-red-500 text-lg mt-1"></span>
-                          </Label>
-                          <Textarea
-                            id="race"
-                            value={currRace}
-                            className={errors.description ? errorRing : ""}
-                            onChange={(e) => {
-                              setCurrRace(e.target.value);
-                            }}
-                            placeholder="What race are they?"
-                          />
-                        </Field>
             
                         <Field>
                           <Label
@@ -230,12 +225,8 @@ export function EditCharacterDialog({
                           <Textarea
                             id="country"
                             value={currCountry}
-                            className={errors.description ? errorRing : ""}
                             onChange={(e) => {
-                              setCurrCountry(e.target.value);
-                              if (errors.description)
-                                setErrors((p) => ({ ...p, description: false }));
-                            }}
+                              setCurrCountry(e.target.value);}}
                             placeholder="What country are they from?"
                           />
                         </Field>
