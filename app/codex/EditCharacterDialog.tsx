@@ -111,7 +111,7 @@ export function EditCharacterDialog({
         />
       }
     />
-    <TooltipContent className="bg-[#6f5345] border border-[#fffbee] text-[#fffbee] text-md">Click to edit character</TooltipContent>
+    <TooltipContent className="bg-[#6f5345] border border-[#fffbee] text-[#fffbee] text-md">Click to Edit Character</TooltipContent>
   </Tooltip>
       <DialogContent className="h-170 overflow-auto bg-[#fff9e7] pb-8 dark:bg-[#6F5345] md:min-w-[50%]">
         <form
