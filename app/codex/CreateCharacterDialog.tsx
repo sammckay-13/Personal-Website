@@ -46,7 +46,7 @@ export function CreateCharacterDialog({
   const [role, setRole] = useState("");
   const [voice_description, setVoiceDescription] = useState("");
 
-  const [errors, setErrors] = useState({ name: false, description: false });
+  const [errors, setErrors] = useState({ name: false});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   function reset() {
@@ -58,7 +58,7 @@ export function CreateCharacterDialog({
     setTown("");
     setRole("");
     setVoiceDescription("");
-    setErrors({ name: false, description: false });
+    setErrors({ name: false });
   }
 
   function handleOpenChange(open: boolean) {
@@ -69,10 +69,9 @@ export function CreateCharacterDialog({
   async function handleSubmit() {
     const next = {
       name: name.trim().length === 0,
-      description: description.trim().length === 0,
     };
     setErrors(next);
-    if (next.name || next.description) return;
+    if (next.name) return;
 
     setIsSubmitting(true);
     try {
@@ -176,16 +175,8 @@ export function CreateCharacterDialog({
               <Textarea
                 id="character-description"
                 value={description}
-                aria-invalid={errors.description}
-                aria-describedby={
-                  errors.description ? "character-description-error" : undefined
-                }
-                className={errors.description ? errorRing : ""}
                 onChange={(e) => {
-                  setDescription(e.target.value);
-                  if (errors.description)
-                    setErrors((p) => ({ ...p, description: false }));
-                }}
+                  setDescription(e.target.value);}}
                 placeholder="Who are they? What do they look like?"
               />
             </Field>
@@ -194,16 +185,13 @@ export function CreateCharacterDialog({
                 htmlFor="gender"
                 className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
               >
-                Gender<span className="text-red-500 text-lg mt-1"></span>
+                Gender
               </Label>
               <Textarea
                 id="gender"
                 value={gender}
-                className={errors.description ? errorRing : ""}
                 onChange={(e) => {
                   setGender(e.target.value);
-                  if (errors.description)
-                    setErrors((p) => ({ ...p, description: false }));
                 }}
                 placeholder="How do they identify?"
               />

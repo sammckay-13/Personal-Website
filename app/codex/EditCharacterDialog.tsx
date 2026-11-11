@@ -33,7 +33,7 @@ export function EditCharacterDialog({
   onSubmitEdit,
   onDelete,
 }: EditCharacterDialogProps) {
-  const [errors, setErrors] = useState({ name: false, description: false });
+  const [errors, setErrors] = useState({ name: false});
   const [currName, setCurrName] = useState(name);
   const [currDescription, setCurrDescription] = useState(description);
   const [currRace, setCurrRace] = useState(race);
@@ -55,10 +55,15 @@ export function EditCharacterDialog({
     setCurrTown("");
     setCurrRole("");
     setCurrVoiceDescription("");
-    setErrors({ name: false, description: false });
+    setErrors({ name: false});
   }
 
   function handleSubmit() {
+    const next = {
+      name: currName.trim().length === 0,
+    };
+    setErrors(next);
+    if (next.name) return;
     setIsSubmitting(true);
     onSubmitEdit(
       characterId,
@@ -158,27 +163,11 @@ export function EditCharacterDialog({
               <Textarea
                 id="character-description"
                 value={currDescription}
-                aria-invalid={errors.description}
-                aria-describedby={
-                  errors.description ? "character-description-error" : undefined
-                }
-                className={errors.description ? errorRing : ""}
                 onChange={(e) => {
                   setCurrDescription(e.target.value);
-                  if (errors.description)
-                    setErrors((p) => ({ ...p, description: false }));
                 }}
                 placeholder="Who are they? What do they look like?"
               />
-              {errors.description && (
-                <p
-                  id="character-description-error"
-                  role="alert"
-                  className="text-sm font-medium text-red-500"
-                >
-                  {REQUIRED_MESSAGE}
-                </p>
-              )}
             </Field>
             <Field>
               <Label
