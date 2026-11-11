@@ -1,5 +1,5 @@
 // services/forumService.ts
-import { forumRepository } from "@/repositories/forumRepository";
+import { forumRepository } from "../repositories/forumRepository";
 import type { ReactionType } from "@/lib/reactions";
 
 export const forumService = {

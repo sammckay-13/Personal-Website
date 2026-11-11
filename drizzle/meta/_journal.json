@@ -22,6 +22,20 @@
       "when": 1793725314449,
       "tag": "0002_serious_random",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1794194973137,
+      "tag": "0003_concerned_bastion",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1794254898447,
+      "tag": "0004_conscious_mesmero",
+      "breakpoints": true
     }
   ]
 }

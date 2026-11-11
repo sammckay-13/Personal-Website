@@ -1,6 +1,8 @@
 import { StaticImageData } from "next/image";
-import type { reactAction, submitPost } from "@/actions/forumActions";
+import type { reactAction, submitPost } from "@/serverArc/actions/forumActions";
 import type { ReactionType, ReactionCounts } from "@/lib/reactions";
+
+export type ActionResult = { success: boolean; message: string };
 
 export interface Project {
   name: string;
@@ -164,4 +166,62 @@ export type PostCreationDialogProps = {
   isOpen: boolean;
   onClose: () => void;
   submitPost: typeof submitPost;
+};
+
+export type Character = {
+  id: number;
+  name: string;
+  description: string;
+  createdAt: Date;
+};
+
+export type LoginDialogProps = {
+  onCreateUser: (
+    email: string,
+    password: string,
+    anon_id: string | null,
+  ) => Promise<ActionResult>;
+  onLoginUser: (email: string, password: string) => Promise<ActionResult>;
+  onLogoutUser: () => Promise<ActionResult>;
+  isLoggedIn: boolean;
+};
+
+export type CodexWrapperProps = LoginDialogProps & {
+  characters: Character[];
+  onCreateCharacter: (
+    name: string,
+    description: string,
+  ) => Promise<ActionResult>;
+  onEditCharacter: (
+    characterId: number,
+    name: string,
+    description: string,
+  ) => Promise<ActionResult>;
+  onDeleteCharacter: (characterId: number) => Promise<ActionResult>;
+  onLogoutUser: () => Promise<ActionResult>;
+  isLoggedIn: boolean;
+};
+
+export type CharacterCardProps = {
+  characterId: number;
+  name: string;
+  description: string;
+  handleEditCharacter: (
+    characterId: number,
+    name: string,
+    description: string,
+  ) => Promise<ActionResult>;
+  handleDeleteCharacter: (characterId: number) => Promise<ActionResult>;
+};
+
+export type EditCharacterDialogProps = {
+  characterId: number;
+  name: string;
+  description: string;
+  onSubmitEdit: (
+    characterId: number,
+    name: string,
+    description: string,
+  ) => Promise<ActionResult>;
+  onDelete: (characterId: number) => Promise<ActionResult>;
 };

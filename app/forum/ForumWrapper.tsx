@@ -111,7 +111,6 @@ export default function ForumWrapper({
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -14, opacity: 0 }}
                     transition={{ duration: 0.16 }}
-                    
                   >
                     {byReactions ? "Most reactions" : "Newest"}
                   </motion.span>

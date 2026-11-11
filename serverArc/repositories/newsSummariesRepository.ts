@@ -1,5 +1,5 @@
 import { newsSummariesTable } from "@/src/db/schema";
-import { db } from "../src/db";
+import { db } from "@/src/db";
 import { desc } from "drizzle-orm";
 
 export async function fetchNewsSummariesRepository() {

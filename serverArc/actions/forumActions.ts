@@ -5,7 +5,7 @@ import { z } from "zod";
 import { revalidatePath } from "next/cache";
 import { getOrCreateAnonId } from "@/lib/anon-id";
 import { REACTION_TYPES } from "@/lib/reactions";
-import { forumService } from "@/services/forumService";
+import { forumService } from "@/serverArc/services/forumService";
 import { readAnonId } from "@/lib/anon-id";
 
 // ---- Posts ----
