@@ -6,6 +6,7 @@ export function CharacterCard({
   characterId,
   name,
   description,
+  race, role, gender, country, town, voice_description,
   handleEditCharacter,
   handleDeleteCharacter,
 }: CharacterCardProps) {
@@ -23,6 +24,12 @@ export function CharacterCard({
       </CardHeader>
       <CardContent className="ml-4 w-full text-[#8b6959] dark:text-[#fffbee] text-lg font-semibold">
         {description}
+        {race}
+        {role}
+        {gender}
+        {country}
+        {town}
+        {voice_description}
       </CardContent>
     </Card>
   );

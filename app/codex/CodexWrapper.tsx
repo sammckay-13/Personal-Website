@@ -179,6 +179,12 @@ export default function CodexWrapper({
             characterId={character.id}
             name={character.name}
             description={character.description}
+            race={character.race}
+            role={character.role}
+            gender={character.gender}
+            country={character.country}
+            town={character.town}
+            voice_description={character.voice_description}
             handleEditCharacter={editCharacter}
             handleDeleteCharacter={deleteCharacter}
           />

@@ -10,6 +10,12 @@ function fetchCharactersForUser(userId: string) {
       createdAt: CodexCharacters.createdAt,
       name: CodexCharacters.name,
       description: CodexCharacters.description,
+      race: CodexCharacters.race,
+      role: CodexCharacters.role,
+      gender: CodexCharacters.role,
+      country: CodexCharacters.country,
+      town: CodexCharacters.town,
+      voice_description: CodexCharacters.voice_description
     })
     .from(CodexCharacters)
     .where(eq(CodexCharacters.codex_user_id, userId))
