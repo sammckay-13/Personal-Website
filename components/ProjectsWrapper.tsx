@@ -91,7 +91,7 @@ export default function ProjectsWrapper() {
     {
       name: "Antera Codex",
       description:
-        "A codex to keep track of my non-player characters that inhabit my fictional world of Antera, the setting of my Dungeons and Dragons campaigns.",
+        "A vibe coded codex to keep track of my non-player characters that inhabit my fictional world of Antera, the setting of my Dungeons and Dragons campaigns.",
       url: "",
       image: AnteraCodex,
     },
