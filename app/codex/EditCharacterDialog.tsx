@@ -94,7 +94,7 @@ export function EditCharacterDialog({
           <Button
             onClick={() => setIsOpen(!isOpen)}
             variant="ghost"
-            className="bg-[#6f5345] dark:bg-[#fff9e7] hover:bg-[#6f5345]"
+            className="mr-3 h-10 w-10 mb-4 bg-[#6f5345] dark:bg-[#fff9e7] hover:bg-[#6f5345]"
           >
             <FaEdit className="ml-0.5 dark:text-[#6f5345] text-[#fff9e7]" />
           </Button>
