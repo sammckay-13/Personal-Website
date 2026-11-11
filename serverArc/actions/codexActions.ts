@@ -90,6 +90,12 @@ export async function editCharacterAction(
   characterId: number,
   name: string,
   description: string,
+      race: string,
+    role: string,
+    gender: string,
+    country: string,
+    town: string,
+    voice_description: string,
 ): Promise<ActionResult> {
   const userId = await getUserId();
   if (!userId) return { success: false, message: "no user found" };
@@ -100,7 +106,13 @@ export async function editCharacterAction(
       userId,
       characterId,
       name.trim(),
-      description,
+      description.trim(),
+      race.trim(),
+      role.trim(),
+      gender.trim(),
+      country.trim(),
+      town.trim(),
+      voice_description.trim(),
     );
     if (result.rowCount === 0) {
       return { success: false, message: "Character not found" };

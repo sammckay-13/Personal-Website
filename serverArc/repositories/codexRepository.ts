@@ -62,10 +62,16 @@ function editCharacter(
   characterId: number,
   name: string,
   description: string,
+      race: string,
+    role: string,
+    gender: string,
+    country: string,
+    town: string,
+    voice_description: string,
 ) {
   return db
     .update(CodexCharacters)
-    .set({ name, description })
+    .set({ name, description, race, role, gender, country, town, voice_description })
     .where(
       and(
         eq(CodexCharacters.id, characterId),

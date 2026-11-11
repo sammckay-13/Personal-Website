@@ -50,12 +50,24 @@ export const codexService = {
     characterId: number,
     name: string,
     description: string,
+        race: string,
+    role: string,
+    gender: string,
+    country: string,
+    town: string,
+    voice_description: string,
   ) {
     return codexRepository.editCharacter(
       userId,
       characterId,
       name,
       description,
+      race,
+      role,
+      gender,
+      country,
+      town,
+      voice_description
     );
   },
 };

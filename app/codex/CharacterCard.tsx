@@ -23,6 +23,12 @@ export function CharacterCard({
           characterId={characterId}
           name={name}
           description={description}
+          race={race}
+          role={role}
+          gender={gender}
+          country={country}
+          town={town}
+          voice_description={voice_description}
           onSubmitEdit={handleEditCharacter}
           onDelete={handleDeleteCharacter}
         />

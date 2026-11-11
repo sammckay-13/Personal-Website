@@ -3,7 +3,9 @@ import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
+  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Field, FieldGroup } from "@/components/ui/field";
@@ -22,18 +24,25 @@ export function EditCharacterDialog({
   characterId,
   name,
   description,
+  race, role, gender, country, town, voice_description,
   onSubmitEdit,
   onDelete,
 }: EditCharacterDialogProps) {
   const [errors, setErrors] = useState({ name: false, description: false });
   const [currName, setCurrName] = useState(name);
   const [currDescription, setCurrDescription] = useState(description);
+  const [currRace, setCurrRace] = useState(name);
+  const [currRole, setCurrRole] = useState(name);
+  const [currGender, setCurrGender] = useState(name);
+  const [currCountry, setCurrCountry] = useState(name);
+  const [currTown, setCurrTown] = useState(name);
+  const [curr_voice_description, setCurrVoiceDescription] = useState(name);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
   function handleSubmit() {
     setIsSubmitting(true);
-    onSubmitEdit(characterId, currName, currDescription);
+    onSubmitEdit(characterId, currName, currDescription, currRace, currRole, currGender, currCountry, currTown, curr_voice_description);
     setIsSubmitting(false);
     setIsOpen(false);
   }
@@ -58,13 +67,21 @@ export function EditCharacterDialog({
           </Button>
         }
       ></DialogTrigger>
-      <DialogContent>
+      <DialogContent className="h-170 overflow-auto bg-[#fff9e7] pb-8 dark:bg-[#6F5345] md:min-w-[50%]">
         <form
           onSubmit={(e) => {
             e.preventDefault();
             void handleSubmit();
           }}
         >
+        <DialogHeader>
+          <DialogTitle className="text-3xl pt-3 w-full font-bold text-[#6F5345] dark:text-[#FFFBEE]">
+            Edit a Character!
+          </DialogTitle>
+          <DialogDescription className="text-[#6F5345] dark:text-[#FFFBEE] text-lg font-semibold">
+            Enter the new details for your character below.
+          </DialogDescription>
+        </DialogHeader>
           <FieldGroup>
             <Field>
               <Label
@@ -130,6 +147,116 @@ export function EditCharacterDialog({
                 </p>
               )}
             </Field>
+
+            <Field>
+                          <Label
+                            htmlFor="voice-description"
+                            className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
+                          >
+                            Voice Description
+                          </Label>
+                          <Textarea
+                            id="voice-description"
+                            value={curr_voice_description}
+                            onChange={(e) => {
+                              setCurrVoiceDescription(e.target.value);
+                            }}
+                            placeholder="What do they sound like?"
+                          />
+                        </Field>
+            
+                        <Field>
+                          <Label
+                            htmlFor="role"
+                            className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
+                          >
+                            Role
+                          </Label>
+                          <Textarea
+                            id="role"
+                            value={currRole}
+                            onChange={(e) => {
+                              setCurrRole(e.target.value);
+                            }}
+                            placeholder="What do they do?"
+                          />
+                        </Field>
+            
+                        <Field>
+                          <Label
+                            htmlFor="gender"
+                            className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
+                          >
+                            Gender<span className="text-red-500 text-lg mt-1"></span>
+                          </Label>
+                          <Textarea
+                            id="gender"
+                            value={currGender}
+                            className={errors.description ? errorRing : ""}
+                            onChange={(e) => {
+                              setCurrGender(e.target.value);
+                              if (errors.description)
+                                setErrors((p) => ({ ...p, description: false }));
+                            }}
+                            placeholder="How do they identify?"
+                          />
+                        </Field>
+            
+                        <Field>
+                          <Label
+                            htmlFor="race"
+                            className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
+                          >
+                            Race<span className="text-red-500 text-lg mt-1"></span>
+                          </Label>
+                          <Textarea
+                            id="race"
+                            value={currRace}
+                            className={errors.description ? errorRing : ""}
+                            onChange={(e) => {
+                              setCurrRace(e.target.value);
+                            }}
+                            placeholder="What race are they?"
+                          />
+                        </Field>
+            
+                        <Field>
+                          <Label
+                            htmlFor="country"
+                            className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
+                          >
+                            Country
+                          </Label>
+                          <Textarea
+                            id="country"
+                            value={currCountry}
+                            className={errors.description ? errorRing : ""}
+                            onChange={(e) => {
+                              setCurrCountry(e.target.value);
+                              if (errors.description)
+                                setErrors((p) => ({ ...p, description: false }));
+                            }}
+                            placeholder="What country are they from?"
+                          />
+                        </Field>
+            
+                        <Field>
+                          <Label
+                            htmlFor="town"
+                            className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
+                          >
+                            Town
+                          </Label>
+                          <Textarea
+                            id="town"
+                            value={currTown}
+                            onChange={(e) => {
+                              setCurrTown(e.target.value);
+                            }}
+                            placeholder="What town are they from?"
+                          />
+                        </Field>
+            
 
             <Button
               type="submit"
