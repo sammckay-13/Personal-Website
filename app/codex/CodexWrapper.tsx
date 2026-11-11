@@ -44,10 +44,18 @@ export default function CodexWrapper({
     gender: string,
     country: string,
     town: string,
-    voice_description: string
-
+    voice_description: string,
   ): Promise<ActionResult> {
-    const result = await onCreateCharacter(name, description ?? "", race ?? "", role ?? "", gender ?? "", country ?? "", town ?? "", voice_description ?? "");
+    const result = await onCreateCharacter(
+      name,
+      description ?? "",
+      race ?? "",
+      role ?? "",
+      gender ?? "",
+      country ?? "",
+      town ?? "",
+      voice_description ?? "",
+    );
     if (result.success) setIsOpen(false);
     return result;
   }

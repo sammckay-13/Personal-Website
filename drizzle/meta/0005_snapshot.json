@@ -116,12 +116,8 @@
           "name": "codex-characters_codex_user_id_user_id_fk",
           "tableFrom": "codex-characters",
           "tableTo": "user",
-          "columnsFrom": [
-            "codex_user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["codex_user_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -238,12 +234,8 @@
           "name": "account_user_id_user_id_fk",
           "tableFrom": "account",
           "tableTo": "user",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -307,12 +299,8 @@
           "name": "forum-comments_forum_post_id_forum-posts_id_fk",
           "tableFrom": "forum-comments",
           "tableTo": "forum-posts",
-          "columnsFrom": [
-            "forum_post_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["forum_post_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -468,12 +456,8 @@
           "name": "forum-reactions_forum_post_id_forum-posts_id_fk",
           "tableFrom": "forum-reactions",
           "tableTo": "forum-posts",
-          "columnsFrom": [
-            "forum_post_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["forum_post_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -615,12 +599,8 @@
           "name": "session_user_id_user_id_fk",
           "tableFrom": "session",
           "tableTo": "user",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -630,9 +610,7 @@
         "session_token_unique": {
           "name": "session_token_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "token"
-          ]
+          "columns": ["token"]
         }
       },
       "policies": {},
@@ -702,16 +680,12 @@
         "user_email_unique": {
           "name": "user_email_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "email"
-          ]
+          "columns": ["email"]
         },
         "user_anon_id_unique": {
           "name": "user_anon_id_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "anon_id"
-          ]
+          "columns": ["anon_id"]
         }
       },
       "policies": {},

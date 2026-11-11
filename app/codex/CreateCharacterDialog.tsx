@@ -33,7 +33,7 @@ export function CreateCharacterDialog({
     gender: string,
     country: string,
     town: string,
-    voice_description: string
+    voice_description: string,
   ) => Promise<ActionResult>;
 }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,7 +43,7 @@ export function CreateCharacterDialog({
   const [gender, setGender] = useState("");
   const [country, setCountry] = useState("");
   const [town, setTown] = useState("");
-  const [role, setRole] = useState("")
+  const [role, setRole] = useState("");
   const [voice_description, setVoiceDescription] = useState("");
 
   const [errors, setErrors] = useState({ name: false, description: false });
@@ -70,7 +70,16 @@ export function CreateCharacterDialog({
 
     setIsSubmitting(true);
     try {
-      const result = await onCreateCharacter(name.trim(), description.trim(), race.trim(), role.trim(), gender.trim(), country.trim(), town.trim(), voice_description.trim()); // Replace with actual user ID
+      const result = await onCreateCharacter(
+        name.trim(),
+        description.trim(),
+        race.trim(),
+        role.trim(),
+        gender.trim(),
+        country.trim(),
+        town.trim(),
+        voice_description.trim(),
+      ); // Replace with actual user ID
       if (result.success) {
         toast.success(result.message);
         handleOpenChange(false);
@@ -175,7 +184,7 @@ export function CreateCharacterDialog({
               />
             </Field>
 
-                        <Field>
+            <Field>
               <Label
                 htmlFor="voice-description"
                 className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
@@ -192,7 +201,7 @@ export function CreateCharacterDialog({
               />
             </Field>
 
-                        <Field>
+            <Field>
               <Label
                 htmlFor="role"
                 className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
@@ -209,7 +218,7 @@ export function CreateCharacterDialog({
               />
             </Field>
 
-                        <Field>
+            <Field>
               <Label
                 htmlFor="gender"
                 className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
@@ -229,7 +238,7 @@ export function CreateCharacterDialog({
               />
             </Field>
 
-                        <Field>
+            <Field>
               <Label
                 htmlFor="race"
                 className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
@@ -247,7 +256,7 @@ export function CreateCharacterDialog({
               />
             </Field>
 
-                        <Field>
+            <Field>
               <Label
                 htmlFor="country"
                 className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
@@ -267,8 +276,7 @@ export function CreateCharacterDialog({
               />
             </Field>
 
-
-                        <Field>
+            <Field>
               <Label
                 htmlFor="town"
                 className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
@@ -294,7 +302,6 @@ export function CreateCharacterDialog({
             </Button>
           </FieldGroup>
         </form>
-
       </DialogContent>
     </Dialog>
   );

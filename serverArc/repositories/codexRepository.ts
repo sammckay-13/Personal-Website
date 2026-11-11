@@ -15,26 +15,34 @@ function fetchCharactersForUser(userId: string) {
       gender: CodexCharacters.role,
       country: CodexCharacters.country,
       town: CodexCharacters.town,
-      voice_description: CodexCharacters.voice_description
+      voice_description: CodexCharacters.voice_description,
     })
     .from(CodexCharacters)
     .where(eq(CodexCharacters.codex_user_id, userId))
     .orderBy(desc(CodexCharacters.createdAt));
 }
 
-function createCharacter(userId: string, name: string, description: string,     race: string,
-    role: string,
-    gender: string,
-    country: string,
-    town: string,
-    voice_description: string) {
+function createCharacter(
+  userId: string,
+  name: string,
+  description: string,
+  race: string,
+  role: string,
+  gender: string,
+  country: string,
+  town: string,
+  voice_description: string,
+) {
   return db.insert(CodexCharacters).values({
     codex_user_id: userId,
     name,
     description,
-    race, 
+    race,
     role,
-    gender, country, town, voice_description
+    gender,
+    country,
+    town,
+    voice_description,
   });
 }
 

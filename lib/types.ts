@@ -172,12 +172,12 @@ export type Character = {
   id: number;
   name: string;
   description: string;
-  race: string,
-  role: string,
-  gender: string,
-  country: string,
-  town: string,
-  voice_description: string
+  race: string;
+  role: string;
+  gender: string;
+  country: string;
+  town: string;
+  voice_description: string;
   createdAt: Date;
 };
 
@@ -202,7 +202,7 @@ export type CodexWrapperProps = LoginDialogProps & {
     gender: string,
     country: string,
     town: string,
-    voice_description: string
+    voice_description: string,
   ) => Promise<ActionResult>;
   onEditCharacter: (
     characterId: number,
@@ -218,12 +218,12 @@ export type CharacterCardProps = {
   characterId: number;
   name: string;
   description: string;
-      race: string,
-    role: string,
-    gender: string,
-    country: string,
-    town: string,
-    voice_description: string
+  race: string;
+  role: string;
+  gender: string;
+  country: string;
+  town: string;
+  voice_description: string;
   handleEditCharacter: (
     characterId: number,
     name: string,

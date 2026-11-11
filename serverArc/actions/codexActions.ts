@@ -26,18 +26,31 @@ export async function createCharacterAction(
   gender: string,
   country: string,
   town: string,
-  voice_description: string
+  voice_description: string,
 ): Promise<ActionResult> {
   const userId = await getUserId();
   if (!userId) {
-    return { success: false, message: "Create an account to create a character!" };
+    return {
+      success: false,
+      message: "Create an account to create a character!",
+    };
   }
   if (typeof name !== "string" || name.trim() === "") {
     return { success: false, message: "Character name cannot be empty" };
   }
 
   try {
-    await codexService.createCharacter(userId, name.trim(), description.trim(), race.trim(), role.trim(), gender.trim(), country.trim(), town.trim(), voice_description.trim());
+    await codexService.createCharacter(
+      userId,
+      name.trim(),
+      description.trim(),
+      race.trim(),
+      role.trim(),
+      gender.trim(),
+      country.trim(),
+      town.trim(),
+      voice_description.trim(),
+    );
     revalidatePath("/"); // adjust to the route that renders the list
     return { success: true, message: "Character created" };
   } catch (error) {

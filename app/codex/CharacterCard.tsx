@@ -6,7 +6,12 @@ export function CharacterCard({
   characterId,
   name,
   description,
-  race, role, gender, country, town, voice_description,
+  race,
+  role,
+  gender,
+  country,
+  town,
+  voice_description,
   handleEditCharacter,
   handleDeleteCharacter,
 }: CharacterCardProps) {

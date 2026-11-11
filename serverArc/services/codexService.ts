@@ -16,7 +16,7 @@ export const codexService = {
     gender: string,
     country: string,
     town: string,
-    voice_description: string
+    voice_description: string,
   ): Promise<ActionResult> {
     if (typeof name !== "string" || name.trim() === "") {
       return { success: false, message: "Character name cannot be empty" };
@@ -26,8 +26,13 @@ export const codexService = {
       await codexRepository.createCharacter(
         userId,
         name.trim(),
-        description.trim(), race.trim(), role.trim(), gender.trim(), country.trim(), town.trim(), voice_description.trim()
-
+        description.trim(),
+        race.trim(),
+        role.trim(),
+        gender.trim(),
+        country.trim(),
+        town.trim(),
+        voice_description.trim(),
       );
       return { success: true, message: "Character created" };
     } catch (error) {
