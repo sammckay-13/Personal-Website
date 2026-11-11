@@ -28,7 +28,7 @@ export default async function Home() {
         <FloatingSidebarTrigger />
         <SidebarInset className="flex flex-col flex-1 h-20 bg-[#6F5345]">
           <header className="flex">
-            <MckaypableHeader title="Codex" />
+            <MckaypableHeader title="NPC Codex" />
           </header>
         </SidebarInset>
       </SidebarProvider>
