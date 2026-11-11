@@ -10,17 +10,39 @@ function fetchCharactersForUser(userId: string) {
       createdAt: CodexCharacters.createdAt,
       name: CodexCharacters.name,
       description: CodexCharacters.description,
+      race: CodexCharacters.race,
+      role: CodexCharacters.role,
+      gender: CodexCharacters.gender,
+      country: CodexCharacters.country,
+      town: CodexCharacters.town,
+      voice_description: CodexCharacters.voice_description,
     })
     .from(CodexCharacters)
     .where(eq(CodexCharacters.codex_user_id, userId))
     .orderBy(desc(CodexCharacters.createdAt));
 }
 
-function createCharacter(userId: string, name: string, description: string) {
+function createCharacter(
+  userId: string,
+  name: string,
+  description: string,
+  race: string,
+  role: string,
+  gender: string,
+  country: string,
+  town: string,
+  voice_description: string,
+) {
   return db.insert(CodexCharacters).values({
     codex_user_id: userId,
     name,
     description,
+    race,
+    role,
+    gender,
+    country,
+    town,
+    voice_description,
   });
 }
 
@@ -40,10 +62,25 @@ function editCharacter(
   characterId: number,
   name: string,
   description: string,
+  race: string,
+  role: string,
+  gender: string,
+  country: string,
+  town: string,
+  voice_description: string,
 ) {
   return db
     .update(CodexCharacters)
-    .set({ name, description })
+    .set({
+      name,
+      description,
+      race,
+      role,
+      gender,
+      country,
+      town,
+      voice_description,
+    })
     .where(
       and(
         eq(CodexCharacters.id, characterId),

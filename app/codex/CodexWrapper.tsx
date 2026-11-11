@@ -39,8 +39,23 @@ export default function CodexWrapper({
   async function createCharacter(
     name: string,
     description: string,
+    race: string,
+    role: string,
+    gender: string,
+    country: string,
+    town: string,
+    voice_description: string,
   ): Promise<ActionResult> {
-    const result = await onCreateCharacter(name, description ?? "");
+    const result = await onCreateCharacter(
+      name,
+      description ?? "",
+      race ?? "",
+      role ?? "",
+      gender ?? "",
+      country ?? "",
+      town ?? "",
+      voice_description ?? "",
+    );
     if (result.success) setIsOpen(false);
     return result;
   }
@@ -49,8 +64,24 @@ export default function CodexWrapper({
     characterId: number,
     name: string,
     description: string,
+    race: string,
+    role: string,
+    gender: string,
+    country: string,
+    town: string,
+    voice_description: string,
   ): Promise<ActionResult> {
-    const result = await onEditCharacter(characterId, name, description ?? "");
+    const result = await onEditCharacter(
+      characterId,
+      name,
+      description ?? "",
+      race ?? "",
+      role ?? "",
+      gender ?? "",
+      country ?? "",
+      town ?? "",
+      voice_description ?? "",
+    );
     return result;
   }
 
@@ -171,7 +202,13 @@ export default function CodexWrapper({
           <CharacterCard
             characterId={character.id}
             name={character.name}
-            description={character.description}
+            description={character.description ?? ""}
+            race={character.race ?? ""}
+            role={character.role ?? ""}
+            gender={character.gender ?? ""}
+            country={character.country ?? ""}
+            town={character.town ?? ""}
+            voice_description={character.voice_description ?? ""}
             handleEditCharacter={editCharacter}
             handleDeleteCharacter={deleteCharacter}
           />

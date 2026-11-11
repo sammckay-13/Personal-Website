@@ -28,18 +28,37 @@ export function CreateCharacterDialog({
   onCreateCharacter: (
     name: string,
     description: string,
+    race: string,
+    role: string,
+    gender: string,
+    country: string,
+    town: string,
+    voice_description: string,
   ) => Promise<ActionResult>;
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [errors, setErrors] = useState({ name: false, description: false });
+  const [race, setRace] = useState("");
+  const [gender, setGender] = useState("");
+  const [country, setCountry] = useState("");
+  const [town, setTown] = useState("");
+  const [role, setRole] = useState("");
+  const [voice_description, setVoiceDescription] = useState("");
+
+  const [errors, setErrors] = useState({ name: false});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   function reset() {
     setName("");
     setDescription("");
-    setErrors({ name: false, description: false });
+    setRace("");
+    setGender("");
+    setCountry("");
+    setTown("");
+    setRole("");
+    setVoiceDescription("");
+    setErrors({ name: false });
   }
 
   function handleOpenChange(open: boolean) {
@@ -50,14 +69,22 @@ export function CreateCharacterDialog({
   async function handleSubmit() {
     const next = {
       name: name.trim().length === 0,
-      description: description.trim().length === 0,
     };
     setErrors(next);
-    if (next.name || next.description) return;
+    if (next.name) return;
 
     setIsSubmitting(true);
     try {
-      const result = await onCreateCharacter(name.trim(), description.trim()); // Replace with actual user ID
+      const result = await onCreateCharacter(
+        name.trim(),
+        description.trim(),
+        race.trim(),
+        role.trim(),
+        gender.trim(),
+        country.trim(),
+        town.trim(),
+        voice_description.trim(),
+      ); // Replace with actual user ID
       if (result.success) {
         toast.success(result.message);
         handleOpenChange(false);
@@ -87,7 +114,7 @@ export function CreateCharacterDialog({
       </DialogTrigger>
 
       <DialogContent
-        className="h-fit overflow-hidden bg-[#fff9e7] pb-8 dark:bg-[#6F5345] md:min-w-[50%]"
+        className="h-170 overflow-auto bg-[#fff9e7] pb-8 dark:bg-[#6F5345] md:min-w-[50%]"
         showCloseButton={true}
       >
         <DialogHeader>
@@ -143,32 +170,115 @@ export function CreateCharacterDialog({
                 htmlFor="character-description"
                 className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
               >
-                Description<span className="text-red-500 text-lg mt-1">*</span>
+                Description
               </Label>
               <Textarea
                 id="character-description"
                 value={description}
-                aria-invalid={errors.description}
-                aria-describedby={
-                  errors.description ? "character-description-error" : undefined
-                }
-                className={errors.description ? errorRing : ""}
                 onChange={(e) => {
-                  setDescription(e.target.value);
-                  if (errors.description)
-                    setErrors((p) => ({ ...p, description: false }));
-                }}
+                  setDescription(e.target.value);}}
                 placeholder="Who are they? What do they look like?"
               />
-              {errors.description && (
-                <p
-                  id="character-description-error"
-                  role="alert"
-                  className="text-sm font-medium text-red-500"
-                >
-                  {REQUIRED_MESSAGE}
-                </p>
-              )}
+            </Field>
+            <Field>
+              <Label
+                htmlFor="gender"
+                className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
+              >
+                Gender
+              </Label>
+              <Textarea
+                id="gender"
+                value={gender}
+                onChange={(e) => {
+                  setGender(e.target.value);
+                }}
+                placeholder="How do they identify?"
+              />
+            </Field>
+            <Field>
+              <Label
+                htmlFor="race"
+                className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
+              >
+                Race
+              </Label>
+              <Textarea
+                id="race"
+                value={race}
+                onChange={(e) => {
+                  setRace(e.target.value);
+                }}
+                placeholder="What race are they?"
+              />
+            </Field>
+
+            <Field>
+              <Label
+                htmlFor="voice-description"
+                className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
+              >
+                Voice Description
+              </Label>
+              <Textarea
+                id="voice-description"
+                value={voice_description}
+                onChange={(e) => {
+                  setVoiceDescription(e.target.value);
+                }}
+                placeholder="What do they sound like?"
+              />
+            </Field>
+
+            <Field>
+              <Label
+                htmlFor="role"
+                className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
+              >
+                Role
+              </Label>
+              <Textarea
+                id="role"
+                value={role}
+                onChange={(e) => {
+                  setRole(e.target.value);
+                }}
+                placeholder="What do they do?"
+              />
+            </Field>
+
+            <Field>
+              <Label
+                htmlFor="country"
+                className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
+              >
+                Country
+              </Label>
+              <Textarea
+                id="country"
+                value={country}
+                onChange={(e) => {
+                  setCountry(e.target.value);
+                }}
+                placeholder="What country are they from?"
+              />
+            </Field>
+
+            <Field>
+              <Label
+                htmlFor="town"
+                className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
+              >
+                Town
+              </Label>
+              <Textarea
+                id="town"
+                value={town}
+                onChange={(e) => {
+                  setTown(e.target.value);
+                }}
+                placeholder="What town are they from?"
+              />
             </Field>
 
             <Button
@@ -180,8 +290,6 @@ export function CreateCharacterDialog({
             </Button>
           </FieldGroup>
         </form>
-
-        <div className="absolute bottom-0 left-0 h-3 w-full bg-[#dc9954]" />
       </DialogContent>
     </Dialog>
   );

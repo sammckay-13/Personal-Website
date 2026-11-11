@@ -11,6 +11,12 @@ export const codexService = {
     userId: string,
     name: string,
     description: string,
+    race: string,
+    role: string,
+    gender: string,
+    country: string,
+    town: string,
+    voice_description: string,
   ): Promise<ActionResult> {
     if (typeof name !== "string" || name.trim() === "") {
       return { success: false, message: "Character name cannot be empty" };
@@ -21,6 +27,12 @@ export const codexService = {
         userId,
         name.trim(),
         description.trim(),
+        race.trim(),
+        role.trim(),
+        gender.trim(),
+        country.trim(),
+        town.trim(),
+        voice_description.trim(),
       );
       return { success: true, message: "Character created" };
     } catch (error) {
@@ -38,12 +50,24 @@ export const codexService = {
     characterId: number,
     name: string,
     description: string,
+    race: string,
+    role: string,
+    gender: string,
+    country: string,
+    town: string,
+    voice_description: string,
   ) {
     return codexRepository.editCharacter(
       userId,
       characterId,
       name,
       description,
+      race,
+      role,
+      gender,
+      country,
+      town,
+      voice_description,
     );
   },
 };

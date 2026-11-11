@@ -171,7 +171,13 @@ export type PostCreationDialogProps = {
 export type Character = {
   id: number;
   name: string;
-  description: string;
+  description: string | null;
+  race: string | null;
+  role: string | null;
+  gender: string | null;
+  country: string | null;
+  town: string | null;
+  voice_description: string | null;
   createdAt: Date;
 };
 
@@ -191,11 +197,23 @@ export type CodexWrapperProps = LoginDialogProps & {
   onCreateCharacter: (
     name: string,
     description: string,
+    race: string,
+    role: string,
+    gender: string,
+    country: string,
+    town: string,
+    voice_description: string,
   ) => Promise<ActionResult>;
   onEditCharacter: (
     characterId: number,
     name: string,
     description: string,
+    race: string,
+    role: string,
+    gender: string,
+    country: string,
+    town: string,
+    voice_description: string,
   ) => Promise<ActionResult>;
   onDeleteCharacter: (characterId: number) => Promise<ActionResult>;
   onLogoutUser: () => Promise<ActionResult>;
@@ -206,10 +224,22 @@ export type CharacterCardProps = {
   characterId: number;
   name: string;
   description: string;
+  race: string;
+  role: string;
+  gender: string;
+  country: string;
+  town: string;
+  voice_description: string;
   handleEditCharacter: (
     characterId: number,
     name: string,
     description: string,
+    race: string,
+    role: string,
+    gender: string,
+    country: string,
+    town: string,
+    voice_description: string,
   ) => Promise<ActionResult>;
   handleDeleteCharacter: (characterId: number) => Promise<ActionResult>;
 };
@@ -218,10 +248,22 @@ export type EditCharacterDialogProps = {
   characterId: number;
   name: string;
   description: string;
+  race: string;
+  role: string;
+  gender: string;
+  country: string;
+  town: string;
+  voice_description: string;
   onSubmitEdit: (
     characterId: number,
     name: string,
     description: string,
+    race: string,
+    role: string,
+    gender: string,
+    country: string,
+    town: string,
+    voice_description: string,
   ) => Promise<ActionResult>;
   onDelete: (characterId: number) => Promise<ActionResult>;
 };
