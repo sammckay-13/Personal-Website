@@ -31,8 +31,6 @@ export function CharacterCard({
     { key: "country", label: "Country", value: country },
     { key: "town", label: "Town", value: town },
     { key: "voice_description", label: "Voice", value: voice_description },
-
-    
   ];
 
   const trimmedFields = fields.filter((f) => f.value);
@@ -54,7 +52,7 @@ export function CharacterCard({
   };
 
   const subtitle = [race, gender].filter(Boolean).join(" · ");
-  console.log(gender)
+  console.log(gender);
 
   return (
     <Card className="dark:bg-[#6f5345] bg-[#fff9e7] border-[#fffbee] text-[#fffbee] h-auto md:h-auto w-full md:w-170 lg:w-[30%] mb-1">
@@ -62,7 +60,9 @@ export function CharacterCard({
         <div className="flex flex-col">
           <span className="text-2xl font-semibold">{name}</span>
           {subtitle && (
-            <span className="text-base font-semibold opacity-100">{subtitle}</span>
+            <span className="text-base font-semibold opacity-100">
+              {subtitle}
+            </span>
           )}
         </div>
         <EditCharacterDialog
@@ -112,18 +112,18 @@ export function CharacterCard({
                 className="w-full"
               >
                 {trimmedFields.map(({ key, label, value }) => (
-                    <AccordionItem
+                  <AccordionItem
                     key={key}
                     value={key}
                     className="border-[#8b6959]/30 dark:border-[#fffbee]/30"
-                    >
+                  >
                     <AccordionTrigger className="text-lg font-semibold hover:no-underline">
-                    {label}
+                      {label}
                     </AccordionTrigger>
                     <AccordionContent className="text-base font-normal">
-                    {value || "—"}
+                      {value || "—"}
                     </AccordionContent>
-                    </AccordionItem>
+                  </AccordionItem>
                 ))}
               </Accordion>
             </AccordionContent>
