@@ -4,7 +4,9 @@ import { revalidatePath } from "next/cache";
 import { codexService } from "@/serverArc/services/codexService";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
+
 export type ActionResult = { success: boolean; message: string };
+
 async function getUserId() {
   const session = await auth.api.getSession({ headers: await headers() });
   return session?.user.id ?? null;
@@ -16,14 +18,13 @@ export async function fetchCodexCharactersAction() {
   return codexService.fetchCodexCharacters(userId);
 }
 
-const userId = await getUserId();
-
 export async function createCharacterAction(
   name: string,
   description: string,
 ): Promise<ActionResult> {
+  const userId = await getUserId();
   if (!userId) {
-    return { success: false, message: "Character could not be created" };
+    return { success: false, message: "Create an account to create a character!" };
   }
   if (typeof name !== "string" || name.trim() === "") {
     return { success: false, message: "Character name cannot be empty" };
@@ -33,11 +34,6 @@ export async function createCharacterAction(
   }
 
   try {
-    if (!userId)
-      return {
-        success: false,
-        message: "Create an account to create a character!",
-      };
     await codexService.createCharacter(userId, name.trim(), description.trim());
     revalidatePath("/"); // adjust to the route that renders the list
     return { success: true, message: "Character created" };
@@ -50,6 +46,7 @@ export async function createCharacterAction(
 export async function deleteCharacterAction(
   characterId: number,
 ): Promise<ActionResult> {
+  const userId = await getUserId();
   if (!userId) {
     return { success: false, message: "Character could not be deleted" };
   }
@@ -78,9 +75,10 @@ export async function editCharacterAction(
   name: string,
   description: string,
 ): Promise<ActionResult> {
-  // validate like create, then:
+  const userId = await getUserId();
+  if (!userId) return { success: false, message: "no user found" };
+
   try {
-    if (!userId) return { success: false, message: "no user found" };
     if (description?.trim().length === 0) description = "";
     const result = await codexService.editCharacter(
       userId,

@@ -15,6 +15,7 @@
   "dependencies": {
     "@babel/standalone": "^8.0.4",
     "@base-ui/react": "^1.6.0",
+    "@better-auth/infra": "^0.4.28",
     "@lottiefiles/dotlottie-react": "^0.19.13",
     "@supabase/ssr": "^0.12.7",
     "@supabase/supabase-js": "^2.118.0",
