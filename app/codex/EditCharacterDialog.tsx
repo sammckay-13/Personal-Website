@@ -31,14 +31,26 @@ export function EditCharacterDialog({
   const [errors, setErrors] = useState({ name: false, description: false });
   const [currName, setCurrName] = useState(name);
   const [currDescription, setCurrDescription] = useState(description);
-  const [currRace, setCurrRace] = useState(name);
-  const [currRole, setCurrRole] = useState(name);
-  const [currGender, setCurrGender] = useState(name);
-  const [currCountry, setCurrCountry] = useState(name);
-  const [currTown, setCurrTown] = useState(name);
-  const [curr_voice_description, setCurrVoiceDescription] = useState(name);
+  const [currRace, setCurrRace] = useState(race);
+  const [currRole, setCurrRole] = useState(role);
+  const [currGender, setCurrGender] = useState(gender);
+  const [currCountry, setCurrCountry] = useState(country);
+  const [currTown, setCurrTown] = useState(town);
+  const [curr_voice_description, setCurrVoiceDescription] = useState(voice_description);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+
+    function reset() {
+    setCurrName("");
+    setCurrDescription("");
+    setCurrRace("");
+    setCurrGender("")
+    setCurrCountry("")
+    setCurrTown("")
+    setCurrRole("")
+    setCurrVoiceDescription("")
+    setErrors({ name: false, description: false });
+  }
 
   function handleSubmit() {
     setIsSubmitting(true);
@@ -54,8 +66,14 @@ export function EditCharacterDialog({
     setIsOpen(false);
   }
 
+  function handleOpenChange(open: boolean) {
+    setIsOpen(open);
+        if (!open) reset();
+
+  }
+
   return (
-    <Dialog open={isOpen}>
+    <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       <DialogTrigger
         render={
           <Button

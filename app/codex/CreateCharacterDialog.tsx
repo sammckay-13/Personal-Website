@@ -52,6 +52,12 @@ export function CreateCharacterDialog({
   function reset() {
     setName("");
     setDescription("");
+    setRace("");
+    setGender("")
+    setCountry("")
+    setTown("")
+    setRole("")
+    setVoiceDescription("")
     setErrors({ name: false, description: false });
   }
 
