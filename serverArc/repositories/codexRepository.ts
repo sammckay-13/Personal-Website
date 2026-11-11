@@ -12,7 +12,7 @@ function fetchCharactersForUser(userId: string) {
       description: CodexCharacters.description,
       race: CodexCharacters.race,
       role: CodexCharacters.role,
-      gender: CodexCharacters.role,
+      gender: CodexCharacters.gender,
       country: CodexCharacters.country,
       town: CodexCharacters.town,
       voice_description: CodexCharacters.voice_description,
@@ -62,16 +62,25 @@ function editCharacter(
   characterId: number,
   name: string,
   description: string,
-      race: string,
-    role: string,
-    gender: string,
-    country: string,
-    town: string,
-    voice_description: string,
+  race: string,
+  role: string,
+  gender: string,
+  country: string,
+  town: string,
+  voice_description: string,
 ) {
   return db
     .update(CodexCharacters)
-    .set({ name, description, race, role, gender, country, town, voice_description })
+    .set({
+      name,
+      description,
+      race,
+      role,
+      gender,
+      country,
+      town,
+      voice_description,
+    })
     .where(
       and(
         eq(CodexCharacters.id, characterId),

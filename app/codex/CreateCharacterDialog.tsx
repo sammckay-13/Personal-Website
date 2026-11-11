@@ -53,11 +53,11 @@ export function CreateCharacterDialog({
     setName("");
     setDescription("");
     setRace("");
-    setGender("")
-    setCountry("")
-    setTown("")
-    setRole("")
-    setVoiceDescription("")
+    setGender("");
+    setCountry("");
+    setTown("");
+    setRole("");
+    setVoiceDescription("");
     setErrors({ name: false, description: false });
   }
 
@@ -259,8 +259,6 @@ export function CreateCharacterDialog({
               />
             </Field>
 
-
-
             <Field>
               <Label
                 htmlFor="country"
@@ -272,7 +270,8 @@ export function CreateCharacterDialog({
                 id="country"
                 value={country}
                 onChange={(e) => {
-                  setCountry(e.target.value);}}
+                  setCountry(e.target.value);
+                }}
                 placeholder="What country are they from?"
               />
             </Field>

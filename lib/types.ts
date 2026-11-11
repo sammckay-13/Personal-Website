@@ -208,7 +208,7 @@ export type CodexWrapperProps = LoginDialogProps & {
     characterId: number,
     name: string,
     description: string,
-        race: string,
+    race: string,
     role: string,
     gender: string,
     country: string,
@@ -234,7 +234,7 @@ export type CharacterCardProps = {
     characterId: number,
     name: string,
     description: string,
-        race: string,
+    race: string,
     role: string,
     gender: string,
     country: string,
@@ -248,17 +248,17 @@ export type EditCharacterDialogProps = {
   characterId: number;
   name: string;
   description: string;
-    race: string,
-    role: string,
-    gender: string,
-    country: string,
-    town: string,
-    voice_description: string,
+  race: string;
+  role: string;
+  gender: string;
+  country: string;
+  town: string;
+  voice_description: string;
   onSubmitEdit: (
     characterId: number,
     name: string,
     description: string,
-        race: string,
+    race: string,
     role: string,
     gender: string,
     country: string,

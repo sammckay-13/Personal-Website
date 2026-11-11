@@ -50,7 +50,7 @@ export const codexService = {
     characterId: number,
     name: string,
     description: string,
-        race: string,
+    race: string,
     role: string,
     gender: string,
     country: string,
@@ -67,7 +67,7 @@ export const codexService = {
       gender,
       country,
       town,
-      voice_description
+      voice_description,
     );
   },
 };

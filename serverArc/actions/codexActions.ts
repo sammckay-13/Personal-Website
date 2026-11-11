@@ -90,12 +90,12 @@ export async function editCharacterAction(
   characterId: number,
   name: string,
   description: string,
-      race: string,
-    role: string,
-    gender: string,
-    country: string,
-    town: string,
-    voice_description: string,
+  race: string,
+  role: string,
+  gender: string,
+  country: string,
+  town: string,
+  voice_description: string,
 ): Promise<ActionResult> {
   const userId = await getUserId();
   if (!userId) return { success: false, message: "no user found" };

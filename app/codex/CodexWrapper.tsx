@@ -64,19 +64,24 @@ export default function CodexWrapper({
     characterId: number,
     name: string,
     description: string,
-        race: string,
+    race: string,
     role: string,
     gender: string,
     country: string,
     town: string,
     voice_description: string,
   ): Promise<ActionResult> {
-    const result = await onEditCharacter(characterId, name, description ?? "",       race ?? "",
+    const result = await onEditCharacter(
+      characterId,
+      name,
+      description ?? "",
+      race ?? "",
       role ?? "",
       gender ?? "",
       country ?? "",
       town ?? "",
-      voice_description ?? "",);
+      voice_description ?? "",
+    );
     return result;
   }
 

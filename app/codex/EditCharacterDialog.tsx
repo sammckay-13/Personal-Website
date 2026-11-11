@@ -24,7 +24,12 @@ export function EditCharacterDialog({
   characterId,
   name,
   description,
-  race, role, gender, country, town, voice_description,
+  race,
+  role,
+  gender,
+  country,
+  town,
+  voice_description,
   onSubmitEdit,
   onDelete,
 }: EditCharacterDialogProps) {
@@ -36,25 +41,36 @@ export function EditCharacterDialog({
   const [currGender, setCurrGender] = useState(gender);
   const [currCountry, setCurrCountry] = useState(country);
   const [currTown, setCurrTown] = useState(town);
-  const [curr_voice_description, setCurrVoiceDescription] = useState(voice_description);
+  const [curr_voice_description, setCurrVoiceDescription] =
+    useState(voice_description);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-    function reset() {
+  function reset() {
     setCurrName("");
     setCurrDescription("");
     setCurrRace("");
-    setCurrGender("")
-    setCurrCountry("")
-    setCurrTown("")
-    setCurrRole("")
-    setCurrVoiceDescription("")
+    setCurrGender("");
+    setCurrCountry("");
+    setCurrTown("");
+    setCurrRole("");
+    setCurrVoiceDescription("");
     setErrors({ name: false, description: false });
   }
 
   function handleSubmit() {
     setIsSubmitting(true);
-    onSubmitEdit(characterId, currName, currDescription, currRace, currRole, currGender, currCountry, currTown, curr_voice_description);
+    onSubmitEdit(
+      characterId,
+      currName,
+      currDescription,
+      currRace,
+      currRole,
+      currGender,
+      currCountry,
+      currTown,
+      curr_voice_description,
+    );
     setIsSubmitting(false);
     setIsOpen(false);
   }
@@ -68,8 +84,7 @@ export function EditCharacterDialog({
 
   function handleOpenChange(open: boolean) {
     setIsOpen(open);
-        if (!open) reset();
-
+    if (!open) reset();
   }
 
   return (
@@ -92,14 +107,14 @@ export function EditCharacterDialog({
             void handleSubmit();
           }}
         >
-        <DialogHeader>
-          <DialogTitle className="text-3xl pt-3 w-full font-bold text-[#6F5345] dark:text-[#FFFBEE]">
-            Edit a Character!
-          </DialogTitle>
-          <DialogDescription className="text-[#6F5345] dark:text-[#FFFBEE] text-lg font-semibold">
-            Enter the new details for your character below.
-          </DialogDescription>
-        </DialogHeader>
+          <DialogHeader>
+            <DialogTitle className="text-3xl pt-3 w-full font-bold text-[#6F5345] dark:text-[#FFFBEE]">
+              Edit a Character!
+            </DialogTitle>
+            <DialogDescription className="text-[#6F5345] dark:text-[#FFFBEE] text-lg font-semibold">
+              Enter the new details for your character below.
+            </DialogDescription>
+          </DialogHeader>
           <FieldGroup>
             <Field>
               <Label
@@ -165,107 +180,106 @@ export function EditCharacterDialog({
                 </p>
               )}
             </Field>
-                        <Field>
-                          <Label
-                            htmlFor="gender"
-                            className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
-                          >
-                            Gender<span className="text-red-500 text-lg mt-1"></span>
-                          </Label>
-                          <Textarea
-                            id="gender"
-                            value={currGender}
-                            onChange={(e) => {
-                              setCurrGender(e.target.value);}}
-                            placeholder="How do they identify?"
-                          />
-                        </Field>
-                        <Field>
-                          <Label
-                            htmlFor="race"
-                            className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
-                          >
-                            Race<span className="text-red-500 text-lg mt-1"></span>
-                          </Label>
-                          <Textarea
-                            id="race"
-                            value={currRace}
-                            onChange={(e) => {
-                              setCurrRace(e.target.value);
-                            }}
-                            placeholder="What race are they?"
-                          />
-                        </Field>
+            <Field>
+              <Label
+                htmlFor="gender"
+                className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
+              >
+                Gender
+              </Label>
+              <Textarea
+                id="gender"
+                value={currGender}
+                onChange={(e) => {
+                  setCurrGender(e.target.value);
+                }}
+                placeholder="How do they identify?"
+              />
+            </Field>
+            <Field>
+              <Label
+                htmlFor="race"
+                className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
+              >
+                Race<span className="text-red-500 text-lg mt-1"></span>
+              </Label>
+              <Textarea
+                id="race"
+                value={currRace}
+                onChange={(e) => {
+                  setCurrRace(e.target.value);
+                }}
+                placeholder="What race are they?"
+              />
+            </Field>
 
             <Field>
-                          <Label
-                            htmlFor="voice-description"
-                            className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
-                          >
-                            Voice Description
-                          </Label>
-                          <Textarea
-                            id="voice-description"
-                            value={curr_voice_description}
-                            onChange={(e) => {
-                              setCurrVoiceDescription(e.target.value);
-                            }}
-                            placeholder="What do they sound like?"
-                          />
-                        </Field>
-            
-                        <Field>
-                          <Label
-                            htmlFor="role"
-                            className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
-                          >
-                            Role
-                          </Label>
-                          <Textarea
-                            id="role"
-                            value={currRole}
-                            onChange={(e) => {
-                              setCurrRole(e.target.value);
-                            }}
-                            placeholder="What do they do?"
-                          />
-                        </Field>
-            
-            
-            
-                        <Field>
-                          <Label
-                            htmlFor="country"
-                            className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
-                          >
-                            Country
-                          </Label>
-                          <Textarea
-                            id="country"
-                            value={currCountry}
-                            onChange={(e) => {
-                              setCurrCountry(e.target.value);}}
-                            placeholder="What country are they from?"
-                          />
-                        </Field>
-            
-                        <Field>
-                          <Label
-                            htmlFor="town"
-                            className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
-                          >
-                            Town
-                          </Label>
-                          <Textarea
-                            id="town"
-                            value={currTown}
-                            onChange={(e) => {
-                              setCurrTown(e.target.value);
-                            }}
-                            placeholder="What town are they from?"
-                          />
-                        </Field>
-            
+              <Label
+                htmlFor="voice-description"
+                className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
+              >
+                Voice Description
+              </Label>
+              <Textarea
+                id="voice-description"
+                value={curr_voice_description}
+                onChange={(e) => {
+                  setCurrVoiceDescription(e.target.value);
+                }}
+                placeholder="What do they sound like?"
+              />
+            </Field>
+
+            <Field>
+              <Label
+                htmlFor="role"
+                className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
+              >
+                Role
+              </Label>
+              <Textarea
+                id="role"
+                value={currRole}
+                onChange={(e) => {
+                  setCurrRole(e.target.value);
+                }}
+                placeholder="What do they do?"
+              />
+            </Field>
+
+            <Field>
+              <Label
+                htmlFor="country"
+                className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
+              >
+                Country
+              </Label>
+              <Textarea
+                id="country"
+                value={currCountry}
+                onChange={(e) => {
+                  setCurrCountry(e.target.value);
+                }}
+                placeholder="What country are they from?"
+              />
+            </Field>
+
+            <Field>
+              <Label
+                htmlFor="town"
+                className="text-lg text-[#6F5345] dark:text-[#FFFBEE]"
+              >
+                Town
+              </Label>
+              <Textarea
+                id="town"
+                value={currTown}
+                onChange={(e) => {
+                  setCurrTown(e.target.value);
+                }}
+                placeholder="What town are they from?"
+              />
+            </Field>
 
             <Button
               type="submit"
