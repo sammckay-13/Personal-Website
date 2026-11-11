@@ -39,8 +39,15 @@ export default function CodexWrapper({
   async function createCharacter(
     name: string,
     description: string,
+    race: string,
+    role: string,
+    gender: string,
+    country: string,
+    town: string,
+    voice_description: string
+
   ): Promise<ActionResult> {
-    const result = await onCreateCharacter(name, description ?? "");
+    const result = await onCreateCharacter(name, description ?? "", race ?? "", role ?? "", gender ?? "", country ?? "", town ?? "", voice_description ?? "");
     if (result.success) setIsOpen(false);
     return result;
   }

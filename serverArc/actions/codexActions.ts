@@ -21,6 +21,12 @@ export async function fetchCodexCharactersAction() {
 export async function createCharacterAction(
   name: string,
   description: string,
+  race: string,
+  role: string,
+  gender: string,
+  country: string,
+  town: string,
+  voice_description: string
 ): Promise<ActionResult> {
   const userId = await getUserId();
   if (!userId) {
@@ -29,12 +35,9 @@ export async function createCharacterAction(
   if (typeof name !== "string" || name.trim() === "") {
     return { success: false, message: "Character name cannot be empty" };
   }
-  if (typeof description !== "string" || description.trim() === "") {
-    return { success: false, message: "Character description cannot be empty" };
-  }
 
   try {
-    await codexService.createCharacter(userId, name.trim(), description.trim());
+    await codexService.createCharacter(userId, name.trim(), description.trim(), race.trim(), role.trim(), gender.trim(), country.trim(), town.trim(), voice_description.trim());
     revalidatePath("/"); // adjust to the route that renders the list
     return { success: true, message: "Character created" };
   } catch (error) {

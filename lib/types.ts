@@ -191,6 +191,12 @@ export type CodexWrapperProps = LoginDialogProps & {
   onCreateCharacter: (
     name: string,
     description: string,
+    race: string,
+    role: string,
+    gender: string,
+    country: string,
+    town: string,
+    voice_description: string
   ) => Promise<ActionResult>;
   onEditCharacter: (
     characterId: number,
