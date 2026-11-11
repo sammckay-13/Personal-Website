@@ -12,6 +12,7 @@ import { Field, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { EditCharacterDialogProps } from "@/lib/types";
 import { useState } from "react";
 import { FaEdit } from "react-icons/fa";
@@ -94,17 +95,24 @@ export function EditCharacterDialog({
 
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
-      <DialogTrigger
-        render={
-          <Button
-            onClick={() => setIsOpen(!isOpen)}
-            variant="ghost"
-            className="mr-3 h-10 w-10 mb-4 bg-[#6f5345] dark:bg-[#fff9e7] hover:bg-[#6f5345]"
-          >
-            <FaEdit className="ml-0.5 dark:text-[#6f5345] text-[#fff9e7]" />
-          </Button>
-        }
-      ></DialogTrigger>
+        <Tooltip>
+    <TooltipTrigger
+      render={
+        <DialogTrigger
+          render={
+            <Button
+              variant="ghost"
+              aria-label="Edit character"
+              className="mr-3 h-10 w-10 mb-4 bg-[#6f5345] dark:bg-[#fff9e7] hover:bg-[#6f5345]"
+            >
+              <FaEdit className="ml-0.5 dark:text-[#6f5345] text-[#fff9e7]" />
+            </Button>
+          }
+        />
+      }
+    />
+    <TooltipContent className="bg-[#6f5345] border border-[#fffbee] text-[#fffbee] text-md">Click to edit character</TooltipContent>
+  </Tooltip>
       <DialogContent className="h-170 overflow-auto bg-[#fff9e7] pb-8 dark:bg-[#6F5345] md:min-w-[50%]">
         <form
           onSubmit={(e) => {
