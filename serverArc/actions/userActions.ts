@@ -16,11 +16,17 @@ async function getUserId() {
 export async function createCharacterAction(
   name: string,
   description: string,
+    race: string,
+  role: string,
+  gender: string,
+  country: string,
+  town: string,
+  voice_description: string,
 ): Promise<ActionResult> {
   const userId = await getUserId();
   if (!userId) return { success: false, message: "Please log in" };
 
-  const result = await codexService.createCharacter(userId, name, description);
+  const result = await codexService.createCharacter(userId, name, description, race, role, gender, country, town, voice_description);
   if (result.success) revalidatePath("/codex"); // not "/"
   return result;
 }
