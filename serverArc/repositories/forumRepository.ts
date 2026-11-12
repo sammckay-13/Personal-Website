@@ -8,7 +8,7 @@ import {
 } from "@/src/db/schema";
 import type { ReactionType } from "@/lib/reactions";
 
-const r = forumReactionsTable;
+const r = forumReactionsTable; 
 
 export const forumRepository = {
   // ---- Posts ----
